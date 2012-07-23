@@ -1,7 +1,5 @@
 <?php
 
-	// http://www.microsoft.com/france/project/project-2010/premiers-pas.aspx
-
 	/** Error reporting */
 	error_reporting(E_ALL);
 

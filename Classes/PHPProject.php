@@ -20,7 +20,7 @@
  *
  * @category   PHPProject
  * @package    PHPProject
- * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/Progi1984/PHPProject)
+ * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
  * @version    ##VERSION##, ##DATE##
  */
@@ -36,7 +36,7 @@ if (!defined('PHPPROJECT_ROOT')) {
  *
  * @category   PHPProject
  * @package    PHPProject
- * @copyright  Copyright (c) 2006 - 2012 PHPProject (https://github.com/Progi1984/PHPProject)
+ * @copyright  Copyright (c) 2006 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
 class PHPProject
 {

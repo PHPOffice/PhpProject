@@ -91,10 +91,33 @@ class PHPProject_Task
 	 */
 	private $_index;
 	
-	public function __construct(PHPProject $pParent, $pIndex, PHPProject $pParentTask = null){
+	/**
+	 * Collection of PHPProject_Resource index
+	 * 
+	 * @var integer[]
+	 */
+	private $_resourceCollection;
+	
+	/**
+	 * Collection of task objects
+	 *
+	 * @var PHPProject_Task[]
+	 */
+	private $_taskCollection = array();
+	
+	/**
+	 * Active task
+	 *
+	 * @var int
+	 */
+	private $_activeTaskIndex = 0;
+	
+	public function __construct(PHPProject $pParent, $pIndex, PHPProject_Task $pParentTask = null){
 		$this->_parentProject = $pParent;
 		$this->_parentTask = $pParentTask;
 		$this->_index = $pIndex;
+		
+		$this->_resourceCollection = array();
 	}
 	
 	/**
@@ -247,7 +270,46 @@ class PHPProject_Task
 		return $this;
 	}
 	
+	//===============================================
+	// Resources
+	//===============================================
+	/**
+	 * Add a resource used by the current task
+	 * @param PHPProject_Resource $pResource
+	 */
+	public function addResource(PHPProject_Resource $pResource){
+		if(array_search($pResource->getIndex(), $this->_resourceCollection) === false){
+			$this->_resourceCollection[] = $pResource->getIndex();
+		}
+		return $this;
+	}
 
+	/**
+	 * Returns a collection of all resources used by the task
+	 * 
+	 * @return integer[]
+	 */
+	public function getResources(){
+		return $this->_resourceCollection;
+	}
 
-
+	//===============================================
+	// Tasks
+	//===============================================
+	public function createTask(){
+		$newTask = new PHPProject_Task($this->_parentProject, $this->getTaskCount(), $this);
+		$this->_taskCollection[] = $newTask;
+		$this->_activeTaskIndex = $this->getTaskCount() - 1;
+		return $newTask;
+	}
+	
+	/**
+	 * Get task count
+	 *
+	 * @return int
+	 */
+	public function getTaskCount()
+	{
+		return count($this->_taskCollection);
+	}
 }

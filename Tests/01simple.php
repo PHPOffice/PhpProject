@@ -52,11 +52,11 @@
 	$objTask1->addResource($objRes1);
 	$objTask1Res = $objTask1->getResources();
 	foreach ($objTask1Res as $res){
-		 echo $res->getTitle();
+		 echo $objPHPProject->getResource($res)->getTitle();
 	}
 
 	$objTask2 = $objPHPProject->createTask();
-	$objTask2->getInformations()->setName('Analysis');
+	$objTask2->setName('Analysis');
 
 	$objTask21 = $objTask2->createTask();
 	$objTask21->setName('Analysis Code');
@@ -67,7 +67,7 @@
 	$objTask21->addResource($objRes2);
 	$objTask21Res = $objTask21->getResources();
 	foreach ($objTask21Res as $res){
-		 echo $res->getTitle();
+		 echo $objPHPProject->getResource($res)->getTitle();
 	}
 
 	$objTask22 = $objTask2->createTask();

@@ -304,12 +304,12 @@ class PHPProject_Task
 	}
 	
 	/**
-	 * Get task count
+	 * Returns a collection of all subtasks created in the task
 	 *
-	 * @return int
+	 * @return PHPProject_Task[]
 	 */
-	public function getTaskCount()
+	public function getTasks()
 	{
-		return count($this->_taskCollection);
+		return $this->_taskCollection;
 	}
 }

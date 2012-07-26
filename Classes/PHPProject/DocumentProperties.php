@@ -49,7 +49,7 @@ class PHPProject_DocumentProperties
 	 *
 	 * @var	string
 	 */
-	private $_creator	= 'Unknown Creator';
+	private $_creator	= '';
 
 	/**
 	 * LastModifiedBy
@@ -77,7 +77,7 @@ class PHPProject_DocumentProperties
 	 *
 	 * @var	string
 	 */
-	private $_title			= 'Untitled Project';
+	private $_title	= '';
 
 	/**
 	 * Description
@@ -119,7 +119,7 @@ class PHPProject_DocumentProperties
 	 *
 	 * @var	string
 	 */
-	private $_company		= 'Microsoft Corporation';
+	private $_company		= '';
 
 	/**
 	 * Custom Properties
@@ -136,8 +136,6 @@ class PHPProject_DocumentProperties
 	{
 		// Initialise values
 		$this->_lastModifiedBy	= $this->_creator;
-		$this->_created		= time();
-		$this->_modified	= time();
 	}
 
 	/**

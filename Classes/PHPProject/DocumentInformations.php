@@ -54,8 +54,6 @@ class PHPProject_DocumentInformations
 	 */
 	public function __construct()
 	{
-		$this->_startDate	= time();
-		$this->_endDate		= time();
 	}
 
 	/**

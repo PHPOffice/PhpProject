@@ -79,12 +79,12 @@
  
 	// Save MSProject2007 file
 	echo date('H:i:s') . ' Write to MSProjectExchange format'.EOL;
-	$objWriter = new PHPProject_Writer_MSProjectExchange($objPHPProject);
+	$objWriter = PHPProject_IOFactory::createWriter($objPHPProject, 'MSProjectExchange');
 	$objWriter->save(str_replace('.php', '.mpx', __FILE__));
 
 	// Save GanttProject file
 	echo date('H:i:s') . ' Write to GanttProject format'.EOL;
-	$objWriter = new PHPProject_Writer_GanttProject($objPHPProject);
+	$objWriter = PHPProject_IOFactory::createWriter($objPHPProject, 'GanttProject');
 	$objWriter->save(str_replace('.php', '.gan', __FILE__));
 
 	// Echo done

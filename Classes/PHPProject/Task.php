@@ -293,6 +293,10 @@ class PHPProject_Task
 		return $this->_resourceCollection;
 	}
 
+	public function getResourceCount(){
+		return count($this->_resourceCollection);
+	}
+	
 	//===============================================
 	// Tasks
 	//===============================================
@@ -311,5 +315,9 @@ class PHPProject_Task
 	public function getTasks()
 	{
 		return $this->_taskCollection;
+	}
+
+	public function getTaskCount(){
+		return count($this->_taskCollection);
 	}
 }

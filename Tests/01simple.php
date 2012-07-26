@@ -10,7 +10,7 @@
 	include 'PHPProject.php';
 	
 	if(php_sapi_name() == 'cli' && empty($_SERVER['REMOTE_ADDR'])) {
-		define('EOL',PHP_EOL);
+		define('EOL', PHP_EOL);
 	}
 	else {
 		define('EOL', '<br />');
@@ -49,8 +49,9 @@
 	$objTask1->setProgress(0.5);
 	$objTask1->addResource($objRes1);
 	$objTask1Res = $objTask1->getResources();
+	echo 'Resources "Start of the project"'.EOL;
 	foreach ($objTask1Res as $res){
-		 echo $objPHPProject->getResource($res)->getTitle();
+		 echo ' > '.$objPHPProject->getResource($res)->getTitle().EOL;;
 	}
 
 	$objTask2 = $objPHPProject->createTask();
@@ -64,8 +65,9 @@
 	$objTask21->setProgress(1);
 	$objTask21->addResource($objRes2);
 	$objTask21Res = $objTask21->getResources();
+	echo 'Resources "Analysis Code"'.EOL;
 	foreach ($objTask21Res as $res){
-		 echo $objPHPProject->getResource($res)->getTitle();
+		 echo ' > '.$objPHPProject->getResource($res)->getTitle().EOL;;
 	}
 
 	$objTask22 = $objTask2->createTask();

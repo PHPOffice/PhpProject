@@ -18,8 +18,8 @@
 	
 	// Create new PHPProject object
 	echo date('H:i:s') . ' Create new PHPProject object'.EOL;
-	$objPHPProject = new PHPProject();
-	$objPHPProject->load('02file.gan');
+	$objReader = PHPProject_IOFactory::createReader('GanttProject');
+	$objPHPProject = $objReader->load('02file.gan');
 
 	// Set properties
 	echo date('H:i:s') . ' Set properties'.EOL;

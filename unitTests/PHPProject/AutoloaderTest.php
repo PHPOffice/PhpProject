@@ -46,11 +46,11 @@ class AutoloaderTest extends PHPUnit_Framework_TestCase
 
     public function testAutoloadInstantiateSuccess()
     {
-        $result = new PHPProject_Task(1,2,3);
+        $result = new PHPProject(1,2,3);
         //    Must return an object...
         $this->assertTrue(is_object($result));
         //    ... of the correct type
-        $this->assertTrue(is_a($result,'PHPProject_Task'));
+        $this->assertTrue(is_a($result,'PHPProject'));
     }
 
 }

@@ -119,7 +119,7 @@ class PHPProject_IOFactory
 	 * @static
 	 * @access	public
 	 * @param	PHPProject $phpProject
-	 * @param	string  $writerType	Example: Excel2007
+	 * @param	string  $writerType	Example: GanttProject
 	 * @return	PHPProject_Writer_IWriter
 	 * @throws	Exception
 	 */
@@ -177,7 +177,7 @@ class PHPProject_IOFactory
 	 *
 	 * @static
 	 * @access public
-	 * @param 	string 		$pFileName		The name of the spreadsheet file
+	 * @param 	string 		$pFileName		The name of the project file
 	 * @return	PHPProject
 	 * @throws	Exception
 	 */
@@ -191,7 +191,7 @@ class PHPProject_IOFactory
 	 *
 	 * @static
 	 * @access public
-	 * @param 	string 		$pFileName		The name of the spreadsheet file to identify
+	 * @param 	string 		$pFileName		The name of the project file to identify
 	 * @return	string
 	 * @throws	Exception
 	 */
@@ -208,7 +208,7 @@ class PHPProject_IOFactory
 	 *
 	 * @static
 	 * @access	public
-	 * @param 	string 		$pFileName		The name of the spreadsheet file
+	 * @param 	string 		$pFileName		The name of the project file
 	 * @return	PHPProject_Reader_IReader
 	 * @throws	Exception
 	 */

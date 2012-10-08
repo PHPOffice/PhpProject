@@ -2,6 +2,8 @@
 
 	/** Error reporting */
 	error_reporting(E_ALL);
+	ini_set('display_errors', TRUE);
+	ini_set('display_startup_errors', TRUE);
 
 	/** Include path **/
 	ini_set('include_path', ini_get('include_path').';../Classes/');
@@ -30,8 +32,8 @@
 
 	// Add some data
 	echo date('H:i:s') . ' Add some data'.EOL;
-	$objPHPProject->getInformations()->setStartDate('01/01/2012');
-	$objPHPProject->getInformations()->setEndDate('31/12/2012');
+	$objPHPProject->getInformations()->setStartDate('01-01-2012');
+	$objPHPProject->getInformations()->setEndDate('31-12-2012');
 
 	// Create a first resource
 	$objRes1 = $objPHPProject->createResource();
@@ -43,8 +45,8 @@
 
 	$objTask1 = $objPHPProject->createTask();
 	$objTask1->setName('Start of the project');
-	$objTask1->setStartDate('02/01/2012');
-	$objTask1->setEndDate('03/01/2012');
+	$objTask1->setStartDate('02-01-2012');
+	$objTask1->setEndDate('03-01-2012');
 	$objTask1->setProgress(0.5);
 	$objTask1->addResource($objRes1);
 	$objTask1Res = $objTask1->getResources();
@@ -58,8 +60,8 @@
 
 	$objTask21 = $objTask2->createTask();
 	$objTask21->setName('Analysis Code');
-	$objTask21->setStartDate('03/01/2012');
-	$objTask21->setEndDate('04/01/2012');
+	$objTask21->setStartDate('03-01-2012');
+	$objTask21->setEndDate('04-01-2012');
 	$objTask21->setProgress(1);
 	$objTask21->addResource($objRes2);
 	$objTask21Res = $objTask21->getResources();
@@ -70,8 +72,8 @@
 
 	$objTask22 = $objTask2->createTask();
 	$objTask22->setName('Analysis Database');
-	$objTask22->setStartDate('04/01/2012');
-	$objTask22->setEndDate('06/01/2012');
+	$objTask22->setStartDate('04-01-2012');
+	$objTask22->setEndDate('06-01-2012');
 	$objTask22->setProgress(0.3);
  
 	// Save MSProject2007 file

@@ -4,7 +4,7 @@
 	error_reporting(E_ALL);
 
 	/** Include path **/
-	ini_set('include_path', ini_get('include_path').';../Classes/');
+	ini_set('include_path', ini_get('include_path').':../Classes/');
 
 	/** PHPProject */
 	include 'PHPProject.php';

@@ -1,40 +1,40 @@
 <?php 
 /**
  * PHPProject
-*
-* Copyright (c) 2012 - 2012 PHPProject
-*
-* This library is free software; you can redistribute it and/or
-* modify it under the terms of the GNU Lesser General Public
-* License as published by the Free Software Foundation; either
-* version 2.1 of the License, or (at your option) any later version.
-*
-* This library is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-* Lesser General Public License for more details.
-*
-* You should have received a copy of the GNU Lesser General Public
-* License along with this library; if not, write to the Free Software
-* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-*
-* @category	PHPProject
-* @package	PHPProject
-* @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
-* @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
-* @version	##VERSION##, ##DATE##
-*/
+ *
+ * Copyright (c) 2012 - 2012 PHPProject
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ * @category	PHPProject
+ * @package	PHPProject
+ * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
+ * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
+ * @version	##VERSION##, ##DATE##
+ */
 
+namespace PHPProject\Writer;
 
 /**
  * PHPProject_Writer_GanttProject
  *
  * @category	PHPProject
- * @package		PHPProject
+ * @package	PHPProject
  * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_Writer_GanttProject
-{
+class GanttProject {
 	/**
 	 * PHPProject object
 	 *
@@ -54,7 +54,7 @@ class PHPProject_Writer_GanttProject
 	 *
 	 * @param	PHPProject	$phpProject	PHPProject object
 	 */
-	public function __construct(PHPProject $phpProject) {
+	public function __construct(\PHPProject $phpProject) {
 		$this->_phpProject	= $phpProject;
 		$this->_arrAllocations = array();
 	}
@@ -63,7 +63,7 @@ class PHPProject_Writer_GanttProject
 		$arrProjectInfo = $this->_sanitizeProject();
 		
 		// Create XML Object 
-		$oXML = new PHPProject_Shared_XMLWriter(PHPProject_Shared_XMLWriter::STORAGE_DISK);
+		$oXML = new \PHPProject\Shared\XMLWriter(\PHPProject\Shared\XMLWriter::STORAGE_DISK);
 		$oXML->startDocument('1.0','UTF-8');
 		// project
 		$oXML->startElement('project');
@@ -303,7 +303,7 @@ class PHPProject_Writer_GanttProject
 		// Open file
 		$fileHandle = fopen($pFilename, 'wb+');
 		if ($fileHandle === false) {
-			throw new Exception("Could not open file $pFilename for writing.");
+			throw new \Exception("Could not open file $pFilename for writing.");
 		}
 		// Write XML Content
 		fwrite($fileHandle, $oXML->getData());
@@ -312,7 +312,7 @@ class PHPProject_Writer_GanttProject
 		fclose($fileHandle);
 	}
 
-	private function _writeTask(PHPProject_Shared_XMLWriter $oXML, PHPProject_Task $oTask, $iNbTasks){
+	private function _writeTask(\PHPProject\Shared\XMLWriter $oXML, \PHPProject\Task $oTask, $iNbTasks){
 		++$iNbTasks;
 		$oXML->startElement('task');
 		$oXML->writeAttribute('id', $iNbTasks);
@@ -348,7 +348,7 @@ class PHPProject_Writer_GanttProject
 		return $iNbTasks;
 	}
 	
-	private function _writeResource(PHPProject_Shared_XMLWriter $oXML, PHPProject_Resource $oResource){
+	private function _writeResource(\PHPProject\Shared\XMLWriter $oXML, \PHPProject\Resource $oResource){
 		$oXML->startElement('resource');
 		$oXML->writeAttribute('id', $oResource->getIndex());
 		$oXML->writeAttribute('name', $oResource->getTitle());
@@ -358,7 +358,7 @@ class PHPProject_Writer_GanttProject
 		$oXML->endElement();
 	}
 	
-	private function _writeAllocation(PHPProject_Shared_XMLWriter $oXML, $piIdTask, $piIdResource){
+	private function _writeAllocation(\PHPProject\Shared\XMLWriter $oXML, $piIdTask, $piIdResource){
 		$oXML->startElement('allocation');
 		$oXML->writeAttribute('task-id', $piIdTask);
 		$oXML->writeAttribute('resource-id', $piIdResource);
@@ -395,7 +395,7 @@ class PHPProject_Writer_GanttProject
 	 * - If the end date is not filled, but the duration is, we calculate it.
 	 * @param PHPProject_Task $oTask
 	 */
-	private function _sanitizeTask(PHPProject_Task $oTask){
+	private function _sanitizeTask(\PHPProject\Task $oTask){
 		$pDuration = $oTask->getDuration();
 		$pEndDate = $oTask->getEndDate();
 		$pStartDate = $oTask->getStartDate();
@@ -415,7 +415,7 @@ class PHPProject_Writer_GanttProject
 	 *   date start and complete average.
 	 * @param PHPProject_Task $oParentTask
 	 */
-	private function _sanitizeTaskParent(PHPProject_Task $oParentTask){
+	private function _sanitizeTaskParent(\PHPProject\Task $oParentTask){
 		$arrTasksChilds = $oParentTask->getTasks();
 
 		$iProgress = 0;
@@ -449,6 +449,3 @@ class PHPProject_Writer_GanttProject
 		$oParentTask->setDuration((($tEndDate - $tStartDate)  / 60 / 60 / 24 ) + 1);
 	}
 }
-
-
-?>

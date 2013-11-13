@@ -6,7 +6,7 @@
 	ini_set('display_startup_errors', TRUE);
 
 	/** Include path **/
-	ini_set('include_path', ini_get('include_path').';../Classes/');
+	ini_set('include_path', ini_get('include_path').':../Classes/');
 
 	/** PHPProject */
 	include 'PHPProject.php';
@@ -78,13 +78,18 @@
  
 	// Save MSProject2007 file
 	echo date('H:i:s') . ' Write to MSProjectExchange format'.EOL;
-	$objWriter = PHPProject_IOFactory::createWriter($objPHPProject, 'MSProjectExchange');
+	$objWriter = PHPProject\IOFactory::createWriter($objPHPProject, 'MSProjectExchange');
 	$objWriter->save(str_replace('.php', '.mpx', __FILE__));
 
 	// Save GanttProject file
 	echo date('H:i:s') . ' Write to GanttProject format'.EOL;
-	$objWriter = PHPProject_IOFactory::createWriter($objPHPProject, 'GanttProject');
+	$objWriter = PHPProject\IOFactory::createWriter($objPHPProject, 'GanttProject');
 	$objWriter->save(str_replace('.php', '.gan', __FILE__));
+
+	// Save MSProject2007 file
+	echo date('H:i:s') . ' Write to MSProjectXML format'.EOL;
+	$objWriter = PHPProject\IOFactory::createWriter($objPHPProject, 'MSProjectXML');
+	$objWriter->save(str_replace('.php', '.xml', __FILE__));
 
 	// Echo done
 	echo date('H:i:s') . ' Done writing file.'.EOL;

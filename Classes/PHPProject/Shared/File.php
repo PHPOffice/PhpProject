@@ -25,6 +25,7 @@
  * @version    ##VERSION##, ##DATE##
  */
 
+namespace PHPProject\Shared;
 
 /**
  * PHPProject_Shared_File
@@ -33,8 +34,7 @@
  * @package    PHPProject_Shared
  * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_Shared_File
-{
+class File {
 	/**
 	  * Verify if a file exists
 	  *

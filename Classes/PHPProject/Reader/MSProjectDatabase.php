@@ -20,20 +20,20 @@
 *
 * @category	PHPProject
 * @package	PHPProject
-* @author	Tuomas Angervuori <tuomas.angervuori@gmail.com>
 * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
 * @version	##VERSION##, ##DATE##
 */
 
+namespace PHPProject\Reader;
 
 /**
- * PHPProject_Reader_MSProjectDatabase
+ * PHPProject\Reader\MSProjectDatabase
  *
+ * @author	Tuomas Angervuori <tuomas.angervuori@gmail.com>
  * @category	PHPProject
  * @package	PHPProject
  */
-class PHPProject_Reader_MSProjectDatabase
-{
+class MSProjectDatabase {
 	/**
 	 * PHPProject object
 	 *
@@ -45,12 +45,12 @@ class PHPProject_Reader_MSProjectDatabase
 	
 	
 	/**
-	 * Create a new PHPProject_Reader_MSProjectDatabase
+	 * Create a new PHPProject\Reader\MSProjectDatabase
 	 *
 	 * @param	PHPProject	$phpProject	PHPProject object
 	 */
 	public function __construct() {
-		$this->_phpProject = new PHPProject();
+		$this->_phpProject = new \PHPProject();
 	}
 	
 	/**
@@ -243,6 +243,3 @@ class PHPProject_Reader_MSProjectDatabase
 		return $outputArray;
 	}
 }
-
-
-?>

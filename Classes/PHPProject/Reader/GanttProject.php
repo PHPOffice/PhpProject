@@ -25,16 +25,16 @@
 * @version	##VERSION##, ##DATE##
 */
 
+namespace PHPProject\Reader;
 
 /**
  * PHPProject_Reader_GanttProject
  *
  * @category	PHPProject
- * @package		PHPProject
+ * @package	PHPProject
  * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_Reader_GanttProject
-{
+class GanttProject {
 	/**
 	 * PHPProject object
 	 *
@@ -63,6 +63,3 @@ class PHPProject_Reader_GanttProject
 		return $this->_phpProject;
 	}
 }
-
-
-?>

@@ -25,16 +25,16 @@
  * @version	##VERSION##, ##DATE##
  */
 
+namespace PHPProject;
 
 /**
- * PHPProject_Task
+ * PHPProject\Task
  *
  * @category	PHPProject
- * @package		PHPProject
+ * @package	PHPProject
  * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_Task
-{
+class Task {
 	/**
 	 * Name
 	 * 
@@ -112,7 +112,7 @@ class PHPProject_Task
 	 */
 	private $_activeTaskIndex = 0;
 	
-	public function __construct(PHPProject $pParent, $pIndex, PHPProject_Task $pParentTask = null){
+	public function __construct(\PHPProject $pParent, $pIndex, Task $pParentTask = null){
 		$this->_parentProject = $pParent;
 		$this->_parentTask = $pParentTask;
 		$this->_index = $pIndex;

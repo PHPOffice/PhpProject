@@ -25,16 +25,16 @@
  * @version	##VERSION##, ##DATE##
  */
 
+namespace PHPProject;
 
 /**
- * PHPProject_DocumentProperties
+ * PHPProject\DocumentProperties
  *
  * @category	PHPProject
- * @package		PHPProject
+ * @package	PHPProject
  * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_DocumentProperties
-{
+class DocumentProperties {
 	/** constants */
 	const PROPERTY_TYPE_BOOLEAN		= 'b';
 	const PROPERTY_TYPE_INTEGER		= 'i';
@@ -194,17 +194,7 @@ class PHPProject_DocumentProperties
 	 * @return	PHPProject_DocumentProperties
 	 */
 	public function setCreated($pValue = null) {
-		if ($pValue === NULL) {
-			$pValue = time();
-		} elseif (is_string($pValue)) {
-			if (is_numeric($pValue)) {
-				$pValue = intval($pValue);
-			} else {
-				$pValue = strtotime($pValue);
-			}
-		}
-
-		$this->_created = $pValue;
+		$this->_created = self::_getDateTime($pValue);
 		return $this;
 	}
 
@@ -224,17 +214,7 @@ class PHPProject_DocumentProperties
 	 * @return	PHPProject_DocumentProperties
 	 */
 	public function setModified($pValue = null) {
-		if ($pValue === NULL) {
-			$pValue = time();
-		} elseif (is_string($pValue)) {
-			if (is_numeric($pValue)) {
-				$pValue = intval($pValue);
-			} else {
-				$pValue = strtotime($pValue);
-			}
-		}
-
-		$this->_modified = $pValue;
+		$this->_modified = self::_getDateTime($pValue);
 		return $this;
 	}
 
@@ -582,5 +562,21 @@ class PHPProject_DocumentProperties
 		}
 		return self::PROPERTY_TYPE_UNKNOWN;
 	}
-
+	
+	protected static function _getDateTime($pValue) {
+		if($pValue instanceof \DateTime) {
+			$dateTime = $pValue;
+		}
+		elseif ($pValue === NULL) {
+			$dateTime = new \DateTime();
+		} elseif (is_string($pValue)) {
+			if (is_numeric($pValue)) {
+				$dateTime = new \DateTime();
+				$dateTime->setTimestamp($pValue);
+			} else {
+				$dateTime = new \DateTime($pValue);
+			}
+		}
+		return $dateTime;
+	}
 }

@@ -18,7 +18,7 @@
 	
 	// Create new PHPProject object
 	echo date('H:i:s') . ' Create new PHPProject object'.EOL;
-	$objReader = PHPProject_IOFactory::createReader('MSProjectDatabase');
+	$objReader = PHPProject\IOFactory::createReader('MSProjectDatabase');
 	$objPHPProject = $objReader->load('02file.mdp');
 
 	// Set properties

@@ -28,78 +28,90 @@
 namespace PHPProject;
 
 /**
- * PHPProject\Resource
+ * PHPProject_Calendar
  *
  * @category	PHPProject
  * @package	PHPProject
- * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
+ * @author	Tuomas Angervuori <tuomas.angervuori@gmail.com>
  */
-class Resource {
+class Calendar {
+	
+	const WEEKDAY_SUNDAY = 1;
+	const WEEKDAY_MONDAY = 2;
+	const WEEKDAY_TUESDAY = 3;
+	const WEEKDAY_WEDNESDAY = 4;
+	const WEEKDAY_THURSDAY = 5;
+	const WEEKDAY_FRIDAY = 6;
+	const WEEKDAY_SATURDAY = 7;
+	
 	/**
-	 * Title
+	 * Calendar UID
+	 * @var string
+	 */
+	private $_uid;
+	
+	/**
+	 * Calendar name
 	 * 
 	 * @var string
 	 */
-	private $_title;
+	private $_name;
 	
 	/**
-	 * Parent Project
+	 * Is the calendar base calendar
 	 * 
-	 * @var PHPProject
+	 * @var bool
 	 */
-	private $_parent;
+	private $_isBaseCalendar = true;
 	
 	/**
-	 * Index
+	 * Attributes for weekdays
 	 * 
-	 * @var integer
+	 * @var array
 	 */
-	private $_index;
+	private $_weekDays = array();
 	
-	public function __construct(\PHPProject $pParent, $pIndex){
-		$this->_parent = $pParent;
-		$this->_index = $pIndex;
+	/**
+	 * Exception dates in calendar
+	 * 
+	 * @var array
+	 */
+	private $_exceptions = array();
+	
+	public function __construct($uid = 1) {
+		$this->setUID($uid);
 	}
 	
 	/**
-	 * Get title
-	 *
-	 * @return string
+	 * Calendar UID
 	 */
-	public function getTitle()
-	{
-		return $this->_title;
+	public function setUID($uid) {
+		$this->_uid = $uid;
+	}
+	public function getUID() {
+		return $this->_uid;
 	}
 	
-	/**
-	 * Set title
-	 *
-	 * @param string $pTitle Title of the resource
-	 * @return PHPProject_Resource
-	 */
-	public function setTitle($pTitle)
-	{
-		$this->_title = $pTitle;
-		return $this;
+	public function setName($string) {
+		$this->_name = $string;
+	}
+	public function getName() {
+		return $this->_name;
 	}
 	
-	/**
-	 * Get index
-	 *
-	 * @return index
-	 */
-	public function getIndex()
-	{
-		return $this->_index;
+	public function isBaseCalendar($bool = null) {
+		$value = $this->_isBaseCalendar;
+		if($bool !== null) {
+			$this->_isBaseCalendar = (bool)$bool;
+		}
+		return $value;
 	}
 	
-	/**
-	 * Get parent
-	 *
-	 * @return PHPProject
-	 */
-	public function getParent() {
-		return $this->_parent;
+	
+	public function addException($fromTime, $toTime, $name) {
+		
 	}
-
+	public function getExceptions() {
+		return $this->_exceptions;
+	}
 }

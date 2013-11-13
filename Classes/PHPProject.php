@@ -38,36 +38,43 @@ if (!defined('PHPPROJECT_ROOT')) {
  * @package    PHPProject
  * @copyright  Copyright (c) 2006 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject
-{
+
+class PHPProject {
 	/**
 	 * Document properties
 	 *
-	 * @var PHPProject_DocumentProperties
+	 * @var PHPProject\DocumentProperties
 	 */
 	private $_properties;
 
 	/**
 	 * Document informations
 	 *
-	 * @var PHPProject_DocumentInformations
+	 * @var PHPProject\DocumentInformations
 	 */
 	private $_informations;
 	
 	/**
 	 * Collection of task objects
 	 *
-	 * @var PHPProject_Task[]
+	 * @var PHPProject\Task[]
 	 */
 	private $_taskCollection = array();
 	
 	/**
 	 * Collection of resource objects
 	 *
-	 * @var PHPProject_Resource[]
+	 * @var PHPProject\Resource[]
 	 */
 	private $_resourceCollection = array();
-
+	
+	/**
+	 * Collection of calendar objects
+	 * 
+	 * @var PHPProject\Calendar[]
+	 */
+	private $_calendarCollection = array();
+	
 	/**
 	 * Active task
 	 *
@@ -83,13 +90,20 @@ class PHPProject
 	private $_activeResourceIndex = 0;
 	
 	/**
+	 * Active calendar
+	 * 
+	 * @var int
+	 */
+	private $_activeCalendarIndex = 0;
+	
+	/**
 	 * Create a new PHPProject
 	 */
 	public function __construct() {
 		// Create document properties
-		$this->_properties = new PHPProject_DocumentProperties();
+		$this->_properties = new PHPProject\DocumentProperties();
 		// Create document informations
-		$this->_informations = new PHPProject_DocumentInformations();
+		$this->_informations = new PHPProject\DocumentInformations();
 	}
 
 	//===============================================
@@ -110,7 +124,7 @@ class PHPProject
 	 *
 	 * @param PHPProject_DocumentProperties	$pValue
 	 */
-	public function setProperties(PHPProject_DocumentProperties $pValue)
+	public function setProperties(PHPProject\DocumentProperties $pValue)
 	{
 		$this->_properties = $pValue;
 	}
@@ -133,7 +147,7 @@ class PHPProject
 	 *
 	 * @param PHPProject_DocumentProperties	$pValue
 	 */
-	public function setInformations(PHPProject_DocumentInformations $pValue)
+	public function setInformations(PHPProject\DocumentInformations $pValue)
 	{
 		$this->_informations = $pValue;
 	}
@@ -148,7 +162,7 @@ class PHPProject
 	 * @throws Exception
 	 */
 	public function createResource() {
-		$newRessource = new PHPProject_Resource($this, $this->getResourceCount());
+		$newRessource = new PHPProject\Resource($this, $this->getResourceCount());
 		$this->_resourceCollection[] = $newRessource;
 		$this->_activeResourceIndex = $this->getResourceCount() - 1;
 		return $newRessource;
@@ -193,7 +207,7 @@ class PHPProject
 	public function getResource($pIndex = 0)
 	{
 		if ($pIndex > count($this->_resourceCollection) - 1) {
-			throw new Exception('Resource index is out of bounds.');
+			throw new \Exception('Resource index is out of bounds.');
 		} else {
 			return $this->_resourceCollection[$pIndex];
 		}
@@ -219,7 +233,7 @@ class PHPProject
 	private function setActiveResourceIndex($pIndex = 0)
 	{
 		if ($pIndex > count($this->_resourceCollection) - 1) {
-			throw new Exception('Active resource index is out of bounds.');
+			throw new \Exception('Active resource index is out of bounds.');
 		} else {
 			$this->_activeResourceIndex = $pIndex;
 		}
@@ -236,7 +250,7 @@ class PHPProject
 	 * @throws Exception
 	 */
 	public function createTask() {
-		$newTask = new PHPProject_Task($this, $this->getTaskCount());
+		$newTask = new PHPProject\Task($this, $this->getTaskCount());
 		$this->_taskCollection[] = $newTask;
 		$this->_activeTaskIndex = $this->getTaskCount() - 1;
 		return $newTask;
@@ -247,74 +261,61 @@ class PHPProject
 	 *
 	 * @return int
 	 */
-	public function getTaskCount()
-	{
+	public function getTaskCount() {
 		return count($this->_taskCollection);
 	}
 	
 	/**
 	 * Get all tasks
 	 *
-	 * @return PHPProject_Task[]
+	 * @return PHPProject\Task[]
 	 */
-	public function getAllTasks()
-	{
+	public function getAllTasks() {
 		return $this->_taskCollection;
 	}
 	
 	/**
 	 * Get active task
 	 *
-	 * @return PHPProject_Task
+	 * @return PHPProject\Task
 	 */
-	public function getActiveTask()
-	{
-		return $this->_taskCollection[$this->_activeTaskIndex];
+	public function getActiveTask() {
+		return $this->getTask($this->_activeTaskIndex);
 	}
-    
+	
 	/**
 	 * Get task by index
 	 *
 	 * @param int $pIndex Task index
-	 * @return PHPProject_Task
+	 * @return PHPProject\Task
 	 * @throws Exception
 	 */
-	public function getTask($pIndex = 0)
-	{
-		if ($pIndex > count($this->_taskCollection) - 1) {
-			throw new Exception('Task index is out of bounds.');
-		} else {
-			return $this->_taskCollection[$pIndex];
+	public function getTask($pIndex = 0) {
+		if(!isset($this->_taskCollection[$pIndex])) {
+			throw new \Exception("Task #$pIndex is out of bounds.");
 		}
+		return $this->_taskCollection[$pIndex];
 	}
-
+	
 	/**
 	 * Remove task by index
 	 *
 	 * @param int $pIndex Active task index
 	 * @throws Exception
 	 */
-	public function removeTaskByIndex($pIndex = 0)
-	{
-		if ($pIndex > count($this->_taskCollection) - 1) {
-			throw new Exception('Task index is out of bounds.');
-		} else {
-			array_splice($this->_taskCollection, $pIndex, 1);
+	public function removeTaskByIndex($pIndex = 0) {
+		if(!isset($this->_taskCollection[$pIndex])) {
+			throw new \Exception("Task #$pIndex is out of bounds.");
 		}
-		// Adjust active sheet index if necessary
-		if (($this->_activeTaskIndex >= $pIndex) &&
-			($pIndex > count($this->_taskCollection) - 1)) {
-			--$this->_activeTaskIndex;
-		}
+		unset($this->_taskCollection[$pIndex]);
 	}
-
+	
 	/**
 	 * Get active task index
 	 *
 	 * @return int Active task index
 	 */
-	public function getActiveTaskIndex()
-	{
+	public function getActiveTaskIndex() {
 		return $this->_activeTaskIndex;
 	}
 
@@ -323,15 +324,107 @@ class PHPProject
 	 *
 	 * @param int $pIndex Active task index
 	 * @throws Exception
-	 * @return PHPProject_Task
+	 * @return PHPProject\Task
 	 */
-	public function setActiveTaskIndex($pIndex = 0)
-	{
-		if ($pIndex > count($this->_taskCollection) - 1) {
-			throw new Exception('Active task index is out of bounds.');
-		} else {
-			$this->_activeTaskIndex = $pIndex;
+	public function setActiveTaskIndex($pIndex = 0) {
+		if(!isset($this->_taskCollection[$pIndex])) {
+			throw new \Exception("Task #$pIndex is out of bounds.");
 		}
+		$this->_activeTaskIndex = $pIndex;
 		return $this->getActiveTask();
+	}
+	
+	//===============================================
+	// Tasks
+	//===============================================
+	/**
+	 * Create a calendar
+	 * 
+	 * @param $uid Calendar UID
+	 * @returns PHPProject\Calendar
+	 */
+	public function createCalendar($uid) {
+		$newCalendar = new PHPProject\Calendar($uid);
+		$this->_calendarCollection[] = $newCalendar;
+		$this->_activeCalendarIndex = $this->getCalendarCount() - 1;
+		return $newCalendar;
+	}
+	
+	/**
+	 * Get calendar count
+	 *
+	 * @return int
+	 */
+	public function getCalendarCount() {
+		return count($this->_calendarCollection);
+	}
+	
+	/**
+	 * Get all calendars
+	 *
+	 * @return PHPProject\Calendar[]
+	 */
+	public function getAllCalendars() {
+		return $this->_calendarCollection;
+	}
+	
+	/**
+	 * Get active calendar
+	 *
+	 * @return PHPProject\Calendar
+	 */
+	public function getActiveCalendar() {
+		return $this->getCalendar($this->_activeCalendarIndex);
+	}
+	
+	/**
+	 * Get calendar by index
+	 *
+	 * @param int $pIndex Calendar index
+	 * @return PHPProject\Calendar
+	 * @throws Exception
+	 */
+	public function getCalendar($pIndex = 0) {
+		if(!isset($this->_calendarCollection[$pIndex])) {
+			throw new \Exception("Calendar #$pIndex is out of bounds.");
+		}
+		return $this->_calendarCollection[$pIndex];
+	}
+	
+	/**
+	 * Remove calendar by index
+	 *
+	 * @param int $pIndex Active calendar index
+	 * @throws Exception
+	 */
+	public function removeCalendarByIndex($pIndex = 0) {
+		if(!isset($this->_calendarCollection[$pIndex])) {
+			throw new \Exception("Calendar #$pIndex is out of bounds.");
+		}
+		unset($this->_calendarCollection[$pIndex]);
+	}
+	
+	/**
+	 * Get active calendar index
+	 *
+	 * @return int Active calendar index
+	 */
+	public function getActiveCalendarIndex() {
+		return $this->_activeCalendarIndex;
+	}
+	
+	/**
+	 * Set active calendar index
+	 *
+	 * @param int $pIndex Active calendar index
+	 * @throws Exception
+	 * @return PHPProject\Calendar
+	 */
+	public function setActiveCalendarIndex($pIndex = 0) {
+		if(!isset($this->_calendarCollection[$pIndex])) {
+			throw new \Exception("Calendar #$pIndex is out of bounds.");
+		}
+		$this->_activeCalendarIndex = $pIndex;
+		return $this->getActiveCalendar();
 	}
 }

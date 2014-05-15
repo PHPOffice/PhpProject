@@ -25,15 +25,16 @@
  * @version	##VERSION##, ##DATE##
  */
 
+namespace PHPProject;
 
 /**
- * PHPProject_DocumentInformations
+ * PHPProject\DocumentInformations
  *
  * @category	PHPProject
- * @package		PHPProject
+ * @package	PHPProject
  * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_DocumentInformations
+class DocumentInformations
 {
 	/**
 	 * Start Date
@@ -72,17 +73,7 @@ class PHPProject_DocumentInformations
 	 * @return	PHPProject_DocumentInformations
 	 */
 	public function setStartDate($pValue = null) {
-		if ($pValue === NULL) {
-			$pValue = time();
-		} elseif (is_string($pValue)) {
-			if (is_numeric($pValue)) {
-				$pValue = intval($pValue);
-			} else {
-				$pValue = strtotime($pValue);
-			}
-		}
-
-		$this->_startDate = $pValue;
+		$this->_startDate = self::_getDateTime($pValue);
 		return $this;
 	}
 
@@ -102,17 +93,7 @@ class PHPProject_DocumentInformations
 	 * @return	PHPProject_DocumentInformations
 	 */
 	public function setEndDate($pValue = null) {
-		if ($pValue === NULL) {
-			$pValue = time();
-		} elseif (is_string($pValue)) {
-			if (is_numeric($pValue)) {
-				$pValue = intval($pValue);
-			} else {
-				$pValue = strtotime($pValue);
-			}
-		}
-
-		$this->_endDate = $pValue;
+		$this->_endDate = self::_getDateTime($pValue);
 		return $this;
 	}
 
@@ -128,5 +109,22 @@ class PHPProject_DocumentInformations
 				$this->$key = $value;
 			}
 		}
+	}
+	
+	protected static function _getDateTime($pValue) {
+		if($pValue instanceof DateTime) {
+			$dateTime = $pValue;
+		}
+		elseif ($pValue === NULL) {
+			$dateTime = new DateTime();
+		} elseif (is_string($pValue)) {
+			if (is_numeric($pValue)) {
+				$dateTime = new DateTime();
+				$dateTime->setTimestamp($pValue);
+			} else {
+				$dateTime = new DateTime($pValue);
+			}
+		}
+		return $dateTime;
 	}
 }

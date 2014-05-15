@@ -25,6 +25,8 @@
  * @version	##VERSION##, ##DATE##
  */
 
+namespace PHPProject\Shared;
+
 if (!defined('DATE_W3C')) {
   define('DATE_W3C', 'Y-m-d\TH:i:sP');
 }
@@ -37,11 +39,11 @@ if (!defined('DEBUGMODE_ENABLED')) {
 /**
  * PHPProject_Shared_XMLWriter
  *
- * @category   PHPProject
- * @package	PHPProject_Shared
- * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
+ * @category	PHPProject
+ * @package	PHPProject
+ * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_Shared_XMLWriter extends XMLWriter {
+class XMLWriter extends \XMLWriter {
 	/** Temporary storage method */
 	const STORAGE_MEMORY	= 1;
 	const STORAGE_DISK		= 2;

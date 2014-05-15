@@ -18,8 +18,8 @@
 	
 	// Create new PHPProject object
 	echo date('H:i:s') . ' Create new PHPProject object'.EOL;
-	$objReader = PHPProject\IOFactory::createReader('MSProjectExchange');
-	$objPHPProject = $objReader->load('02file.mpx');
+	$objReader = PHPProject\IOFactory::createReader('MSProjectXML');
+	$objPHPProject = $objReader->load('02file.xml');
 
 	// Set properties
 	echo date('H:i:s') . ' Set properties'.EOL;

@@ -25,6 +25,7 @@
  * @version    ##VERSION##, ##DATE##
  */
 
+namespace PHPProject;
 
 /**	PHPProject root directory */
 if (!defined('PHPPROJECT_ROOT')) {
@@ -36,14 +37,13 @@ if (!defined('PHPPROJECT_ROOT')) {
 }
 
 /**
- * PHPProject_IOFactory
+ * PHPProject\IOFactory
  *
  * @category   PHPProject
  * @package    PHPProject
  * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_IOFactory
-{
+class IOFactory {
 	/**
 	 * Search locations
 	 *
@@ -52,8 +52,8 @@ class PHPProject_IOFactory
 	 * @static
 	 */
 	private static $_searchLocations = array(
-		array( 'type' => 'IWriter', 'path' => 'PHPProject/Writer/{0}.php', 'class' => 'PHPProject_Writer_{0}' ),
-		array( 'type' => 'IReader', 'path' => 'PHPProject/Reader/{0}.php', 'class' => 'PHPProject_Reader_{0}' )
+		array( 'type' => 'IWriter', 'path' => 'PHPProject/Writer/{0}.php', 'class' => 'PHPProject\Writer\{0}' ),
+		array( 'type' => 'IReader', 'path' => 'PHPProject/Reader/{0}.php', 'class' => 'PHPProject\Reader\{0}' )
 	);
 
 	/**
@@ -67,23 +67,23 @@ class PHPProject_IOFactory
 		'GanttProject',
 		'MSProjectExchange'
 	);
-
-    /**
-     *	Private constructor for PHPProject_IOFactory
-     */
-    private function __construct() { }
-
-    /**
-     * Get search locations
-     *
+	
+	/**
+	 * Private constructor for PHPProject_IOFactory
+	 */
+	private function __construct() { }
+	
+	/**
+	 * Get search locations
+	 *
 	 * @static
 	 * @access	public
-     * @return	array
-     */
+	 * @return	array
+	 */
 	public static function getSearchLocations() {
 		return self::$_searchLocations;
 	}
-
+	
 	/**
 	 * Set search locations
 	 *
@@ -96,7 +96,7 @@ class PHPProject_IOFactory
 		if (is_array($value)) {
 			self::$_searchLocations = $value;
 		} else {
-			throw new Exception('Invalid parameter passed.');
+			throw new \Exception('Invalid parameter passed.');
 		}
 	}
 
@@ -140,7 +140,7 @@ class PHPProject_IOFactory
 		}
 
 		// Nothing found...
-		throw new Exception("No $searchType found for type $writerType");
+		throw new \Exception("No $searchType found for type $writerType");
 	}
 
 	/**
@@ -248,7 +248,7 @@ class PHPProject_IOFactory
 				}
 			}
 		}
-
-    	throw new Exception('Unable to identify a reader for this file');
+		
+		throw new \Exception('Unable to identify a reader for this file');
 	}	//	function createReaderForFile()
 }

@@ -25,19 +25,19 @@
  * @version	##VERSION##, ##DATE##
  */
 
+namespace PHPProject\Reader;
 
 /**
- * PHPProject_Reader_MSProjectExchange
+ * PHPProject\Reader\MSProjectExchange
  *
  * Docs : 
- * http://support.microsoft.com/default.aspx?scid=KB;EN-US;Q270139
+ * @link http://support.microsoft.com/default.aspx?scid=KB;EN-US;Q270139
  *
  * @category	PHPProject
- * @package		PHPProject
+ * @package	PHPProject
  * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_Reader_MSProjectExchange
-{
+class MSProjectExchange {
 	/**
 	 * PHPProject object
 	 *
@@ -52,7 +52,7 @@ class PHPProject_Reader_MSProjectExchange
 	 * @param	PHPProject	$phpProject	PHPProject object
 	 */
 	public function __construct() {
-		$this->_phpProject	= new PHPProject();
+		$this->_phpProject	= new \PHPProject();
 	}
 	
 	/**
@@ -66,6 +66,3 @@ class PHPProject_Reader_MSProjectExchange
 		return $this->_phpProject;
 	}
 }
-
-
-?>

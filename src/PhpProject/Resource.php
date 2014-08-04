@@ -34,23 +34,14 @@ class Resource
     private $title;
     
     /**
-     * Parent Project
-     * 
-     * @var PHPProject
-     */
-    private $parent;
-    
-    /**
      * Index
      * 
      * @var integer
      */
     private $index;
     
-    public function __construct(PhpProject $pParent, $pIndex)
+    public function __construct()
     {
-        $this->parent = $pParent;
-        $this->index = $pIndex;
     }
     
     /**
@@ -86,12 +77,11 @@ class Resource
     }
     
     /**
-     * Get parent
-     *
-     * @return PHPProject
+     * Set index
      */
-    public function getParent()
+    public function setIndex($value)
     {
-        return $this->parent;
+    	$this->index = $value;
+        return $this;
     }
 }

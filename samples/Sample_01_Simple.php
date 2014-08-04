@@ -50,6 +50,7 @@ $objTask21->setStartDate('03-01-2012');
 $objTask21->setEndDate('04-01-2012');
 $objTask21->setProgress(1);
 $objTask21->addResource($objRes2);
+$objTask21->addResource($objRes1);
 $objTask21Res = $objTask21->getResources();
 echo 'Resources "Analysis Code"'.EOL;
 foreach ($objTask21Res as $res){

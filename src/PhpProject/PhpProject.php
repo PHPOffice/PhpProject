@@ -136,7 +136,8 @@ class PhpProject
      */
     public function createResource()
     {
-        $newRessource = new Resource($this, $this->getResourceCount());
+        $newRessource = new Resource();
+        $newRessource->setIndex($this->getResourceCount());
         $this->resourceCollection[] = $newRessource;
         $this->activeResourceIndex = $this->getResourceCount() - 1;
         return $newRessource;
@@ -226,7 +227,8 @@ class PhpProject
      */
     public function createTask()
     {
-        $newTask = new Task($this, $this->getTaskCount());
+        $newTask = new Task();
+        $newTask->setIndex($this->getTaskCount());
         $this->taskCollection[] = $newTask;
         $this->activeTaskIndex = $this->getTaskCount() - 1;
         return $newTask;

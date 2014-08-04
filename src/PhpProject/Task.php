@@ -62,20 +62,6 @@ class Task
     private $progress;
     
     /**
-     * Parent Project
-     * 
-     * @var PHPProject
-     */
-    private $parentProject;
-    
-    /**
-     * Parent Task
-     *
-     * @var PHPProject_Task
-     */
-    private $parentTask;
-    
-    /**
      * Index
      *
      * @var integer
@@ -87,7 +73,7 @@ class Task
      * 
      * @var integer[]
      */
-    private $resourceCollection;
+    private $resourceCollection = array();
     
     /**
      * Collection of task objects
@@ -103,33 +89,8 @@ class Task
      */
     private $_activeTaskIndex = 0;
     
-    public function __construct(PhpProject $pParent, $pIndex, Task $pParentTask = null)
+    public function __construct()
     {
-        $this->parentProject = $pParent;
-        $this->parentTask = $pParentTask;
-        $this->index = $pIndex;
-        
-        $this->resourceCollection = array();
-    }
-    
-    /**
-     * Get parent
-     *
-     * @return PHPProject
-     */
-    public function getParent()
-    {
-        return $this->_parent;
-    }
-
-    /**
-     * Get parent task
-     *
-     * @return PHPProject_Task
-     */
-    public function getParentTask()
-    {
-        return $this->parentTask;
     }
 
     /**
@@ -268,6 +229,23 @@ class Task
         return $this;
     }
     
+    /**
+     * Get index
+     */
+    public function getIndex()
+    {
+        return $this->index;
+    }
+    
+    /**
+     * Set index
+     */
+    public function setIndex($value)
+    {
+    	$this->index = $value;
+        return $this;
+    }
+    
     //===============================================
     // Resources
     //===============================================
@@ -303,7 +281,8 @@ class Task
     //===============================================
     public function createTask()
     {
-        $newTask = new self($this->parentProject, $this->getTaskCount(), $this);
+        $newTask = new self();
+        $newTask->setIndex($this->getTaskCount());
         $this->taskCollection[] = $newTask;
         $this->_activeTaskIndex = $this->getTaskCount() - 1;
         return $newTask;

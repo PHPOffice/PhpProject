@@ -21,39 +21,35 @@ use PhpOffice\PhpProject\PhpProject;
 /**
  * PHPProject_Reader_GanttProject
  *
- * @category	PHPProject
- * @package		PHPProject
- * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
+ * @category    PHPProject
+ * @package        PHPProject
+ * @copyright    Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
 class GanttProject
 {
-	/**
-	 * PHPProject object
-	 *
-	 * @var PHPProject
-	 */
-	private $_phpProject;
-	
-	
-	/**
-	 * Create a new PHPProject_Reader_GanttProject
-	 *
-	 * @param	PHPProject	$phpProject	PHPProject object
-	 */
-	public function __construct() {
-		$this->_phpProject	= new PhpProject();
-	}
-	
-	/**
-	 * 
-	 * @param string $pFilename
-	 * @return PHPProject
-	 */
-	public function load($pFilename = null){
-	
-		return $this->_phpProject;
-	}
+    /**
+     * PHPProject object
+     *
+     * @var PHPProject
+     */
+    private $_phpProject;
+    
+    /**
+     * Create a new GanttProject
+     */
+    public function __construct()
+    {
+        $this->_phpProject    = new PhpProject();
+    }
+    
+    /**
+     * 
+     * @param string $pFilename
+     * @return PHPProject
+     */
+    public function load($pFilename = null)
+    {
+        return $this->_phpProject;
+    }
 }
 
-
-?>

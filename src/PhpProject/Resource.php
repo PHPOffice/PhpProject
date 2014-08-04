@@ -20,77 +20,78 @@ namespace PhpOffice\PhpProject;
 /**
  * PHPProject_Resource
  *
- * @category	PHPProject
- * @package		PHPProject
- * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
+ * @category    PHPProject
+ * @package        PHPProject
+ * @copyright    Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
 class Resource
 {
-	/**
-	 * Title
-	 * 
-	 * @var string
-	 */
-	private $_title;
-	
-	/**
-	 * Parent Project
-	 * 
-	 * @var PHPProject
-	 */
-	private $_parent;
-	
-	/**
-	 * Index
-	 * 
-	 * @var integer
-	 */
-	private $_index;
-	
-	public function __construct(PhpProject $pParent, $pIndex){
-		$this->_parent = $pParent;
-		$this->_index = $pIndex;
-	}
-	
-	/**
-	 * Get title
-	 *
-	 * @return string
-	 */
-	public function getTitle()
-	{
-		return $this->_title;
-	}
-	
-	/**
-	 * Set title
-	 *
-	 * @param string $pTitle Title of the resource
-	 * @return PHPProject_Resource
-	 */
-	public function setTitle($pTitle)
-	{
-		$this->_title = $pTitle;
-		return $this;
-	}
-	
-	/**
-	 * Get index
-	 *
-	 * @return index
-	 */
-	public function getIndex()
-	{
-		return $this->_index;
-	}
-	
-	/**
-	 * Get parent
-	 *
-	 * @return PHPProject
-	 */
-	public function getParent() {
-		return $this->_parent;
-	}
-
+    /**
+     * Title
+     * 
+     * @var string
+     */
+    private $_title;
+    
+    /**
+     * Parent Project
+     * 
+     * @var PHPProject
+     */
+    private $_parent;
+    
+    /**
+     * Index
+     * 
+     * @var integer
+     */
+    private $_index;
+    
+    public function __construct(PhpProject $pParent, $pIndex)
+    {
+        $this->_parent = $pParent;
+        $this->_index = $pIndex;
+    }
+    
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->_title;
+    }
+    
+    /**
+     * Set title
+     *
+     * @param string $pTitle Title of the resource
+     * @return PHPProject_Resource
+     */
+    public function setTitle($pTitle)
+    {
+        $this->_title = $pTitle;
+        return $this;
+    }
+    
+    /**
+     * Get index
+     *
+     * @return index
+     */
+    public function getIndex()
+    {
+        return $this->_index;
+    }
+    
+    /**
+     * Get parent
+     *
+     * @return PHPProject
+     */
+    public function getParent()
+    {
+        return $this->_parent;
+    }
 }

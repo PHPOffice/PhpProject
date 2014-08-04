@@ -20,104 +20,94 @@ namespace PhpOffice\PhpProject;
 /**
  * PHPProject_DocumentInformations
  *
- * @category	PHPProject
- * @package		PHPProject
- * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
+ * @category    PHPProject
+ * @package        PHPProject
+ * @copyright    Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
 class DocumentInformations
 {
-	/**
-	 * Start Date
-	 *
-	 * @var	datetime
-	 */
-	private $_startDate;
+    /**
+     * Start Date
+     *
+     * @var    datetime
+     */
+    private $_startDate;
 
-	/**
-	 * End Date
-	 *
-	 * @var	datetime
-	 */
-	private $_endDate;
+    /**
+     * End Date
+     *
+     * @var    datetime
+     */
+    private $_endDate;
 
-	/**
-	 * Create a new PHPProject_DocumentInformations
-	 */
-	public function __construct()
-	{
-	}
+    /**
+     * Create a new PHPProject_DocumentInformations
+     */
+    public function __construct()
+    {
+    }
 
-	/**
-	 * Get Start Date
-	 *
-	 * @return	datetime
-	 */
-	public function getStartDate() {
-		return $this->_startDate;
-	}
+    /**
+     * Get Start Date
+     *
+     * @return    datetime
+     */
+    public function getStartDate()
+    {
+        return $this->_startDate;
+    }
 
-	/**
-	 * Set Start Date
-	 *
-	 * @param	datetime	$pValue
-	 * @return	PHPProject_DocumentInformations
-	 */
-	public function setStartDate($pValue = null) {
-		if ($pValue === NULL) {
-			$pValue = time();
-		} elseif (is_string($pValue)) {
-			if (is_numeric($pValue)) {
-				$pValue = intval($pValue);
-			} else {
-				$pValue = strtotime($pValue);
-			}
-		}
+    /**
+     * Set Start Date
+     *
+     * @param    datetime    $pValue
+     * @return    PHPProject_DocumentInformations
+     */
+    public function setStartDate($pValue = null)
+    {
+        if ($pValue === NULL) {
+            $pValue = time();
+        } elseif (is_string($pValue)) {
+            if (is_numeric($pValue)) {
+                $pValue = intval($pValue);
+            } else {
+                $pValue = strtotime($pValue);
+            }
+        }
 
-		$this->_startDate = $pValue;
-		return $this;
-	}
+        $this->_startDate = $pValue;
+        return $this;
+    }
 
-	/**
-	 * Get End Date
-	 *
-	 * @return	datetime
-	 */
-	public function getEndDate() {
-		return $this->_endDate;
-	}
+    /**
+     * Get End Date
+     *
+     * @return    datetime
+     */
+    public function getEndDate()
+    {
+        return $this->_endDate;
+    }
 
-	/**
-	 * Set End Date
-	 *
-	 * @param	datetime	$pValue
-	 * @return	PHPProject_DocumentInformations
-	 */
-	public function setEndDate($pValue = null) {
-		if ($pValue === NULL) {
-			$pValue = time();
-		} elseif (is_string($pValue)) {
-			if (is_numeric($pValue)) {
-				$pValue = intval($pValue);
-			} else {
-				$pValue = strtotime($pValue);
-			}
-		}
+    /**
+     * Set End Date
+     *
+     * @param    datetime    $pValue
+     * @return    PHPProject_DocumentInformations
+     */
+    public function setEndDate($pValue = null)
+    {
+        if ($pValue === NULL) {
+            $pValue = time();
+        } elseif (is_string($pValue)) {
+            if (is_numeric($pValue)) {
+                $pValue = intval($pValue);
+            } else {
+                $pValue = strtotime($pValue);
+            }
+        }
 
-		$this->_endDate = $pValue;
-		return $this;
-	}
-
-	/**
-	 * Implement PHP __clone to create a deep clone, not just a shallow copy.
-	 */
-	public function __clone() {
-		$vars = get_object_vars($this);
-		foreach ($vars as $key => $value) {
-			if (is_object($value)) {
-				$this->$key = clone $value;
-			} else {
-				$this->$key = $value;
-			}
-		}
-	}
+        $this->_endDate = $pValue;
+        return $this;
+    }
 }

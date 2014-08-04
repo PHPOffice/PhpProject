@@ -25,31 +25,31 @@ use PhpOffice\PhpProject\PhpProject;
  * Docs : 
  * http://support.microsoft.com/default.aspx?scid=KB;EN-US;Q270139
  *
- * @category	PHPProject
- * @package		PHPProject
- * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
+ * @category    PHPProject
+ * @package        PHPProject
+ * @copyright    Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
 class MSProjectExchange
 {
-	/**
-	 * PHPProject object
-	 *
-	 * @var PHPProject
-	 */
-	private $_phpProject;
-	
-	/**
-	 * Create a new PHPProject_Writer_MSProjectExchange
-	 *
-	 * @param	PHPProject	$phpProject	PHPProject object
-	 */
-	public function __construct(PhpProject $phpProject)
-	{
-		$this->_phpProject	= $phpProject;
-	}
-	
-	public function save($pFilename = null)
-	{
-		return '';
-	}
+    /**
+     * PHPProject object
+     *
+     * @var PHPProject
+     */
+    private $_phpProject;
+    
+    /**
+     * Create a new PHPProject_Writer_MSProjectExchange
+     *
+     * @param    PHPProject    $phpProject    PHPProject object
+     */
+    public function __construct(PhpProject $phpProject)
+    {
+        $this->_phpProject    = $phpProject;
+    }
+    
+    public function save($pFilename = null)
+    {
+        return '';
+    }
 }

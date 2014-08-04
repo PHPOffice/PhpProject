@@ -28,15 +28,13 @@ class DocumentInformations
 {
     /**
      * Start Date
-     *
-     * @var    datetime
+     * @var int
      */
     private $startDate;
 
     /**
      * End Date
-     *
-     * @var    datetime
+     * @var int
      */
     private $endDate;
 
@@ -49,8 +47,7 @@ class DocumentInformations
 
     /**
      * Get Start Date
-     *
-     * @return    datetime
+     * @return int
      */
     public function getStartDate()
     {
@@ -59,9 +56,8 @@ class DocumentInformations
 
     /**
      * Set Start Date
-     *
-     * @param    datetime    $pValue
-     * @return    PHPProject_DocumentInformations
+     * @param int $pValue
+     * @return DocumentInformations
      */
     public function setStartDate($pValue = null)
     {
@@ -74,15 +70,13 @@ class DocumentInformations
                 $pValue = strtotime($pValue);
             }
         }
-
         $this->startDate = $pValue;
         return $this;
     }
 
     /**
      * Get End Date
-     *
-     * @return    datetime
+     * @return int
      */
     public function getEndDate()
     {
@@ -91,9 +85,8 @@ class DocumentInformations
 
     /**
      * Set End Date
-     *
-     * @param    datetime    $pValue
-     * @return    PHPProject_DocumentInformations
+     * @param int $pValue
+     * @return DocumentInformations
      */
     public function setEndDate($pValue = null)
     {
@@ -106,7 +99,6 @@ class DocumentInformations
                 $pValue = strtotime($pValue);
             }
         }
-
         $this->endDate = $pValue;
         return $this;
     }

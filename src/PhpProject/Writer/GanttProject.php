@@ -34,7 +34,7 @@ class GanttProject
     /**
      * PHPProject object
      *
-     * @var PHPProject
+     * @var \PhpOffice\PhpProject\PhpProject
      */
     private $phpProject;
     
@@ -193,7 +193,6 @@ class GanttProject
         
         // resource
         $arrResources = $this->phpProject->getAllResources();
-        $iResourceIndex = 0;
         foreach ($arrResources as $oResource) {
             $this->writeResource($oXML, $oResource);
         }

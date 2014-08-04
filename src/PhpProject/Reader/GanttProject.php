@@ -31,7 +31,7 @@ class GanttProject
     /**
      * PHPProject object
      *
-     * @var PHPProject
+     * @var \PhpOffice\PhpProject\PhpProject
      */
     private $phpProject;
     
@@ -50,6 +50,7 @@ class GanttProject
      */
     public function load($pFilename)
     {
+        $pFilename = '';
         return $this->phpProject;
     }
 }

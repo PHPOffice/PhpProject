@@ -27,41 +27,6 @@ namespace PhpOffice\PhpProject\Shared;
 class File
 {
     /**
-     * Returns canonicalized absolute pathname, also for ZIP archives
-     *
-     * @param string $pFilename
-     * @return string
-     */
-    public static function realpath($pFilename)
-    {
-        // Returnvalue
-        $returnValue = '';
-
-        // Try using realpath()
-        if (file_exists($pFilename)) {
-            $returnValue = realpath($pFilename);
-        }
-
-        // Found something?
-        if ($returnValue == '' || ($returnValue === null)) {
-            $pathArray = explode('/', $pFilename);
-            while (in_array('..', $pathArray) && $pathArray[0] != '..') {
-                for ($i = 0; $i < count($pathArray); ++$i) {
-                    if ($pathArray[$i] == '..' && $i > 0) {
-                        unset($pathArray[$i]);
-                        unset($pathArray[$i - 1]);
-                        break;
-                    }
-                }
-            }
-            $returnValue = implode('/', $pathArray);
-        }
-
-        // Return
-        return $returnValue;
-    }
-
-    /**
      * Get the systems temporary directory.
      *
      * @return string

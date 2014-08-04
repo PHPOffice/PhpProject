@@ -81,7 +81,7 @@ class Resource
      */
     public function setIndex($value)
     {
-    	$this->index = $value;
+        $this->index = $value;
         return $this;
     }
 }

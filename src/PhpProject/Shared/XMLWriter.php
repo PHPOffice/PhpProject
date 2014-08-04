@@ -39,28 +39,28 @@ class XMLWriter extends \XMLWriter
      *
      * @var string
      */
-    private $_tempFileName = '';
+    private $tempFileName = '';
 
     /**
      * Create a new PHPProject_Shared_XMLWriter instance
      *
      * @param int        $pTemporaryStorage            Temporary storage location
-     * @param string    $pTemporaryStorageFolder    Temporary storage folder
+     * @param string    $pTemporaryStorageDir    Temporary storage folder
      */
-    public function __construct($pTemporaryStorage = self::STORAGE_MEMORY, $pTemporaryStorageFolder = null)
+    public function __construct($pTemporaryStorage = self::STORAGE_MEMORY, $pTemporaryStorageDir = null)
     {
         // Open temporary storage
         if ($pTemporaryStorage == self::STORAGE_MEMORY) {
             $this->openMemory();
         } else {
             // Create temporary filename
-            if ($pTemporaryStorageFolder === null) {
-                $pTemporaryStorageFolder = File::sysGetTempDir();
+            if ($pTemporaryStorageDir === null) {
+                $pTemporaryStorageDir = File::sysGetTempDir();
             }
-            $this->_tempFileName = @tempnam($pTemporaryStorageFolder, 'xml');
+            $this->tempFileName = @tempnam($pTemporaryStorageDir, 'xml');
 
             // Open storage
-            if ($this->openUri($this->_tempFileName) === false) {
+            if ($this->openUri($this->tempFileName) === false) {
                 // Fallback to memory...
                 $this->openMemory();
             }
@@ -78,8 +78,8 @@ class XMLWriter extends \XMLWriter
     public function __destruct()
     {
         // Unlink temporary files
-        if ($this->_tempFileName != '') {
-            @unlink($this->_tempFileName);
+        if ($this->tempFileName != '') {
+            @unlink($this->tempFileName);
         }
     }
 
@@ -90,11 +90,11 @@ class XMLWriter extends \XMLWriter
      */
     public function getData()
     {
-        if ($this->_tempFileName == '') {
+        if ($this->tempFileName == '') {
             return $this->outputMemory(true);
         } else {
             $this->flush();
-            return file_get_contents($this->_tempFileName);
+            return file_get_contents($this->tempFileName);
         }
     }
 

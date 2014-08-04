@@ -29,28 +29,28 @@ class PhpProject
     /**
      * Document properties
      *
-     * @var PHPProject_DocumentProperties
+     * @var DocumentProperties
      */
     private $properties;
 
     /**
      * Document informations
      *
-     * @var PHPProject_DocumentInformations
+     * @var DocumentInformations
      */
     private $informations;
     
     /**
      * Collection of task objects
      *
-     * @var PHPProject_Task[]
+     * @var Task[]
      */
     private $taskCollection = array();
     
     /**
      * Collection of resource objects
      *
-     * @var PHPProject_Resource[]
+     * @var Resource[]
      */
     private $resourceCollection = array();
 
@@ -187,33 +187,6 @@ class PhpProject
         } else {
             return $this->resourceCollection[$pIndex];
         }
-    }
-    
-    /**
-     * Get active resource index
-     *
-     * @return int Active resource index
-     */
-    private function getActiveResourceIndex()
-    {
-        return $this->activeResourceIndex;
-    }
-    
-    /**
-     * Set active resource index
-     *
-     * @param int $pIndex Active resource index
-     * @throws Exception
-     * @return PHPProject_Resource
-     */
-    private function setActiveResourceIndex($pIndex = 0)
-    {
-        if ($pIndex > count($this->resourceCollection) - 1) {
-            throw new Exception('Active resource index is out of bounds.');
-        } else {
-            $this->activeResourceIndex = $pIndex;
-        }
-        return $this->getActiveResource();
     }
     
     //===============================================

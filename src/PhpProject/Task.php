@@ -87,7 +87,7 @@ class Task
      *
      * @var int
      */
-    private $_activeTaskIndex = 0;
+    private $activeTaskIndex = 0;
     
     public function __construct()
     {
@@ -242,7 +242,7 @@ class Task
      */
     public function setIndex($value)
     {
-    	$this->index = $value;
+        $this->index = $value;
         return $this;
     }
     
@@ -284,7 +284,7 @@ class Task
         $newTask = new self();
         $newTask->setIndex($this->getTaskCount());
         $this->taskCollection[] = $newTask;
-        $this->_activeTaskIndex = $this->getTaskCount() - 1;
+        $this->activeTaskIndex = $this->getTaskCount() - 1;
         return $newTask;
     }
     

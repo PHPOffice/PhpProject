@@ -69,24 +69,25 @@ class GanttProject
             $oXML->writeAttribute('view-date', date('Y-m-d', $arrProjectInfo['date_start']));
         }
         $oXML->writeAttribute('version', '2.0');
-            // view
-            $oXML->startElement('view');
-                $oXML->writeAttribute('id', 'resource-table');
+        
+        // view
+        $oXML->startElement('view');
+        $oXML->writeAttribute('id', 'resource-table');
             
-                // field
-                $oXML->startElement('field');
-                $oXML->writeAttribute('id', '0');
-                $oXML->writeAttribute('name', 'Nom');
-                $oXML->writeAttribute('width', '56');
-                $oXML->writeAttribute('valuetype', '0');
-                $oXML->endElement();
-                
-                $oXML->startElement('field');
-                $oXML->writeAttribute('id', '1');
-                $oXML->writeAttribute('name', 'Rôle par défaut');
-                $oXML->writeAttribute('width', '43');
-                $oXML->writeAttribute('valuetype', '1');
-                $oXML->endElement();
+        // field
+        $oXML->startElement('field');
+        $oXML->writeAttribute('id', '0');
+        $oXML->writeAttribute('name', 'Nom');
+        $oXML->writeAttribute('width', '56');
+        $oXML->writeAttribute('valuetype', '0');
+        $oXML->endElement();
+
+            $oXML->startElement('field');
+            $oXML->writeAttribute('id', '1');
+            $oXML->writeAttribute('name', 'Rôle par défaut');
+            $oXML->writeAttribute('width', '43');
+            $oXML->writeAttribute('valuetype', '1');
+            $oXML->endElement();
                 
             // >view
             $oXML->endElement();
@@ -191,7 +192,6 @@ class GanttProject
             foreach ($arrResources as $oResource) {
                 $this->_writeResource($oXML, $oResource);
             }
-            
             
             // >resources
             $oXML->endElement();

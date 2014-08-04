@@ -25,11 +25,7 @@
  * @version    ##VERSION##, ##DATE##
  */
 
-/** PHPProject root directory */
-if (!defined('PHPPROJECT_ROOT')) {
-	define('PHPPROJECT_ROOT', dirname(__FILE__) . '/');
-	require(PHPPROJECT_ROOT . 'PHPProject/Autoloader.php');
-}
+namespace PhpOffice\PhpProject;
 
 /**
  * PHPProject

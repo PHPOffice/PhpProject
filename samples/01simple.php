@@ -2,6 +2,8 @@
 
 include_once 'Sample_Header.php';
 
+use PhpOffice\PhpProject\PHPProject;
+
 // Create new PHPProject object
 echo date('H:i:s') . ' Create new PHPProject object'.EOL;
 $objPHPProject = new PHPProject();

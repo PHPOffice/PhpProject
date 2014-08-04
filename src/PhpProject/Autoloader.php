@@ -1,81 +1,55 @@
 <?php
 /**
- * PHPProject
- *
- * Copyright (c) 2012 - 2012 PHPProject
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- *
- * @category   PHPProject
- * @package    PHPProject
- * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
- * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
- * @version    ##VERSION##, ##DATE##
- */
+ * This file is part of PHPProject - A pure PHP library for reading and writing
+* presentations documents.
+*
+* PHPProject is free software distributed under the terms of the GNU Lesser
+* General Public License version 3 as published by the Free Software Foundation.
+*
+* For the full copyright and license information, please read the LICENSE
+* file that was distributed with this source code. For the full list of
+* contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+*
+* @link        https://github.com/PHPOffice/PHPProject
+* @copyright   2009-2014 PHPProject contributors
+* @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+*/
 
-PHPProject_Autoloader::Register();
-// check mbstring.func_overload
-if (ini_get('mbstring.func_overload') & 2) {
-    throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
-}
-
+namespace PhpOffice\PhpProject;
 
 /**
- * PHPProject_Autoloader
- *
- * @category	PHPProject
- * @package		PHPProject
- * @copyright	Copyright (c) 2006 - 2012 PHPProject (https://github.com/Progi1984/PHPProject)
+ * Autoloader
  */
-class PHPProject_Autoloader
+class Autoloader
 {
-	/**
-	 * Register the Autoloader with SPL
-	 *
-	 */
-	public static function Register() {
-		if (function_exists('__autoload')) {
-			//	Register any existing autoloader function with SPL, so we don't get any clashes
-			spl_autoload_register('__autoload');
-		}
-		//	Register ourselves with SPL
-		return spl_autoload_register(array('PHPProject_Autoloader', 'Load'));
-	}	//	function Register()
-
+	/** @const string */
+	const NAMESPACE_PREFIX = 'PhpOffice\\PhpProject\\';
 
 	/**
-	 * Autoload a class identified by name
+	 * Register
 	 *
-	 * @param	string	$pClassName		Name of the object to load
+	 * @return void
 	 */
-	public static function Load($pClassName){
-		if ((class_exists($pClassName)) || (strpos($pClassName, 'PHPProject') !== 0)) {
-			//	Either already loaded, or not a PHPProject class request
-			return FALSE;
+	public static function register()
+	{
+		spl_autoload_register(array(new self, 'autoload'));
+	}
+
+	/**
+	 * Autoload
+	 *
+	 * @param string $class
+	 */
+	public static function autoload($class)
+	{
+		$prefixLength = strlen(self::NAMESPACE_PREFIX);
+		if (0 === strncmp(self::NAMESPACE_PREFIX, $class, $prefixLength)) {
+			$file = str_replace('\\', DIRECTORY_SEPARATOR, substr($class, $prefixLength));
+			$file = realpath(__DIR__ . (empty($file) ? '' : DIRECTORY_SEPARATOR) . $file . '.php');
+			if (file_exists($file)) {
+				/** @noinspection PhpIncludeInspection Dynamic includes */
+				require_once $file;
+			}
 		}
-
-		$pClassFilePath = PHPPROJECT_ROOT .
-						  str_replace('_',DIRECTORY_SEPARATOR,$pClassName) .
-						  '.php';
-
-		if ((file_exists($pClassFilePath) === false) || (is_readable($pClassFilePath) === false)) {
-			//	Can't load
-			return FALSE;
-		}
-
-		require($pClassFilePath);
-	}	//	function Load()
-
+	}
 }

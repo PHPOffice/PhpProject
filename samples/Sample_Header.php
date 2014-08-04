@@ -2,7 +2,7 @@
 /**
  * Header file
 */
-// use PhpOffice\PhpProject\Autoloader;
+use PhpOffice\PhpProject\Autoloader;
 // use PhpOffice\PhpProject\Settings;
 // use PhpOffice\PhpProject\IOFactory;
 
@@ -13,7 +13,7 @@ define('SCRIPT_FILENAME', basename($_SERVER['SCRIPT_FILENAME'], '.php'));
 define('IS_INDEX', SCRIPT_FILENAME == 'index');
 
 require_once __DIR__ . '/../src/PhpProject/Autoloader.php';
-// Autoloader::register();
+Autoloader::register();
 
 // Set writers
 $writers = array('GanttProject' => 'gan', 'MSProjectExchange' => 'mpx');

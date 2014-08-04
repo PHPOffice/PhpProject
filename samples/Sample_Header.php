@@ -3,8 +3,7 @@
  * Header file
 */
 use PhpOffice\PhpProject\Autoloader;
-// use PhpOffice\PhpProject\Settings;
-// use PhpOffice\PhpProject\IOFactory;
+use PhpOffice\PhpProject\IOFactory;
 
 error_reporting(E_ALL);
 define('CLI', (PHP_SAPI == 'cli') ? true : false);
@@ -16,7 +15,7 @@ require_once __DIR__ . '/../src/PhpProject/Autoloader.php';
 Autoloader::register();
 
 // Set writers
-$writers = array('GanttProject' => 'gan', 'MSProjectExchange' => 'mpx');
+$writers = array('GanttProject' => 'gan'/*, 'MSProjectExchange' => 'mpx'*/);
 
 // Return to the caller script when runs by CLI
 if (CLI) {

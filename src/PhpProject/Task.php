@@ -1,30 +1,21 @@
 <?php
 /**
- * PHPProject
+ * This file is part of PHPProject - A pure PHP library for reading and writing
+ * presentations documents.
  *
- * Copyright (c) 2012 - 2012 PHPProject
+ * PHPProject is free software distributed under the terms of the GNU Lesser
+ * General Public License version 3 as published by the Free Software Foundation.
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * For the full copyright and license information, please read the LICENSE
+ * file that was distributed with this source code. For the full list of
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- *
- * @category	PHPProject
- * @package	PHPProject
- * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
- * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	##VERSION##, ##DATE##
+ * @link        https://github.com/PHPOffice/PHPProject
+ * @copyright   2009-2014 PHPProject contributors
+ * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
+namespace PhpOffice\PhpProject;
 
 /**
  * PHPProject_Task
@@ -33,7 +24,7 @@
  * @package		PHPProject
  * @copyright	Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_Task
+class Task
 {
 	/**
 	 * Name
@@ -112,7 +103,7 @@ class PHPProject_Task
 	 */
 	private $_activeTaskIndex = 0;
 	
-	public function __construct(PHPProject $pParent, $pIndex, PHPProject_Task $pParentTask = null){
+	public function __construct(PhpProject $pParent, $pIndex, Task $pParentTask = null){
 		$this->_parentProject = $pParent;
 		$this->_parentTask = $pParentTask;
 		$this->_index = $pIndex;
@@ -277,7 +268,7 @@ class PHPProject_Task
 	 * Add a resource used by the current task
 	 * @param PHPProject_Resource $pResource
 	 */
-	public function addResource(PHPProject_Resource $pResource){
+	public function addResource(Resource $pResource){
 		if(array_search($pResource->getIndex(), $this->_resourceCollection) === false){
 			$this->_resourceCollection[] = $pResource->getIndex();
 		}
@@ -301,7 +292,7 @@ class PHPProject_Task
 	// Tasks
 	//===============================================
 	public function createTask(){
-		$newTask = new PHPProject_Task($this->_parentProject, $this->getTaskCount(), $this);
+		$newTask = new self($this->_parentProject, $this->getTaskCount(), $this);
 		$this->_taskCollection[] = $newTask;
 		$this->_activeTaskIndex = $this->getTaskCount() - 1;
 		return $newTask;

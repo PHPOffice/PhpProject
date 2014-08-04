@@ -1,30 +1,21 @@
 <?php
 /**
- * PHPProject
- *
- * Copyright (c) 2012 - 2012 PHPProject
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- *
- * @category   PHPProject
- * @package    PHPProject_Shared
- * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
- * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    ##VERSION##, ##DATE##
- */
+ * This file is part of PHPProject - A pure PHP library for reading and writing
+* presentations documents.
+*
+* PHPProject is free software distributed under the terms of the GNU Lesser
+* General Public License version 3 as published by the Free Software Foundation.
+*
+* For the full copyright and license information, please read the LICENSE
+* file that was distributed with this source code. For the full list of
+* contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+*
+* @link        https://github.com/PHPOffice/PHPProject
+* @copyright   2009-2014 PHPProject contributors
+* @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+*/
 
+namespace PhpOffice\PhpProject\Shared;
 
 /**
  * PHPProject_Shared_File
@@ -33,7 +24,7 @@
  * @package    PHPProject_Shared
  * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject_Shared_File
+class File
 {
 	/**
 	  * Verify if a file exists

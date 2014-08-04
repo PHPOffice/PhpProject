@@ -1,28 +1,18 @@
 <?php
 /**
- * PHPProject
+ * This file is part of PHPProject - A pure PHP library for reading and writing
+ * presentations documents.
  *
- * Copyright (c) 2012 - 2012 PHPProject
+ * PHPProject is free software distributed under the terms of the GNU Lesser
+ * General Public License version 3 as published by the Free Software Foundation.
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * For the full copyright and license information, please read the LICENSE
+ * file that was distributed with this source code. For the full list of
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
  *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- *
- * @category   PHPProject
- * @package    PHPProject
- * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
- * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    ##VERSION##, ##DATE##
+ * @link        https://github.com/PHPOffice/PHPProject
+ * @copyright   2009-2014 PHPProject contributors
+ * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
 namespace PhpOffice\PhpProject;
@@ -34,7 +24,7 @@ namespace PhpOffice\PhpProject;
  * @package    PHPProject
  * @copyright  Copyright (c) 2006 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class PHPProject
+class PhpProject
 {
 	/**
 	 * Document properties
@@ -83,9 +73,9 @@ class PHPProject
 	 */
 	public function __construct() {
 		// Create document properties
-		$this->_properties = new PHPProject_DocumentProperties();
+		$this->_properties = new DocumentProperties();
 		// Create document informations
-		$this->_informations = new PHPProject_DocumentInformations();
+		$this->_informations = new DocumentInformations();
 	}
 
 	//===============================================
@@ -106,7 +96,7 @@ class PHPProject
 	 *
 	 * @param PHPProject_DocumentProperties	$pValue
 	 */
-	public function setProperties(PHPProject_DocumentProperties $pValue)
+	public function setProperties(DocumentProperties $pValue)
 	{
 		$this->_properties = $pValue;
 	}
@@ -129,7 +119,7 @@ class PHPProject
 	 *
 	 * @param PHPProject_DocumentProperties	$pValue
 	 */
-	public function setInformations(PHPProject_DocumentInformations $pValue)
+	public function setInformations(DocumentInformations $pValue)
 	{
 		$this->_informations = $pValue;
 	}
@@ -144,7 +134,7 @@ class PHPProject
 	 * @throws Exception
 	 */
 	public function createResource() {
-		$newRessource = new PHPProject_Resource($this, $this->getResourceCount());
+		$newRessource = new Resource($this, $this->getResourceCount());
 		$this->_resourceCollection[] = $newRessource;
 		$this->_activeResourceIndex = $this->getResourceCount() - 1;
 		return $newRessource;
@@ -232,7 +222,7 @@ class PHPProject
 	 * @throws Exception
 	 */
 	public function createTask() {
-		$newTask = new PHPProject_Task($this, $this->getTaskCount());
+		$newTask = new Task($this, $this->getTaskCount());
 		$this->_taskCollection[] = $newTask;
 		$this->_activeTaskIndex = $this->getTaskCount() - 1;
 		return $newTask;

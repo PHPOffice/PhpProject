@@ -43,8 +43,8 @@ class File
         }
 
         // Found something?
-        if ($returnValue == '' || ($returnValue === NULL)) {
-            $pathArray = explode('/' , $pFilename);
+        if ($returnValue == '' || ($returnValue === null)) {
+            $pathArray = explode('/', $pFilename);
             while (in_array('..', $pathArray) && $pathArray[0] != '..') {
                 for ($i = 0; $i < count($pathArray); ++$i) {
                     if ($pathArray[$i] == '..' && $i > 0) {

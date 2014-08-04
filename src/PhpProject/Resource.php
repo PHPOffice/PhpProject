@@ -31,26 +31,26 @@ class Resource
      * 
      * @var string
      */
-    private $_title;
+    private $title;
     
     /**
      * Parent Project
      * 
      * @var PHPProject
      */
-    private $_parent;
+    private $parent;
     
     /**
      * Index
      * 
      * @var integer
      */
-    private $_index;
+    private $index;
     
     public function __construct(PhpProject $pParent, $pIndex)
     {
-        $this->_parent = $pParent;
-        $this->_index = $pIndex;
+        $this->parent = $pParent;
+        $this->index = $pIndex;
     }
     
     /**
@@ -60,7 +60,7 @@ class Resource
      */
     public function getTitle()
     {
-        return $this->_title;
+        return $this->title;
     }
     
     /**
@@ -71,7 +71,7 @@ class Resource
      */
     public function setTitle($pTitle)
     {
-        $this->_title = $pTitle;
+        $this->title = $pTitle;
         return $this;
     }
     
@@ -82,7 +82,7 @@ class Resource
      */
     public function getIndex()
     {
-        return $this->_index;
+        return $this->index;
     }
     
     /**
@@ -92,6 +92,6 @@ class Resource
      */
     public function getParent()
     {
-        return $this->_parent;
+        return $this->parent;
     }
 }

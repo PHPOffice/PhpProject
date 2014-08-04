@@ -31,70 +31,70 @@ class Task
      * 
      * @var string
      */
-    private $_name;
+    private $name;
     
     /**
      * Duration
      * 
      * @var string
      */
-    private $_duration;
+    private $duration;
     
     /**
      * Start Date
      *
      * @var    datetime
      */
-    private $_startDate;
+    private $startDate;
     
     /**
      * End Date
      *
      * @var    datetime
      */
-    private $_endDate;
+    private $endDate;
     
     /**
      * Progress
      *
      * @var    float
      */
-    private $_progress;
+    private $progress;
     
     /**
      * Parent Project
      * 
      * @var PHPProject
      */
-    private $_parentProject;
+    private $parentProject;
     
     /**
      * Parent Task
      *
      * @var PHPProject_Task
      */
-    private $_parentTask;
+    private $parentTask;
     
     /**
      * Index
      *
      * @var integer
      */
-    private $_index;
+    private $index;
     
     /**
      * Collection of PHPProject_Resource index
      * 
      * @var integer[]
      */
-    private $_resourceCollection;
+    private $resourceCollection;
     
     /**
      * Collection of task objects
      *
      * @var PHPProject_Task[]
      */
-    private $_taskCollection = array();
+    private $taskCollection = array();
     
     /**
      * Active task
@@ -105,11 +105,11 @@ class Task
     
     public function __construct(PhpProject $pParent, $pIndex, Task $pParentTask = null)
     {
-        $this->_parentProject = $pParent;
-        $this->_parentTask = $pParentTask;
-        $this->_index = $pIndex;
+        $this->parentProject = $pParent;
+        $this->parentTask = $pParentTask;
+        $this->index = $pIndex;
         
-        $this->_resourceCollection = array();
+        $this->resourceCollection = array();
     }
     
     /**
@@ -129,7 +129,7 @@ class Task
      */
     public function getParentTask()
     {
-        return $this->_parentTask;
+        return $this->parentTask;
     }
 
     /**
@@ -139,7 +139,7 @@ class Task
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
     
     /**
@@ -150,7 +150,7 @@ class Task
      */
     public function setName($pValue)
     {
-        $this->_name = $pValue;
+        $this->name = $pValue;
         return $this;
     }
     
@@ -161,7 +161,7 @@ class Task
      */
     public function getDuration()
     {
-        return $this->_duration;
+        return $this->duration;
     }
     
     /**
@@ -172,7 +172,7 @@ class Task
      */
     public function setDuration($pValue)
     {
-        $this->_duration = $pValue;
+        $this->duration = $pValue;
         return $this;
     }
     
@@ -183,7 +183,7 @@ class Task
      */
     public function getStartDate()
     {
-        return $this->_startDate;
+        return $this->startDate;
     }
 
     /**
@@ -204,7 +204,7 @@ class Task
             }
         }
 
-        $this->_startDate = $pValue;
+        $this->startDate = $pValue;
         return $this;
     }
 
@@ -215,7 +215,7 @@ class Task
      */
     public function getEndDate()
     {
-        return $this->_endDate;
+        return $this->endDate;
     }
 
     /**
@@ -236,7 +236,7 @@ class Task
             }
         }
 
-        $this->_endDate = $pValue;
+        $this->endDate = $pValue;
         return $this;
     }
     
@@ -247,7 +247,7 @@ class Task
      */
     public function getProgress()
     {
-        return $this->_progress;
+        return $this->progress;
     }
     
     /**
@@ -259,11 +259,11 @@ class Task
     public function setProgress($pValue = 0)
     {
         if ($pValue > 1) {
-            $this->_progress = 1;
-        } elseif($pValue < 0) {
-            $this->_progress = 0;
+            $this->progress = 1;
+        } elseif ($pValue < 0) {
+            $this->progress = 0;
         } else {
-            $this->_progress = $pValue;
+            $this->progress = $pValue;
         }
         return $this;
     }
@@ -277,8 +277,8 @@ class Task
      */
     public function addResource(Resource $pResource)
     {
-        if (array_search($pResource->getIndex(), $this->_resourceCollection) === false) {
-            $this->_resourceCollection[] = $pResource->getIndex();
+        if (array_search($pResource->getIndex(), $this->resourceCollection) === false) {
+            $this->resourceCollection[] = $pResource->getIndex();
         }
         return $this;
     }
@@ -290,12 +290,12 @@ class Task
      */
     public function getResources()
     {
-        return $this->_resourceCollection;
+        return $this->resourceCollection;
     }
 
     public function getResourceCount()
     {
-        return count($this->_resourceCollection);
+        return count($this->resourceCollection);
     }
     
     //===============================================
@@ -303,8 +303,8 @@ class Task
     //===============================================
     public function createTask()
     {
-        $newTask = new self($this->_parentProject, $this->getTaskCount(), $this);
-        $this->_taskCollection[] = $newTask;
+        $newTask = new self($this->parentProject, $this->getTaskCount(), $this);
+        $this->taskCollection[] = $newTask;
         $this->_activeTaskIndex = $this->getTaskCount() - 1;
         return $newTask;
     }
@@ -316,11 +316,11 @@ class Task
      */
     public function getTasks()
     {
-        return $this->_taskCollection;
+        return $this->taskCollection;
     }
 
     public function getTaskCount()
     {
-        return count($this->_taskCollection);
+        return count($this->taskCollection);
     }
 }

@@ -36,29 +36,34 @@ class GanttProject
      *
      * @var PHPProject
      */
-    private $_phpProject;
+    private $phpProject;
     
     /**
      * 
      * @var array
      */
-    private $_arrAllocations;
+    private $arrAllocations;
     
     
     /**
      * Create a new PHPProject_Writer_GanttProject
      *
-     * @param    PHPProject    $phpProject    PHPProject object
+     * @param    PHPProject    $phpProject
      */
-    public function __construct(PhpProject $phpProject)
+    public function __construct (PhpProject $phpProject)
     {
-        $this->_phpProject    = $phpProject;
-        $this->_arrAllocations = array();
+        $this->phpProject = $phpProject;
+        $this->arrAllocations = array();
     }
     
-    public function save($pFilename = null)
+    /**
+     * 
+     * @param string $pFilename
+     * @throws Exception
+     */
+    public function save ($pFilename)
     {
-        $arrProjectInfo = $this->_sanitizeProject();
+        $arrProjectInfo = $this->sanitizeProject();
         
         // Create XML Object
         $oXML = new XMLWriter(XMLWriter::STORAGE_DISK);
@@ -73,7 +78,7 @@ class GanttProject
         // view
         $oXML->startElement('view');
         $oXML->writeAttribute('id', 'resource-table');
-            
+        
         // field
         $oXML->startElement('field');
         $oXML->writeAttribute('id', '0');
@@ -81,218 +86,218 @@ class GanttProject
         $oXML->writeAttribute('width', '56');
         $oXML->writeAttribute('valuetype', '0');
         $oXML->endElement();
-
-            $oXML->startElement('field');
-            $oXML->writeAttribute('id', '1');
-            $oXML->writeAttribute('name', 'Rôle par défaut');
-            $oXML->writeAttribute('width', '43');
-            $oXML->writeAttribute('valuetype', '1');
-            $oXML->endElement();
-                
-            // >view
-            $oXML->endElement();
-            
-            // tasks
-            $oXML->startElement('tasks');
-            
-            // tasksproperties
-            $oXML->startElement('tasksproperties');
-                
-            // taskproperty
-            $oXML->startElement('taskproperty');
-            $oXML->writeAttribute('id', 'tpd0');
-            $oXML->writeAttribute('name', 'type');
-            $oXML->writeAttribute('type', 'default');
-            $oXML->writeAttribute('valuetype', 'icon');
-            $oXML->endElement();
-                    
-            $oXML->startElement('taskproperty');
-            $oXML->writeAttribute('id', 'tpd1');
-            $oXML->writeAttribute('name', 'priority');
-            $oXML->writeAttribute('type', 'default');
-            $oXML->writeAttribute('valuetype', 'icon');
-            $oXML->endElement();
-                    
-            $oXML->startElement('taskproperty');
-            $oXML->writeAttribute('id', 'tpd2');
-            $oXML->writeAttribute('name', 'info');
-            $oXML->writeAttribute('type', 'default');
-            $oXML->writeAttribute('valuetype', 'icon');
-            $oXML->endElement();
-                    
-            $oXML->startElement('taskproperty');
-            $oXML->writeAttribute('id', 'tpd3');
-            $oXML->writeAttribute('name', 'name');
-            $oXML->writeAttribute('type', 'default');
-            $oXML->writeAttribute('valuetype', 'text');
-            $oXML->endElement();
-                    
-            $oXML->startElement('taskproperty');
-            $oXML->writeAttribute('id', 'tpd4');
-            $oXML->writeAttribute('name', 'begindate');
-            $oXML->writeAttribute('type', 'default');
-            $oXML->writeAttribute('valuetype', 'date');
-            $oXML->endElement();
-                    
-            $oXML->startElement('taskproperty');
-            $oXML->writeAttribute('id', 'tpd5');
-            $oXML->writeAttribute('name', 'enddate');
-            $oXML->writeAttribute('type', 'default');
-            $oXML->writeAttribute('valuetype', 'date');
-            $oXML->endElement();
-                    
-            $oXML->startElement('taskproperty');
-            $oXML->writeAttribute('id', 'tpd6');
-            $oXML->writeAttribute('name', 'duration');
-            $oXML->writeAttribute('type', 'default');
-            $oXML->writeAttribute('valuetype', 'int');
-            $oXML->endElement();
-                    
-            $oXML->startElement('taskproperty');
-            $oXML->writeAttribute('id', 'tpd7');
-            $oXML->writeAttribute('name', 'completion');
-            $oXML->writeAttribute('type', 'default');
-            $oXML->writeAttribute('valuetype', 'int');
-            $oXML->endElement();
-                    
-            $oXML->startElement('taskproperty');
-            $oXML->writeAttribute('id', 'tpd8');
-            $oXML->writeAttribute('name', 'coordinator');
-            $oXML->writeAttribute('type', 'default');
-            $oXML->writeAttribute('valuetype', 'text');
-            $oXML->endElement();
-                    
-            $oXML->startElement('taskproperty');
-            $oXML->writeAttribute('id', 'tpd9');
-            $oXML->writeAttribute('name', 'predecessorsr');
-            $oXML->writeAttribute('type', 'default');
-            $oXML->writeAttribute('valuetype', 'text');
-            $oXML->endElement();
-            // >taskproperty
-                    
-            // >tasksproperties
-            $oXML->endElement();
-                
-            // task
-            $arrTasks = $this->_phpProject->getAllTasks();
-            $iTaskIndex = 0;
-            foreach ($arrTasks as $oTask) {
-                $iTaskIndex = $this->_writeTask($oXML, $oTask, $iTaskIndex);
+        
+        $oXML->startElement('field');
+        $oXML->writeAttribute('id', '1');
+        $oXML->writeAttribute('name', 'Rôle par défaut');
+        $oXML->writeAttribute('width', '43');
+        $oXML->writeAttribute('valuetype', '1');
+        $oXML->endElement();
+        
+        // >view
+        $oXML->endElement();
+        
+        // tasks
+        $oXML->startElement('tasks');
+        
+        // tasksproperties
+        $oXML->startElement('tasksproperties');
+        
+        // taskproperty
+        $oXML->startElement('taskproperty');
+        $oXML->writeAttribute('id', 'tpd0');
+        $oXML->writeAttribute('name', 'type');
+        $oXML->writeAttribute('type', 'default');
+        $oXML->writeAttribute('valuetype', 'icon');
+        $oXML->endElement();
+        
+        $oXML->startElement('taskproperty');
+        $oXML->writeAttribute('id', 'tpd1');
+        $oXML->writeAttribute('name', 'priority');
+        $oXML->writeAttribute('type', 'default');
+        $oXML->writeAttribute('valuetype', 'icon');
+        $oXML->endElement();
+        
+        $oXML->startElement('taskproperty');
+        $oXML->writeAttribute('id', 'tpd2');
+        $oXML->writeAttribute('name', 'info');
+        $oXML->writeAttribute('type', 'default');
+        $oXML->writeAttribute('valuetype', 'icon');
+        $oXML->endElement();
+        
+        $oXML->startElement('taskproperty');
+        $oXML->writeAttribute('id', 'tpd3');
+        $oXML->writeAttribute('name', 'name');
+        $oXML->writeAttribute('type', 'default');
+        $oXML->writeAttribute('valuetype', 'text');
+        $oXML->endElement();
+        
+        $oXML->startElement('taskproperty');
+        $oXML->writeAttribute('id', 'tpd4');
+        $oXML->writeAttribute('name', 'begindate');
+        $oXML->writeAttribute('type', 'default');
+        $oXML->writeAttribute('valuetype', 'date');
+        $oXML->endElement();
+        
+        $oXML->startElement('taskproperty');
+        $oXML->writeAttribute('id', 'tpd5');
+        $oXML->writeAttribute('name', 'enddate');
+        $oXML->writeAttribute('type', 'default');
+        $oXML->writeAttribute('valuetype', 'date');
+        $oXML->endElement();
+        
+        $oXML->startElement('taskproperty');
+        $oXML->writeAttribute('id', 'tpd6');
+        $oXML->writeAttribute('name', 'duration');
+        $oXML->writeAttribute('type', 'default');
+        $oXML->writeAttribute('valuetype', 'int');
+        $oXML->endElement();
+        
+        $oXML->startElement('taskproperty');
+        $oXML->writeAttribute('id', 'tpd7');
+        $oXML->writeAttribute('name', 'completion');
+        $oXML->writeAttribute('type', 'default');
+        $oXML->writeAttribute('valuetype', 'int');
+        $oXML->endElement();
+        
+        $oXML->startElement('taskproperty');
+        $oXML->writeAttribute('id', 'tpd8');
+        $oXML->writeAttribute('name', 'coordinator');
+        $oXML->writeAttribute('type', 'default');
+        $oXML->writeAttribute('valuetype', 'text');
+        $oXML->endElement();
+        
+        $oXML->startElement('taskproperty');
+        $oXML->writeAttribute('id', 'tpd9');
+        $oXML->writeAttribute('name', 'predecessorsr');
+        $oXML->writeAttribute('type', 'default');
+        $oXML->writeAttribute('valuetype', 'text');
+        $oXML->endElement();
+        // >taskproperty
+        
+        // >tasksproperties
+        $oXML->endElement();
+        
+        // task
+        $arrTasks = $this->phpProject->getAllTasks();
+        $iTaskIndex = 0;
+        foreach ($arrTasks as $oTask) {
+            $iTaskIndex = $this->writeTask($oXML, $oTask, $iTaskIndex);
+        }
+        
+        // >tasks
+        $oXML->endElement();
+        
+        // resources
+        $oXML->startElement('resources');
+        
+        // resource
+        $arrResources = $this->phpProject->getAllResources();
+        $iResourceIndex = 0;
+        foreach ($arrResources as $oResource) {
+            $this->writeResource($oXML, $oResource);
+        }
+        
+        // >resources
+        $oXML->endElement();
+        
+        // allocations
+        $oXML->startElement('allocations');
+        
+        if (count($this->arrAllocations) > 0) {
+            foreach ($this->arrAllocations as $itmAllocation) {
+                $this->writeAllocation($oXML, $itmAllocation['id_task'], $itmAllocation['id_res']);
             }
-            
-            // >tasks
-            $oXML->endElement();
-            
-            // resources
-            $oXML->startElement('resources');
-            
-            // resource
-            $arrResources = $this->_phpProject->getAllResources();
-            $iResourceIndex = 0;
-            foreach ($arrResources as $oResource) {
-                $this->_writeResource($oXML, $oResource);
-            }
-            
-            // >resources
-            $oXML->endElement();
-                
-            // allocations
-            $oXML->startElement('allocations');
-            
-            if (count($this->_arrAllocations) > 0) {
-                foreach ($this->_arrAllocations as $itmAllocation) {
-                    $this->_writeAllocation($oXML, $itmAllocation['id_task'], $itmAllocation['id_res']);
-                }
-            }
-                
-            // >allocations
-            $oXML->endElement();
-
-            // taskdisplaycolumns
-            $oXML->startElement('tasksproperties');
-            
-                // displaycolumn
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd2');
-                $oXML->writeAttribute('order', '-1');
-                $oXML->writeAttribute('width', '75');
-                $oXML->writeAttribute('visible', 'false');
-                $oXML->endElement();
-                
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd7');
-                $oXML->writeAttribute('order', '-1');
-                $oXML->writeAttribute('width', '75');
-                $oXML->writeAttribute('visible', 'false');
-                $oXML->endElement();
-                
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd6');
-                $oXML->writeAttribute('order', '-1');
-                $oXML->writeAttribute('width', '75');
-                $oXML->writeAttribute('visible', 'false');
-                $oXML->endElement();
-                
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd10');
-                $oXML->writeAttribute('order', '-1');
-                $oXML->writeAttribute('width', '75');
-                $oXML->writeAttribute('visible', 'false');
-                $oXML->endElement();
-                
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd1');
-                $oXML->writeAttribute('order', '-1');
-                $oXML->writeAttribute('width', '75');
-                $oXML->writeAttribute('visible', 'false');
-                $oXML->endElement();
-                
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd9');
-                $oXML->writeAttribute('order', '-1');
-                $oXML->writeAttribute('width', '75');
-                $oXML->writeAttribute('visible', 'false');
-                $oXML->endElement();
-                
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd8');
-                $oXML->writeAttribute('order', '-1');
-                $oXML->writeAttribute('width', '75');
-                $oXML->writeAttribute('visible', 'false');
-                $oXML->endElement();
-                
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd0');
-                $oXML->writeAttribute('order', '-1');
-                $oXML->writeAttribute('width', '75');
-                $oXML->writeAttribute('visible', 'false');
-                $oXML->endElement();
-                
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd3');
-                $oXML->writeAttribute('order', '0');
-                $oXML->writeAttribute('width', '199');
-                $oXML->writeAttribute('visible', 'true');
-                $oXML->endElement();
-                
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd4');
-                $oXML->writeAttribute('order', '1');
-                $oXML->writeAttribute('width', '75');
-                $oXML->writeAttribute('visible', 'true');
-                $oXML->endElement();
-                
-                $oXML->startElement('displaycolumn');
-                $oXML->writeAttribute('property-id', 'tpd5');
-                $oXML->writeAttribute('order', '2');
-                $oXML->writeAttribute('width', '75');
-                $oXML->writeAttribute('visible', 'true');
-                $oXML->endElement();
-                // >displaycolumn
-                
-            // >taskdisplaycolumns
-            $oXML->endElement();
-            
+        }
+        
+        // >allocations
+        $oXML->endElement();
+        
+        // taskdisplaycolumns
+        $oXML->startElement('tasksproperties');
+        
+        // displaycolumn
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd2');
+        $oXML->writeAttribute('order', '-1');
+        $oXML->writeAttribute('width', '75');
+        $oXML->writeAttribute('visible', 'false');
+        $oXML->endElement();
+        
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd7');
+        $oXML->writeAttribute('order', '-1');
+        $oXML->writeAttribute('width', '75');
+        $oXML->writeAttribute('visible', 'false');
+        $oXML->endElement();
+        
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd6');
+        $oXML->writeAttribute('order', '-1');
+        $oXML->writeAttribute('width', '75');
+        $oXML->writeAttribute('visible', 'false');
+        $oXML->endElement();
+        
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd10');
+        $oXML->writeAttribute('order', '-1');
+        $oXML->writeAttribute('width', '75');
+        $oXML->writeAttribute('visible', 'false');
+        $oXML->endElement();
+        
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd1');
+        $oXML->writeAttribute('order', '-1');
+        $oXML->writeAttribute('width', '75');
+        $oXML->writeAttribute('visible', 'false');
+        $oXML->endElement();
+        
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd9');
+        $oXML->writeAttribute('order', '-1');
+        $oXML->writeAttribute('width', '75');
+        $oXML->writeAttribute('visible', 'false');
+        $oXML->endElement();
+        
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd8');
+        $oXML->writeAttribute('order', '-1');
+        $oXML->writeAttribute('width', '75');
+        $oXML->writeAttribute('visible', 'false');
+        $oXML->endElement();
+        
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd0');
+        $oXML->writeAttribute('order', '-1');
+        $oXML->writeAttribute('width', '75');
+        $oXML->writeAttribute('visible', 'false');
+        $oXML->endElement();
+        
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd3');
+        $oXML->writeAttribute('order', '0');
+        $oXML->writeAttribute('width', '199');
+        $oXML->writeAttribute('visible', 'true');
+        $oXML->endElement();
+        
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd4');
+        $oXML->writeAttribute('order', '1');
+        $oXML->writeAttribute('width', '75');
+        $oXML->writeAttribute('visible', 'true');
+        $oXML->endElement();
+        
+        $oXML->startElement('displaycolumn');
+        $oXML->writeAttribute('property-id', 'tpd5');
+        $oXML->writeAttribute('order', '2');
+        $oXML->writeAttribute('width', '75');
+        $oXML->writeAttribute('visible', 'true');
+        $oXML->endElement();
+        // >displaycolumn
+        
+        // >taskdisplaycolumns
+        $oXML->endElement();
+        
         // >project
         $oXML->endElement();
         
@@ -308,8 +313,8 @@ class GanttProject
         // Close file
         fclose($fileHandle);
     }
-
-    private function _writeTask(XMLWriter $oXML, Task $oTask, $iNbTasks)
+    
+    private function writeTask (XMLWriter $oXML, Task $oTask, $iNbTasks)
     {
         ++$iNbTasks;
         $oXML->startElement('task');
@@ -317,7 +322,7 @@ class GanttProject
         $oXML->writeAttribute('name', $oTask->getName());
         $oXML->writeAttribute('start', date('Y-m-d', $oTask->getStartDate()));
         $oXML->writeAttribute('duration', $oTask->getDuration());
-        $oXML->writeAttribute('complete', $oTask->getProgress()*100);
+        $oXML->writeAttribute('complete', $oTask->getProgress() * 100);
         $oXML->writeAttribute('meeting', 'false');
         $oXML->writeAttribute('expand', 'true');
         
@@ -328,15 +333,15 @@ class GanttProject
                 $itmAllocation = array();
                 $itmAllocation['id_res'] = $resourceIdx;
                 $itmAllocation['id_task'] = $iNbTasks;
-                $this->_arrAllocations[] = $itmAllocation;
+                $this->arrAllocations[] = $itmAllocation;
             }
         }
-
+        
         // Children
         if ($oTask->getTaskCount() > 0) {
             $arrTasksChilds = $oTask->getTasks();
             foreach ($arrTasksChilds as $oTaskChild) {
-                $iNbTasks = $this->_writeTask($oXML, $oTaskChild, $iNbTasks);
+                $iNbTasks = $this->writeTask($oXML, $oTaskChild, $iNbTasks);
             }
         } else {
             // Nothing
@@ -346,7 +351,7 @@ class GanttProject
         return $iNbTasks;
     }
     
-    private function _writeResource(XMLWriter $oXML, Resource $oResource)
+    private function writeResource (XMLWriter $oXML, Resource $oResource)
     {
         $oXML->startElement('resource');
         $oXML->writeAttribute('id', $oResource->getIndex());
@@ -357,7 +362,7 @@ class GanttProject
         $oXML->endElement();
     }
     
-    private function _writeAllocation(XMLWriter $oXML, $piIdTask, $piIdResource)
+    private function writeAllocation (XMLWriter $oXML, $piIdTask, $piIdResource)
     {
         $oXML->startElement('allocation');
         $oXML->writeAttribute('task-id', $piIdTask);
@@ -368,26 +373,27 @@ class GanttProject
         $oXML->endElement();
     }
     
-    private function _sanitizeProject()
+    private function sanitizeProject ()
     {
         // Info Project
         $minDate = 0;
         // Browse all tasks
-        $arrTasks = $this->_phpProject->getAllTasks();
-        $iTaskIndex = 0;
+        $arrTasks = $this->phpProject->getAllTasks();
         foreach ($arrTasks as $oTask) {
             if ($oTask->getTaskCount() == 0) {
-                $this->_sanitizeTask($oTask);
+                $this->sanitizeTask($oTask);
             } else {
-                $this->_sanitizeTaskParent($oTask);
+                $this->sanitizeTaskParent($oTask);
             }
             $tStartDate = $oTask->getStartDate();
             if ($minDate == 0 || $tStartDate < $minDate) {
                 $minDate = $tStartDate;
             }
         }
-
-        return array('date_start' => $minDate);
+        
+        return array(
+            'date_start' => $minDate
+        );
     }
     
     /**
@@ -396,7 +402,7 @@ class GanttProject
      * - If the end date is not filled, but the duration is, we calculate it.
      * @param PHPProject_Task $oTask
      */
-    private function _sanitizeTask(Task $oTask)
+    private function sanitizeTask (Task $oTask)
     {
         $pDuration = $oTask->getDuration();
         $pEndDate = $oTask->getEndDate();
@@ -416,18 +422,18 @@ class GanttProject
      *   date start and complete average.
      * @param PHPProject_Task $oParentTask
      */
-    private function _sanitizeTaskParent(Task $oParentTask)
+    private function sanitizeTaskParent (Task $oParentTask)
     {
         $arrTasksChilds = $oParentTask->getTasks();
-
+        
         $iProgress = 0;
         $tStartDate = null;
         $tEndDate = null;
         foreach ($arrTasksChilds as $oTaskChild) {
             if ($oTaskChild->getTaskCount() == 0) {
-                $this->_sanitizeTask($oTaskChild);
+                $this->sanitizeTask($oTaskChild);
             } else {
-                $this->_sanitizeTaskParent($oTaskChild);
+                $this->sanitizeTaskParent($oTaskChild);
             }
             
             $iProgress += $oTaskChild->getProgress();
@@ -446,6 +452,6 @@ class GanttProject
         $oParentTask->setProgress($iProgress / $oParentTask->getTaskCount());
         $oParentTask->setStartDate($tStartDate);
         $oParentTask->setEndDate($tEndDate);
-        $oParentTask->setDuration((($tEndDate - $tStartDate)  / 60 / 60 / 24 ) + 1);
+        $oParentTask->setDuration((($tEndDate - $tStartDate) / 60 / 60 / 24) + 1);
     }
 }

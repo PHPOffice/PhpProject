@@ -33,14 +33,14 @@ class GanttProject
      *
      * @var PHPProject
      */
-    private $_phpProject;
+    private $phpProject;
     
     /**
      * Create a new GanttProject
      */
     public function __construct()
     {
-        $this->_phpProject    = new PhpProject();
+        $this->phpProject    = new PhpProject();
     }
     
     /**
@@ -48,8 +48,8 @@ class GanttProject
      * @param string $pFilename
      * @return PHPProject
      */
-    public function load($pFilename = null)
+    public function load($pFilename)
     {
-        return $this->_phpProject;
+        return $this->phpProject;
     }
 }

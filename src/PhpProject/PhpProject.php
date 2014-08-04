@@ -31,42 +31,42 @@ class PhpProject
      *
      * @var PHPProject_DocumentProperties
      */
-    private $_properties;
+    private $properties;
 
     /**
      * Document informations
      *
      * @var PHPProject_DocumentInformations
      */
-    private $_informations;
+    private $informations;
     
     /**
      * Collection of task objects
      *
      * @var PHPProject_Task[]
      */
-    private $_taskCollection = array();
+    private $taskCollection = array();
     
     /**
      * Collection of resource objects
      *
      * @var PHPProject_Resource[]
      */
-    private $_resourceCollection = array();
+    private $resourceCollection = array();
 
     /**
      * Active task
      *
      * @var int
      */
-    private $_activeTaskIndex = 0;
+    private $activeTaskIndex = 0;
 
     /**
      * Active resource
      *
      * @var int
      */
-    private $_activeResourceIndex = 0;
+    private $activeResourceIndex = 0;
     
     /**
      * Create a new PHPProject
@@ -74,9 +74,9 @@ class PhpProject
     public function __construct()
     {
         // Create document properties
-        $this->_properties = new DocumentProperties();
+        $this->properties = new DocumentProperties();
         // Create document informations
-        $this->_informations = new DocumentInformations();
+        $this->informations = new DocumentInformations();
     }
 
     //===============================================
@@ -89,7 +89,7 @@ class PhpProject
      */
     public function getProperties()
     {
-        return $this->_properties;
+        return $this->properties;
     }
 
     /**
@@ -99,7 +99,7 @@ class PhpProject
      */
     public function setProperties(DocumentProperties $pValue)
     {
-        $this->_properties = $pValue;
+        $this->properties = $pValue;
     }
 
     //===============================================
@@ -112,7 +112,7 @@ class PhpProject
      */
     public function getInformations()
     {
-        return $this->_informations;
+        return $this->informations;
     }
     
     /**
@@ -122,7 +122,7 @@ class PhpProject
      */
     public function setInformations(DocumentInformations $pValue)
     {
-        $this->_informations = $pValue;
+        $this->informations = $pValue;
     }
     
     //===============================================
@@ -137,8 +137,8 @@ class PhpProject
     public function createResource()
     {
         $newRessource = new Resource($this, $this->getResourceCount());
-        $this->_resourceCollection[] = $newRessource;
-        $this->_activeResourceIndex = $this->getResourceCount() - 1;
+        $this->resourceCollection[] = $newRessource;
+        $this->activeResourceIndex = $this->getResourceCount() - 1;
         return $newRessource;
     }
 
@@ -149,7 +149,7 @@ class PhpProject
      */
     public function getResourceCount()
     {
-        return count($this->_resourceCollection);
+        return count($this->resourceCollection);
     }
     
     /**
@@ -159,7 +159,7 @@ class PhpProject
      */
     public function getAllResources()
     {
-        return $this->_resourceCollection;
+        return $this->resourceCollection;
     }
     
     /**
@@ -169,7 +169,7 @@ class PhpProject
      */
     public function getActiveResource()
     {
-        return $this->_resourceCollection[$this->_activeResourceIndex];
+        return $this->resourceCollection[$this->activeResourceIndex];
     }
     
     /**
@@ -181,10 +181,10 @@ class PhpProject
      */
     public function getResource($pIndex = 0)
     {
-        if ($pIndex > count($this->_resourceCollection) - 1) {
+        if ($pIndex > count($this->resourceCollection) - 1) {
             throw new Exception('Resource index is out of bounds.');
         } else {
-            return $this->_resourceCollection[$pIndex];
+            return $this->resourceCollection[$pIndex];
         }
     }
     
@@ -195,7 +195,7 @@ class PhpProject
      */
     private function getActiveResourceIndex()
     {
-        return $this->$_activeResourceIndex;
+        return $this->activeResourceIndex;
     }
     
     /**
@@ -207,10 +207,10 @@ class PhpProject
      */
     private function setActiveResourceIndex($pIndex = 0)
     {
-        if ($pIndex > count($this->_resourceCollection) - 1) {
+        if ($pIndex > count($this->resourceCollection) - 1) {
             throw new Exception('Active resource index is out of bounds.');
         } else {
-            $this->_activeResourceIndex = $pIndex;
+            $this->activeResourceIndex = $pIndex;
         }
         return $this->getActiveResource();
     }
@@ -227,8 +227,8 @@ class PhpProject
     public function createTask()
     {
         $newTask = new Task($this, $this->getTaskCount());
-        $this->_taskCollection[] = $newTask;
-        $this->_activeTaskIndex = $this->getTaskCount() - 1;
+        $this->taskCollection[] = $newTask;
+        $this->activeTaskIndex = $this->getTaskCount() - 1;
         return $newTask;
     }
     
@@ -239,7 +239,7 @@ class PhpProject
      */
     public function getTaskCount()
     {
-        return count($this->_taskCollection);
+        return count($this->taskCollection);
     }
     
     /**
@@ -249,7 +249,7 @@ class PhpProject
      */
     public function getAllTasks()
     {
-        return $this->_taskCollection;
+        return $this->taskCollection;
     }
     
     /**
@@ -259,7 +259,7 @@ class PhpProject
      */
     public function getActiveTask()
     {
-        return $this->_taskCollection[$this->_activeTaskIndex];
+        return $this->taskCollection[$this->activeTaskIndex];
     }
     
     /**
@@ -271,10 +271,10 @@ class PhpProject
      */
     public function getTask($pIndex = 0)
     {
-        if ($pIndex > count($this->_taskCollection) - 1) {
+        if ($pIndex > count($this->taskCollection) - 1) {
             throw new Exception('Task index is out of bounds.');
         } else {
-            return $this->_taskCollection[$pIndex];
+            return $this->taskCollection[$pIndex];
         }
     }
 
@@ -286,15 +286,15 @@ class PhpProject
      */
     public function removeTaskByIndex($pIndex = 0)
     {
-        if ($pIndex > count($this->_taskCollection) - 1) {
+        if ($pIndex > count($this->taskCollection) - 1) {
             throw new Exception('Task index is out of bounds.');
         } else {
-            array_splice($this->_taskCollection, $pIndex, 1);
+            array_splice($this->taskCollection, $pIndex, 1);
         }
         // Adjust active sheet index if necessary
-        if (($this->_activeTaskIndex >= $pIndex) &&
-            ($pIndex > count($this->_taskCollection) - 1)) {
-            --$this->_activeTaskIndex;
+        if (($this->activeTaskIndex >= $pIndex) &&
+            ($pIndex > count($this->taskCollection) - 1)) {
+            --$this->activeTaskIndex;
         }
     }
 
@@ -305,7 +305,7 @@ class PhpProject
      */
     public function getActiveTaskIndex()
     {
-        return $this->_activeTaskIndex;
+        return $this->activeTaskIndex;
     }
 
     /**
@@ -317,10 +317,10 @@ class PhpProject
      */
     public function setActiveTaskIndex($pIndex = 0)
     {
-        if ($pIndex > count($this->_taskCollection) - 1) {
+        if ($pIndex > count($this->taskCollection) - 1) {
             throw new Exception('Active task index is out of bounds.');
         } else {
-            $this->_activeTaskIndex = $pIndex;
+            $this->activeTaskIndex = $pIndex;
         }
         return $this->getActiveTask();
     }

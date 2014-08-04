@@ -31,14 +31,14 @@ class DocumentInformations
      *
      * @var    datetime
      */
-    private $_startDate;
+    private $startDate;
 
     /**
      * End Date
      *
      * @var    datetime
      */
-    private $_endDate;
+    private $endDate;
 
     /**
      * Create a new PHPProject_DocumentInformations
@@ -54,7 +54,7 @@ class DocumentInformations
      */
     public function getStartDate()
     {
-        return $this->_startDate;
+        return $this->startDate;
     }
 
     /**
@@ -75,7 +75,7 @@ class DocumentInformations
             }
         }
 
-        $this->_startDate = $pValue;
+        $this->startDate = $pValue;
         return $this;
     }
 
@@ -86,7 +86,7 @@ class DocumentInformations
      */
     public function getEndDate()
     {
-        return $this->_endDate;
+        return $this->endDate;
     }
 
     /**
@@ -107,7 +107,7 @@ class DocumentInformations
             }
         }
 
-        $this->_endDate = $pValue;
+        $this->endDate = $pValue;
         return $this;
     }
 }

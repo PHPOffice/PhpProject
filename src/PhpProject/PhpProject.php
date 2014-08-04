@@ -131,7 +131,7 @@ class PhpProject
     /**
      * Create a resource
      *
-     * @return PHPProject_Resource
+     * @return Resource
      * @throws Exception
      */
     public function createResource()
@@ -156,7 +156,7 @@ class PhpProject
     /**
      * Get all resources
      *
-     * @return PHPProject_Resource[]
+     * @return Resource[]
      */
     public function getAllResources()
     {
@@ -166,7 +166,7 @@ class PhpProject
     /**
      * Get active resource
      *
-     * @return PHPProject_Resource
+     * @return Resource
      */
     public function getActiveResource()
     {
@@ -177,7 +177,7 @@ class PhpProject
      * Get resource by index
      *
      * @param int $pIndex Resource index
-     * @return PHPProject_Resource
+     * @return Resource
      * @throws Exception
      */
     public function getResource($pIndex = 0)

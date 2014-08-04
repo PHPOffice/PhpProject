@@ -43,14 +43,14 @@ class Task
     /**
      * Start Date
      *
-     * @var    datetime
+     * @var int
      */
     private $startDate;
     
     /**
      * End Date
      *
-     * @var    datetime
+     * @var int
      */
     private $endDate;
     
@@ -150,8 +150,8 @@ class Task
     /**
      * Set Start Date
      *
-     * @param    datetime    $pValue
-     * @return    PHPProject_DocumentInformations
+     * @param int $pValue
+     * @return DocumentInformations
      */
     public function setStartDate($pValue = null)
     {
@@ -182,8 +182,8 @@ class Task
     /**
      * Set End Date
      *
-     * @param    datetime    $pValue
-     * @return    PHPProject_DocumentInformations
+     * @param int $pValue
+     * @return DocumentInformations
      */
     public function setEndDate($pValue = null)
     {
@@ -220,11 +220,11 @@ class Task
     public function setProgress($pValue = 0)
     {
         if ($pValue > 1) {
-            $this->progress = 1;
+            $this->progress = (double)1;
         } elseif ($pValue < 0) {
-            $this->progress = 0;
+            $this->progress = (double)0;
         } else {
-            $this->progress = $pValue;
+            $this->progress = (double)$pValue;
         }
         return $this;
     }

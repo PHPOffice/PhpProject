@@ -350,6 +350,11 @@ class GanttProject
         return $iNbTasks;
     }
     
+    /**
+     * 
+     * @param XMLWriter $oXML
+     * @param \PhpOffice\PhpProject\Resource $oResource
+     */
     private function writeResource (XMLWriter $oXML, Resource $oResource)
     {
         $oXML->startElement('resource');
@@ -372,6 +377,9 @@ class GanttProject
         $oXML->endElement();
     }
     
+    /**
+     * @return multitype:Ambigous <number, unknown>
+     */
     private function sanitizeProject ()
     {
         // Info Project
@@ -391,7 +399,7 @@ class GanttProject
         }
         
         return array(
-            'date_start' => $minDate
+            'date_start' => (int)$minDate
         );
     }
     

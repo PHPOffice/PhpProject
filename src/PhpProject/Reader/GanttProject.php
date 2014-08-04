@@ -50,7 +50,8 @@ class GanttProject
      */
     public function load($pFilename)
     {
-        $pFilename = '';
-        return $this->phpProject;
+        if(!empty($pFilename)){
+            return $this->phpProject;
+        }
     }
 }

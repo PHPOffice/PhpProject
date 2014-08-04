@@ -115,7 +115,7 @@ class DocumentProperties
     /**
      * Custom Properties
      *
-     * @var    string
+     * @var    string[]
      */
     private $customProperties    = array();
 
@@ -504,7 +504,6 @@ class DocumentProperties
             case 'lpstr': // LPSTR
             case 'lpwstr': // LPWSTR
             case 'bstr': // Basic String
-                $propertyValue = $propertyValue;
                 break;
             case 'date': // Date and Time
             case 'filetime': // File Time

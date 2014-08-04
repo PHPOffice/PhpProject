@@ -71,7 +71,8 @@ class PhpProject
     /**
      * Create a new PHPProject
      */
-    public function __construct() {
+    public function __construct()
+    {
         // Create document properties
         $this->_properties = new DocumentProperties();
         // Create document informations
@@ -133,7 +134,8 @@ class PhpProject
      * @return PHPProject_Resource
      * @throws Exception
      */
-    public function createResource() {
+    public function createResource()
+    {
         $newRessource = new Resource($this, $this->getResourceCount());
         $this->_resourceCollection[] = $newRessource;
         $this->_activeResourceIndex = $this->getResourceCount() - 1;
@@ -155,7 +157,8 @@ class PhpProject
      *
      * @return PHPProject_Resource[]
      */
-    public function getAllResources(){
+    public function getAllResources()
+    {
         return $this->_resourceCollection;
     }
     
@@ -221,7 +224,8 @@ class PhpProject
      * @return PHPProject_Task
      * @throws Exception
      */
-    public function createTask() {
+    public function createTask()
+    {
         $newTask = new Task($this, $this->getTaskCount());
         $this->_taskCollection[] = $newTask;
         $this->_activeTaskIndex = $this->getTaskCount() - 1;

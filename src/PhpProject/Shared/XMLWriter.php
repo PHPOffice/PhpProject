@@ -17,14 +17,6 @@
 
 namespace PhpOffice\PhpProject\Shared;
 
-if (!defined('DATE_W3C')) {
-  define('DATE_W3C', 'Y-m-d\TH:i:sP');
-}
-
-if (!defined('DEBUGMODE_ENABLED')) {
-  define('DEBUGMODE_ENABLED', false);
-}
-
 
 /**
  * PHPProject_Shared_XMLWriter
@@ -33,10 +25,14 @@ if (!defined('DEBUGMODE_ENABLED')) {
  * @package    PHPProject_Shared
  * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class XMLWriter extends \XMLWriter {
+class XMLWriter extends \XMLWriter
+{
     /** Temporary storage method */
     const STORAGE_MEMORY    = 1;
-    const STORAGE_DISK        = 2;
+    const STORAGE_DISK      = 2;
+    
+    const DATE_W3C = 'Y-m-d\TH:i:sP';
+    const DEBUGMODE_ENABLED = false;
 
     /**
      * Temporary filename
@@ -51,15 +47,16 @@ class XMLWriter extends \XMLWriter {
      * @param int        $pTemporaryStorage            Temporary storage location
      * @param string    $pTemporaryStorageFolder    Temporary storage folder
      */
-    public function __construct($pTemporaryStorage = self::STORAGE_MEMORY, $pTemporaryStorageFolder = NULL)
+    public function __construct($pTemporaryStorage = self::STORAGE_MEMORY, $pTemporaryStorageFolder = null)
     {
         // Open temporary storage
         if ($pTemporaryStorage == self::STORAGE_MEMORY) {
             $this->openMemory();
         } else {
             // Create temporary filename
-            if ($pTemporaryStorageFolder === NULL)
-                $pTemporaryStorageFolder = File::sys_get_temp_dir();
+            if ($pTemporaryStorageFolder === null) {
+                $pTemporaryStorageFolder = File::sysGetTempDir();
+            }
             $this->_tempFileName = @tempnam($pTemporaryStorageFolder, 'xml');
 
             // Open storage
@@ -70,7 +67,7 @@ class XMLWriter extends \XMLWriter {
         }
 
         // Set default values
-        if (DEBUGMODE_ENABLED) {
+        if (self::DEBUGMODE_ENABLED) {
             $this->setIndent(true);
         }
     }
@@ -110,7 +107,7 @@ class XMLWriter extends \XMLWriter {
     public function writeRawData($text)
     {
         if (is_array($text)) {
-            $text = implode("\n",$text);
+            $text = implode("\n", $text);
         }
 
         if (method_exists($this, 'writeRaw')) {

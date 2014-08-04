@@ -181,7 +181,8 @@ class Task
      *
      * @return    datetime
      */
-    public function getStartDate() {
+    public function getStartDate()
+    {
         return $this->_startDate;
     }
 
@@ -193,7 +194,7 @@ class Task
      */
     public function setStartDate($pValue = null)
     {
-        if ($pValue === NULL) {
+        if ($pValue === null) {
             $pValue = time();
         } elseif (is_string($pValue)) {
             if (is_numeric($pValue)) {
@@ -225,7 +226,7 @@ class Task
      */
     public function setEndDate($pValue = null)
     {
-        if ($pValue === NULL) {
+        if ($pValue === null) {
             $pValue = time();
         } elseif (is_string($pValue)) {
             if (is_numeric($pValue)) {
@@ -257,9 +258,9 @@ class Task
      */
     public function setProgress($pValue = 0)
     {
-        if($pValue > 1){
+        if ($pValue > 1) {
             $this->_progress = 1;
-        } elseif($pValue < 0){
+        } elseif($pValue < 0) {
             $this->_progress = 0;
         } else {
             $this->_progress = $pValue;
@@ -276,7 +277,7 @@ class Task
      */
     public function addResource(Resource $pResource)
     {
-        if(array_search($pResource->getIndex(), $this->_resourceCollection) === false){
+        if (array_search($pResource->getIndex(), $this->_resourceCollection) === false) {
             $this->_resourceCollection[] = $pResource->getIndex();
         }
         return $this;

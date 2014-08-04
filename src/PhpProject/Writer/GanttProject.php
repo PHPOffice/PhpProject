@@ -60,16 +60,15 @@ class GanttProject
     {
         $arrProjectInfo = $this->_sanitizeProject();
         
-        // Create XML Object 
+        // Create XML Object
         $oXML = new XMLWriter(XMLWriter::STORAGE_DISK);
-        $oXML->startDocument('1.0','UTF-8');
+        $oXML->startDocument('1.0', 'UTF-8');
         // project
         $oXML->startElement('project');
-        if(isset($arrProjectInfo['date_start']) && $arrProjectInfo['date_start'] != 0){
+        if (isset($arrProjectInfo['date_start']) && $arrProjectInfo['date_start'] != 0) {
             $oXML->writeAttribute('view-date', date('Y-m-d', $arrProjectInfo['date_start']));
         }
         $oXML->writeAttribute('version', '2.0');
-        
             // view
             $oXML->startElement('view');
                 $oXML->writeAttribute('id', 'resource-table');
@@ -95,90 +94,90 @@ class GanttProject
             // tasks
             $oXML->startElement('tasks');
             
-                // tasksproperties
-                $oXML->startElement('tasksproperties');
+            // tasksproperties
+            $oXML->startElement('tasksproperties');
                 
-                    // taskproperty
-                    $oXML->startElement('taskproperty');
-                    $oXML->writeAttribute('id', 'tpd0');
-                    $oXML->writeAttribute('name', 'type');
-                    $oXML->writeAttribute('type', 'default');
-                    $oXML->writeAttribute('valuetype', 'icon');
-                    $oXML->endElement();
+            // taskproperty
+            $oXML->startElement('taskproperty');
+            $oXML->writeAttribute('id', 'tpd0');
+            $oXML->writeAttribute('name', 'type');
+            $oXML->writeAttribute('type', 'default');
+            $oXML->writeAttribute('valuetype', 'icon');
+            $oXML->endElement();
                     
-                    $oXML->startElement('taskproperty');
-                    $oXML->writeAttribute('id', 'tpd1');
-                    $oXML->writeAttribute('name', 'priority');
-                    $oXML->writeAttribute('type', 'default');
-                    $oXML->writeAttribute('valuetype', 'icon');
-                    $oXML->endElement();
+            $oXML->startElement('taskproperty');
+            $oXML->writeAttribute('id', 'tpd1');
+            $oXML->writeAttribute('name', 'priority');
+            $oXML->writeAttribute('type', 'default');
+            $oXML->writeAttribute('valuetype', 'icon');
+            $oXML->endElement();
                     
-                    $oXML->startElement('taskproperty');
-                    $oXML->writeAttribute('id', 'tpd2');
-                    $oXML->writeAttribute('name', 'info');
-                    $oXML->writeAttribute('type', 'default');
-                    $oXML->writeAttribute('valuetype', 'icon');
-                    $oXML->endElement();
+            $oXML->startElement('taskproperty');
+            $oXML->writeAttribute('id', 'tpd2');
+            $oXML->writeAttribute('name', 'info');
+            $oXML->writeAttribute('type', 'default');
+            $oXML->writeAttribute('valuetype', 'icon');
+            $oXML->endElement();
                     
-                    $oXML->startElement('taskproperty');
-                    $oXML->writeAttribute('id', 'tpd3');
-                    $oXML->writeAttribute('name', 'name');
-                    $oXML->writeAttribute('type', 'default');
-                    $oXML->writeAttribute('valuetype', 'text');
-                    $oXML->endElement();
+            $oXML->startElement('taskproperty');
+            $oXML->writeAttribute('id', 'tpd3');
+            $oXML->writeAttribute('name', 'name');
+            $oXML->writeAttribute('type', 'default');
+            $oXML->writeAttribute('valuetype', 'text');
+            $oXML->endElement();
                     
-                    $oXML->startElement('taskproperty');
-                    $oXML->writeAttribute('id', 'tpd4');
-                    $oXML->writeAttribute('name', 'begindate');
-                    $oXML->writeAttribute('type', 'default');
-                    $oXML->writeAttribute('valuetype', 'date');
-                    $oXML->endElement();
+            $oXML->startElement('taskproperty');
+            $oXML->writeAttribute('id', 'tpd4');
+            $oXML->writeAttribute('name', 'begindate');
+            $oXML->writeAttribute('type', 'default');
+            $oXML->writeAttribute('valuetype', 'date');
+            $oXML->endElement();
                     
-                    $oXML->startElement('taskproperty');
-                    $oXML->writeAttribute('id', 'tpd5');
-                    $oXML->writeAttribute('name', 'enddate');
-                    $oXML->writeAttribute('type', 'default');
-                    $oXML->writeAttribute('valuetype', 'date');
-                    $oXML->endElement();
+            $oXML->startElement('taskproperty');
+            $oXML->writeAttribute('id', 'tpd5');
+            $oXML->writeAttribute('name', 'enddate');
+            $oXML->writeAttribute('type', 'default');
+            $oXML->writeAttribute('valuetype', 'date');
+            $oXML->endElement();
                     
-                    $oXML->startElement('taskproperty');
-                    $oXML->writeAttribute('id', 'tpd6');
-                    $oXML->writeAttribute('name', 'duration');
-                    $oXML->writeAttribute('type', 'default');
-                    $oXML->writeAttribute('valuetype', 'int');
-                    $oXML->endElement();
+            $oXML->startElement('taskproperty');
+            $oXML->writeAttribute('id', 'tpd6');
+            $oXML->writeAttribute('name', 'duration');
+            $oXML->writeAttribute('type', 'default');
+            $oXML->writeAttribute('valuetype', 'int');
+            $oXML->endElement();
                     
-                    $oXML->startElement('taskproperty');
-                    $oXML->writeAttribute('id', 'tpd7');
-                    $oXML->writeAttribute('name', 'completion');
-                    $oXML->writeAttribute('type', 'default');
-                    $oXML->writeAttribute('valuetype', 'int');
-                    $oXML->endElement();
+            $oXML->startElement('taskproperty');
+            $oXML->writeAttribute('id', 'tpd7');
+            $oXML->writeAttribute('name', 'completion');
+            $oXML->writeAttribute('type', 'default');
+            $oXML->writeAttribute('valuetype', 'int');
+            $oXML->endElement();
                     
-                    $oXML->startElement('taskproperty');
-                    $oXML->writeAttribute('id', 'tpd8');
-                    $oXML->writeAttribute('name', 'coordinator');
-                    $oXML->writeAttribute('type', 'default');
-                    $oXML->writeAttribute('valuetype', 'text');
-                    $oXML->endElement();
+            $oXML->startElement('taskproperty');
+            $oXML->writeAttribute('id', 'tpd8');
+            $oXML->writeAttribute('name', 'coordinator');
+            $oXML->writeAttribute('type', 'default');
+            $oXML->writeAttribute('valuetype', 'text');
+            $oXML->endElement();
                     
-                    $oXML->startElement('taskproperty');
-                    $oXML->writeAttribute('id', 'tpd9');
-                    $oXML->writeAttribute('name', 'predecessorsr');
-                    $oXML->writeAttribute('type', 'default');
-                    $oXML->writeAttribute('valuetype', 'text');
-                    $oXML->endElement();
-                    // >taskproperty
+            $oXML->startElement('taskproperty');
+            $oXML->writeAttribute('id', 'tpd9');
+            $oXML->writeAttribute('name', 'predecessorsr');
+            $oXML->writeAttribute('type', 'default');
+            $oXML->writeAttribute('valuetype', 'text');
+            $oXML->endElement();
+            // >taskproperty
                     
-                // >tasksproperties
-                $oXML->endElement();
+            // >tasksproperties
+            $oXML->endElement();
                 
-                // task
-                $arrTasks = $this->_phpProject->getAllTasks();
-                $iTaskIndex = 0;
-                foreach ($arrTasks as $oTask){
-                    $iTaskIndex = $this->_writeTask($oXML, $oTask, $iTaskIndex);
-                }
+            // task
+            $arrTasks = $this->_phpProject->getAllTasks();
+            $iTaskIndex = 0;
+            foreach ($arrTasks as $oTask) {
+                $iTaskIndex = $this->_writeTask($oXML, $oTask, $iTaskIndex);
+            }
             
             // >tasks
             $oXML->endElement();
@@ -186,12 +185,12 @@ class GanttProject
             // resources
             $oXML->startElement('resources');
             
-                // resource
-                $arrResources = $this->_phpProject->getAllResources();
-                $iResourceIndex = 0;
-                foreach ($arrResources as $oResource){
-                    $this->_writeResource($oXML, $oResource);
-                }
+            // resource
+            $arrResources = $this->_phpProject->getAllResources();
+            $iResourceIndex = 0;
+            foreach ($arrResources as $oResource) {
+                $this->_writeResource($oXML, $oResource);
+            }
             
             
             // >resources
@@ -200,15 +199,15 @@ class GanttProject
             // allocations
             $oXML->startElement('allocations');
             
-            if(count($this->_arrAllocations) > 0){
-                foreach ($this->_arrAllocations as $itmAllocation){
+            if (count($this->_arrAllocations) > 0) {
+                foreach ($this->_arrAllocations as $itmAllocation) {
                     $this->_writeAllocation($oXML, $itmAllocation['id_task'], $itmAllocation['id_res']);
                 }
             }
                 
             // >allocations
-            $oXML->endElement();            
-            
+            $oXML->endElement();
+
             // taskdisplaycolumns
             $oXML->startElement('tasksproperties');
             
@@ -316,16 +315,16 @@ class GanttProject
         $oXML->startElement('task');
         $oXML->writeAttribute('id', $iNbTasks);
         $oXML->writeAttribute('name', $oTask->getName());
-        $oXML->writeAttribute('start', date('Y-m-d',$oTask->getStartDate()));
-        $oXML->writeAttribute('duration',$oTask->getDuration());
-        $oXML->writeAttribute('complete',$oTask->getProgress()*100);
+        $oXML->writeAttribute('start', date('Y-m-d', $oTask->getStartDate()));
+        $oXML->writeAttribute('duration', $oTask->getDuration());
+        $oXML->writeAttribute('complete', $oTask->getProgress()*100);
         $oXML->writeAttribute('meeting', 'false');
         $oXML->writeAttribute('expand', 'true');
         
         // Resources Allocations
-        if($oTask->getResourceCount() > 0){
+        if ($oTask->getResourceCount() > 0) {
             $arrResources = $oTask->getResources();
-            foreach ($arrResources as $resourceIdx){
+            foreach ($arrResources as $resourceIdx) {
                 $itmAllocation = array();
                 $itmAllocation['id_res'] = $resourceIdx;
                 $itmAllocation['id_task'] = $iNbTasks;
@@ -334,9 +333,9 @@ class GanttProject
         }
 
         // Children
-        if($oTask->getTaskCount() > 0){
+        if ($oTask->getTaskCount() > 0) {
             $arrTasksChilds = $oTask->getTasks();
-            foreach ($arrTasksChilds as $oTaskChild){
+            foreach ($arrTasksChilds as $oTaskChild) {
                 $iNbTasks = $this->_writeTask($oXML, $oTaskChild, $iNbTasks);
             }
         } else {
@@ -373,17 +372,17 @@ class GanttProject
     {
         // Info Project
         $minDate = 0;
-        // Browse all tasks 
+        // Browse all tasks
         $arrTasks = $this->_phpProject->getAllTasks();
         $iTaskIndex = 0;
-        foreach ($arrTasks as $oTask){
-            if($oTask->getTaskCount() == 0){
+        foreach ($arrTasks as $oTask) {
+            if ($oTask->getTaskCount() == 0) {
                 $this->_sanitizeTask($oTask);
             } else {
                 $this->_sanitizeTaskParent($oTask);
             }
             $tStartDate = $oTask->getStartDate();
-            if($minDate == 0 || $tStartDate < $minDate){
+            if ($minDate == 0 || $tStartDate < $minDate) {
                 $minDate = $tStartDate;
             }
         }
@@ -403,12 +402,11 @@ class GanttProject
         $pEndDate = $oTask->getEndDate();
         $pStartDate = $oTask->getStartDate();
         
-        if($pDuration == null and $pEndDate > 0){
+        if ($pDuration == null and $pEndDate > 0) {
             $iTimeDiff = $pEndDate - $pStartDate;
             $iNumDays = $iTimeDiff / 60 / 60 / 24;
             $oTask->setDuration($iNumDays + 1);
-        }
-        elseif($pDuration != null and $pEndDate = 0){
+        } elseif ($pDuration != null and $pEndDate = 0) {
             $oTask->setEndDate($pStartDate + ($pDuration * 24 * 60 * 60));
         }
     }
@@ -425,25 +423,23 @@ class GanttProject
         $iProgress = 0;
         $tStartDate = null;
         $tEndDate = null;
-        foreach ($arrTasksChilds as $oTaskChild){
-            if($oTaskChild->getTaskCount() == 0){
+        foreach ($arrTasksChilds as $oTaskChild) {
+            if ($oTaskChild->getTaskCount() == 0) {
                 $this->_sanitizeTask($oTaskChild);
             } else {
                 $this->_sanitizeTaskParent($oTaskChild);
             }
             
             $iProgress += $oTaskChild->getProgress();
-            if(is_null($tStartDate)){
+            if (is_null($tStartDate)) {
                 $tStartDate = $oTaskChild->getStartDate();
-            }
-            elseif ($tStartDate > $oTaskChild->getStartDate()) {
+            } elseif ($tStartDate > $oTaskChild->getStartDate()) {
                 $tStartDate = $oTaskChild->getStartDate();
             }
             
-            if(is_null($tEndDate)){
+            if (is_null($tEndDate)) {
                 $tEndDate = $oTaskChild->getEndDate();
-            }
-            elseif ($tEndDate < $oTaskChild->getEndDate()) {
+            } elseif ($tEndDate < $oTaskChild->getEndDate()) {
                 $tEndDate = $oTaskChild->getEndDate();
             }
         }

@@ -3,3 +3,6 @@ unitTests/codeCoverage
 /.project
 /.buildpath
 /.settings
+/build/coverage
+/build/logs
+vendor

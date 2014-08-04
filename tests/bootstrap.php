@@ -1,44 +1,53 @@
 <?php
 /**
- * $Id: bootstrap.php 2892 2011-08-14 15:11:50Z markbaker@PHPProject.net $
+ * This file is part of PHPProject - A pure PHP library for reading and writing
+ * presentations documents.
  *
- * @copyright   Copyright (C) 2011-2012 PHPProject. All rights reserved.
- * @package     PHPProject
- * @subpackage  PHPProject Unit Tests
- * @author      Mark Baker
+ * PHPProject is free software distributed under the terms of the GNU Lesser
+ * General Public License version 3 as published by the Free Software Foundation.
+ *
+ * For the full copyright and license information, please read the LICENSE
+ * file that was distributed with this source code. For the full list of
+ * contributors, visit https://github.com/PHPOffice/PHPProject/contributors.
+ *
+ * @copyright   2010-2014 PHPProject contributors
+ * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @link        https://github.com/PHPOffice/PHPProject
  */
 
-// PHP 5.3 Compat
-date_default_timezone_set('Europe/London');
+date_default_timezone_set('UTC');
 
-// Define path to application directory
-defined('APPLICATION_PATH')
-	|| define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../Classes'));
-
-// Define path to application tests directory
-defined('APPLICATION_TESTS_PATH')
-	|| define('APPLICATION_TESTS_PATH', realpath(dirname(__FILE__) ));
-
-// Define application environment
-defined('APPLICATION_ENV') || define('APPLICATION_ENV', 'ci');
-
-// Ensure library/ is on include_path
-set_include_path(implode(PATH_SEPARATOR, array(
-	realpath(APPLICATION_PATH . '/../Classes'),
-	'./',
-	get_include_path(),
-)));
-
-
-/**
- * @todo Sort out xdebug in vagrant so that this works in all sandboxes
- * For now, it is safer to test for it rather then remove it.
- */
-echo "PHPProject tests beginning\n";
-
-if(extension_loaded('xdebug')) {
-	echo "Xdebug extension loaded and running\n";
-	xdebug_enable();
-} else {
-	echo 'Xdebug not found, you should run the following at the command line: echo "zend_extension=/usr/lib64/php/modules/xdebug.so" > /etc/php.d/xdebug.ini' . "\n";
+// defining base dir for tests
+if (!defined('PHPPROJECT_TESTS_BASE_DIR')) {
+    define('PHPPROJECT_TESTS_BASE_DIR', realpath(__DIR__));
 }
+
+$vendor = realpath(__DIR__ . '/../vendor');
+
+if (file_exists($vendor . "/autoload.php")) {
+    require $vendor . "/autoload.php";
+} else {
+    $vendor = realpath(__DIR__ . '/../../../');
+    if (file_exists($vendor . "/autoload.php")) {
+        require $vendor . "/autoload.php";
+    } else {
+        throw new Exception("Unable to load dependencies");
+    }
+}
+
+spl_autoload_register(function ($class) {
+    $class = ltrim($class, '\\');
+    $prefix = 'PhpOffice\\PhpProject\\Tests';
+    if (strpos($class, $prefix) === 0) {
+        $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+        $class = join(DIRECTORY_SEPARATOR, array('PhpProject', 'Tests', '_includes')) .
+        substr($class, strlen($prefix));
+        $file = __DIR__ . DIRECTORY_SEPARATOR . $class . '.php';
+        if (file_exists($file)) {
+            require_once $file;
+        }
+    }
+});
+
+require_once __DIR__ . "/../src/PhpProject/Autoloader.php";
+\PhpOffice\PhpProject\Autoloader::register();

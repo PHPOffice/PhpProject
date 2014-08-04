@@ -65,7 +65,7 @@ class DocumentInformations
      */
     public function setStartDate($pValue = null)
     {
-        if ($pValue === NULL) {
+        if ($pValue === null) {
             $pValue = time();
         } elseif (is_string($pValue)) {
             if (is_numeric($pValue)) {
@@ -97,7 +97,7 @@ class DocumentInformations
      */
     public function setEndDate($pValue = null)
     {
-        if ($pValue === NULL) {
+        if ($pValue === null) {
             $pValue = time();
         } elseif (is_string($pValue)) {
             if (is_numeric($pValue)) {

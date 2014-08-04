@@ -18,6 +18,7 @@
 namespace PhpOffice\PhpProject\Reader;
 
 use PhpOffice\PhpProject\PhpProject;
+
 /**
  * PHPProject_Reader_GanttProject
  *
@@ -52,4 +53,3 @@ class GanttProject
         return $this->_phpProject;
     }
 }
-

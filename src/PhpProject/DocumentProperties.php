@@ -543,26 +543,26 @@ class DocumentProperties
             case 'ui4': // 4-Byte Unsigned Integer
             case 'ui8': // 8-Byte Unsigned Integer
             case 'uint': // Unsigned Integer
-                return self::PROPERTY_TYPE_INTEGER;
+                $propertyType = self::PROPERTY_TYPE_INTEGER;
                 break;
             case 'r4': // 4-Byte Real Number
             case 'r8': // 8-Byte Real Number
             case 'decimal': // Decimal
-                return self::PROPERTY_TYPE_FLOAT;
+                $propertyType = self::PROPERTY_TYPE_FLOAT;
                 break;
             case 'empty': // Empty
             case 'null': // Null
             case 'lpstr': // LPSTR
             case 'lpwstr': // LPWSTR
             case 'bstr': // Basic String
-                return self::PROPERTY_TYPE_STRING;
+                $propertyType = self::PROPERTY_TYPE_STRING;
                 break;
             case 'date': // Date and Time
             case 'filetime': // File Time
-                return self::PROPERTY_TYPE_DATE;
+                $propertyType = self::PROPERTY_TYPE_DATE;
                 break;
             case 'bool': // Boolean
-                return self::PROPERTY_TYPE_BOOLEAN;
+                $propertyType = self::PROPERTY_TYPE_BOOLEAN;
                 break;
             case 'cy': // Currency
             case 'error': // Error Status Code
@@ -577,9 +577,11 @@ class DocumentProperties
             case 'vstream': // Binary Versioned Stream
             case 'clsid': // Class ID
             case 'cf': // Clipboard Data
-                return self::PROPERTY_TYPE_UNKNOWN;
+                $propertyType = self::PROPERTY_TYPE_UNKNOWN;
                 break;
+            default:
+                $propertyType = self::PROPERTY_TYPE_UNKNOWN;
         }
-        return self::PROPERTY_TYPE_UNKNOWN;
+        return $propertyType;
     }
 }

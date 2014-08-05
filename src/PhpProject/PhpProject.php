@@ -156,7 +156,7 @@ class PhpProject
     /**
      * Get all resources
      *
-     * @return Resource[]
+     * @return \PhpOffice\PhpProject\Resource[]
      */
     public function getAllResources()
     {

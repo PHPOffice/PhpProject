@@ -194,7 +194,9 @@ class GanttProject
         // resource
         $arrResources = $this->phpProject->getAllResources();
         foreach ($arrResources as $oResource) {
-            $this->writeResource($oXML, $oResource);
+            if ($oResource instanceof \PhpOffice\PhpProject\Resource) {
+                $this->writeResource($oXML, $oResource);
+            }
         }
         
         // >resources
@@ -355,7 +357,7 @@ class GanttProject
      * @param XMLWriter $oXML
      * @param \PhpOffice\PhpProject\Resource $oResource
      */
-    private function writeResource (XMLWriter $oXML, Resource $oResource)
+    private function writeResource (XMLWriter $oXML, \PhpOffice\PhpProject\Resource $oResource)
     {
         $oXML->startElement('resource');
         $oXML->writeAttribute('id', $oResource->getIndex());

@@ -126,7 +126,7 @@ class Task
     }
     
     /**
-     * Set duration
+     * Set duration (in days)
      *
      * @param string $pValue Duration of the resource
      * @return PHPProject_Task

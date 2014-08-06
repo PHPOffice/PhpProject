@@ -20,7 +20,7 @@ namespace PhpOffice\PhpProject\Reader;
 use PhpOffice\PhpProject\PhpProject;
 
 /**
- * PHPProject_Reader_GanttProject
+ * GanttProject
  *
  * @category    PHPProject
  * @package        PHPProject
@@ -42,15 +42,29 @@ class GanttProject
     {
         $this->phpProject    = new PhpProject();
     }
+    /**
+     *
+     * @todo
+     * @param string $pFilename
+     * @return PHPProject
+     */
+    public function canRead($pFilename)
+    {
+        if (file_exists($pFilename)) {
+            return true;
+        }
+        return false;
+    }
     
     /**
      * 
+     * @todo
      * @param string $pFilename
      * @return PHPProject
      */
     public function load($pFilename)
     {
-        if (!empty($pFilename)) {
+        if (file_exists($pFilename)) {
             return $this->phpProject;
         }
     }

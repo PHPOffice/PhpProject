@@ -38,7 +38,7 @@ $objTask1->addResource($objRes1);
 $objTask1Res = $objTask1->getResources();
 echo 'Resources "Start of the project"'.EOL;
 foreach ($objTask1Res as $res){
-	 echo ' > '.$objPHPProject->getResource($res)->getTitle().EOL;;
+     echo ' > '.$objPHPProject->getResource($res)->getTitle().EOL;;
 }
 
 $objTask2 = $objPHPProject->createTask();
@@ -54,7 +54,7 @@ $objTask21->addResource($objRes1);
 $objTask21Res = $objTask21->getResources();
 echo 'Resources "Analysis Code"'.EOL;
 foreach ($objTask21Res as $res){
-	 echo ' > '.$objPHPProject->getResource($res)->getTitle().EOL;;
+     echo ' > '.$objPHPProject->getResource($res)->getTitle().EOL;;
 }
 
 $objTask22 = $objTask2->createTask();
@@ -66,5 +66,5 @@ $objTask22->setProgress(0.3);
 // Save file
 echo write($objPHPProject, basename(__FILE__, '.php'), $writers);
 if (!CLI) {
-	include_once 'Sample_Footer.php';
+    include_once 'Sample_Footer.php';
 }

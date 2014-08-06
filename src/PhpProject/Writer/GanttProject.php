@@ -304,13 +304,12 @@ class GanttProject
         
         // Writing XML Object in file
         // Open file
-        $fileHandle = fopen($pFilename, 'wb+');
-        if ($fileHandle === false) {
-            throw new Exception("Could not open file $pFilename for writing.");
+        if(!is_writable($pFilename)){
+            throw new \Exception("Could not open file $pFilename for writing.");
         }
+        $fileHandle = fopen($pFilename, 'wb+');
         // Write XML Content
         fwrite($fileHandle, $oXML->getData());
-        
         // Close file
         fclose($fileHandle);
     }
@@ -417,11 +416,11 @@ class GanttProject
         $pEndDate = $oTask->getEndDate();
         $pStartDate = $oTask->getStartDate();
         
-        if ($pDuration == null and $pEndDate > 0) {
+        if (is_null($pDuration) && !is_null($pEndDate)) {
             $iTimeDiff = $pEndDate - $pStartDate;
             $iNumDays = $iTimeDiff / 60 / 60 / 24;
             $oTask->setDuration($iNumDays + 1);
-        } elseif ($pDuration != null and $pEndDate = 0) {
+        } elseif (!is_null($pDuration) && is_null($pEndDate)) {
             $oTask->setEndDate($pStartDate + ($pDuration * 24 * 60 * 60));
         }
     }

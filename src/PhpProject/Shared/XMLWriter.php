@@ -1,38 +1,51 @@
 <?php
 /**
  * This file is part of PHPProject - A pure PHP library for reading and writing
-* presentations documents.
-*
-* PHPProject is free software distributed under the terms of the GNU Lesser
-* General Public License version 3 as published by the Free Software Foundation.
-*
-* For the full copyright and license information, please read the LICENSE
-* file that was distributed with this source code. For the full list of
-* contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
-*
-* @link        https://github.com/PHPOffice/PHPProject
-* @copyright   2009-2014 PHPProject contributors
-* @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
-*/
+ * presentations documents.
+ *
+ * PHPProject is free software distributed under the terms of the GNU Lesser
+ * General Public License version 3 as published by the Free Software Foundation.
+ *
+ * For the full copyright and license information, please read the LICENSE
+ * file that was distributed with this source code. For the full list of
+ * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ *
+ * @link        https://github.com/PHPOffice/PHPProject
+ * @copyright   2009-2014 PHPProject contributors
+ * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ */
 
 namespace PhpOffice\PhpProject\Shared;
 
-
 /**
- * PHPProject_Shared_XMLWriter
+ * XMLWriter
  *
- * @category   PHPProject
- * @package    PHPProject_Shared
- * @copyright  Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
+ * @method bool endElement()
+ * @method mixed flush(bool $empty = null)
+ * @method bool openMemory()
+ * @method string outputMemory(bool $flush = null)
+ * @method bool setIndent(bool $indent)
+ * @method bool startDocument(string $version = 1.0, string $encoding = null, string $standalone = null)
+ * @method bool startElement(string $name)
+ * @method bool text(string $content)
+ * @method bool writeAttribute(string $name, mixed $value)
+ * @method bool writeCData(string $content)
+ * @method bool writeComment(string $content)
+ * @method bool writeElement(string $name, string $content = null)
+ * @method bool writeRaw(string $content)
  */
-class XMLWriter extends \XMLWriter
+class XMLWriter
 {
     /** Temporary storage method */
-    const STORAGE_MEMORY    = 1;
-    const STORAGE_DISK      = 2;
-    
-    const DATE_W3C = 'Y-m-d\TH:i:sP';
-    const DEBUGMODE_ENABLED = false;
+    const STORAGE_MEMORY = 1;
+    const STORAGE_DISK = 2;
+
+    /**
+     * Internal XMLWriter
+     *
+     * @var \XMLWriter
+     */
+    private $xmlWriter;
 
     /**
      * Temporary filename
@@ -42,34 +55,29 @@ class XMLWriter extends \XMLWriter
     private $tempFileName = '';
 
     /**
-     * Create a new PHPProject_Shared_XMLWriter instance
+     * Create a new \PhpOffice\PhpPowerpoint\Shared\XMLWriter instance
      *
-     * @param int        $pTemporaryStorage            Temporary storage location
-     * @param string    $pTemporaryStorageDir    Temporary storage folder
+     * @param int $pTemporaryStorage Temporary storage location
+     * @param string $pTemporaryStorageDir Temporary storage folder
      */
-    public function __construct($pTemporaryStorage = self::STORAGE_MEMORY, $pTemporaryStorageDir = null)
+    public function __construct($pTemporaryStorage = self::STORAGE_MEMORY, $pTemporaryStorageDir = './')
     {
+        // Create internal XMLWriter
+        $this->xmlWriter = new \XMLWriter();
+
         // Open temporary storage
         if ($pTemporaryStorage == self::STORAGE_MEMORY) {
-            $this->openMemory();
+            $this->xmlWriter->openMemory();
         } else {
             // Create temporary filename
-            if ($pTemporaryStorageDir === null) {
-                $pTemporaryStorageDir = File::sysGetTempDir();
-            }
             $this->tempFileName = @tempnam($pTemporaryStorageDir, 'xml');
 
             // Open storage
-            if ($this->openUri($this->tempFileName) === false) {
-                // Fallback to memory...
-                $this->openMemory();
-            }
+            $this->xmlWriter->openUri($this->tempFileName);
         }
 
         // Set default values
-        if (self::DEBUGMODE_ENABLED) {
-            $this->setIndent(true);
-        }
+        $this->xmlWriter->setIndent(true);
     }
 
     /**
@@ -77,6 +85,9 @@ class XMLWriter extends \XMLWriter
      */
     public function __destruct()
     {
+        // Desctruct XMLWriter
+        unset($this->xmlWriter);
+
         // Unlink temporary files
         if ($this->tempFileName != '') {
             @unlink($this->tempFileName);
@@ -84,36 +95,35 @@ class XMLWriter extends \XMLWriter
     }
 
     /**
-     * Get written data
+     * Catch function calls (and pass them to internal XMLWriter)
      *
-     * @return $data
+     * @param mixed $function
+     * @param mixed $args
      */
-    public function getData()
+    public function __call($function, $args)
     {
-        if ($this->tempFileName == '') {
-            return $this->outputMemory(true);
-        } else {
-            $this->flush();
-            return file_get_contents($this->tempFileName);
+        try {
+            @call_user_func_array(array(
+                $this->xmlWriter,
+                $function
+            ), $args);
+        } catch (\Exception $ex) {
+            // Do nothing!
         }
     }
 
     /**
-     * Fallback method for writeRaw, introduced in PHP 5.2
+     * Get written data
      *
-     * @param string $text
      * @return string
      */
-    public function writeRawData($text)
+    public function getData()
     {
-        if (is_array($text)) {
-            $text = implode("\n", $text);
+        if ($this->tempFileName == '') {
+            return $this->xmlWriter->outputMemory(true);
+        } else {
+            $this->xmlWriter->flush();
+            return file_get_contents($this->tempFileName);
         }
-
-        if (method_exists($this, 'writeRaw')) {
-            return $this->writeRaw(htmlspecialchars($text));
-        }
-
-        return $this->text($text);
     }
 }

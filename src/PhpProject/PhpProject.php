@@ -59,14 +59,14 @@ class PhpProject
      *
      * @var int
      */
-    private $activeTaskIndex = 0;
+    private $activeTaskIndex = null;
 
     /**
      * Active resource
      *
      * @var int
      */
-    private $activeResourceIndex = 0;
+    private $activeResourceIndex = null;
     
     /**
      * Create a new PHPProject
@@ -100,6 +100,7 @@ class PhpProject
     public function setProperties(DocumentProperties $pValue)
     {
         $this->properties = $pValue;
+        return $this;
     }
 
     //===============================================
@@ -123,6 +124,7 @@ class PhpProject
     public function setInformations(DocumentInformations $pValue)
     {
         $this->informations = $pValue;
+        return $this;
     }
     
     //===============================================
@@ -132,7 +134,7 @@ class PhpProject
      * Create a resource
      *
      * @return Resource
-     * @throws Exception
+     * @throws \Exception
      */
     public function createResource()
     {
@@ -170,7 +172,10 @@ class PhpProject
      */
     public function getActiveResource()
     {
-        return $this->resourceCollection[$this->activeResourceIndex];
+        if (isset($this->resourceCollection[$this->activeResourceIndex])) {
+            return $this->resourceCollection[$this->activeResourceIndex];
+        }
+        return null;
     }
     
     /**
@@ -178,12 +183,12 @@ class PhpProject
      *
      * @param int $pIndex Resource index
      * @return Resource
-     * @throws Exception
+     * @throws \Exception
      */
     public function getResource($pIndex = 0)
     {
-        if ($pIndex > count($this->resourceCollection) - 1) {
-            throw new Exception('Resource index is out of bounds.');
+        if (!isset($this->resourceCollection[$pIndex])) {
+            throw new \Exception('Resource index is out of bounds.');
         } else {
             return $this->resourceCollection[$pIndex];
         }
@@ -195,8 +200,8 @@ class PhpProject
     /**
      * Create a task
      *
-     * @return PHPProject_Task
-     * @throws Exception
+     * @return Task
+     * @throws \Exception
      */
     public function createTask()
     {
@@ -220,7 +225,7 @@ class PhpProject
     /**
      * Get all tasks
      *
-     * @return PHPProject_Task[]
+     * @return Task[]
      */
     public function getAllTasks()
     {
@@ -230,24 +235,27 @@ class PhpProject
     /**
      * Get active task
      *
-     * @return PHPProject_Task
+     * @return Task
      */
     public function getActiveTask()
     {
-        return $this->taskCollection[$this->activeTaskIndex];
+        if (isset($this->taskCollection[$this->activeTaskIndex])) {
+            return $this->taskCollection[$this->activeTaskIndex];
+        }
+        return null;
     }
     
     /**
      * Get task by index
      *
      * @param int $pIndex Task index
-     * @return PHPProject_Task
-     * @throws Exception
+     * @return Task
+     * @throws \Exception
      */
     public function getTask($pIndex = 0)
     {
-        if ($pIndex > count($this->taskCollection) - 1) {
-            throw new Exception('Task index is out of bounds.');
+        if (!isset($this->taskCollection[$pIndex])) {
+            throw new \Exception('Task index is out of bounds.');
         } else {
             return $this->taskCollection[$pIndex];
         }
@@ -257,18 +265,17 @@ class PhpProject
      * Remove task by index
      *
      * @param int $pIndex Active task index
-     * @throws Exception
+     * @throws \Exception
      */
     public function removeTaskByIndex($pIndex = 0)
     {
-        if ($pIndex > count($this->taskCollection) - 1) {
-            throw new Exception('Task index is out of bounds.');
+        if (!isset($this->taskCollection[$pIndex])) {
+            throw new \Exception('Task index is out of bounds.');
         } else {
             array_splice($this->taskCollection, $pIndex, 1);
         }
         // Adjust active sheet index if necessary
-        if (($this->activeTaskIndex >= $pIndex) &&
-            ($pIndex > count($this->taskCollection) - 1)) {
+        if ($this->activeTaskIndex >= $pIndex) {
             --$this->activeTaskIndex;
         }
     }
@@ -287,13 +294,13 @@ class PhpProject
      * Set active task index
      *
      * @param int $pIndex Active task index
-     * @throws Exception
-     * @return PHPProject_Task
+     * @throws \Exception
+     * @return Task
      */
     public function setActiveTaskIndex($pIndex = 0)
     {
         if ($pIndex > count($this->taskCollection) - 1) {
-            throw new Exception('Active task index is out of bounds.');
+            throw new \Exception('Active task index is out of bounds.');
         } else {
             $this->activeTaskIndex = $pIndex;
         }

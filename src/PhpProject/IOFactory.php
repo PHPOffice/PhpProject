@@ -27,19 +27,19 @@ class IOFactory
      *
      * @var array
      */
-    private static $autoResolveClasses = array('Serialized');
+    private static $autoResolveClasses = array('GanttProject');
 
     /**
      * Create writer
      *
-     * @param PhpProject $phpPowerPoint
+     * @param PhpProject $phpProject
      * @param string $name
      * @return \PhpOffice\PhpProject\Writer\WriterInterface
      */
-    public static function createWriter(PhpProject $phpPowerPoint, $name = 'GanttProject')
+    public static function createWriter(PhpProject $phpProject, $name = 'GanttProject')
     {
         $class = 'PhpOffice\\PhpProject\\Writer\\' . $name;
-        return self::loadClass($class, $name, 'writer', $phpPowerPoint);
+        return self::loadClass($class, $name, 'writer', $phpProject);
     }
 
     /**
@@ -48,7 +48,7 @@ class IOFactory
      * @param  string $name
      * @return \PhpOffice\PhpProject\Reader\ReaderInterface
      */
-    public static function createReader($name = '')
+    public static function createReader($name = 'GanttProject')
     {
         $class = 'PhpOffice\\PhpProject\\Reader\\' . $name;
         return self::loadClass($class, $name, 'reader');
@@ -80,17 +80,17 @@ class IOFactory
      * @param string $class
      * @param string $name
      * @param string $type
-     * @param \PhpOffice\PhpProject\PhpProject $phpPowerPoint
+     * @param \PhpOffice\PhpProject\PhpProject $phpProject
      * @throws \Exception
      * @return
      */
-    private static function loadClass($class, $name, $type, PhpProject $phpPowerPoint = null)
+    private static function loadClass($class, $name, $type, PhpProject $phpProject = null)
     {
         if (class_exists($class) && self::isConcreteClass($class)) {
-            if (is_null($phpPowerPoint)) {
+            if (is_null($phpProject)) {
                 return new $class();
             } else {
-                return new $class($phpPowerPoint);
+                return new $class($phpProject);
             }
         } else {
             throw new \Exception('"'.$name.'" is not a valid '.$type.'.');

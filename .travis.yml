@@ -12,9 +12,9 @@ matrix:
   allow_failures:
     - php: hhvm
 
-#env:
-#    global:
-#        - secure: ""
+env:
+  global:
+    - secure: "FEHYuvMQxf987C9CxTb5lrzwYP2qH/VWvUKipsJ8X1+k2VS8QVzG5mZcHfely4CrA/j1y8dBaYV3AJOSdmRIz12zWDDJkGe/dbGRcQcS1mIXK1pZVwLqb/1k98L8M7JWQZS0lW+7sztzCNFude3/rPEVKPBW53BW12A1P1IPZrc="
 
 before_script:
   ## Packages

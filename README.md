@@ -8,7 +8,7 @@
 [![License](https://poser.pugx.org/phpoffice/phpproject/license.png)](https://packagist.org/packages/phpoffice/phpproject)
 
 
-PHPProject is a library written in pure PHP that provides a set of classes to write to different project management file formats, i.e. Microsoft [MSProjectExchange](http://support.microsoft.com/kb/270139) (MPX) or OASIS [GanttProject](http://www.ganttproject.biz) (GAN). 
+PHPProject is a library written in pure PHP that provides a set of classes to write to different project management file formats, i.e. Microsoft [MSProjectExchange](http://support.microsoft.com/kb/270139) (MPX) or [GanttProject](http://www.ganttproject.biz) (GAN). 
 PHPProject is an open source project licensed under the terms of [LGPL version 3](https://github.com/PHPOffice/PHPProject/blob/develop/COPYING.LESSER). PHPProject is aimed to be a high quality software product by incorporating [continuous integration](https://travis-ci.org/PHPOffice/PHPProject) and [unit testing](http://phpoffice.github.io/PHPProject/coverage/develop/). You can learn more about PHPProject by reading the [Developers' Documentation](http://phpproject.readthedocs.org/) and the [API Documentation](http://phpoffice.github.io/PHPProject/docs/develop/).
 
 Read more about PHPProject:
@@ -37,7 +37,6 @@ PHPProject requires the following:
 
 - PHP 5.3+
 - [XML Parser extension](http://www.php.net/manual/en/xml.installation.php)
-- [XMLWriter extension](http://php.net/manual/en/book.xmlwriter.php) (optional, used to write DOCX and ODT)
 
 ### Installation
 
@@ -56,7 +55,7 @@ Alternatively, you can download the latest release from the [releases page](http
 In this case, you will have to register the autoloader. Register autoloading is required only if you do not use composer in your project.
 
 ```php
-require_once 'path/to/PhpPowerpoint/src/PhpProject/Autoloader.php';
+require_once 'path/to/PhpProject/src/PhpProject/Autoloader.php';
 \PhpOffice\PhpProject\Autoloader::register();
 ```
 

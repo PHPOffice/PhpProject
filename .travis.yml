@@ -17,9 +17,11 @@ env:
     - secure: "FEHYuvMQxf987C9CxTb5lrzwYP2qH/VWvUKipsJ8X1+k2VS8QVzG5mZcHfely4CrA/j1y8dBaYV3AJOSdmRIz12zWDDJkGe/dbGRcQcS1mIXK1pZVwLqb/1k98L8M7JWQZS0lW+7sztzCNFude3/rPEVKPBW53BW12A1P1IPZrc="
 
 before_script:
+  - java -version
   ## Packages
   - sudo apt-get -qq update > /dev/null
   - sudo apt-get -qq install graphviz > /dev/null
+  - sudo apt-get -qq install ganttproject
   ## Composer
   - composer self-update
   - composer install --prefer-source --dev

@@ -21,7 +21,7 @@ before_script:
   ## Packages
   - sudo apt-get -qq update > /dev/null
   - sudo apt-get -qq install graphviz > /dev/null
-  - sudo apt-get -qq install ganttproject
+  - sudo apt-get install ganttproject
   ## Composer
   - composer self-update
   - composer install --prefer-source --dev

@@ -69,7 +69,7 @@ class GanttProject
         $oXML = new XMLWriter(XMLWriter::STORAGE_DISK);
         $oXML->startDocument('1.0', 'UTF-8');
         // project
-        $oXML->startElement('projectAA');
+        $oXML->startElement('project');
         if (isset($arrProjectInfo['date_start']) && $arrProjectInfo['date_start'] != 0) {
             $oXML->writeAttribute('view-date', date('Y-m-d', $arrProjectInfo['date_start']));
         }

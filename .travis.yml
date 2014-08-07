@@ -21,9 +21,6 @@ before_script:
   ## Packages
   - sudo apt-get -qq update > /dev/null
   - sudo apt-get -qq install graphviz > /dev/null
-  ## GanttProject
-  - wget http://dl.ganttproject.biz/ganttproject-2.6.6/ganttproject_2.6.6-r1715-1_all.deb
-  - sudo dpkg -i ganttproject_2.6.6-r1715-1_all.deb
   ## Composer
   - composer self-update
   - composer install --prefer-source --dev
@@ -44,9 +41,6 @@ script:
   - ./vendor/bin/phploc src/
   ## PHPDocumentor
   - ./vendor/bin/phpdoc -q -d ./src -t ./build/docs --template="responsive-twig"
-  ## GanttProject
-  - ganttproject -export png -o tests/PhpProject/resources/Sample_01_Simple.gan
-  - cat /home/travis/.ganttproject.d/.ganttproject*.log
 
 after_script:
   ## PHPDocumentor

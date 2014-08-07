@@ -15,7 +15,7 @@ folder <https://github.com/PHPOffice/PHPProject/tree/master/samples/>`__.
     require_once 'src/PhpProject/Autoloader.php';
     \PhpOffice\PhpProject\Autoloader::register();
 
-    $objPHPProject = new PHPProject();
+    $objPHPProject = new PhpProject();
 
     // Create resource
     $objRes1 = $objPHPProject->createResource();

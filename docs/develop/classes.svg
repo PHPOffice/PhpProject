@@ -90,40 +90,40 @@
 <polygon fill="none" stroke="black" points="138,-446 68,-446 68,-410 138,-410 138,-446"/>
 <text text-anchor="middle" x="103" y="-425.1" font-family="Times Roman,serif" font-size="11.00">XMLWriter</text>
 </g>
-<!-- \\PhpOffice\\PhpProject\\PhpProject -->
-<g id="node10" class="node"><title>\\PhpOffice\\PhpProject\\PhpProject</title>
-<polygon fill="none" stroke="black" points="140,-392 66,-392 66,-356 140,-356 140,-392"/>
-<text text-anchor="middle" x="103" y="-371.1" font-family="Times Roman,serif" font-size="11.00">PhpProject</text>
+<!-- \\PhpOffice\\PhpProject\\Autoloader -->
+<g id="node10" class="node"><title>\\PhpOffice\\PhpProject\\Autoloader</title>
+<polygon fill="none" stroke="black" points="141,-392 65,-392 65,-356 141,-356 141,-392"/>
+<text text-anchor="middle" x="103" y="-371.1" font-family="Times Roman,serif" font-size="11.00">Autoloader</text>
 </g>
-<!-- \\PhpOffice\\PhpProject\\DocumentProperties -->
-<g id="node11" class="node"><title>\\PhpOffice\\PhpProject\\DocumentProperties</title>
-<polygon fill="none" stroke="black" points="167,-338 39,-338 39,-302 167,-302 167,-338"/>
-<text text-anchor="middle" x="103" y="-317.1" font-family="Times Roman,serif" font-size="11.00">DocumentProperties</text>
+<!-- \\PhpOffice\\PhpProject\\IOFactory -->
+<g id="node11" class="node"><title>\\PhpOffice\\PhpProject\\IOFactory</title>
+<polygon fill="none" stroke="black" points="137,-338 69,-338 69,-302 137,-302 137,-338"/>
+<text text-anchor="middle" x="103" y="-317.1" font-family="Times Roman,serif" font-size="11.00">IOFactory</text>
 </g>
-<!-- \\PhpOffice\\PhpProject\\Resource -->
-<g id="node12" class="node"><title>\\PhpOffice\\PhpProject\\Resource</title>
-<polygon fill="none" stroke="black" points="136,-284 70,-284 70,-248 136,-248 136,-284"/>
-<text text-anchor="middle" x="103" y="-263.1" font-family="Times Roman,serif" font-size="11.00">Resource</text>
+<!-- \\PhpOffice\\PhpProject\\Task -->
+<g id="node12" class="node"><title>\\PhpOffice\\PhpProject\\Task</title>
+<polygon fill="none" stroke="black" points="130,-284 76,-284 76,-248 130,-248 130,-284"/>
+<text text-anchor="middle" x="103" y="-263.1" font-family="Times Roman,serif" font-size="11.00">Task</text>
 </g>
 <!-- \\PhpOffice\\PhpProject\\DocumentInformations -->
 <g id="node13" class="node"><title>\\PhpOffice\\PhpProject\\DocumentInformations</title>
 <polygon fill="none" stroke="black" points="174,-230 32,-230 32,-194 174,-194 174,-230"/>
 <text text-anchor="middle" x="103" y="-209.1" font-family="Times Roman,serif" font-size="11.00">DocumentInformations</text>
 </g>
-<!-- \\PhpOffice\\PhpProject\\Task -->
-<g id="node14" class="node"><title>\\PhpOffice\\PhpProject\\Task</title>
-<polygon fill="none" stroke="black" points="130,-176 76,-176 76,-140 130,-140 130,-176"/>
-<text text-anchor="middle" x="103" y="-155.1" font-family="Times Roman,serif" font-size="11.00">Task</text>
+<!-- \\PhpOffice\\PhpProject\\DocumentProperties -->
+<g id="node14" class="node"><title>\\PhpOffice\\PhpProject\\DocumentProperties</title>
+<polygon fill="none" stroke="black" points="167,-176 39,-176 39,-140 167,-140 167,-176"/>
+<text text-anchor="middle" x="103" y="-155.1" font-family="Times Roman,serif" font-size="11.00">DocumentProperties</text>
 </g>
-<!-- \\PhpOffice\\PhpProject\\IOFactory -->
-<g id="node15" class="node"><title>\\PhpOffice\\PhpProject\\IOFactory</title>
-<polygon fill="none" stroke="black" points="137,-122 69,-122 69,-86 137,-86 137,-122"/>
-<text text-anchor="middle" x="103" y="-101.1" font-family="Times Roman,serif" font-size="11.00">IOFactory</text>
+<!-- \\PhpOffice\\PhpProject\\Resource -->
+<g id="node15" class="node"><title>\\PhpOffice\\PhpProject\\Resource</title>
+<polygon fill="none" stroke="black" points="136,-122 70,-122 70,-86 136,-86 136,-122"/>
+<text text-anchor="middle" x="103" y="-101.1" font-family="Times Roman,serif" font-size="11.00">Resource</text>
 </g>
-<!-- \\PhpOffice\\PhpProject\\Autoloader -->
-<g id="node16" class="node"><title>\\PhpOffice\\PhpProject\\Autoloader</title>
-<polygon fill="none" stroke="black" points="141,-68 65,-68 65,-32 141,-32 141,-68"/>
-<text text-anchor="middle" x="103" y="-47.1" font-family="Times Roman,serif" font-size="11.00">Autoloader</text>
+<!-- \\PhpOffice\\PhpProject\\PhpProject -->
+<g id="node16" class="node"><title>\\PhpOffice\\PhpProject\\PhpProject</title>
+<polygon fill="none" stroke="black" points="140,-68 66,-68 66,-32 140,-32 140,-68"/>
+<text text-anchor="middle" x="103" y="-47.1" font-family="Times Roman,serif" font-size="11.00">PhpProject</text>
 </g>
 </g>
 </svg>

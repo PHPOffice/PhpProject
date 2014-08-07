@@ -23,7 +23,7 @@ before_script:
   - sudo apt-get -qq install graphviz > /dev/null
   ## GanttProject
   - wget http://dl.ganttproject.biz/ganttproject-2.6.6/ganttproject_2.6.6-r1715-1_all.deb
-  - sudo apt-get install ganttproject_2.6.6-r1715-1_all.deb
+  - sudo dpkg -i ganttproject_2.6.6-r1715-1_all.deb
   ## Composer
   - composer self-update
   - composer install --prefer-source --dev

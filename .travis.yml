@@ -44,6 +44,8 @@ script:
   - ./vendor/bin/phploc src/
   ## PHPDocumentor
   - ./vendor/bin/phpdoc -q -d ./src -t ./build/docs --template="responsive-twig"
+  ## GanttProject
+  - ganttproject -export png -o tests/PhpProject/resources/Sample_01_Simple.gan -log -log_file ''
 
 after_script:
   ## PHPDocumentor

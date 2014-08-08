@@ -73,19 +73,22 @@ class GanttProject
         $oXML = new XMLReader();
         $oXML->getDomFromString($content);
         
-        $readMethods = array(
-            'description' => 'readNodeDescription',
-            'tasks' => 'readNodeTasks',
-            'resources' => 'readNodeResources',
-            'allocations' => 'readNodeAllocations',
-        );
-        
         $oNodes = $oXML->getElements('*');
         if ($oNodes->length > 0) {
             foreach ($oNodes as $oNode) {
-                if (array_key_exists($oNode->nodeName, $readMethods)) {
-                    $readMethod = $readMethods[$oNode->nodeName];
-                    $this->$readMethod($oXML, $oNode);
+                switch ($oNode->nodeName) {
+                    case 'allocations':
+                        $this->readNodeAllocations($oXML, $oNode);
+                        break;
+                    case 'description':
+                        $this->readNodeDescription($oNode);
+                        break;
+                    case 'resources':
+                        $this->readNodeResources($oXML, $oNode);
+                        break;
+                    case 'tasks':
+                        $this->readNodeTasks($oXML, $oNode);
+                        break;
                 }
             }
         }
@@ -98,7 +101,7 @@ class GanttProject
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeDescription (XMLReader $oXML, \DOMElement $domNode)
+    private function readNodeDescription (\DOMElement $domNode)
     {
         $this->phpProject->getProperties()->setDescription($domNode->nodeValue);
     }
@@ -159,7 +162,7 @@ class GanttProject
             foreach ($oNodes as $oNode) {
                 if ($oNode->nodeName == 'resource') {
                     $oResource = $this->phpProject->createResource();
-                    $this->readNodeResource($oXML, $oNode, $oResource);
+                    $this->readNodeResource($oNode, $oResource);
                 }
             }
         }
@@ -169,7 +172,7 @@ class GanttProject
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeResource (XMLReader $oXML, \DOMElement $domNode, Resource $oResource)
+    private function readNodeResource (\DOMElement $domNode, Resource $oResource)
     {
         // Attributes
         $oResource->setIndex($domNode->getAttribute('id'));
@@ -187,7 +190,7 @@ class GanttProject
         if ($oNodes->length > 0) {
             foreach ($oNodes as $oNode) {
                 if ($oNode->nodeName == 'allocation') {
-                    $this->readNodeAllocation($oXML, $oNode);
+                    $this->readNodeAllocation($oNode);
                 }
             }
         }
@@ -197,7 +200,7 @@ class GanttProject
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeAllocation (XMLReader $oXML, \DOMElement $domNode)
+    private function readNodeAllocation (\DOMElement $domNode)
     {
         // Attributes
         $idTask = $domNode->getAttribute('task-id');

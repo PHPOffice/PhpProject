@@ -79,14 +79,14 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
     
     public function testResourceFromIndex()
     {
-    	$object = new PhpProject();
-    	$oResource1 = $object->createResource();
-    	$oResource1->setIndex(2);
-    	$oResource2 = $object->createResource();
-    	$oResource2->setIndex(4);
-    	 
-    	$this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->getResourceFromIndex(2));
-    	$this->assertNull($object->getResourceFromIndex(1));
+        $object = new PhpProject();
+        $oResource1 = $object->createResource();
+        $oResource1->setIndex(2);
+        $oResource2 = $object->createResource();
+        $oResource2->setIndex(4);
+         
+        $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->getResourceFromIndex(2));
+        $this->assertNull($object->getResourceFromIndex(1));
     }
     
     /**
@@ -143,16 +143,16 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
     
     public function testTaskFromIndex()
     {
-    	$object = new PhpProject();
-    	$oTask1 = $object->createTask();
-    	$oTask1->setIndex(2);
-    	$oTask11 = $oTask1->createTask();
-    	$oTask11->setIndex(22);
-    	$oTask2 = $object->createTask();
-    	$oTask2->setIndex(4);
-    	
-    	$this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getTaskFromIndex(2));
-    	$this->assertNull($object->getTaskFromIndex(1));
+        $object = new PhpProject();
+        $oTask1 = $object->createTask();
+        $oTask1->setIndex(2);
+        $oTask11 = $oTask1->createTask();
+        $oTask11->setIndex(22);
+        $oTask2 = $object->createTask();
+        $oTask2->setIndex(4);
+        
+        $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getTaskFromIndex(2));
+        $this->assertNull($object->getTaskFromIndex(1));
     }
     
     /**

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 - Not Released
+### Features
+- MSProjectExchange Reader - @Progi1984 GH-4
+### Bugfix
+
+### Miscellaneous
+
+
 ## 0.1.0 - 2014-08-08
 
 ### Features

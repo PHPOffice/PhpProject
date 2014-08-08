@@ -109,7 +109,7 @@ class PhpProject
     /**
      * Get informations
      * 
-     * @return PHPProject_DocumentInformations
+     * @return DocumentInformations
      */
     public function getInformations()
     {

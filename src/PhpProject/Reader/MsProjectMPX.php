@@ -127,7 +127,7 @@ class MsProjectMPX
                 case '41': // Numeric Resource Table Definition
                     $this->readRecord41($arrayRecord);
                     break;
-                case '50': // Resource 
+                case '50': // Resource
                     $this->readRecord50($arrayRecord);
                     break;
                 //case '51': // Resource Notes
@@ -256,7 +256,7 @@ class MsProjectMPX
                 case 1: // Name
                     $this->defTask[$key + 1] = 'setName';
                     break;
-                case 2: // WBS 
+                case 2: // WBS
                     break;
                 case 3: // Outline Level
                     break;
@@ -336,7 +336,7 @@ class MsProjectMPX
     {
         // 0 : Record
         // 1 : ID
-        $idResource = null; 
+        $idResource = null;
         if (isset($record[1]) && !empty($record[1])) {
             $idResource = $record[1];
         }

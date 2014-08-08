@@ -28,7 +28,7 @@ class GanttProjectTest extends \PHPUnit_Framework_TestCase
 {
     public function testCanRead()
     {
-        $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_01_Simple.gan';
+        $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_02.gan';
         $file404 = 'fileError';
         
         $object = new GanttProject();
@@ -39,11 +39,23 @@ class GanttProjectTest extends \PHPUnit_Framework_TestCase
     
     public function testLoad()
     {
-        $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_01_Simple.gan';
+        $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_02.gan';
+        $object = new GanttProject();
+        $return = $object->load($file);
+         
+        $this->assertInstanceOf('PhpOffice\\PhpProject\\PhpProject', $return);
+        $this->assertEquals(1, $return->getResourceCount());
+        $this->assertEquals(2, $return->getTaskCount());
+    }
+    
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionMessage The file is not accessible. 
+     */
+    public function testLoadException()
+    {
         $file404 = 'fileError';
         $object = new GanttProject();
-         
-        $this->assertNull($object->load($file404));
-        $this->assertInstanceOf('PhpOffice\\PhpProject\\PhpProject', $object->load($file));
+        $object->load($file404);
     }
 }

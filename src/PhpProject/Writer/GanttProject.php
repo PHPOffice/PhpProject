@@ -304,7 +304,7 @@ class GanttProject
         
         // Writing XML Object in file
         // Open file
-        if (!is_writable($pFilename)) {
+        if (file_exists($pFilename) && !is_writable($pFilename)) {
             throw new \Exception("Could not open file $pFilename for writing.");
         }
         $fileHandle = fopen($pFilename, 'wb+');

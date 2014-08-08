@@ -6,3 +6,4 @@ unitTests/codeCoverage
 /build/coverage
 /build/logs
 vendor
+/samples/results

@@ -194,6 +194,21 @@ class PhpProject
         }
     }
     
+    /**
+     * Get resource from index
+     *
+     * @return Resource|null
+     */
+    public function getResourceFromIndex($pIndex)
+    {
+        foreach ($this->resourceCollection as $oResource){
+            if($oResource->getIndex() == $pIndex) {
+                return $oResource;
+            }
+        }
+        return null;
+    }
+    
     //===============================================
     // Tasks
     //===============================================
@@ -259,6 +274,33 @@ class PhpProject
         } else {
             return $this->taskCollection[$pIndex];
         }
+    }
+    
+    /**
+     * Get task from index
+     *
+     * @return Task|null
+     */
+    public function getTaskFromIndex($pIndex, Task $oTaskParent = null)
+    {
+    	if(is_null($oTaskParent)){
+    		$arrayTask = $this->taskCollection;
+    	} else {
+    		$arrayTask = $oTaskParent->getTasks();
+    	}
+        foreach ($arrayTask as $oTask){
+            if($oTask->getIndex() == $pIndex) {
+                return $oTask;
+            } else {
+            	if($oTask->getTaskCount() > 0) {
+            		$return = $this->getTaskFromIndex($pIndex, $oTask);
+            		if($return instanceof Task) {
+            			return $return;
+            		}
+            	}
+            }
+        }
+        return null;
     }
 
     /**

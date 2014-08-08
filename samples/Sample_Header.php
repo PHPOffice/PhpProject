@@ -56,7 +56,7 @@ function write($phpPowerPoint, $filename, $writers)
         $result .= date('H:i:s') . " Write to {$writer} format";
         if (!is_null($extension)) {
             $xmlWriter = IOFactory::createWriter($phpPowerPoint, $writer);
-            $xmlWriter->save(__DIR__ . "/{$filename}.{$extension}");
+            $xmlWriter->save(__DIR__ . DIRECTORY_SEPARATOR."{$filename}.{$extension}");
             rename(__DIR__ . "/{$filename}.{$extension}", __DIR__ . "/results/{$filename}.{$extension}");
         } else {
             $result .= ' ... NOT DONE!';

@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>    API Documentation &raquo; \PhpOffice\PhpProject\Reader\GanttProject
+    <title>    API Documentation &raquo; \PhpOffice\PhpProject\Reader\MsProjectMPX
 </title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
@@ -137,47 +137,42 @@
         </a>
     </li>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                </ul>
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                                                                                                                                </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
                                                                                                                                                                                         <li class="method private">
-                            <a href="#method_readNodeAllocation" title="readNodeAllocation :: Node &quot;Allocation&quot;">
-                                <span class="description">Node &quot;Allocation&quot;</span><pre>readNodeAllocation</pre>
+                            <a href="#method_readRecord30" title="readRecord30 :: Project Header">
+                                <span class="description">Project Header</span><pre>readRecord30</pre>
                             </a>
                         </li>
                                                                                 <li class="method private">
-                            <a href="#method_readNodeAllocations" title="readNodeAllocations :: Node &quot;Allocations&quot;">
-                                <span class="description">Node &quot;Allocations&quot;</span><pre>readNodeAllocations</pre>
+                            <a href="#method_readRecord41" title="readRecord41 :: Numeric Resource Table Definition">
+                                <span class="description">Numeric Resource Table Definition</span><pre>readRecord41</pre>
                             </a>
                         </li>
                                                                                 <li class="method private">
-                            <a href="#method_readNodeDescription" title="readNodeDescription :: Node &quot;Description&quot;">
-                                <span class="description">Node &quot;Description&quot;</span><pre>readNodeDescription</pre>
+                            <a href="#method_readRecord50" title="readRecord50 :: Resource">
+                                <span class="description">Resource</span><pre>readRecord50</pre>
                             </a>
                         </li>
                                                                                 <li class="method private">
-                            <a href="#method_readNodeResource" title="readNodeResource :: Node &quot;Resource&quot;">
-                                <span class="description">Node &quot;Resource&quot;</span><pre>readNodeResource</pre>
+                            <a href="#method_readRecord61" title="readRecord61 :: Numeric Task Table Definition">
+                                <span class="description">Numeric Task Table Definition</span><pre>readRecord61</pre>
                             </a>
                         </li>
                                                                                 <li class="method private">
-                            <a href="#method_readNodeResources" title="readNodeResources :: Node &quot;Resources&quot;">
-                                <span class="description">Node &quot;Resources&quot;</span><pre>readNodeResources</pre>
+                            <a href="#method_readRecord70" title="readRecord70 :: Task">
+                                <span class="description">Task</span><pre>readRecord70</pre>
                             </a>
                         </li>
                                                                                 <li class="method private">
-                            <a href="#method_readNodeTask" title="readNodeTask :: Node &quot;Task&quot;">
-                                <span class="description">Node &quot;Task&quot;</span><pre>readNodeTask</pre>
-                            </a>
-                        </li>
-                                                                                <li class="method private">
-                            <a href="#method_readNodeTasks" title="readNodeTasks :: Node &quot;Tasks&quot;">
-                                <span class="description">Node &quot;Tasks&quot;</span><pre>readNodeTasks</pre>
+                            <a href="#method_readRecord75" title="readRecord75 :: Resource Assignment">
+                                <span class="description">Resource Assignment</span><pre>readRecord75</pre>
                             </a>
                         </li>
                                                 </ul>
@@ -194,16 +189,25 @@
 
         <div class="span8">
             <div class="element class">
-                <h1>GanttProject</h1>
+                <h1>MsProjectMPX</h1>
                 <small style="display: block; text-align: right">
                                                         </small>
-                <p class="short_description">GanttProject</p>
+                <p class="short_description">MPX File Format</p>
                 <div class="details">
                     <div class="long_description">
                         
                     </div>
                     <table class="table table-bordered">
                                                                                     <tr>
+                                    <th>
+                                        link
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p><a href="http://support.microsoft.com/kb/270139/en-us">http://support.microsoft.com/kb/270139/en-us</a></p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
                                     <th>
                                         category
                                                                             </th>
@@ -291,7 +295,7 @@
                                             <a id="method_load"></a>
                         <div class="element clickable method public  method_load" data-toggle="collapse" data-target=".method_load .collapse">
                             <h2>load</h2>
-                            <pre>load(string $pFilename) : \PhpOffice\PhpProject\Reader\PHPProject</pre>
+                            <pre>load(string $pFilename) : \PhpOffice\PhpProject\Reader\PHPProject|null</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -317,14 +321,14 @@
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>\PhpOffice\PhpProject\Reader\PHPProject</code><p></p>
+                                        <code>\PhpOffice\PhpProject\Reader\PHPProject|null</code><p></p>
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_readNodeAllocation"></a>
-                        <div class="element clickable method private  method_readNodeAllocation" data-toggle="collapse" data-target=".method_readNodeAllocation .collapse">
-                            <h2>Node &quot;Allocation&quot;</h2>
-                            <pre>readNodeAllocation(\DOMElement $domNode) </pre>
+                                            <a id="method_readRecord30"></a>
+                        <div class="element clickable method private  method_readRecord30" data-toggle="collapse" data-target=".method_readRecord30 .collapse">
+                            <h2>Project Header</h2>
+                            <pre>readRecord30(array $record) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -343,17 +347,17 @@
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$domNode</h4>
-                                                <code>\DOMElement</code><p></p>
+                                                <h4>$record</h4>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_readNodeAllocations"></a>
-                        <div class="element clickable method private  method_readNodeAllocations" data-toggle="collapse" data-target=".method_readNodeAllocations .collapse">
-                            <h2>Node &quot;Allocations&quot;</h2>
-                            <pre>readNodeAllocations(\PhpOffice\PhpProject\Shared\XMLReader $oXML, \DOMElement $domNode) </pre>
+                                            <a id="method_readRecord41"></a>
+                        <div class="element clickable method private  method_readRecord41" data-toggle="collapse" data-target=".method_readRecord41 .collapse">
+                            <h2>Numeric Resource Table Definition</h2>
+                            <pre>readRecord41(array $record) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -372,21 +376,17 @@
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$oXML</h4>
-                                                <code><a href="../classes/PhpOffice.PhpProject.Shared.XMLReader.html">\PhpOffice\PhpProject\Shared\XMLReader</a></code><p></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$domNode</h4>
-                                                <code>\DOMElement</code><p></p>
+                                                <h4>$record</h4>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_readNodeDescription"></a>
-                        <div class="element clickable method private  method_readNodeDescription" data-toggle="collapse" data-target=".method_readNodeDescription .collapse">
-                            <h2>Node &quot;Description&quot;</h2>
-                            <pre>readNodeDescription(\DOMElement $domNode) </pre>
+                                            <a id="method_readRecord50"></a>
+                        <div class="element clickable method private  method_readRecord50" data-toggle="collapse" data-target=".method_readRecord50 .collapse">
+                            <h2>Resource</h2>
+                            <pre>readRecord50(array $record) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -405,17 +405,17 @@
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$domNode</h4>
-                                                <code>\DOMElement</code><p></p>
+                                                <h4>$record</h4>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_readNodeResource"></a>
-                        <div class="element clickable method private  method_readNodeResource" data-toggle="collapse" data-target=".method_readNodeResource .collapse">
-                            <h2>Node &quot;Resource&quot;</h2>
-                            <pre>readNodeResource(\DOMElement $domNode, \PhpOffice\PhpProject\Resource $oResource) </pre>
+                                            <a id="method_readRecord61"></a>
+                        <div class="element clickable method private  method_readRecord61" data-toggle="collapse" data-target=".method_readRecord61 .collapse">
+                            <h2>Numeric Task Table Definition</h2>
+                            <pre>readRecord61(array $record) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -434,21 +434,17 @@
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$domNode</h4>
-                                                <code>\DOMElement</code><p></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$oResource</h4>
-                                                <code><a href="../classes/PhpOffice.PhpProject.Resource.html">\PhpOffice\PhpProject\Resource</a></code><p></p>
+                                                <h4>$record</h4>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_readNodeResources"></a>
-                        <div class="element clickable method private  method_readNodeResources" data-toggle="collapse" data-target=".method_readNodeResources .collapse">
-                            <h2>Node &quot;Resources&quot;</h2>
-                            <pre>readNodeResources(\PhpOffice\PhpProject\Shared\XMLReader $oXML, \DOMElement $domNode) </pre>
+                                            <a id="method_readRecord70"></a>
+                        <div class="element clickable method private  method_readRecord70" data-toggle="collapse" data-target=".method_readRecord70 .collapse">
+                            <h2>Task</h2>
+                            <pre>readRecord70(array $record) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -467,21 +463,17 @@
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$oXML</h4>
-                                                <code><a href="../classes/PhpOffice.PhpProject.Shared.XMLReader.html">\PhpOffice\PhpProject\Shared\XMLReader</a></code><p></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$domNode</h4>
-                                                <code>\DOMElement</code><p></p>
+                                                <h4>$record</h4>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_readNodeTask"></a>
-                        <div class="element clickable method private  method_readNodeTask" data-toggle="collapse" data-target=".method_readNodeTask .collapse">
-                            <h2>Node &quot;Task&quot;</h2>
-                            <pre>readNodeTask(\PhpOffice\PhpProject\Shared\XMLReader $oXML, \DOMElement $domNode, \PhpOffice\PhpProject\Task $oTask) </pre>
+                                            <a id="method_readRecord75"></a>
+                        <div class="element clickable method private  method_readRecord75" data-toggle="collapse" data-target=".method_readRecord75 .collapse">
+                            <h2>Resource Assignment</h2>
+                            <pre>readRecord75(array $record) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -500,49 +492,8 @@
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$oXML</h4>
-                                                <code><a href="../classes/PhpOffice.PhpProject.Shared.XMLReader.html">\PhpOffice\PhpProject\Shared\XMLReader</a></code><p></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$domNode</h4>
-                                                <code>\DOMElement</code><p></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$oTask</h4>
-                                                <code><a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a></code><p></p>
-                                            </div>
-                                                                            
-                                                                    </div>
-                            </div>
-                        </div>
-                                            <a id="method_readNodeTasks"></a>
-                        <div class="element clickable method private  method_readNodeTasks" data-toggle="collapse" data-target=".method_readNodeTasks .collapse">
-                            <h2>Node &quot;Tasks&quot;</h2>
-                            <pre>readNodeTasks(\PhpOffice\PhpProject\Shared\XMLReader $oXML, \DOMElement $domNode) </pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$oXML</h4>
-                                                <code><a href="../classes/PhpOffice.PhpProject.Shared.XMLReader.html">\PhpOffice\PhpProject\Shared\XMLReader</a></code><p></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$domNode</h4>
-                                                <code>\DOMElement</code><p></p>
+                                                <h4>$record</h4>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
@@ -577,16 +528,120 @@
                                                                             </div>
                                 </div>
                             </div>
+                                                    <a id="property_defResource"> </a>
+                            <div class="element clickable property  private property_defResource" data-toggle="collapse" data-target=".property_defResource .collapse">
+                                <h2>Numeric Resource Table</h2>
+                                <pre>defResource : array&lt;mixed,string&gt;</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>array&lt;mixed,string&gt;</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_defTask"> </a>
+                            <div class="element clickable property  private property_defTask" data-toggle="collapse" data-target=".property_defTask .collapse">
+                                <h2>Numeric Table Table</h2>
+                                <pre>defTask : array&lt;mixed,string&gt;</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>array&lt;mixed,string&gt;</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_iParentTaskIdx"> </a>
+                            <div class="element clickable property  private property_iParentTaskIdx" data-toggle="collapse" data-target=".property_iParentTaskIdx .collapse">
+                                <h2>Index in $defTask for the precedessor</h2>
+                                <pre>iParentTaskIdx : integer</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>integer</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_oPreviousTask"> </a>
+                            <div class="element clickable property  private property_oPreviousTask" data-toggle="collapse" data-target=".property_oPreviousTask .collapse">
+                                <h2>last Task created</h2>
+                                <pre>oPreviousTask : \PhpOffice\PhpProject\Task</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code><a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a></code>
+                                                                            </div>
+                                </div>
+                            </div>
                                                             </div>
             </div>
-            <a id="\PhpOffice\PhpProject\Reader\GanttProject"></a>
+            <a id="\PhpOffice\PhpProject\Reader\MsProjectMPX"></a>
             <ul class="breadcrumb">
                 <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
                     
     
     <li><span class="divider">\</span><a href="../namespaces/PhpOffice.PhpProject.Reader.html">Reader</a></li>
 
-                <li class="active"><span class="divider">\</span><a href="../classes/PhpOffice.PhpProject.Reader.GanttProject.html">GanttProject</a></li>
+                <li class="active"><span class="divider">\</span><a href="../classes/PhpOffice.PhpProject.Reader.MsProjectMPX.html">MsProjectMPX</a></li>
             </ul>
         </div>
     </div>
@@ -597,7 +652,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Fri, 08 Aug 2014 15:10:33 +0000.<br/>
+            generated on Fri, 08 Aug 2014 15:10:32 +0000.<br/>
     </footer>
     </body>
 </html>

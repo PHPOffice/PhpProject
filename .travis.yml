@@ -1,40 +1,50 @@
 language: php
+
 php:
-  - 5.3.3
   - 5.3
+  - 5.3.3
   - 5.4
   - 5.5
+  - 5.6
+  - hhvm
+
+matrix:
+  allow_failures:
+    - php: hhvm
+
+env:
+  global:
+    - secure: "FEHYuvMQxf987C9CxTb5lrzwYP2qH/VWvUKipsJ8X1+k2VS8QVzG5mZcHfely4CrA/j1y8dBaYV3AJOSdmRIz12zWDDJkGe/dbGRcQcS1mIXK1pZVwLqb/1k98L8M7JWQZS0lW+7sztzCNFude3/rPEVKPBW53BW12A1P1IPZrc="
 
 before_script:
+  - java -version
+  ## Packages
+  - sudo apt-get -qq update > /dev/null
+  - sudo apt-get -qq install graphviz > /dev/null
   ## Composer
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install
-  ## PHP_CodeSniffer
-  - pyrus install pear/PHP_CodeSniffer
-  - phpenv rehash
-  ## PHP Copy/Paste Detector
-  - curl -o phpcpd.phar https://phar.phpunit.de/phpcpd.phar
-  ## PHP Mess Detector
-  - pear config-set preferred_state beta
-  - printf "\n" | pecl install imagick
-  - pear channel-discover pear.phpmd.org
-  - pear channel-discover pear.pdepend.org
-  - pear install --alldeps phpmd/PHP_PMD
-  - phpenv rehash
-  ## PHPLOC
-  - curl -o phploc.phar https://phar.phpunit.de/phploc.phar
+  - composer self-update
+  - composer install --prefer-source --dev
+  ## PHPDocumentor
+  - mkdir -p build/docs
+  - mkdir -p build/coverage
 
 script:
   ## PHP_CodeSniffer
-  - phpcs --standard=PSR1 Classes/
-  - phpcs --standard=PSR2 Classes/
+  - ./vendor/bin/phpcs src/ tests/ --standard=PSR2 -n
   ## PHP Copy/Paste Detector
-  - php phpcpd.phar --verbose Classes/
+  # - ./vendor/bin/phpcpd src/
   ## PHP Mess Detector
-  - phpmd Classes/ text codesize,unusedcode,naming,design
+  - ./vendor/bin/phpmd src/,tests/ text ./phpmd.xml.dist
+  ## PHPUnit
+  - ./vendor/bin/phpunit -c ./ --coverage-text --coverage-html ./build/coverage
   ## PHPLOC
-  - php phploc.phar Classes/
+  - ./vendor/bin/phploc src/
+  ## PHPDocumentor
+  - ./vendor/bin/phpdoc -q -d ./src -t ./build/docs --template="responsive-twig"
 
-notifications:
-  email:
-    - progi1984@gmail.com
+after_script:
+  ## PHPDocumentor
+  - bash .travis_shell_after_success.sh
+  ## Scrutinizer
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml

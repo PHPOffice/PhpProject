@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2010-06-26" view-index="0" gantt-divider-location="414" resource-divider-location="300" version="2.0">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart"/>
+    <view id="resource-table">
+        <field id="0" name="Name" width="55" order="0"/>
+        <field id="1" name="Default role" width="44" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <calendar id="1" name="default">
+                <default-week sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+                <overriden-day-types/>
+                <days/>
+            </calendar>
+        </day-types>
+    </calendars>
+    <tasks color="#8cb6ce">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="2" name="cbednarek" color="#8cb6ce" meeting="false" start="2010-06-29" duration="19" complete="0" priority="1" expand="true">
+            <task id="0" name="Projet 1" color="#8cb6ce" meeting="false" start="2010-06-29" duration="10" complete="0" priority="1" expand="true"/>
+            <task id="1" name="Projet 2" color="#8cb6ce" meeting="false" start="2010-07-15" duration="7" complete="0" priority="1" expand="true"/>
+        </task>
+        <task id="3" name="jpreira" color="#8cb6ce" meeting="false" start="2010-07-12" duration="6" complete="0" priority="1" expand="true">
+            <task id="4" name="Projet 3" color="#8cb6ce" meeting="false" start="2010-07-12" duration="6" complete="0" priority="1" expand="true"/>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="0" name="cbednarek" function="Default:0" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="0" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="1" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <taskdisplaycolumns>
+        <displaycolumn property-id="tpd3" order="0" width="107"/>
+        <displaycolumn property-id="tpd4" order="1" width="59"/>
+        <displaycolumn property-id="tpd5" order="2" width="55"/>
+        <displaycolumn property-id="tpd6" order="3" width="54"/>
+    </taskdisplaycolumns>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>

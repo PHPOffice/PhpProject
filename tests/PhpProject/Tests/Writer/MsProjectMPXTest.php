@@ -61,7 +61,7 @@ class MsProjectMPXTest extends \PHPUnit_Framework_TestCase
         $xmlWriter->save($fileOutput);
         
         $content = file_get_contents($fileOutput);
-        $content = explode(PHP_EOL,    $content);
+        $content = explode(PHP_EOL, $content);
         
         foreach ($content as $line) {
             $line = explode(';', $line);

@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>    API Documentation &raquo; \PhpOffice\PhpProject\Writer\GanttProject
+    <title>    API Documentation &raquo; \PhpOffice\PhpProject\Writer\MsProjectMPX
 </title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
@@ -131,11 +131,11 @@
         </a>
     </li>
 
-                                                                                                                                                                                                                        </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                                                                                                                            </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
@@ -159,18 +159,48 @@
                             </a>
                         </li>
                                                                                                                     <li class="method private">
-                            <a href="#method_writeAllocation" title="writeAllocation :: ">
-                                <span class="description"></span><pre>writeAllocation</pre>
+                            <a href="#method_writeRecord30" title="writeRecord30 :: Record &quot;Project Header&quot;">
+                                <span class="description">Record &quot;Project Header&quot;</span><pre>writeRecord30</pre>
                             </a>
                         </li>
                                                                                 <li class="method private">
-                            <a href="#method_writeResource" title="writeResource :: ">
-                                <span class="description"></span><pre>writeResource</pre>
+                            <a href="#method_writeRecord40" title="writeRecord40 :: Record &quot;Text Resource Table Definition&quot;">
+                                <span class="description">Record &quot;Text Resource Table Definition&quot;</span><pre>writeRecord40</pre>
                             </a>
                         </li>
                                                                                 <li class="method private">
-                            <a href="#method_writeTask" title="writeTask :: ">
-                                <span class="description"></span><pre>writeTask</pre>
+                            <a href="#method_writeRecord41" title="writeRecord41 :: Record &quot;Numeric Resource Table Definition&quot;">
+                                <span class="description">Record &quot;Numeric Resource Table Definition&quot;</span><pre>writeRecord41</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method private">
+                            <a href="#method_writeRecord50" title="writeRecord50 :: Record &quot;Resource&quot;">
+                                <span class="description">Record &quot;Resource&quot;</span><pre>writeRecord50</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method private">
+                            <a href="#method_writeRecord60" title="writeRecord60 :: Record &quot;Text Task Table Definition&quot;">
+                                <span class="description">Record &quot;Text Task Table Definition&quot;</span><pre>writeRecord60</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method private">
+                            <a href="#method_writeRecord61" title="writeRecord61 :: Record &quot;Numeric Task Table Definition&quot;">
+                                <span class="description">Record &quot;Numeric Task Table Definition&quot;</span><pre>writeRecord61</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method private">
+                            <a href="#method_writeRecord70" title="writeRecord70 :: Record &quot;Task&quot;">
+                                <span class="description">Record &quot;Task&quot;</span><pre>writeRecord70</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method private">
+                            <a href="#method_writeRecord75" title="writeRecord75 :: Record &quot;Resource Assignment&quot;">
+                                <span class="description">Record &quot;Resource Assignment&quot;</span><pre>writeRecord75</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method private">
+                            <a href="#method_writeRecordMPX" title="writeRecordMPX :: Record MPX">
+                                <span class="description">Record MPX</span><pre>writeRecordMPX</pre>
                             </a>
                         </li>
                                                 </ul>
@@ -187,10 +217,10 @@
 
         <div class="span8">
             <div class="element class">
-                <h1>GanttProject</h1>
+                <h1>MsProjectMPX</h1>
                 <small style="display: block; text-align: right">
                                                         </small>
-                <p class="short_description">PHPProject_Writer_GanttProject</p>
+                <p class="short_description">MsProjectMPx</p>
                 <div class="details">
                     <div class="long_description">
                         
@@ -381,10 +411,10 @@
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_writeAllocation"></a>
-                        <div class="element clickable method private  method_writeAllocation" data-toggle="collapse" data-target=".method_writeAllocation .collapse">
-                            <h2>writeAllocation</h2>
-                            <pre>writeAllocation(\PhpOffice\PhpProject\Shared\XMLWriter $oXML,  $piIdTask,  $piIdResource) </pre>
+                                            <a id="method_writeRecord30"></a>
+                        <div class="element clickable method private  method_writeRecord30" data-toggle="collapse" data-target=".method_writeRecord30 .collapse">
+                            <h2>Record &quot;Project Header&quot;</h2>
+                            <pre>writeRecord30(array $arrProjectInfo) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -410,25 +440,79 @@
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$oXML</h4>
-                                                <code><a href="../classes/PhpOffice.PhpProject.Shared.XMLWriter.html">\PhpOffice\PhpProject\Shared\XMLWriter</a></code><p></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$piIdTask</h4>
-                                                <code></code><p></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$piIdResource</h4>
-                                                <code></code><p></p>
+                                                <h4>$arrProjectInfo</h4>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_writeResource"></a>
-                        <div class="element clickable method private  method_writeResource" data-toggle="collapse" data-target=".method_writeResource .collapse">
-                            <h2>writeResource</h2>
-                            <pre>writeResource(\PhpOffice\PhpProject\Shared\XMLWriter $oXML, \PhpOffice\PhpProject\Resource $oResource) </pre>
+                                            <a id="method_writeRecord40"></a>
+                        <div class="element clickable method private  method_writeRecord40" data-toggle="collapse" data-target=".method_writeRecord40 .collapse">
+                            <h2>Record &quot;Text Resource Table Definition&quot;</h2>
+                            <pre>writeRecord40() </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_writeRecord41"></a>
+                        <div class="element clickable method private  method_writeRecord41" data-toggle="collapse" data-target=".method_writeRecord41 .collapse">
+                            <h2>Record &quot;Numeric Resource Table Definition&quot;</h2>
+                            <pre>writeRecord41() </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_writeRecord50"></a>
+                        <div class="element clickable method private  method_writeRecord50" data-toggle="collapse" data-target=".method_writeRecord50 .collapse">
+                            <h2>Record &quot;Resource&quot;</h2>
+                            <pre>writeRecord50(Resource $oResource) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -446,22 +530,18 @@
                                                                             </table>
 
                                                                             <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$oXML</h4>
-                                                <code><a href="../classes/PhpOffice.PhpProject.Shared.XMLWriter.html">\PhpOffice\PhpProject\Shared\XMLWriter</a></code><p></p>
-                                            </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$oResource</h4>
-                                                <code><a href="../classes/PhpOffice.PhpProject.Resource.html">\PhpOffice\PhpProject\Resource</a></code><p></p>
+                                                <code>Resource</code><p></p>
                                             </div>
                                                                             
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_writeTask"></a>
-                        <div class="element clickable method private  method_writeTask" data-toggle="collapse" data-target=".method_writeTask .collapse">
-                            <h2>writeTask</h2>
-                            <pre>writeTask(\PhpOffice\PhpProject\Shared\XMLWriter $oXML, \PhpOffice\PhpProject\Task $oTask,  $iNbTasks) </pre>
+                                            <a id="method_writeRecord60"></a>
+                        <div class="element clickable method private  method_writeRecord60" data-toggle="collapse" data-target=".method_writeRecord60 .collapse">
+                            <h2>Record &quot;Text Task Table Definition&quot;</h2>
+                            <pre>writeRecord60() </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -485,20 +565,127 @@
                                             </tr>
                                                                             </table>
 
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_writeRecord61"></a>
+                        <div class="element clickable method private  method_writeRecord61" data-toggle="collapse" data-target=".method_writeRecord61 .collapse">
+                            <h2>Record &quot;Numeric Task Table Definition&quot;</h2>
+                            <pre>writeRecord61() </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_writeRecord70"></a>
+                        <div class="element clickable method private  method_writeRecord70" data-toggle="collapse" data-target=".method_writeRecord70 .collapse">
+                            <h2>Record &quot;Task&quot;</h2>
+                            <pre>writeRecord70(\PhpOffice\PhpProject\Task $oTask) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
                                                                             <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$oXML</h4>
-                                                <code><a href="../classes/PhpOffice.PhpProject.Shared.XMLWriter.html">\PhpOffice\PhpProject\Shared\XMLWriter</a></code><p></p>
-                                            </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$oTask</h4>
                                                 <code><a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a></code><p></p>
                                             </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_writeRecord75"></a>
+                        <div class="element clickable method private  method_writeRecord75" data-toggle="collapse" data-target=".method_writeRecord75 .collapse">
+                            <h2>Record &quot;Resource Assignment&quot;</h2>
+                            <pre>writeRecord75(Resource $oResource) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$iNbTasks</h4>
-                                                <code></code><p></p>
+                                                <h4>$oResource</h4>
+                                                <code>Resource</code><p></p>
                                             </div>
                                                                             
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_writeRecordMPX"></a>
+                        <div class="element clickable method private  method_writeRecordMPX" data-toggle="collapse" data-target=".method_writeRecordMPX .collapse">
+                            <h2>Record MPX</h2>
+                            <pre>writeRecordMPX() </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
                                                                     </div>
                             </div>
                         </div>
@@ -531,10 +718,10 @@
                                                                             </div>
                                 </div>
                             </div>
-                                                    <a id="property_arrAllocations"> </a>
-                            <div class="element clickable property  private property_arrAllocations" data-toggle="collapse" data-target=".property_arrAllocations .collapse">
-                                <h2>arrAllocations</h2>
-                                <pre>arrAllocations : array</pre>
+                                                    <a id="property_fileContent"> </a>
+                            <div class="element clickable property  private property_fileContent" data-toggle="collapse" data-target=".property_fileContent .collapse">
+                                <h2>Content to write in File</h2>
+                                <pre>fileContent : array&lt;mixed,string&gt;</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -553,20 +740,20 @@
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code>array</code>
+                                            <code>array&lt;mixed,string&gt;</code>
                                                                             </div>
                                 </div>
                             </div>
                                                             </div>
             </div>
-            <a id="\PhpOffice\PhpProject\Writer\GanttProject"></a>
+            <a id="\PhpOffice\PhpProject\Writer\MsProjectMPX"></a>
             <ul class="breadcrumb">
                 <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
                     
     
     <li><span class="divider">\</span><a href="../namespaces/PhpOffice.PhpProject.Writer.html">Writer</a></li>
 
-                <li class="active"><span class="divider">\</span><a href="../classes/PhpOffice.PhpProject.Writer.GanttProject.html">GanttProject</a></li>
+                <li class="active"><span class="divider">\</span><a href="../classes/PhpOffice.PhpProject.Writer.MsProjectMPX.html">MsProjectMPX</a></li>
             </ul>
         </div>
     </div>

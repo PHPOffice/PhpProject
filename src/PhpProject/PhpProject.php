@@ -168,7 +168,7 @@ class PhpProject
     /**
      * Get active resource
      *
-     * @return Resource
+     * @return Resource|null
      */
     public function getActiveResource()
     {
@@ -176,22 +176,6 @@ class PhpProject
             return $this->resourceCollection[$this->activeResourceIndex];
         }
         return null;
-    }
-    
-    /**
-     * Get resource by index
-     *
-     * @param int $pIndex Resource index
-     * @return Resource
-     * @throws \Exception
-     */
-    public function getResource($pIndex = 0)
-    {
-        if (!isset($this->resourceCollection[$pIndex])) {
-            throw new \Exception('Resource index is out of bounds.');
-        } else {
-            return $this->resourceCollection[$pIndex];
-        }
     }
     
     /**
@@ -258,22 +242,6 @@ class PhpProject
             return $this->taskCollection[$this->activeTaskIndex];
         }
         return null;
-    }
-    
-    /**
-     * Get task by index
-     *
-     * @param int $pIndex Task index
-     * @return Task
-     * @throws \Exception
-     */
-    public function getTask($pIndex = 0)
-    {
-        if (!isset($this->taskCollection[$pIndex])) {
-            throw new \Exception('Task index is out of bounds.');
-        } else {
-            return $this->taskCollection[$pIndex];
-        }
     }
     
     /**

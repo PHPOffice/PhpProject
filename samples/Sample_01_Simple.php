@@ -35,10 +35,9 @@ $objTask1->setStartDate('02-01-2012');
 $objTask1->setEndDate('03-01-2012');
 $objTask1->setProgress(0.5);
 $objTask1->addResource($objRes1);
-$objTask1Res = $objTask1->getResources();
 echo 'Resources "Start of the project"'.EOL;
-foreach ($objTask1Res as $res){
-     echo ' > '.$objPHPProject->getResource($res)->getTitle().EOL;;
+foreach ($objTask1->getResources() as $oResource){
+     echo ' > '.$oResource->getTitle().EOL;
 }
 
 $objTask2 = $objPHPProject->createTask();
@@ -51,10 +50,11 @@ $objTask21->setEndDate('04-01-2012');
 $objTask21->setProgress(1);
 $objTask21->addResource($objRes2);
 $objTask21->addResource($objRes1);
-$objTask21Res = $objTask21->getResources();
+$objTask21->addResource($objRes1);
+
 echo 'Resources "Analysis Code"'.EOL;
-foreach ($objTask21Res as $res){
-     echo ' > '.$objPHPProject->getResource($res)->getTitle().EOL;;
+foreach ($objTask21->getResources() as $oResource){
+     echo ' > '.$oResource->getTitle().EOL;;
 }
 
 $objTask22 = $objTask2->createTask();

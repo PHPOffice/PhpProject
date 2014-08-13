@@ -179,9 +179,8 @@ class GanttProject
         $oXML->endElement();
         
         // task
-        $arrTasks = $this->phpProject->getAllTasks();
         $iTaskIndex = 0;
-        foreach ($arrTasks as $oTask) {
+        foreach ($this->phpProject->getAllTasks() as $oTask) {
             $iTaskIndex = $this->writeTask($oXML, $oTask, $iTaskIndex);
         }
         
@@ -192,11 +191,8 @@ class GanttProject
         $oXML->startElement('resources');
         
         // resource
-        $arrResources = $this->phpProject->getAllResources();
-        foreach ($arrResources as $oResource) {
-            if ($oResource instanceof \PhpOffice\PhpProject\Resource) {
-                $this->writeResource($oXML, $oResource);
-            }
+        foreach ($this->phpProject->getAllResources() as $oResource) {
+            $this->writeResource($oXML, $oResource);
         }
         
         // >resources
@@ -328,10 +324,9 @@ class GanttProject
         
         // Resources Allocations
         if ($oTask->getResourceCount() > 0) {
-            $arrResources = $oTask->getResources();
-            foreach ($arrResources as $resourceIdx) {
+            foreach ($oTask->getResources() as $oResource) {
                 $itmAllocation = array();
-                $itmAllocation['id_res'] = $resourceIdx;
+                $itmAllocation['id_res'] = $oResource->getIndex();
                 $itmAllocation['id_task'] = $iNbTasks;
                 $this->arrAllocations[] = $itmAllocation;
             }

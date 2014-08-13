@@ -3,9 +3,11 @@
 ## 0.2.0 - Not Released
 ### Features
 - MSProjectExchange Reader - @Progi1984 GH-4
+- MSProjectExchange Writer - @Progi1984 GH-2
 ### Bugfix
 
 ### Miscellaneous
+- Refactored resources management
 
 
 ## 0.1.0 - 2014-08-08

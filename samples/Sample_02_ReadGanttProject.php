@@ -27,17 +27,14 @@ echo EOL;
 
 // Ressources
 echo date('H:i:s') . ' Get ressources'.EOL;
-$oResources = $objPHPProject->getAllResources();
-foreach ($oResources as $item){
-    echo 'Resource : '.$item->getTitle().EOL;
+foreach ($objPHPProject->getAllResources() as $oResource){
+    echo 'Resource : '.$oResource->getTitle().EOL;
 }
 echo EOL;
 
 // Tasks
 echo date('H:i:s') . ' Get tasks'.EOL;
-$arrTasks = $objPHPProject->getAllTasks();
-
-foreach ($arrTasks as $oTask){
+foreach ($objPHPProject->getAllTasks() as $oTask){
 	echoTask($objPHPProject, $oTask);
 }
 

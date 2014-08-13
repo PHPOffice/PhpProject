@@ -253,10 +253,10 @@ class Task
      * Add a resource used by the current task
      * @param PHPProject_Resource $pResource
      */
-    public function addResource(Resource $pResource)
+    public function addResource(Resource $oResource)
     {
-        if (array_search($pResource->getIndex(), $this->resourceCollection) === false) {
-            $this->resourceCollection[] = $pResource->getIndex();
+        if (!in_array($oResource, $this->resourceCollection)) {
+            $this->resourceCollection[] = &$oResource;
         }
         return $this;
     }
@@ -264,7 +264,7 @@ class Task
     /**
      * Returns a collection of all resources used by the task
      * 
-     * @return integer[]
+     * @return Resource[]
      */
     public function getResources()
     {

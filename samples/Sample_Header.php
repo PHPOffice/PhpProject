@@ -15,7 +15,7 @@ require_once __DIR__ . '/../src/PhpProject/Autoloader.php';
 Autoloader::register();
 
 // Set writers
-$writers = array('GanttProject' => 'gan'/*, 'MSProjectExchange' => 'mpx'*/);
+$writers = array('GanttProject' => 'gan', 'MsProjectMPX' => 'mpx');
 
 // Return to the caller script when runs by CLI
 if (CLI) {
@@ -115,8 +115,8 @@ function echoTask($oPHPProject, $oTask, $level = 0) {
     echo ' '.str_repeat('>', 2 * ($level + 1)).' Resources : '.EOL;
     $oTaskResources = $oTask->getResources();
     if(!empty($oTaskResources)){
-        foreach ($oTaskResources as $itemRes){
-            echo ' '.str_repeat('>', 2 * ($level + 2)).' Resource : '.$oPHPProject->getResourceFromIndex($itemRes)->getTitle().EOL;
+        foreach ($oTaskResources as $oResource){
+            echo ' '.str_repeat('>', 2 * ($level + 2)).' Resource : '.$oResource->getTitle().EOL;
         }
     }
     echo EOL;

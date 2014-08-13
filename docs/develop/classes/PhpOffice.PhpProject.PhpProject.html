@@ -180,12 +180,6 @@
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_getResource" title="getResource :: Get resource by index">
-            <span class="description">Get resource by index</span><pre>getResource</pre>
-        </a>
-    </li>
-
-                                                                                                        <li class="method public">
         <a href="#method_getResourceCount" title="getResourceCount :: Get resource count">
             <span class="description">Get resource count</span><pre>getResourceCount</pre>
         </a>
@@ -194,12 +188,6 @@
                                                                                                         <li class="method public">
         <a href="#method_getResourceFromIndex" title="getResourceFromIndex :: Get resource from index">
             <span class="description">Get resource from index</span><pre>getResourceFromIndex</pre>
-        </a>
-    </li>
-
-                                                                                                        <li class="method public">
-        <a href="#method_getTask" title="getTask :: Get task by index">
-            <span class="description">Get task by index</span><pre>getTask</pre>
         </a>
     </li>
 
@@ -243,11 +231,11 @@
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -404,7 +392,7 @@
                                             <a id="method_getActiveResource"></a>
                         <div class="element clickable method public  method_getActiveResource" data-toggle="collapse" data-target=".method_getActiveResource .collapse">
                             <h2>Get active resource</h2>
-                            <pre>getActiveResource() : Resource</pre>
+                            <pre>getActiveResource() : Resource|null</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
                             <div class="row collapse">
@@ -423,7 +411,7 @@
 
                                     
                                                                             <h3>Response</h3>
-                                        <code>Resource</code><p></p>
+                                        <code>Resource|null</code><p></p>
                                                                     </div>
                             </div>
                         </div>
@@ -583,39 +571,6 @@
                                                                     </div>
                             </div>
                         </div>
-                                            <a id="method_getResource"></a>
-                        <div class="element clickable method public  method_getResource" data-toggle="collapse" data-target=".method_getResource .collapse">
-                            <h2>Get resource by index</h2>
-                            <pre>getResource(integer $pIndex) : Resource</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
-                                                <td>
-                                                                                                                                                                        
-                                                                                                                                                                        
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$pIndex</h4>
-                                                <code>integer</code><p><p>Resource index</p></p>
-                                            </div>
-                                                                            
-                                                                            <h3>Response</h3>
-                                        <code>Resource</code><p></p>
-                                                                    </div>
-                            </div>
-                        </div>
                                             <a id="method_getResourceCount"></a>
                         <div class="element clickable method public  method_getResourceCount" data-toggle="collapse" data-target=".method_getResourceCount .collapse">
                             <h2>Get resource count</h2>
@@ -670,39 +625,6 @@
                                                                             
                                                                             <h3>Response</h3>
                                         <code>Resource|null</code><p></p>
-                                                                    </div>
-                            </div>
-                        </div>
-                                            <a id="method_getTask"></a>
-                        <div class="element clickable method public  method_getTask" data-toggle="collapse" data-target=".method_getTask .collapse">
-                            <h2>Get task by index</h2>
-                            <pre>getTask(integer $pIndex) : \PhpOffice\PhpProject\Task</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    throws
-                                                </th>
-                                                <td>
-                                                                                                                                                                        
-                                                                                                                                                                        
-                                                                                                    </td>
-                                            </tr>
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$pIndex</h4>
-                                                <code>integer</code><p><p>Task index</p></p>
-                                            </div>
-                                                                            
-                                                                            <h3>Response</h3>
-                                        <code><a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a></code><p></p>
                                                                     </div>
                             </div>
                         </div>
@@ -1075,7 +997,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Fri, 08 Aug 2014 15:14:51 +0000.<br/>
+            generated on Wed, 13 Aug 2014 13:07:41 +0000.<br/>
     </footer>
     </body>
 </html>

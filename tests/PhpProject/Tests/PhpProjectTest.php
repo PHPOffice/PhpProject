@@ -72,9 +72,6 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(1, $object->getAllResources());
         $this->assertInternalType('array', $object->getAllResources());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->getActiveResource());
-        // Get Resource
-        $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->getResource());
-        $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->getResource(0));
     }
     
     public function testResourceFromIndex()
@@ -87,16 +84,6 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
          
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->getResourceFromIndex(2));
         $this->assertNull($object->getResourceFromIndex(1));
-    }
-    
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Resource index is out of bounds.
-     */
-    public function testResourceException()
-    {
-        $object = new PhpProject();
-        $object->getResource();
     }
     
     public function testTask()
@@ -123,10 +110,6 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, $object->getActiveTaskIndex());
         $this->assertInternalType('array', $object->getAllTasks());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getActiveTask());
-        // Get Task
-        $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getTask());
-        $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getTask(0));
-        $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getTask(1));
         // Active Task
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setActiveTaskIndex(0));
         $this->assertEquals(0, $object->getActiveTaskIndex());
@@ -153,16 +136,6 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
         
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getTaskFromIndex(2));
         $this->assertNull($object->getTaskFromIndex(1));
-    }
-    
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Task index is out of bounds.
-     */
-    public function testTaskException()
-    {
-        $object = new PhpProject();
-        $object->getTask();
     }
     
     /**

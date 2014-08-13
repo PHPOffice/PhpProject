@@ -15,7 +15,7 @@ require_once __DIR__ . '/../src/PhpProject/Autoloader.php';
 Autoloader::register();
 
 // Set writers
-$writers = array('GanttProject' => 'gan'/*, 'MSProjectExchange' => 'mpx'*/);
+$writers = array('GanttProject' => 'gan', 'MsProjectMPX' => 'mpx');
 
 // Return to the caller script when runs by CLI
 if (CLI) {
@@ -105,6 +105,28 @@ function getEndingNotes($writers)
     }
 
     return $result;
+}
+
+function echoTask($oPHPProject, $oTask, $level = 0) {
+    echo '<strong>'.str_repeat('>', 2 * $level).' Task : '.$oTask->getName().'</strong>'.EOL;
+    echo ' '.str_repeat('>', 2 * ($level + 1)).' Duration : '.$oTask->getDuration().EOL;
+    echo ' '.str_repeat('>', 2 * ($level + 1)).' StartDate : '.date('Y-m-d', $oTask->getStartDate()).EOL;
+    echo ' '.str_repeat('>', 2 * ($level + 1)).' Progress : '.$oTask->getProgress().EOL;
+    echo ' '.str_repeat('>', 2 * ($level + 1)).' Resources : '.EOL;
+    $oTaskResources = $oTask->getResources();
+    if(!empty($oTaskResources)){
+        foreach ($oTaskResources as $oResource){
+            echo ' '.str_repeat('>', 2 * ($level + 2)).' Resource : '.$oResource->getTitle().EOL;
+        }
+    }
+    echo EOL;
+    $level++;
+    if($oTask->getTaskCount() > 0){
+        foreach ($oTask->getTasks() as $oSubTask){
+            echoTask($oPHPProject, $oSubTask, $level);
+        }
+    }
+    $level--;
 }
 
 ?>

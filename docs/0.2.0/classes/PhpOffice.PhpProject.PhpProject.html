@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>    API Documentation &raquo; \PhpOffice\PhpProject\PhpProject
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <!--[if lt IE 9]>
+        <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
+<body>
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">API Documentation</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                    <li><a>Namespaces</a></li>
+                                                                        <li><a href="../namespaces/PhpOffice.html">PhpOffice</a></li>
+                                                                                                                                </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            <style>
+        .deprecated h2 {
+            text-decoration: line-through;
+        }
+    </style>
+    <div class="row">
+        <div class="span4">
+                    <div class="btn-group view pull-right" data-toggle="buttons-radio">
+        <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button>
+        <button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+    </div>
+    <div class="btn-group visibility" data-toggle="buttons-checkbox">
+        <button class="btn public active" title="Show public elements">Public</button>
+        <button class="btn protected" title="Show protected elements">Protected</button>
+        <button class="btn private" title="Show private elements">Private</button>
+        <button class="btn inherited active" title="Show inherited elements">Inherited</button>
+    </div>
+
+        <ul class="side-nav nav nav-list">
+        <li class="nav-header">
+            <i class="icon-custom icon-method"></i> Methods
+            <ul>
+                                                                                                    <li class="method public">
+        <a href="#method___construct" title="__construct :: Create a new PHPProject">
+            <span class="description">Create a new PHPProject</span><pre>__construct</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_createResource" title="createResource :: Create a resource">
+            <span class="description">Create a resource</span><pre>createResource</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_createTask" title="createTask :: Create a task">
+            <span class="description">Create a task</span><pre>createTask</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getActiveResource" title="getActiveResource :: Get active resource">
+            <span class="description">Get active resource</span><pre>getActiveResource</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getActiveTask" title="getActiveTask :: Get active task">
+            <span class="description">Get active task</span><pre>getActiveTask</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getActiveTaskIndex" title="getActiveTaskIndex :: Get active task index">
+            <span class="description">Get active task index</span><pre>getActiveTaskIndex</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getAllResources" title="getAllResources :: Get all resources">
+            <span class="description">Get all resources</span><pre>getAllResources</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getAllTasks" title="getAllTasks :: Get all tasks">
+            <span class="description">Get all tasks</span><pre>getAllTasks</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getInformations" title="getInformations :: Get informations">
+            <span class="description">Get informations</span><pre>getInformations</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getProperties" title="getProperties :: Get properties">
+            <span class="description">Get properties</span><pre>getProperties</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getResourceCount" title="getResourceCount :: Get resource count">
+            <span class="description">Get resource count</span><pre>getResourceCount</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getResourceFromIndex" title="getResourceFromIndex :: Get resource from index">
+            <span class="description">Get resource from index</span><pre>getResourceFromIndex</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getTaskCount" title="getTaskCount :: Get task count">
+            <span class="description">Get task count</span><pre>getTaskCount</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getTaskFromIndex" title="getTaskFromIndex :: Get task from index">
+            <span class="description">Get task from index</span><pre>getTaskFromIndex</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_removeTaskByIndex" title="removeTaskByIndex :: Remove task by index">
+            <span class="description">Remove task by index</span><pre>removeTaskByIndex</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_setActiveTaskIndex" title="setActiveTaskIndex :: Set active task index">
+            <span class="description">Set active task index</span><pre>setActiveTaskIndex</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_setInformations" title="setInformations :: Set informations">
+            <span class="description">Set informations</span><pre>setInformations</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_setProperties" title="setProperties :: Set properties">
+            <span class="description">Set properties</span><pre>setProperties</pre>
+        </a>
+    </li>
+
+                                                </ul>
+        </li>
+        <li class="nav-header protected">» Protected
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+        </li>
+        <li class="nav-header">
+            <i class="icon-custom icon-constant"></i> Constants
+            <ul>
+                            </ul>
+        </li>
+    </ul>
+
+
+        </div>
+
+        <div class="span8">
+            <div class="element class">
+                <h1>PhpProject</h1>
+                <small style="display: block; text-align: right">
+                                                        </small>
+                <p class="short_description">PHPProject</p>
+                <div class="details">
+                    <div class="long_description">
+                        
+                    </div>
+                    <table class="table table-bordered">
+                                                                                    <tr>
+                                    <th>
+                                        category
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>PHPProject</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        package
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>PHPProject</p>
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        copyright
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>Copyright (c) 2006 - 2012 PHPProject (<a href="https://github.com/PHPOffice/PHPProject">https://github.com/PHPOffice/PHPProject</a>)</p>
+                                    </td>
+                                </tr>
+                                                                                                                                                                                </table>
+
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                                                <a id="method___construct"></a>
+                        <div class="element clickable method public  method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+                            <h2>Create a new PHPProject</h2>
+                            <pre>__construct() </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_createResource"></a>
+                        <div class="element clickable method public  method_createResource" data-toggle="collapse" data-target=".method_createResource .collapse">
+                            <h2>Create a resource</h2>
+                            <pre>createResource() : Resource</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>Resource</code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_createTask"></a>
+                        <div class="element clickable method public  method_createTask" data-toggle="collapse" data-target=".method_createTask .collapse">
+                            <h2>Create a task</h2>
+                            <pre>createTask() : \PhpOffice\PhpProject\Task</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a></code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getActiveResource"></a>
+                        <div class="element clickable method public  method_getActiveResource" data-toggle="collapse" data-target=".method_getActiveResource .collapse">
+                            <h2>Get active resource</h2>
+                            <pre>getActiveResource() : Resource|null</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>Resource|null</code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getActiveTask"></a>
+                        <div class="element clickable method public  method_getActiveTask" data-toggle="collapse" data-target=".method_getActiveTask .collapse">
+                            <h2>Get active task</h2>
+                            <pre>getActiveTask() : \PhpOffice\PhpProject\Task</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a></code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getActiveTaskIndex"></a>
+                        <div class="element clickable method public  method_getActiveTaskIndex" data-toggle="collapse" data-target=".method_getActiveTaskIndex .collapse">
+                            <h2>Get active task index</h2>
+                            <pre>getActiveTaskIndex() : integer</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>integer</code><p><p>Active task index</p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getAllResources"></a>
+                        <div class="element clickable method public  method_getAllResources" data-toggle="collapse" data-target=".method_getAllResources .collapse">
+                            <h2>Get all resources</h2>
+                            <pre>getAllResources() : array&lt;mixed,\PhpOffice\PhpProject\Resource&gt;</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/PhpOffice.PhpProject.Resource.html">\PhpOffice\PhpProject\Resource</a>&gt;</code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getAllTasks"></a>
+                        <div class="element clickable method public  method_getAllTasks" data-toggle="collapse" data-target=".method_getAllTasks .collapse">
+                            <h2>Get all tasks</h2>
+                            <pre>getAllTasks() : array&lt;mixed,\PhpOffice\PhpProject\Task&gt;</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a>&gt;</code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getInformations"></a>
+                        <div class="element clickable method public  method_getInformations" data-toggle="collapse" data-target=".method_getInformations .collapse">
+                            <h2>Get informations</h2>
+                            <pre>getInformations() : \PhpOffice\PhpProject\DocumentInformations</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/PhpOffice.PhpProject.DocumentInformations.html">\PhpOffice\PhpProject\DocumentInformations</a></code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getProperties"></a>
+                        <div class="element clickable method public  method_getProperties" data-toggle="collapse" data-target=".method_getProperties .collapse">
+                            <h2>Get properties</h2>
+                            <pre>getProperties() : \PhpOffice\PhpProject\PHPProject_DocumentProperties</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>\PhpOffice\PhpProject\PHPProject_DocumentProperties</code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getResourceCount"></a>
+                        <div class="element clickable method public  method_getResourceCount" data-toggle="collapse" data-target=".method_getResourceCount .collapse">
+                            <h2>Get resource count</h2>
+                            <pre>getResourceCount() : integer</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>integer</code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getResourceFromIndex"></a>
+                        <div class="element clickable method public  method_getResourceFromIndex" data-toggle="collapse" data-target=".method_getResourceFromIndex .collapse">
+                            <h2>Get resource from index</h2>
+                            <pre>getResourceFromIndex( $pIndex) : Resource|null</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$pIndex</h4>
+                                                <code></code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>Resource|null</code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getTaskCount"></a>
+                        <div class="element clickable method public  method_getTaskCount" data-toggle="collapse" data-target=".method_getTaskCount .collapse">
+                            <h2>Get task count</h2>
+                            <pre>getTaskCount() : integer</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>integer</code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getTaskFromIndex"></a>
+                        <div class="element clickable method public  method_getTaskFromIndex" data-toggle="collapse" data-target=".method_getTaskFromIndex .collapse">
+                            <h2>Get task from index</h2>
+                            <pre>getTaskFromIndex( $pIndex, \PhpOffice\PhpProject\Task $oTaskParent = null) : \PhpOffice\PhpProject\Task|null</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$pIndex</h4>
+                                                <code></code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$oTaskParent</h4>
+                                                <code><a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a></code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a>|null</code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_removeTaskByIndex"></a>
+                        <div class="element clickable method public  method_removeTaskByIndex" data-toggle="collapse" data-target=".method_removeTaskByIndex .collapse">
+                            <h2>Remove task by index</h2>
+                            <pre>removeTaskByIndex(integer $pIndex) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$pIndex</h4>
+                                                <code>integer</code><p><p>Active task index</p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_setActiveTaskIndex"></a>
+                        <div class="element clickable method public  method_setActiveTaskIndex" data-toggle="collapse" data-target=".method_setActiveTaskIndex .collapse">
+                            <h2>Set active task index</h2>
+                            <pre>setActiveTaskIndex(integer $pIndex) : \PhpOffice\PhpProject\Task</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$pIndex</h4>
+                                                <code>integer</code><p><p>Active task index</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a></code><p></p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_setInformations"></a>
+                        <div class="element clickable method public  method_setInformations" data-toggle="collapse" data-target=".method_setInformations .collapse">
+                            <h2>Set informations</h2>
+                            <pre>setInformations(\PhpOffice\PhpProject\PHPProject_DocumentProperties $pValue) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$pValue</h4>
+                                                <code>\PhpOffice\PhpProject\PHPProject_DocumentProperties</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_setProperties"></a>
+                        <div class="element clickable method public  method_setProperties" data-toggle="collapse" data-target=".method_setProperties .collapse">
+                            <h2>Set properties</h2>
+                            <pre>setProperties(\PhpOffice\PhpProject\PHPProject_DocumentProperties $pValue) </pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$pValue</h4>
+                                                <code>\PhpOffice\PhpProject\PHPProject_DocumentProperties</code><p></p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+                        </div>
+                    
+                    
+                                                                <h3><i class="icon-custom icon-property"></i> Properties</h3>
+                                                    <a id="property_properties"> </a>
+                            <div class="element clickable property  private property_properties" data-toggle="collapse" data-target=".property_properties .collapse">
+                                <h2>Document properties</h2>
+                                <pre>properties : \PhpOffice\PhpProject\DocumentProperties</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code><a href="../classes/PhpOffice.PhpProject.DocumentProperties.html">\PhpOffice\PhpProject\DocumentProperties</a></code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_informations"> </a>
+                            <div class="element clickable property  private property_informations" data-toggle="collapse" data-target=".property_informations .collapse">
+                                <h2>Document informations</h2>
+                                <pre>informations : \PhpOffice\PhpProject\DocumentInformations</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code><a href="../classes/PhpOffice.PhpProject.DocumentInformations.html">\PhpOffice\PhpProject\DocumentInformations</a></code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_taskCollection"> </a>
+                            <div class="element clickable property  private property_taskCollection" data-toggle="collapse" data-target=".property_taskCollection .collapse">
+                                <h2>Collection of task objects</h2>
+                                <pre>taskCollection : array&lt;mixed,\PhpOffice\PhpProject\Task&gt;</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>array&lt;mixed,<a href="../classes/PhpOffice.PhpProject.Task.html">\PhpOffice\PhpProject\Task</a>&gt;</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_resourceCollection"> </a>
+                            <div class="element clickable property  private property_resourceCollection" data-toggle="collapse" data-target=".property_resourceCollection .collapse">
+                                <h2>Collection of resource objects</h2>
+                                <pre>resourceCollection : array&lt;mixed,Resource&gt;</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>array&lt;mixed,Resource&gt;</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_activeTaskIndex"> </a>
+                            <div class="element clickable property  private property_activeTaskIndex" data-toggle="collapse" data-target=".property_activeTaskIndex .collapse">
+                                <h2>Active task</h2>
+                                <pre>activeTaskIndex : integer</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>integer</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_activeResourceIndex"> </a>
+                            <div class="element clickable property  private property_activeResourceIndex" data-toggle="collapse" data-target=".property_activeResourceIndex .collapse">
+                                <h2>Active resource</h2>
+                                <pre>activeResourceIndex : integer</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>integer</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                            </div>
+            </div>
+            <a id="\PhpOffice\PhpProject\PhpProject"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li><span class="divider">\</span><a href="../namespaces/PhpOffice.PhpProject.html">PhpProject</a></li>
+
+                <li class="active"><span class="divider">\</span><a href="../classes/PhpOffice.PhpProject.PhpProject.html">PhpProject</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Wed, 13 Aug 2014 15:41:25 +0000.<br/>
+    </footer>
+    </body>
+</html>

@@ -35,13 +35,20 @@ class Resource
     
     /**
      * Index
-     * 
      * @var integer
      */
     private $index;
     
+    /**
+     * Index of Resource
+     * @var integer
+     */
+    public static $lastIndex = 0;
+    
     public function __construct()
     {
+        $this->index = self::$lastIndex;
+        self::$lastIndex++;
     }
     
     /**
@@ -78,10 +85,13 @@ class Resource
     
     /**
      * Set index
+     * @param integer $value
      */
     public function setIndex($value)
     {
-        $this->index = $value;
+        if(is_numeric($value)){
+        	$this->index = (int)$value;
+        }
         return $this;
     }
 }

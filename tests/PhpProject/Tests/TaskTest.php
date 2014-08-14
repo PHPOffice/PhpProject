@@ -22,6 +22,7 @@ use PhpOffice\PhpProject\Task;
 
 /**
  * Test class for Task
+ * @runTestsInSeparateProcesses
  */
 class TaskTest extends \PHPUnit_Framework_TestCase
 {
@@ -70,9 +71,13 @@ class TaskTest extends \PHPUnit_Framework_TestCase
     {
         $object = new Task();
     
-        $this->assertEquals('', $object->getIndex());
+        $this->assertEquals(0, $object->getIndex());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setIndex('AAA'));
-        $this->assertEquals('AAA', $object->getIndex());
+        $this->assertEquals(0, $object->getIndex());
+        $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setIndex('1'));
+        $this->assertEquals(1, $object->getIndex());
+        $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setIndex(2));
+        $this->assertEquals(2, $object->getIndex());
     }
     
     public function testGetSetName()

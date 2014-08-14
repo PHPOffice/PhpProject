@@ -116,12 +116,6 @@ class MsProjectMPX
                 $minDate = $tStartDate;
             }
         }
-        // Browse all Resources
-        $numResource = 0;
-        foreach ($this->phpProject->getAllResources() as $oResource) {
-            $oResource->setIndex($numResource);
-            $numResource++;
-        }
         
         return array(
             'date_start' => (int)$minDate

@@ -55,20 +55,6 @@ class PhpProject
     private $resourceCollection = array();
 
     /**
-     * Active task
-     *
-     * @var int
-     */
-    private $activeTaskIndex = null;
-
-    /**
-     * Active resource
-     *
-     * @var int
-     */
-    private $activeResourceIndex = null;
-    
-    /**
      * Create a new PHPProject
      */
     public function __construct()
@@ -139,9 +125,7 @@ class PhpProject
     public function createResource()
     {
         $newRessource = new Resource();
-        $newRessource->setIndex($this->getResourceCount());
         $this->resourceCollection[] = $newRessource;
-        $this->activeResourceIndex = $this->getResourceCount() - 1;
         return $newRessource;
     }
 
@@ -172,8 +156,8 @@ class PhpProject
      */
     public function getActiveResource()
     {
-        if (isset($this->resourceCollection[$this->activeResourceIndex])) {
-            return $this->resourceCollection[$this->activeResourceIndex];
+        if (!empty($this->resourceCollection)) {
+            return end($this->resourceCollection);
         }
         return null;
     }
@@ -205,9 +189,7 @@ class PhpProject
     public function createTask()
     {
         $newTask = new Task();
-        $newTask->setIndex($this->getTaskCount());
         $this->taskCollection[] = $newTask;
-        $this->activeTaskIndex = $this->getTaskCount() - 1;
         return $newTask;
     }
     
@@ -238,8 +220,8 @@ class PhpProject
      */
     public function getActiveTask()
     {
-        if (isset($this->taskCollection[$this->activeTaskIndex])) {
-            return $this->taskCollection[$this->activeTaskIndex];
+        if (!empty($this->taskCollection)) {
+            return end($this->taskCollection);
         }
         return null;
     }
@@ -284,36 +266,5 @@ class PhpProject
         } else {
             array_splice($this->taskCollection, $pIndex, 1);
         }
-        // Adjust active sheet index if necessary
-        if ($this->activeTaskIndex >= $pIndex) {
-            --$this->activeTaskIndex;
-        }
-    }
-
-    /**
-     * Get active task index
-     *
-     * @return int Active task index
-     */
-    public function getActiveTaskIndex()
-    {
-        return $this->activeTaskIndex;
-    }
-
-    /**
-     * Set active task index
-     *
-     * @param int $pIndex Active task index
-     * @throws \Exception
-     * @return Task
-     */
-    public function setActiveTaskIndex($pIndex = 0)
-    {
-        if ($pIndex > count($this->taskCollection) - 1) {
-            throw new \Exception('Active task index is out of bounds.');
-        } else {
-            $this->activeTaskIndex = $pIndex;
-        }
-        return $this->getActiveTask();
     }
 }

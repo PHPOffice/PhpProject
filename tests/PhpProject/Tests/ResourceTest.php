@@ -25,11 +25,6 @@ use PhpOffice\PhpProject\Resource;
  */
 class ResourceTest extends \PHPUnit_Framework_TestCase
 {
-	protected function tearDown()
-	{
-		
-	}
-	
     /**
      * Register
      */

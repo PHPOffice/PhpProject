@@ -89,8 +89,8 @@ class Resource
      */
     public function setIndex($value)
     {
-        if(is_numeric($value)){
-        	$this->index = (int)$value;
+        if (is_numeric($value)) {
+            $this->index = (int)$value;
         }
         return $this;
     }

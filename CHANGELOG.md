@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 - Not released
+### Miscellaneous
+- Refactored Task & Resource Index - @Progi1984 GH-16
+
 ## 0.2.0 - 2014-08-13
 ### Features
 - MSProjectExchange Reader - @Progi1984 GH-4
@@ -7,7 +11,6 @@
 
 ### Miscellaneous
 - Refactored resources management - @Progi1984
-
 
 ## 0.1.0 - 2014-08-08
 

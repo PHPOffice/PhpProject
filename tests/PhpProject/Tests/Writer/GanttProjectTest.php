@@ -26,6 +26,7 @@ use PhpOffice\PhpProject\Tests\XmlDocument;
  * Test class for XMLWriter
  *
  * @coversDefaultClass PhpOffice\PhpPowerpoint\Shared\XMLWriter
+ * @runTestsInSeparateProcesses
  */
 class GanttProjectTest extends \PHPUnit_Framework_TestCase
 {
@@ -66,36 +67,36 @@ class GanttProjectTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($oXMLDocument->elementExists('/project', $fileOutput));
         $this->assertEquals('2014-08-06', $oXMLDocument->getElementAttribute('/project', 'view-date', $fileOutput));
         // Task 1
-        $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task[@id="1"]', $fileOutput));
-        $this->assertEquals('Task1Test', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="1"]', 'name', $fileOutput));
-        $this->assertEquals('2014-08-06', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="1"]', 'start', $fileOutput));
-        $this->assertEquals('5', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="1"]', 'duration', $fileOutput));
+        $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task[@id="0"]', $fileOutput));
+        $this->assertEquals('Task1Test', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="0"]', 'name', $fileOutput));
+        $this->assertEquals('2014-08-06', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="0"]', 'start', $fileOutput));
+        $this->assertEquals('5', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="0"]', 'duration', $fileOutput));
         // TaskChild
-        $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task/task[@id="2"]', $fileOutput));
-        $this->assertEquals('TaskChildTest', $oXMLDocument->getElementAttribute('/project/tasks/task/task[@id="2"]', 'name', $fileOutput));
-        $this->assertEquals('2014-08-06', $oXMLDocument->getElementAttribute('/project/tasks/task/task[@id="2"]', 'start', $fileOutput));
-        $this->assertEquals('5', $oXMLDocument->getElementAttribute('/project/tasks/task/task[@id="2"]', 'duration', $fileOutput));
+        $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task/task[@id="1"]', $fileOutput));
+        $this->assertEquals('TaskChildTest', $oXMLDocument->getElementAttribute('/project/tasks/task/task[@id="1"]', 'name', $fileOutput));
+        $this->assertEquals('2014-08-06', $oXMLDocument->getElementAttribute('/project/tasks/task/task[@id="1"]', 'start', $fileOutput));
+        $this->assertEquals('5', $oXMLDocument->getElementAttribute('/project/tasks/task/task[@id="1"]', 'duration', $fileOutput));
+        // TaskChildChild
+        $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task/task/task[@id="2"]', $fileOutput));
+        $this->assertEquals('TaskChildChild1Test', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="2"]', 'name', $fileOutput));
+        $this->assertEquals('2014-08-07', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="2"]', 'start', $fileOutput));
+        $this->assertEquals('2', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="2"]', 'duration', $fileOutput));
         // TaskChildChild
         $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task/task/task[@id="3"]', $fileOutput));
-        $this->assertEquals('TaskChildChild1Test', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="3"]', 'name', $fileOutput));
-        $this->assertEquals('2014-08-07', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="3"]', 'start', $fileOutput));
-        $this->assertEquals('2', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="3"]', 'duration', $fileOutput));
-        // TaskChildChild
-        $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task/task/task[@id="4"]', $fileOutput));
-        $this->assertEquals('TaskChildChild2Test', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="4"]', 'name', $fileOutput));
-        $this->assertEquals('2014-08-06', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="4"]', 'start', $fileOutput));
-        $this->assertEquals('5', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="4"]', 'duration', $fileOutput));
+        $this->assertEquals('TaskChildChild2Test', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="3"]', 'name', $fileOutput));
+        $this->assertEquals('2014-08-06', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="3"]', 'start', $fileOutput));
+        $this->assertEquals('5', $oXMLDocument->getElementAttribute('/project/tasks/task/task/task[@id="3"]', 'duration', $fileOutput));
         // Task 2
-        $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task[@id="5"]', $fileOutput));
-        $this->assertEquals('Task2Test', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="5"]', 'name', $fileOutput));
-        $this->assertEquals('2014-08-07', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="5"]', 'start', $fileOutput));
-        $this->assertEquals('7', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="5"]', 'duration', $fileOutput));
+        $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task[@id="4"]', $fileOutput));
+        $this->assertEquals('Task2Test', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="4"]', 'name', $fileOutput));
+        $this->assertEquals('2014-08-07', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="4"]', 'start', $fileOutput));
+        $this->assertEquals('7', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="4"]', 'duration', $fileOutput));
         // Resource
         $this->assertTrue($oXMLDocument->elementExists('/project/resources/resource', $fileOutput));
         $this->assertEquals('ResourceTest', $oXMLDocument->getElementAttribute('/project/resources/resource', 'name', $fileOutput));
         // Allocation
         $this->assertTrue($oXMLDocument->elementExists('/project/allocations/allocation', $fileOutput));
-        $this->assertTrue($oXMLDocument->elementExists('/project/allocations/allocation[@task-id="1"][@resource-id="0"]', $fileOutput));
+        $this->assertTrue($oXMLDocument->elementExists('/project/allocations/allocation[@task-id="0"][@resource-id="0"]', $fileOutput));
     }
     
     /**

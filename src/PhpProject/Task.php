@@ -83,14 +83,15 @@ class Task
     private $taskCollection = array();
     
     /**
-     * Active task
-     *
-     * @var int
+     * Index of Resource
+     * @var integer
      */
-    private $activeTaskIndex = 0;
+    public static $lastIndex = 0;
     
     public function __construct()
     {
+        $this->index = self::$lastIndex;
+        self::$lastIndex++;
     }
 
     /**
@@ -239,10 +240,13 @@ class Task
     
     /**
      * Set index
+     * @param integer $value
      */
     public function setIndex($value)
     {
-        $this->index = $value;
+        if (is_numeric($value)) {
+            $this->index = (int)$value;
+        }
         return $this;
     }
     
@@ -282,9 +286,7 @@ class Task
     public function createTask()
     {
         $newTask = new self();
-        $newTask->setIndex($this->getTaskCount());
         $this->taskCollection[] = $newTask;
-        $this->activeTaskIndex = $this->getTaskCount() - 1;
         return $newTask;
     }
     

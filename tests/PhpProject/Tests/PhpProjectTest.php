@@ -92,7 +92,6 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
     
         // Start
         $this->assertEquals(0, $object->getTaskCount());
-        $this->assertNull($object->getActiveTaskIndex());
         $this->assertCount(0, $object->getAllTasks());
         $this->assertInternalType('array', $object->getAllTasks());
         $this->assertNull($object->getActiveTask());
@@ -100,26 +99,18 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->createTask());
         $this->assertEquals(1, $object->getTaskCount());
         $this->assertCount(1, $object->getAllTasks());
-        $this->assertEquals(0, $object->getActiveTaskIndex());
         $this->assertInternalType('array', $object->getAllTasks());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getActiveTask());
         // Add a task
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->createTask());
         $this->assertEquals(2, $object->getTaskCount());
         $this->assertCount(2, $object->getAllTasks());
-        $this->assertEquals(1, $object->getActiveTaskIndex());
         $this->assertInternalType('array', $object->getAllTasks());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getActiveTask());
-        // Active Task
-        $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setActiveTaskIndex(0));
-        $this->assertEquals(0, $object->getActiveTaskIndex());
-        $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setActiveTaskIndex(1));
-        $this->assertEquals(1, $object->getActiveTaskIndex());
         // Remove Task
         $object->removeTaskByIndex(0);
         $this->assertEquals(1, $object->getTaskCount());
         $this->assertCount(1, $object->getAllTasks());
-        $this->assertEquals(0, $object->getActiveTaskIndex());
         $this->assertInternalType('array', $object->getAllTasks());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getActiveTask());
     }
@@ -146,15 +137,5 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
     {
         $object = new PhpProject();
         $object->removeTaskByIndex();
-    }
-    
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Active task index is out of bounds.
-     */
-    public function testTaskSetActiveException()
-    {
-        $object = new PhpProject();
-        $object->setActiveTaskIndex(10);
     }
 }

@@ -20,7 +20,8 @@ namespace PhpOffice\PhpProject\Tests;
 use PhpOffice\PhpProject\Resource;
 
 /**
- * Test class for Task
+ * Test class for Resource
+ * @runTestsInSeparateProcesses
  */
 class ResourceTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,17 +33,20 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
         $object = new Resource();
         
         $this->assertEquals('', $object->getTitle());
-        $this->assertEquals('', $object->getIndex());
+        $this->assertEquals(0, $object->getIndex());
     }
-    
     
     public function testGetSetIndex()
     {
         $object = new Resource();
     
-        $this->assertEquals('', $object->getIndex());
+        $this->assertEquals(0, $object->getIndex());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->setIndex('AAA'));
-        $this->assertEquals('AAA', $object->getIndex());
+        $this->assertEquals(0, $object->getIndex());
+        $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->setIndex('1'));
+        $this->assertEquals(1, $object->getIndex());
+        $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->setIndex(2));
+        $this->assertEquals(2, $object->getIndex());
     }
     
     public function testGetSetTitle()

@@ -179,9 +179,8 @@ class GanttProject
         $oXML->endElement();
         
         // task
-        $iTaskIndex = 0;
         foreach ($this->phpProject->getAllTasks() as $oTask) {
-            $iTaskIndex = $this->writeTask($oXML, $oTask, $iTaskIndex);
+            $this->writeTask($oXML, $oTask);
         }
         
         // >tasks
@@ -310,11 +309,10 @@ class GanttProject
         fclose($fileHandle);
     }
     
-    private function writeTask (XMLWriter $oXML, Task $oTask, $iNbTasks)
+    private function writeTask (XMLWriter $oXML, Task $oTask)
     {
-        ++$iNbTasks;
         $oXML->startElement('task');
-        $oXML->writeAttribute('id', $iNbTasks);
+        $oXML->writeAttribute('id', $oTask->getIndex());
         $oXML->writeAttribute('name', $oTask->getName());
         $oXML->writeAttribute('start', date('Y-m-d', $oTask->getStartDate()));
         $oXML->writeAttribute('duration', $oTask->getDuration());
@@ -327,7 +325,7 @@ class GanttProject
             foreach ($oTask->getResources() as $oResource) {
                 $itmAllocation = array();
                 $itmAllocation['id_res'] = $oResource->getIndex();
-                $itmAllocation['id_task'] = $iNbTasks;
+                $itmAllocation['id_task'] = $oTask->getIndex();
                 $this->arrAllocations[] = $itmAllocation;
             }
         }
@@ -336,14 +334,12 @@ class GanttProject
         if ($oTask->getTaskCount() > 0) {
             $arrTasksChilds = $oTask->getTasks();
             foreach ($arrTasksChilds as $oTaskChild) {
-                $iNbTasks = $this->writeTask($oXML, $oTaskChild, $iNbTasks);
+                $this->writeTask($oXML, $oTaskChild);
             }
         } else {
             // Nothing
         }
         $oXML->endElement();
-        
-        return $iNbTasks;
     }
     
     /**
@@ -362,6 +358,12 @@ class GanttProject
         $oXML->endElement();
     }
     
+    /**
+     * Write allocation of a resource for a task
+     * @param XMLWriter $oXML
+     * @param integer $piIdTask
+     * @param integer $piIdResource
+     */
     private function writeAllocation (XMLWriter $oXML, $piIdTask, $piIdResource)
     {
         $oXML->startElement('allocation');

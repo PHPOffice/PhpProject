@@ -19,8 +19,8 @@ namespace PhpOffice\PhpProject\Reader;
 
 use PhpOffice\PhpProject\PhpProject;
 use PhpOffice\PhpProject\Resource;
-use PhpOffice\PhpProject\Task;
 use PhpOffice\PhpProject\Shared\XMLReader;
+use PhpOffice\PhpProject\Task;
 
 /**
  * GanttProject
@@ -41,7 +41,7 @@ class GanttProject
     /**
      * Create a new GanttProject
      */
-    public function __construct ()
+    public function __construct()
     {
         $this->phpProject = new PhpProject();
     }
@@ -50,7 +50,7 @@ class GanttProject
      * @param string $pFilename
      * @return PHPProject
      */
-    public function canRead ($pFilename)
+    public function canRead($pFilename)
     {
         if (file_exists($pFilename) && is_readable($pFilename)) {
             return true;
@@ -64,7 +64,7 @@ class GanttProject
      * @throws \Exception
      * @return PHPProject
      */
-    public function load ($pFilename)
+    public function load($pFilename)
     {
         if (!file_exists($pFilename) || !is_readable($pFilename)) {
             throw new \Exception('The file is not accessible.');
@@ -101,7 +101,7 @@ class GanttProject
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeDescription (\DOMElement $domNode)
+    private function readNodeDescription(\DOMElement $domNode)
     {
         $this->phpProject->getProperties()->setDescription($domNode->nodeValue);
     }
@@ -111,7 +111,7 @@ class GanttProject
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeTasks (XMLReader $oXML, \DOMElement $domNode)
+    private function readNodeTasks(XMLReader $oXML, \DOMElement $domNode)
     {
         $oNodes = $oXML->getElements('*', $domNode);
         if ($oNodes->length > 0) {
@@ -129,7 +129,7 @@ class GanttProject
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeTask (XMLReader $oXML, \DOMElement $domNode, Task $oTask)
+    private function readNodeTask(XMLReader $oXML, \DOMElement $domNode, Task $oTask)
     {
         // Attributes
         $oTask->setIndex($domNode->getAttribute('id'));
@@ -155,7 +155,7 @@ class GanttProject
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeResources (XMLReader $oXML, \DOMElement $domNode)
+    private function readNodeResources(XMLReader $oXML, \DOMElement $domNode)
     {
         $oNodes = $oXML->getElements('*', $domNode);
         if ($oNodes->length > 0) {
@@ -172,7 +172,7 @@ class GanttProject
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeResource (\DOMElement $domNode, Resource $oResource)
+    private function readNodeResource(\DOMElement $domNode, Resource $oResource)
     {
         // Attributes
         $oResource->setIndex($domNode->getAttribute('id'));
@@ -184,7 +184,7 @@ class GanttProject
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeAllocations (XMLReader $oXML, \DOMElement $domNode)
+    private function readNodeAllocations(XMLReader $oXML, \DOMElement $domNode)
     {
         $oNodes = $oXML->getElements('*', $domNode);
         if ($oNodes->length > 0) {
@@ -200,7 +200,7 @@ class GanttProject
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeAllocation (\DOMElement $domNode)
+    private function readNodeAllocation(\DOMElement $domNode)
     {
         // Attributes
         $idTask = $domNode->getAttribute('task-id');

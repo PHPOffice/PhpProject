@@ -20,7 +20,6 @@ namespace PhpOffice\PhpProject\Writer;
 use PhpOffice\PhpProject\PhpProject;
 use PhpOffice\PhpProject\Resource;
 use PhpOffice\PhpProject\Task;
-use PhpOffice\PhpProject\Shared\XMLWriter;
 
 /**
  * MsProjectMPx
@@ -50,7 +49,7 @@ class MsProjectMPX
      *
      * @param    PHPProject    $phpProject
      */
-    public function __construct (PhpProject $phpProject)
+    public function __construct(PhpProject $phpProject)
     {
         $this->phpProject = $phpProject;
     }
@@ -60,7 +59,7 @@ class MsProjectMPX
      * @param string $pFilename
      * @throws Exception
      */
-    public function save ($pFilename)
+    public function save($pFilename)
     {
         $arrProjectInfo = $this->sanitizeProject();
         
@@ -99,7 +98,7 @@ class MsProjectMPX
     /**
      * @return multitype:Ambigous <number, unknown>
      */
-    private function sanitizeProject ()
+    private function sanitizeProject()
     {
         // Info Project
         $minDate = 0;
@@ -128,7 +127,7 @@ class MsProjectMPX
      * - If the end date is not filled, but the duration is, we calculate it.
      * @param PHPProject_Task $oTask
      */
-    private function sanitizeTask (Task $oTask)
+    private function sanitizeTask(Task $oTask)
     {
         $pDuration = $oTask->getDuration();
         $pEndDate = $oTask->getEndDate();
@@ -148,7 +147,7 @@ class MsProjectMPX
      *   date start and complete average.
      * @param PHPProject_Task $oParentTask
      */
-    private function sanitizeTaskParent (Task $oParentTask)
+    private function sanitizeTaskParent(Task $oParentTask)
     {
         $arrTasksChilds = $oParentTask->getTasks();
         

@@ -18,9 +18,7 @@
 namespace PhpOffice\PhpProject\Reader;
 
 use PhpOffice\PhpProject\PhpProject;
-use PhpOffice\PhpProject\Resource;
 use PhpOffice\PhpProject\Task;
-use PhpOffice\PhpProject\Shared\XMLReader;
 
 /**
  * MPX File Format
@@ -65,7 +63,7 @@ class MsProjectMPX
     /**
      * Create a new GanttProject
      */
-    public function __construct ()
+    public function __construct()
     {
         $this->phpProject = new PhpProject();
     }
@@ -74,7 +72,7 @@ class MsProjectMPX
      * @param string $pFilename
      * @return PHPProject
      */
-    public function canRead ($pFilename)
+    public function canRead($pFilename)
     {
         if (!file_exists($pFilename) || !is_readable($pFilename)) {
             return false;
@@ -99,7 +97,7 @@ class MsProjectMPX
      * @throws \Exception
      * @return PHPProject|null
      */
-    public function load ($pFilename)
+    public function load($pFilename)
     {
         if (!$this->canRead($pFilename)) {
             throw new \Exception('The file is not accessible.');

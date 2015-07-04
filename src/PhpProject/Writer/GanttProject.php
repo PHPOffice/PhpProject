@@ -18,9 +18,8 @@
 namespace PhpOffice\PhpProject\Writer;
 
 use PhpOffice\PhpProject\PhpProject;
-use PhpOffice\PhpProject\Resource;
-use PhpOffice\PhpProject\Task;
 use PhpOffice\PhpProject\Shared\XMLWriter;
+use PhpOffice\PhpProject\Task;
 
 /**
  * PHPProject_Writer_GanttProject
@@ -50,7 +49,7 @@ class GanttProject
      *
      * @param    PHPProject    $phpProject
      */
-    public function __construct (PhpProject $phpProject)
+    public function __construct(PhpProject $phpProject)
     {
         $this->phpProject = $phpProject;
         $this->arrAllocations = array();
@@ -61,7 +60,7 @@ class GanttProject
      * @param string $pFilename
      * @throws Exception
      */
-    public function save ($pFilename)
+    public function save($pFilename)
     {
         $arrProjectInfo = $this->sanitizeProject();
         
@@ -309,7 +308,7 @@ class GanttProject
         fclose($fileHandle);
     }
     
-    private function writeTask (XMLWriter $oXML, Task $oTask)
+    private function writeTask(XMLWriter $oXML, Task $oTask)
     {
         $oXML->startElement('task');
         $oXML->writeAttribute('id', $oTask->getIndex());
@@ -347,7 +346,7 @@ class GanttProject
      * @param XMLWriter $oXML
      * @param \PhpOffice\PhpProject\Resource $oResource
      */
-    private function writeResource (XMLWriter $oXML, \PhpOffice\PhpProject\Resource $oResource)
+    private function writeResource(XMLWriter $oXML, \PhpOffice\PhpProject\Resource $oResource)
     {
         $oXML->startElement('resource');
         $oXML->writeAttribute('id', $oResource->getIndex());
@@ -364,7 +363,7 @@ class GanttProject
      * @param integer $piIdTask
      * @param integer $piIdResource
      */
-    private function writeAllocation (XMLWriter $oXML, $piIdTask, $piIdResource)
+    private function writeAllocation(XMLWriter $oXML, $piIdTask, $piIdResource)
     {
         $oXML->startElement('allocation');
         $oXML->writeAttribute('task-id', $piIdTask);
@@ -378,7 +377,7 @@ class GanttProject
     /**
      * @return multitype:Ambigous <number, unknown>
      */
-    private function sanitizeProject ()
+    private function sanitizeProject()
     {
         // Info Project
         $minDate = 0;
@@ -407,7 +406,7 @@ class GanttProject
      * - If the end date is not filled, but the duration is, we calculate it.
      * @param PHPProject_Task $oTask
      */
-    private function sanitizeTask (Task $oTask)
+    private function sanitizeTask(Task $oTask)
     {
         $pDuration = $oTask->getDuration();
         $pEndDate = $oTask->getEndDate();
@@ -427,7 +426,7 @@ class GanttProject
      *   date start and complete average.
      * @param PHPProject_Task $oParentTask
      */
-    private function sanitizeTaskParent (Task $oParentTask)
+    private function sanitizeTaskParent(Task $oParentTask)
     {
         $arrTasksChilds = $oParentTask->getTasks();
         

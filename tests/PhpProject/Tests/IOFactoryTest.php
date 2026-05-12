@@ -23,20 +23,18 @@ use PhpOffice\PhpProject\PhpProject;
 /**
  * Test class for Task
  */
-class IOFactoryTest extends \PHPUnit_Framework_TestCase
+class IOFactoryTest extends \PHPUnit\Framework\TestCase
 {
     public function testLoad()
     {
         $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_01_Simple.gan';
         $this->assertInstanceOf('PhpOffice\\PhpProject\\PhpProject', IOFactory::load($file));
-    }
+    }    
     
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Could not automatically determine \PhpOffice\PhpProject\Reader\ReaderInterface for file.
-     */
     public function testLoadFileNotExists()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("Could not automatically determine \PhpOffice\PhpProject\Reader\ReaderInterface for file.");
         IOFactory::load('fileNotExists');
     }
     
@@ -44,14 +42,12 @@ class IOFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Reader\\GanttProject', IOFactory::createReader());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Reader\\GanttProject', IOFactory::createReader('GanttProject'));
-    }
+    }    
     
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage "ReaderNotExists" is not a valid reader.
-     */
     public function testReaderException()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("\"ReaderNotExists\" is not a valid reader.");
         IOFactory::createReader('ReaderNotExists');
     }
     
@@ -61,14 +57,12 @@ class IOFactoryTest extends \PHPUnit_Framework_TestCase
     
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Writer\\GanttProject', IOFactory::createWriter($object));
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Writer\\GanttProject', IOFactory::createWriter($object, 'GanttProject'));
-    }
+    }    
     
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage "WriterNotExists" is not a valid writer.
-     */
     public function testWriterException()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("\"WriterNotExists\" is not a valid writer.");
         $object = new PhpProject();
         IOFactory::createWriter($object, 'WriterNotExists');
     }

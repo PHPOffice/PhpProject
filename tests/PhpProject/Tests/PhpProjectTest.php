@@ -24,7 +24,7 @@ use PhpOffice\PhpProject\DocumentProperties;
 /**
  * Test class for Task
  */
-class PhpProjectTest extends \PHPUnit_Framework_TestCase
+class PhpProjectTest extends \PHPUnit\Framework\TestCase 
 {
     /**
      * Register
@@ -64,13 +64,13 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
         // Start
         $this->assertEquals(0, $object->getResourceCount());
         $this->assertCount(0, $object->getAllResources());
-        $this->assertInternalType('array', $object->getAllResources());
+        $this->assertIsArray($object->getAllResources());
         $this->assertNull($object->getActiveResource());
         // Add a resource
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->createResource());
         $this->assertEquals(1, $object->getResourceCount());
         $this->assertCount(1, $object->getAllResources());
-        $this->assertInternalType('array', $object->getAllResources());
+        $this->assertIsArray($object->getAllResources());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->getActiveResource());
     }
     
@@ -93,25 +93,25 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
         // Start
         $this->assertEquals(0, $object->getTaskCount());
         $this->assertCount(0, $object->getAllTasks());
-        $this->assertInternalType('array', $object->getAllTasks());
+        $this->assertIsArray($object->getAllTasks());
         $this->assertNull($object->getActiveTask());
         // Add a task
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->createTask());
         $this->assertEquals(1, $object->getTaskCount());
         $this->assertCount(1, $object->getAllTasks());
-        $this->assertInternalType('array', $object->getAllTasks());
+        $this->assertIsArray($object->getAllTasks());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getActiveTask());
         // Add a task
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->createTask());
         $this->assertEquals(2, $object->getTaskCount());
         $this->assertCount(2, $object->getAllTasks());
-        $this->assertInternalType('array', $object->getAllTasks());
+        $this->assertIsArray($object->getAllTasks());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getActiveTask());
         // Remove Task
         $object->removeTaskByIndex(0);
         $this->assertEquals(1, $object->getTaskCount());
         $this->assertCount(1, $object->getAllTasks());
-        $this->assertInternalType('array', $object->getAllTasks());
+        $this->assertIsArray($object->getAllTasks());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getActiveTask());
     }
     
@@ -127,14 +127,12 @@ class PhpProjectTest extends \PHPUnit_Framework_TestCase
         
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getTaskFromIndex(2));
         $this->assertNull($object->getTaskFromIndex(1));
-    }
+    }    
     
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Task index is out of bounds.
-     */
     public function testTaskRemoveException()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("Task index is out of bounds.");        
         $object = new PhpProject();
         $object->removeTaskByIndex();
     }

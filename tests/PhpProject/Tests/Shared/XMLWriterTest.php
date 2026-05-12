@@ -24,7 +24,7 @@ use PhpOffice\PhpProject\Shared\XMLWriter;
  *
  * @coversDefaultClass PhpOffice\PhpPowerpoint\Shared\XMLWriter
  */
-class XMLWriterTest extends \PHPUnit_Framework_TestCase
+class XMLWriterTest extends \PHPUnit\Framework\TestCase
 {
     /**
      */

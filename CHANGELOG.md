@@ -1,7 +1,18 @@
 # Changelog
 
 ## 0.3.0 - Not released
+### Bug Fixes
+- Fixed `Task::setProgress()` with non-numeric values on PHP 8+ - @slayerfx GH-25
+
 ### Miscellaneous
+- Deleted Travis files - @slayerfx GH-25
+- Migrated from Travis to GitHub Actions - @slayerfx GH-25
+- Dropped support for PHP 5.x/7.x, minimum PHP version is now 7.3 - @slayerfx GH-25
+- Migrated tests to PHPUnit 9 - @slayerfx GH-25
+- Updated `phpunit.xml.dist` for PHPUnit 9 - @slayerfx GH-25
+- Updated dependencies: PHPUnit ^9.0, PHP_CodeSniffer ^3.0, PHPMD ^2.15 - @slayerfx GH-25
+- Removed abandoned dependencies: phpcpd, phploc - @slayerfx GH-25
+- Removed deprecated PSR-0 autoloading - @slayerfx GH-25
 - Refactored Task & Resource Index - @Progi1984 GH-16
 
 ## 0.2.0 - 2014-08-13

@@ -28,7 +28,7 @@ use PhpOffice\PhpProject\Tests\XmlDocument;
  * @coversDefaultClass PhpOffice\PhpPowerpoint\Shared\XMLWriter
  * @runTestsInSeparateProcesses
  */
-class GanttProjectTest extends \PHPUnit_Framework_TestCase
+class GanttProjectTest extends \PHPUnit\Framework\TestCase
 {
     public function testSave()
     {
@@ -97,14 +97,12 @@ class GanttProjectTest extends \PHPUnit_Framework_TestCase
         // Allocation
         $this->assertTrue($oXMLDocument->elementExists('/project/allocations/allocation', $fileOutput));
         $this->assertTrue($oXMLDocument->elementExists('/project/allocations/allocation[@task-id="0"][@resource-id="0"]', $fileOutput));
-    }
+    }    
     
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Could not open file
-     */
     public function testSaveException()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("Could not open file");
         $fileOutput = tempnam(sys_get_temp_dir(), 'PHPPROJECT');
         file_put_contents($fileOutput, 'AA');
         chmod($fileOutput, 0044);

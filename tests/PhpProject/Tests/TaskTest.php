@@ -24,7 +24,7 @@ use PhpOffice\PhpProject\Task;
  * Test class for Task
  * @runTestsInSeparateProcesses
  */
-class TaskTest extends \PHPUnit_Framework_TestCase
+class TaskTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Register

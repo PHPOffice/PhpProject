@@ -23,7 +23,7 @@ use PhpOffice\PhpProject\Resource;
  * Test class for Resource
  * @runTestsInSeparateProcesses
  */
-class ResourceTest extends \PHPUnit_Framework_TestCase
+class ResourceTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Register

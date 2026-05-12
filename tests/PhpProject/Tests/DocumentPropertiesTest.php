@@ -23,12 +23,12 @@ use PhpOffice\PhpProject\PhpProject;
 /**
  * Test class for Task
  */
-class DocumentPropertiesTest extends \PHPUnit_Framework_TestCase
+class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
 {
     public function testCustomProperties()
     {
         $object = new DocumentProperties();
-        $this->assertInternalType('array', $object->getCustomProperties());
+        $this->assertIsArray($object->getCustomProperties());
         $this->assertCount(0, $object->getCustomProperties());
         $this->assertFalse($object->isCustomPropertySet('AAAName'));
         $this->assertNull($object->getCustomPropertyType('AAAName'));

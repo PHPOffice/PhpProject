@@ -220,6 +220,10 @@ class Task
      */
     public function setProgress($pValue = 0)
     {
+        if (!is_numeric($pValue)) {
+            $this->progress = 0;
+            return $this;
+        }
         if ($pValue > 1) {
             $this->progress = (double)1;
         } elseif ($pValue < 0) {

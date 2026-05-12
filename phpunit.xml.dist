@@ -1,25 +1,12 @@
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
+<phpunit backupGlobals="false"         
          bootstrap="./tests/bootstrap.php"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
+         colors="true"         
          processIsolation="false"
          stopOnFailure="false"
-         syntaxCheck="false">
+         >
     <testsuites>
         <testsuite name="PhpProject Test Suite">
             <directory>./tests/PhpProject</directory>
         </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">./src</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-html" target="./build/coverage" charset="UTF-8" highlight="true" />
-        <log type="coverage-clover" target="./build/logs/clover.xml" />
-    </logging>
+    </testsuites>  
 </phpunit>

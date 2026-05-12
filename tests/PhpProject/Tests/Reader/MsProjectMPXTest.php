@@ -24,7 +24,7 @@ use PhpOffice\PhpProject\Reader\MsProjectMPX;
  *
  * @coversDefaultClass PhpOffice\PhpPowerpoint\Shared\XMLWriter
  */
-class MsProjectMPXTest extends \PHPUnit_Framework_TestCase
+class MsProjectMPXTest extends \PHPUnit\Framework\TestCase
 {
     public function testCanRead()
     {
@@ -48,14 +48,12 @@ class MsProjectMPXTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('PhpOffice\\PhpProject\\PhpProject', $return);
         $this->assertEquals(2, $return->getResourceCount());
         $this->assertEquals(2, $return->getTaskCount());
-    }
+    }    
     
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage The file is not accessible. 
-     */
     public function testLoadException()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("The file is not accessible.");  
         $file404 = 'fileError';
         $object = new MsProjectMPX();
         $object->load($file404);

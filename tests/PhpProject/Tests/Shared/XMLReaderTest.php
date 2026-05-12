@@ -25,16 +25,12 @@ use PhpOffice\PhpProject\Shared\XMLReader;
  * @runTestsInSeparateProcesses
  * @since 0.10.0
  */
-class XMLReaderTest extends \PHPUnit_Framework_TestCase
-{
-    /**
-     * Test get DOMDocument from ZipArchive exception
-     *
-     * @expectedException \Exception
-     * @expectedExceptionMessage Cannot find archive file.
-     */
+class XMLReaderTest extends \PHPUnit\Framework\TestCase
+{ 
     public function testGetDomFromZipException()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("Cannot find archive file.");  
         $filename = __DIR__ . "/../_files/documents/foo.zip";
         $object = new XMLReader();
         $object->getDomFromZip($filename, 'yadayadaya');

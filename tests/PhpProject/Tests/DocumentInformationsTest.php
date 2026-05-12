@@ -23,7 +23,7 @@ use PhpOffice\PhpProject\PhpProject;
 /**
  * Test class for Task
  */
-class DocumentInformationsTest extends \PHPUnit_Framework_TestCase
+class DocumentInformationsTest extends \PHPUnit\Framework\TestCase
 {
     public function testConstruct()
     {

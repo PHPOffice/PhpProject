@@ -24,7 +24,7 @@ use PhpOffice\PhpProject\Reader\GanttProject;
  *
  * @coversDefaultClass PhpOffice\PhpPowerpoint\Shared\XMLWriter
  */
-class GanttProjectTest extends \PHPUnit_Framework_TestCase
+class GanttProjectTest extends \PHPUnit\Framework\TestCase
 {
     public function testCanRead()
     {
@@ -46,14 +46,12 @@ class GanttProjectTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('PhpOffice\\PhpProject\\PhpProject', $return);
         $this->assertEquals(1, $return->getResourceCount());
         $this->assertEquals(2, $return->getTaskCount());
-    }
+    }    
     
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage The file is not accessible. 
-     */
     public function testLoadException()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("The file is not accessible.");  
         $file404 = 'fileError';
         $object = new GanttProject();
         $object->load($file404);

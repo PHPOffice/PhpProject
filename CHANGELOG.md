@@ -6,8 +6,10 @@
 - Fixed invalid SPDX license identifier in `composer.json` - @slayerfx GH-26
 - Removed unnecessary `version` field from `composer.json` - @slayerfx GH-26
 - Added code coverage configuration in `phpunit.xml.dist` - @slayerfx GH-27
+- Fixed `number_format()` null parameter deprecation in `MsProjectMPX` on PHP 8.1+ - @slayerfx GH-28
 
 ### Miscellaneous
+- Added PHP 7.4, 8.0, 8.1, 8.2, 8.3, 8.4 and 8.5 to CI matrix - @slayerfx GH-28
 - Deleted Travis files - @slayerfx GH-25
 - Migrated from Travis to GitHub Actions - @slayerfx GH-25
 - Dropped support for PHP 5.x/7.x, minimum PHP version is now 7.3 - @slayerfx GH-25

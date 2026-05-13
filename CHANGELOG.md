@@ -3,6 +3,8 @@
 ## 0.3.0 - Not released
 ### Bug Fixes
 - Fixed `Task::setProgress()` with non-numeric values on PHP 8+ - @slayerfx GH-25
+- Fixed invalid SPDX license identifier in `composer.json` - @slayerfx GH-26
+- Removed unnecessary `version` field from `composer.json` - @slayerfx GH-26
 
 ### Miscellaneous
 - Deleted Travis files - @slayerfx GH-25

@@ -27,5 +27,12 @@
         "psr-4": {
             "PhpOffice\\PhpProject\\": "src/PhpProject/"
         }
+    },
+    "scripts": {
+        "samples": [            
+            "php samples/Sample_01_Simple.php",
+            "php samples/Sample_02_ReadGanttProject.php",
+            "php samples/Sample_02_ReadMSProjectExchange.php"         
+        ]
     }
 }

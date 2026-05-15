@@ -2,11 +2,11 @@
 
 include_once 'Sample_Header.php';
 
-use PhpOffice\PhpProject\PHPProject;
+use PhpOffice\PhpProject\PhpProject;
 
 // Create new PHPProject object
 echo date('H:i:s') . ' Create new PHPProject object'.EOL;
-$objPHPProject = new PHPProject();
+$objPHPProject = new PhpProject();
 
 // Set properties
 echo date('H:i:s') . ' Set properties'.EOL;

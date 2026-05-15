@@ -2,7 +2,6 @@
 
 include_once 'Sample_Header.php';
 
-use PhpOffice\PhpProject\PHPProject;
 use PhpOffice\PhpProject\IOFactory;
     
 // Create new PHPProject object

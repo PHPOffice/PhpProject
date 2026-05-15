@@ -7,6 +7,7 @@
 - Removed unnecessary `version` field from `composer.json` - @slayerfx GH-26
 - Added code coverage configuration in `phpunit.xml.dist` - @slayerfx GH-27
 - Fixed `number_format()` null parameter deprecation in `MsProjectMPX` on PHP 8.1+ - @slayerfx GH-28
+- Fixed `PhpProject` class casing in samples (was working on Windows only, broken on Linux) - @slayerfx GH-29
 
 ### Miscellaneous
 - Added CI job to check samples execution - @slayerfx GH-29

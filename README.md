@@ -2,8 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/phpoffice/phpproject/v/stable.png)](https://packagist.org/packages/phpoffice/phpproject)
 [![Build Status](https://travis-ci.org/PHPOffice/PHPProject.svg?branch=master)](https://travis-ci.org/PHPOffice/PHPProject)
-[![Code Quality](https://scrutinizer-ci.com/g/PHPOffice/PHPProject/badges/quality-score.png?s=b5997ce59ac2816b4514f3a38de9900f6d492c1d)](https://scrutinizer-ci.com/g/PHPOffice/PHPProject/)
-[![Code Coverage](https://scrutinizer-ci.com/g/PHPOffice/PHPProject/badges/coverage.png?s=742a98745725c562955440edc8d2c39d7ff5ae25)](https://scrutinizer-ci.com/g/PHPOffice/PHPProject/)
+[![Coverage Status](https://coveralls.io/repos/github/PHPOffice/PHPProject/badge.svg?branch=develop)](https://coveralls.io/github/PHPOffice/PHPProject?branch=develop)
 [![Total Downloads](https://poser.pugx.org/phpoffice/phpproject/downloads.png)](https://packagist.org/packages/phpoffice/phpproject)
 [![License](https://poser.pugx.org/phpoffice/phpproject/license.png)](https://packagist.org/packages/phpoffice/phpproject)
 

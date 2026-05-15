@@ -10,6 +10,8 @@
 - Fixed `PhpProject` class casing in samples (was working on Windows only, broken on Linux) - @slayerfx GH-29
 
 ### Miscellaneous
+- Replaced Scrutinizer code coverage badge with Coveralls in README - @slayerfx GH-30
+- Removed Scrutinizer Code Quality badge from README - @slayerfx GH-30
 - Added CI job to check samples execution - @slayerfx GH-29
 - Added PHP 7.4, 8.0, 8.1, 8.2, 8.3, 8.4 and 8.5 to CI matrix - @slayerfx GH-28
 - Deleted Travis files - @slayerfx GH-25

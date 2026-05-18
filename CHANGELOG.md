@@ -8,8 +8,10 @@
 - Added code coverage configuration in `phpunit.xml.dist` - @slayerfx GH-27
 - Fixed `number_format()` null parameter deprecation in `MsProjectMPX` on PHP 8.1+ - @slayerfx GH-28
 - Fixed `PhpProject` class casing in samples (was working on Windows only, broken on Linux) - @slayerfx GH-29
+- Fixed inaccurate `@return string` PHPDoc on `DocumentProperties::getCustomPropertyValue/Type()` (now `string|null`) - @slayerfx GH-31
 
 ### Miscellaneous
+- Added phpstan job to CI (level 1) - @slayerfx GH-31
 - Replaced Scrutinizer code coverage badge with Coveralls in README - @slayerfx GH-30
 - Removed Scrutinizer Code Quality badge from README - @slayerfx GH-30
 - Added CI job to check samples execution - @slayerfx GH-29

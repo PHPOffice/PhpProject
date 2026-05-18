@@ -418,7 +418,7 @@ class DocumentProperties
      * @param    string    $propertyName
      * @return    string|null
      */
-    public function getCustomPropertyValue(string $propertyName): ?string
+    public function getCustomPropertyValue($propertyName)
     {
         if (isset($this->customProperties[$propertyName])) {
             return $this->customProperties[$propertyName]['value'];
@@ -432,7 +432,7 @@ class DocumentProperties
      * @param    string    $propertyName
      * @return    string|null
      */
-    public function getCustomPropertyType(string $propertyName): ?string
+    public function getCustomPropertyType($propertyName)
     {
         if (isset($this->customProperties[$propertyName])) {
             return $this->customProperties[$propertyName]['type'];

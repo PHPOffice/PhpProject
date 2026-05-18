@@ -85,7 +85,7 @@ class XMLReader
      * @param \DOMElement $contextNode
      * @return \DOMNodeList
      */
-    public function getElements($path, \DOMElement $contextNode = null)
+    public function getElements($path, ?\DOMElement $contextNode = null)
     {
         if ($this->dom === null) {
             return array();
@@ -104,7 +104,7 @@ class XMLReader
      * @param \DOMElement $contextNode
      * @return \DOMElement|null
      */
-    public function getElement($path, \DOMElement $contextNode = null)
+    public function getElement($path, ?\DOMElement $contextNode = null)
     {
         $elements = $this->getElements($path, $contextNode);
         if ($elements->length > 0) {
@@ -122,7 +122,7 @@ class XMLReader
      * @param string $path
      * @return string|null
      */
-    public function getAttribute($attribute, \DOMElement $contextNode = null, $path = null)
+    public function getAttribute($attribute, ?\DOMElement $contextNode = null, $path = null)
     {
         $return = null;
         if ($path !== null) {
@@ -148,7 +148,7 @@ class XMLReader
      * @param \DOMElement $contextNode
      * @return string|null
      */
-    public function getValue($path, \DOMElement $contextNode = null)
+    public function getValue($path, ?\DOMElement $contextNode = null)
     {
         $elements = $this->getElements($path, $contextNode);
         if ($elements->length > 0) {
@@ -165,7 +165,7 @@ class XMLReader
      * @param \DOMElement $contextNode
      * @return integer
      */
-    public function countElements($path, \DOMElement $contextNode = null)
+    public function countElements($path, ?\DOMElement $contextNode = null)
     {
         $elements = $this->getElements($path, $contextNode);
 
@@ -179,7 +179,7 @@ class XMLReader
      * @param \DOMElement $contextNode
      * @return boolean
      */
-    public function elementExists($path, \DOMElement $contextNode = null)
+    public function elementExists($path, ?\DOMElement $contextNode = null)
     {
         return $this->getElements($path, $contextNode)->length > 0;
     }

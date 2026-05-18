@@ -9,6 +9,7 @@
 - Fixed `number_format()` null parameter deprecation in `MsProjectMPX` on PHP 8.1+ - @slayerfx GH-28
 - Fixed `PhpProject` class casing in samples (was working on Windows only, broken on Linux) - @slayerfx GH-29
 - Fixed inaccurate `@return string` PHPDoc on `DocumentProperties::getCustomPropertyValue/Type()` (now `string|null`) - @slayerfx GH-31
+- Fixed PHP 8.4 implicit nullable parameter deprecations (now using `?Type $param = null`) - @slayerfx GH-31
 
 ### Miscellaneous
 - Added phpstan job to CI (level 1) - @slayerfx GH-31

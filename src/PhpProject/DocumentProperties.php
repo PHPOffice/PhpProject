@@ -416,7 +416,7 @@ class DocumentProperties
      * Get a Custom Property Value
      *
      * @param    string    $propertyName
-     * @return    string
+     * @return    string|null
      */
     public function getCustomPropertyValue($propertyName)
     {
@@ -430,7 +430,7 @@ class DocumentProperties
      * Get a Custom Property Type
      *
      * @param    string    $propertyName
-     * @return    string
+     * @return    string|null
      */
     public function getCustomPropertyType($propertyName)
     {

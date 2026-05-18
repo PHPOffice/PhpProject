@@ -231,7 +231,7 @@ class PhpProject
      *
      * @return Task|null
      */
-    public function getTaskFromIndex($pIndex, Task $oTaskParent = null)
+    public function getTaskFromIndex($pIndex, ?Task $oTaskParent = null)
     {
         if (is_null($oTaskParent)) {
             $arrayTask = $this->taskCollection;

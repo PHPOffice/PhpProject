@@ -84,7 +84,7 @@ class IOFactory
      * @throws \Exception
      * @return
      */
-    private static function loadClass($class, $name, $type, PhpProject $phpProject = null)
+    private static function loadClass($class, $name, $type, ?PhpProject $phpProject = null)
     {
         if (class_exists($class) && self::isConcreteClass($class)) {
             if (is_null($phpProject)) {

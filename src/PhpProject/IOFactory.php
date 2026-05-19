@@ -82,7 +82,7 @@ class IOFactory
      * @param string $type
      * @param \PhpOffice\PhpProject\PhpProject $phpProject
      * @throws \Exception
-     * @return
+     * @return \PhpOffice\PhpProject\Reader\ReaderInterface|\PhpOffice\PhpProject\Writer\WriterInterface
      */
     private static function loadClass($class, $name, $type, ?PhpProject $phpProject = null)
     {

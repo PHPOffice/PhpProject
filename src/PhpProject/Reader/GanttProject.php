@@ -29,7 +29,7 @@ use PhpOffice\PhpProject\Task;
  * @package        PHPProject
  * @copyright    Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class GanttProject
+class GanttProject implements ReaderInterface
 {
     /**
      * PHPProject object
@@ -98,7 +98,6 @@ class GanttProject
     
     /**
      * Node "Description"
-     * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
     private function readNodeDescription(\DOMElement $domNode)
@@ -169,8 +168,8 @@ class GanttProject
     }
     /**
      * Node "Resource"
-     * @param XMLReader $oXML
      * @param \DOMElement $domNode
+     * @param Resource $oResource
      */
     private function readNodeResource(\DOMElement $domNode, Resource $oResource)
     {
@@ -197,7 +196,6 @@ class GanttProject
     }
     /**
      * Node "Allocation"
-     * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
     private function readNodeAllocation(\DOMElement $domNode)

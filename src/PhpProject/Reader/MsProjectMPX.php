@@ -27,7 +27,7 @@ use PhpOffice\PhpProject\Task;
  * @package        PHPProject
  * @copyright    Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class MsProjectMPX
+class MsProjectMPX implements ReaderInterface
 {
     /**
      * PHPProject object

@@ -28,7 +28,7 @@ use PhpOffice\PhpProject\Task;
  * @package        PHPProject
  * @copyright    Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
  */
-class GanttProject
+class GanttProject implements WriterInterface
 {
     /**
      * PHPProject object
@@ -58,7 +58,7 @@ class GanttProject
     /**
      * 
      * @param string $pFilename
-     * @throws Exception
+     * @throws \Exception
      */
     public function save($pFilename)
     {
@@ -375,7 +375,7 @@ class GanttProject
     }
     
     /**
-     * @return multitype:Ambigous <number, unknown>
+     * @return array
      */
     private function sanitizeProject()
     {
@@ -404,7 +404,7 @@ class GanttProject
      * Permits to clean a task
      * - If the duration is not filled, but the end date is, we calculate it.
      * - If the end date is not filled, but the duration is, we calculate it.
-     * @param PHPProject_Task $oTask
+     * @param Task $oTask
      */
     private function sanitizeTask(Task $oTask)
     {
@@ -417,14 +417,14 @@ class GanttProject
             $iNumDays = $iTimeDiff / 60 / 60 / 24;
             $oTask->setDuration($iNumDays + 1);
         } elseif (!is_null($pDuration) && is_null($pEndDate)) {
-            $oTask->setEndDate($pStartDate + ($pDuration * 24 * 60 * 60));
+            $oTask->setEndDate($pStartDate + ((int) $pDuration * 24 * 60 * 60));
         }
     }
     
     /**
      * Permits to clean parent task and calculate parent data like total duration,
      *   date start and complete average.
-     * @param PHPProject_Task $oParentTask
+     * @param Task $oParentTask
      */
     private function sanitizeTaskParent(Task $oParentTask)
     {

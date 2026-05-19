@@ -78,7 +78,7 @@ class Task
     /**
      * Collection of task objects
      *
-     * @var PHPProject_Task[]
+     * @var self[]
      */
     private $taskCollection = array();
     
@@ -108,7 +108,7 @@ class Task
      * Set name
      *
      * @param string $pValue Name of the task
-     * @return PHPProject_Task
+     * @return self
      */
     public function setName($pValue)
     {
@@ -130,7 +130,7 @@ class Task
      * Set duration (in days)
      *
      * @param string $pValue Duration of the resource
-     * @return PHPProject_Task
+     * @return self
      */
     public function setDuration($pValue)
     {
@@ -141,7 +141,7 @@ class Task
     /**
      * Get Start Date
      *
-     * @return    datetime
+     * @return int
      */
     public function getStartDate()
     {
@@ -152,7 +152,7 @@ class Task
      * Set Start Date
      *
      * @param int $pValue
-     * @return DocumentInformations
+     * @return self
      */
     public function setStartDate($pValue = null)
     {
@@ -173,7 +173,7 @@ class Task
     /**
      * Get End Date
      *
-     * @return    datetime
+     * @return int
      */
     public function getEndDate()
     {
@@ -184,7 +184,7 @@ class Task
      * Set End Date
      *
      * @param int $pValue
-     * @return DocumentInformations
+     * @return self
      */
     public function setEndDate($pValue = null)
     {
@@ -216,7 +216,7 @@ class Task
      * Set progress
      *
      * @param float $pValue Progress of the task
-     * @return PHPProject_Task
+     * @return self
      */
     public function setProgress($pValue = 0)
     {
@@ -259,7 +259,7 @@ class Task
     //===============================================
     /**
      * Add a resource used by the current task
-     * @param PHPProject_Resource $pResource
+     * @param Resource $oResource
      */
     public function addResource(Resource $oResource)
     {
@@ -297,7 +297,7 @@ class Task
     /**
      * Returns a collection of all subtasks created in the task
      *
-     * @return PHPProject_Task[]
+     * @return self[]
      */
     public function getTasks()
     {

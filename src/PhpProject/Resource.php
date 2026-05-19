@@ -65,7 +65,7 @@ class Resource
      * Set title
      *
      * @param string $pTitle Title of the resource
-     * @return PHPProject_Resource
+     * @return self
      */
     public function setTitle($pTitle)
     {
@@ -76,7 +76,7 @@ class Resource
     /**
      * Get index
      *
-     * @return index
+     * @return int
      */
     public function getIndex()
     {

@@ -71,7 +71,7 @@ class PhpProject
     /**
      * Get properties
      *
-     * @return PHPProject_DocumentProperties
+     * @return DocumentProperties
      */
     public function getProperties()
     {
@@ -81,7 +81,7 @@ class PhpProject
     /**
      * Set properties
      *
-     * @param PHPProject_DocumentProperties    $pValue
+     * @param DocumentProperties $pValue
      */
     public function setProperties(DocumentProperties $pValue)
     {
@@ -105,7 +105,7 @@ class PhpProject
     /**
      * Set informations
      *
-     * @param PHPProject_DocumentProperties    $pValue
+     * @param DocumentInformations $pValue
      */
     public function setInformations(DocumentInformations $pValue)
     {

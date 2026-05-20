@@ -115,7 +115,7 @@ class DocumentProperties
     /**
      * Custom Properties
      *
-     * @var    string[]
+     * @var array<string, array{value: mixed, type: string}>
      */
     private $customProperties    = array();
 

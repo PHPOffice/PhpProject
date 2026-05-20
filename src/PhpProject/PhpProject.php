@@ -216,7 +216,7 @@ class PhpProject
     /**
      * Get active task
      *
-     * @return Task
+     * @return Task|null
      */
     public function getActiveTask()
     {

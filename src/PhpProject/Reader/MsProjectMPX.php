@@ -70,7 +70,7 @@ class MsProjectMPX implements ReaderInterface
     /**
      *
      * @param string $pFilename
-     * @return PHPProject
+     * @return bool
      */
     public function canRead($pFilename)
     {

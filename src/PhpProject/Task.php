@@ -69,9 +69,9 @@ class Task
     private $index;
     
     /**
-     * Collection of PHPProject_Resource index
+     * Collection of Resource
      * 
-     * @var integer[]
+     * @var Resource[]
      */
     private $resourceCollection = array();
     

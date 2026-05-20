@@ -39,7 +39,7 @@ class XmlDocument
     /**
      * DOMXpath object
      *
-     * @var \DOMXpath
+     * @var \DOMXpath|null
      */
     private $xpath;
 
@@ -106,12 +106,16 @@ class XmlDocument
      *
      * @param string $path
      * @param string $file
-     * @return \DOMElement
+     * @return \DOMElement|null
      */
     public function getElement($path, $file = 'word/document.xml')
     {
         $elements = $this->getNodeList($path, $file);
-        return $elements->item(0);
+        $item = $elements->item(0);
+        if ($item instanceof \DOMElement) {
+            return $item;
+        }
+        return null;
     }
 
     /**
@@ -153,7 +157,7 @@ class XmlDocument
      * @param   string  $path
      * @param   string  $attribute
      * @param   string  $file
-     * @return  string
+     * @return  bool
      */
     public function attributeElementExists($path, $attribute, $file = 'word/document.xml')
     {
@@ -165,7 +169,7 @@ class XmlDocument
      *
      * @param   string  $path
      * @param   string  $file
-     * @return  string
+     * @return  bool
      */
     public function elementExists($path, $file = 'word/document.xml')
     {

@@ -14,8 +14,14 @@
 - Fixed `Task::setStartDate()/setEndDate()` PHPDoc return type (was `DocumentInformations`, now `self`) - @slayerfx GH-32
 - Fixed string/int operation in `Writer/GanttProject` and `Writer/MsProjectMPX::sanitizeTask` (explicit `(int)` cast on duration) - @slayerfx GH-32
 - Added explicit `return null;` in `DocumentProperties::getCustomPropertyValue/Type()` - @slayerfx GH-32
+- Fixed `Reader::canRead()` PHPDoc return type in `GanttProject` and `MsProjectMPX` (was `PHPProject`, now `bool`) - @slayerfx GH-33
+- Fixed `PhpProject::getActiveTask()` PHPDoc return type (can return null, now `Task|null`) - @slayerfx GH-33
+- Fixed `DocumentProperties::$customProperties` PHPDoc with array shape (was `string[]`, now `array<string, array{value: mixed, type: string}>`) - @slayerfx GH-33
+- Fixed PHPDoc types in `Task`, `XMLReader` and `XmlDocument` to match actual code behavior - @slayerfx GH-33
+- Added `instanceof \DOMElement` check in `XmlDocument::getElement()` to guarantee `DOMElement|null` return - @slayerfx GH-33
 
 ### Miscellaneous
+- Bumped phpstan analysis level from 2 to 3 - @slayerfx GH-33
 - Bumped phpstan analysis level from 1 to 2 - @slayerfx GH-32
 - Created `Reader/ReaderInterface` and `Writer/WriterInterface`, implemented in concrete Reader/Writer classes - @slayerfx GH-32
 - Updated obsolete PHPDoc class references (`PHPProject_*` → `self` or correct class name) - @slayerfx GH-32

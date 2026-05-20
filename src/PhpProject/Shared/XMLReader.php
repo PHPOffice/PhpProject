@@ -83,7 +83,7 @@ class XMLReader
      *
      * @param string $path
      * @param \DOMElement $contextNode
-     * @return \DOMNodeList
+     * @return \DOMNodeList|array
      */
     public function getElements($path, ?\DOMElement $contextNode = null)
     {
@@ -102,7 +102,7 @@ class XMLReader
      *
      * @param string $path
      * @param \DOMElement $contextNode
-     * @return \DOMElement|null
+     * @return \DOMNode|null
      */
     public function getElement($path, ?\DOMElement $contextNode = null)
     {

@@ -56,7 +56,7 @@ class DocumentInformations
 
     /**
      * Set Start Date
-     * @param int $pValue
+     * @param int|string|null $pValue
      * @return DocumentInformations
      */
     public function setStartDate($pValue = null)
@@ -85,7 +85,7 @@ class DocumentInformations
 
     /**
      * Set End Date
-     * @param int $pValue
+     * @param int|string|null $pValue
      * @return DocumentInformations
      */
     public function setEndDate($pValue = null)

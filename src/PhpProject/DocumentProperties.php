@@ -186,7 +186,7 @@ class DocumentProperties
     /**
      * Set Created
      *
-     * @param    int    $pValue
+     * @param int|string|null $pValue
      * @return    self
      */
     public function setCreated($pValue = null)
@@ -218,7 +218,7 @@ class DocumentProperties
     /**
      * Set Modified
      *
-     * @param    int    $pValue
+     * @param int|string|null $pValue
      * @return    self
      */
     public function setModified($pValue = null)

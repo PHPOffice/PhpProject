@@ -50,7 +50,7 @@ class MsProjectMPX implements ReaderInterface
     
     /**
      * Index in $defTask for the precedessor
-     * @var integer
+     * @var int|null
      */
     private $iParentTaskIdx;
     

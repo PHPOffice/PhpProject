@@ -119,7 +119,7 @@ class Task
     /**
      * Get duration
      *
-     * @return string
+     * @return string|null
      */
     public function getDuration()
     {
@@ -141,7 +141,7 @@ class Task
     /**
      * Get Start Date
      *
-     * @return int
+     * @return int|null
      */
     public function getStartDate()
     {
@@ -151,7 +151,7 @@ class Task
     /**
      * Set Start Date
      *
-     * @param int $pValue
+     * @param int|string|null $pValue
      * @return self
      */
     public function setStartDate($pValue = null)
@@ -173,7 +173,7 @@ class Task
     /**
      * Get End Date
      *
-     * @return int
+     * @return int|null
      */
     public function getEndDate()
     {
@@ -183,7 +183,7 @@ class Task
     /**
      * Set End Date
      *
-     * @param int $pValue
+     * @param int|string|null $pValue
      * @return self
      */
     public function setEndDate($pValue = null)
@@ -205,7 +205,7 @@ class Task
     /**
      * Get Progress
      *
-     * @return float
+     * @return float|null
      */
     public function getProgress()
     {

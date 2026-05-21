@@ -19,8 +19,12 @@
 - Fixed `DocumentProperties::$customProperties` PHPDoc with array shape (was `string[]`, now `array<string, array{value: mixed, type: string}>`) - @slayerfx GH-33
 - Fixed PHPDoc types in `Task`, `XMLReader` and `XmlDocument` to match actual code behavior - @slayerfx GH-33
 - Added `instanceof \DOMElement` check in `XmlDocument::getElement()` to guarantee `DOMElement|null` return - @slayerfx GH-33
+- Broadened PHPDoc parameter types for setter methods accepting flexible inputs (`int` → `int|string|null` in `DocumentInformations`, `DocumentProperties`) - @slayerfx GH-34
+- Broadened PHPDoc return types for nullable getters in `Task` (`getDuration`, `getStartDate`, `getEndDate`, `getProgress` — added `|null`) - @slayerfx GH-34
+- Fixed `Reader/MsProjectMPX::$iParentTaskIdx` PHPDoc (was `integer`, now `integer|null`) - @slayerfx GH-34
 
 ### Miscellaneous
+- Bumped phpstan analysis level from 3 to 4 - @slayerfx GH-34
 - Bumped phpstan analysis level from 2 to 3 - @slayerfx GH-33
 - Bumped phpstan analysis level from 1 to 2 - @slayerfx GH-32
 - Created `Reader/ReaderInterface` and `Writer/WriterInterface`, implemented in concrete Reader/Writer classes - @slayerfx GH-32

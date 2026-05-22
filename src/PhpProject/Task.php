@@ -129,7 +129,7 @@ class Task
     /**
      * Set duration (in days)
      *
-     * @param string $pValue Duration of the resource
+     * @param int|float|string $pValue Duration of the resource
      * @return self
      */
     public function setDuration($pValue)
@@ -215,7 +215,7 @@ class Task
     /**
      * Set progress
      *
-     * @param float $pValue Progress of the task
+     * @param int|float|string $pValue Progress of the task
      * @return self
      */
     public function setProgress($pValue = 0)
@@ -244,7 +244,7 @@ class Task
     
     /**
      * Set index
-     * @param integer $value
+     * @param int|string $value
      */
     public function setIndex($value)
     {

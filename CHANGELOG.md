@@ -22,8 +22,12 @@
 - Broadened PHPDoc parameter types for setter methods accepting flexible inputs (`int` → `int|string|null` in `DocumentInformations`, `DocumentProperties`) - @slayerfx GH-34
 - Broadened PHPDoc return types for nullable getters in `Task` (`getDuration`, `getStartDate`, `getEndDate`, `getProgress` — added `|null`) - @slayerfx GH-34
 - Fixed `Reader/MsProjectMPX::$iParentTaskIdx` PHPDoc (was `integer`, now `integer|null`) - @slayerfx GH-34
+- Broadened PHPDoc parameter types in `Task::setIndex/setProgress/setDuration` and `Resource::setIndex` to accept multiple types handled in practice - @slayerfx GH-35
+- Broadened `XMLReader::getElement` and `getElements` `$contextNode` parameter to `?\DOMNode` (was `?\DOMElement`) - @slayerfx GH-35
+- Restricted `XMLReader::getElement` return type to `DOMElement|null` using `instanceof` check - @slayerfx GH-35
 
 ### Miscellaneous
+- Bumped phpstan analysis level from 4 to 5 - @slayerfx GH-35
 - Bumped phpstan analysis level from 3 to 4 - @slayerfx GH-34
 - Bumped phpstan analysis level from 2 to 3 - @slayerfx GH-33
 - Bumped phpstan analysis level from 1 to 2 - @slayerfx GH-32

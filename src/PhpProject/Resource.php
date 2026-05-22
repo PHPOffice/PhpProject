@@ -85,7 +85,7 @@ class Resource
     
     /**
      * Set index
-     * @param integer $value
+     * @param int|string $value
      */
     public function setIndex($value)
     {

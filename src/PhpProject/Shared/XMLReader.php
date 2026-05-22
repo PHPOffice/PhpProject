@@ -82,10 +82,10 @@ class XMLReader
      * Get elements
      *
      * @param string $path
-     * @param \DOMElement $contextNode
+     * @param \DOMNode $contextNode
      * @return \DOMNodeList|array
      */
-    public function getElements($path, ?\DOMElement $contextNode = null)
+    public function getElements($path, ?\DOMNode $contextNode = null)
     {
         if ($this->dom === null) {
             return array();
@@ -101,24 +101,24 @@ class XMLReader
      * Get element
      *
      * @param string $path
-     * @param \DOMElement $contextNode
-     * @return \DOMNode|null
+     * @param \DOMNode|null $contextNode
+     * @return \DOMElement|null
      */
-    public function getElement($path, ?\DOMElement $contextNode = null)
+    public function getElement($path, ?\DOMNode $contextNode = null)
     {
         $elements = $this->getElements($path, $contextNode);
-        if ($elements->length > 0) {
-            return $elements->item(0);
-        } else {
-            return null;
+        $item = $elements->item(0);
+        if ($item instanceof \DOMElement) {
+            return $item;
         }
+        return null;
     }
 
     /**
      * Get element attribute
      *
      * @param string $attribute
-     * @param \DOMElement $contextNode
+     * @param \DOMElement|null $contextNode
      * @param string $path
      * @return string|null
      */

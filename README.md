@@ -83,7 +83,7 @@ $oWriterGAN = IOFactory::createWriter($objPHPPowerPoint, 'GanttProject');
 $oWriterGAN->save(__DIR__ . "/sample.gan");
 ```
 
-More examples are provided in the [samples folder](samples/). You can also read the [Developers' Documentation](https://phpoffice.github.io/PHPProject/) and the [API Documentation](https://phpoffice.github.io/PHPProject/docs/) for more details.
+More examples are provided in the [samples folder](samples/). You can also read the [Developers' Documentation](https://phpoffice.github.io/PhpProject/) and the [API Documentation](https://phpoffice.github.io/PhpProject/docs/) for more details.
 
 
 ## Contributing

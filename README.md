@@ -17,7 +17,7 @@ Read more about PHPProject:
 - [Getting started](#getting-started)
 - [Known issues](#known-issues)
 - [Contributing](#contributing)
-- [Developers' Documentation](https://phpoffice.github.io/PHPProject/)
+- [Developers' Documentation](https://phpoffice.github.io/PhpProject/)
 - [API Documentation](https://phpoffice.github.io/PHPProject/docs/)
 
 ### Features

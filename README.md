@@ -1,7 +1,7 @@
 # PHPProject
 
 [![Latest Stable Version](https://poser.pugx.org/phpoffice/phpproject/v/stable.png)](https://packagist.org/packages/phpoffice/phpproject)
-[![Coverage Status](https://coveralls.io/repos/github/PHPOffice/PHPProject/badge.svg?branch=develop)](https://coveralls.io/github/PHPOffice/PHPProject?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/PHPOffice/PhpProject/badge.svg?branch=develop)](https://coveralls.io/github/PHPOffice/PhpProject?branch=develop)
 [![Total Downloads](https://poser.pugx.org/phpoffice/phpproject/downloads.png)](https://packagist.org/packages/phpoffice/phpproject)
 [![License](https://poser.pugx.org/phpoffice/phpproject/license.png)](https://packagist.org/packages/phpoffice/phpproject)
 

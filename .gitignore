@@ -7,3 +7,4 @@ unitTests/codeCoverage
 /build/logs
 vendor
 /samples/results
+/site

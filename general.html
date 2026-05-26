@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://phpoffice.github.io/PhpProject/index.html">
+        <link rel="canonical" href="https://phpoffice.github.io/PhpProject/general.html">
       
       
+        <link rel="prev" href="installing.html">
       
-        <link rel="next" href="intro.html">
+      
+        <link rel="next" href="task.html">
       
       
         
@@ -23,7 +25,7 @@
     
     
       
-        <title>PhpProject</title>
+        <title>General - PhpProject</title>
       
     
     
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-phpprojects-documentation" class="md-skip">
+        <a href="#general-usage" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
+              General
             
           </span>
         </div>
@@ -227,19 +229,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -255,7 +248,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -318,10 +310,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="general.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="general.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -337,6 +356,48 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Document information
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -605,6 +666,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Document information
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -623,8 +714,43 @@
   
 
 
-<h1 id="welcome-to-phpprojects-documentation">Welcome to PHPProject's documentation</h1>
-<p>PHPProject is a library written in pure PHP that provides a set of classes to write to different project managements file formats, i.e. GanttProject (.gan) and MS-Project (.mpx). PHPProject is an open source project licensed under LGPL.</p>
+<h1 id="general-usage">General usage</h1>
+<h2 id="basic-example">Basic example</h2>
+<p>The following is a basic example of the PHPProject library. More examples are provided in the <a href="https://github.com/PHPOffice/PHPProject/tree/master/samples/">samples folder</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="x">require_once &#39;src/PhpProject/Autoloader.php&#39;;</span>
+<span class="x">\PhpOffice\PhpProject\Autoloader::register();</span>
+
+<span class="x">$objPHPProject = new PhpProject();</span>
+
+<span class="x">// Create resource</span>
+<span class="x">$objRes1 = $objPHPProject-&gt;createResource();</span>
+<span class="x">$objRes1-&gt;setTitle(&#39;UserBoy&#39;);</span>
+
+<span class="x">// Create a task</span>
+<span class="x">$objTask1 = $objPHPProject-&gt;createTask();</span>
+<span class="x">$objTask1-&gt;setName(&#39;Start of the project&#39;);</span>
+<span class="x">$objTask1-&gt;setStartDate(&#39;02-01-2012&#39;);</span>
+<span class="x">$objTask1-&gt;setEndDate(&#39;03-01-2012&#39;);</span>
+<span class="x">$objTask1-&gt;setProgress(0.5);</span>
+<span class="x">$objTask1-&gt;addResource($objRes1);</span>
+
+<span class="x">$oWriterGAN = IOFactory::createWriter($objPHPPowerPoint, &#39;GanttProject&#39;);</span>
+<span class="x">$oWriterGAN-&gt;save(__DIR__ . &quot;/sample.gan&quot;);</span>
+</code></pre></div>
+<h2 id="document-information">Document information</h2>
+<p>You can set the document information such as title, creator, and company name. Use the following functions:</p>
+<div class="highlight"><pre><span></span><code><span class="x">$properties = $objPHPProject-&gt;getProperties();</span>
+<span class="x">$properties-&gt;setCreator(&#39;My name&#39;);</span>
+<span class="x">$properties-&gt;setCompany(&#39;My factory&#39;);</span>
+<span class="x">$properties-&gt;setTitle(&#39;My title&#39;);</span>
+<span class="x">$properties-&gt;setDescription(&#39;My description&#39;);</span>
+<span class="x">$properties-&gt;setCategory(&#39;My category&#39;);</span>
+<span class="x">$properties-&gt;setLastModifiedBy(&#39;My name&#39;);</span>
+<span class="x">$properties-&gt;setCreated(mktime(0, 0, 0, 3, 12, 2014));</span>
+<span class="x">$properties-&gt;setModified(mktime(0, 0, 0, 3, 14, 2014));</span>
+<span class="x">$properties-&gt;setSubject(&#39;My subject&#39;);</span>
+<span class="x">$properties-&gt;setKeywords(&#39;my, key, word&#39;);</span>
+</code></pre></div>
 
 
 

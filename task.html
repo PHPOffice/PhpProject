@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://phpoffice.github.io/PhpProject/index.html">
+        <link rel="canonical" href="https://phpoffice.github.io/PhpProject/task.html">
       
       
+        <link rel="prev" href="general.html">
       
-        <link rel="next" href="intro.html">
+      
+        <link rel="next" href="resource.html">
       
       
         
@@ -23,7 +25,7 @@
     
     
       
-        <title>PhpProject</title>
+        <title>Task - PhpProject</title>
       
     
     
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-phpprojects-documentation" class="md-skip">
+        <a href="#task" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
+              Task
             
           </span>
         </div>
@@ -227,19 +229,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -255,7 +248,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -345,10 +337,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="task.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="task.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -364,6 +383,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Allocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -605,6 +655,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Allocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -623,8 +692,26 @@
   
 
 
-<h1 id="welcome-to-phpprojects-documentation">Welcome to PHPProject's documentation</h1>
-<p>PHPProject is a library written in pure PHP that provides a set of classes to write to different project managements file formats, i.e. GanttProject (.gan) and MS-Project (.mpx). PHPProject is an open source project licensed under LGPL.</p>
+<h1 id="task">Task</h1>
+<p>A task is an activity that needs to be accomplished.</p>
+<ul>
+<li><code>name</code></li>
+<li><code>duration</code> in days</li>
+<li><code>progress</code> in percent</li>
+<li><code>date start</code></li>
+<li><code>date end</code></li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="x">$oTask = $oPHPProject-&gt;createTask()</span>
+<span class="x">-&gt;setName(&#39;TaskName&#39;)</span>
+<span class="x">-&gt;setDuration(7)</span>
+<span class="x">-&gt;setProgress(0.2)</span>
+<span class="x">-&gt;setDateStart(&#39;2014-01-01&#39;);</span>
+</code></pre></div>
+<h2 id="allocation">Allocation</h2>
+<p>For each task, a resource can be assigned.</p>
+<div class="highlight"><pre><span></span><code><span class="x">$oTask-&gt;addResource($oResource);</span>
+</code></pre></div>
 
 
 

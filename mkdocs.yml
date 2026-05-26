@@ -1,0 +1,51 @@
+site_name: PhpProject
+site_url: https://phpoffice.github.io/PhpProject
+repo_url: https://github.com/PHPOffice/PhpProject
+repo_name: PHPOffice/PhpProject
+edit_uri: edit/develop/docs/
+
+## Theme
+theme:
+  name: material
+  palette:
+    primary: green
+  features:
+    - search.highlight
+    - search.suggest
+
+## Plugins
+plugins:
+  - search
+  - autolink_references:
+      autolinks:
+        - reference_prefix: GP-
+          target_url: https://github.com/<num>
+        - reference_prefix: GH-
+          target_url: https://github.com/PHPOffice/PhpProject/issues/<num>
+
+## Config
+extra:
+  generator: false
+markdown_extensions:
+  ## Syntax highlighting
+  - pymdownx.highlight
+  - pymdownx.superfences
+  ## Support for call-outs
+  - admonition
+  - pymdownx.details
+use_directory_urls: false
+
+## Navigation
+nav:
+  - Introduction: "index.md"
+  - Intro: "intro.md"
+  - Installing: "installing.md"
+  - General: "general.md"
+  - Task: "task.md"
+  - Resource: "resource.md"
+  - Recipes: "recipes.md"
+  - FAQ: "faq.md"
+  - Credits: "credits.md"
+  - References: "references.md"
+  - Developers:
+    - "Coveralls": "https://coveralls.io/github/PHPOffice/PHPProject"

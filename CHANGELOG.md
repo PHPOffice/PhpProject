@@ -27,6 +27,10 @@
 - Restricted `XMLReader::getElement` return type to `DOMElement|null` using `instanceof` check - @slayerfx GH-35
 
 ### Miscellaneous
+- Migrated documentation from Sphinx (RST) to MkDocs (Markdown) - @slayerfx GH-36
+- Added GitHub Actions deploy workflow for documentation (mkdocs + PHPUnit coverage HTML + phpDocumentor) - @slayerfx GH-36
+- Removed Sphinx configuration files (`docs/conf.py`, `docs/Makefile`) - @slayerfx GH-36
+- Removed obsolete Travis CI badge and updated documentation URLs in README and samples - @slayerfx GH-36
 - Bumped phpstan analysis level from 4 to 5 - @slayerfx GH-35
 - Bumped phpstan analysis level from 3 to 4 - @slayerfx GH-34
 - Bumped phpstan analysis level from 2 to 3 - @slayerfx GH-33

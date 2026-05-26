@@ -1,14 +1,13 @@
 # PHPProject
 
 [![Latest Stable Version](https://poser.pugx.org/phpoffice/phpproject/v/stable.png)](https://packagist.org/packages/phpoffice/phpproject)
-[![Build Status](https://travis-ci.org/PHPOffice/PHPProject.svg?branch=master)](https://travis-ci.org/PHPOffice/PHPProject)
-[![Coverage Status](https://coveralls.io/repos/github/PHPOffice/PHPProject/badge.svg?branch=develop)](https://coveralls.io/github/PHPOffice/PHPProject?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/PHPOffice/PhpProject/badge.svg?branch=develop)](https://coveralls.io/github/PHPOffice/PhpProject?branch=develop)
 [![Total Downloads](https://poser.pugx.org/phpoffice/phpproject/downloads.png)](https://packagist.org/packages/phpoffice/phpproject)
 [![License](https://poser.pugx.org/phpoffice/phpproject/license.png)](https://packagist.org/packages/phpoffice/phpproject)
 
 
 PHPProject is a library written in pure PHP that provides a set of classes to write to different project management file formats, i.e. Microsoft [MSProjectExchange](http://support.microsoft.com/kb/270139) (MPX) or [GanttProject](http://www.ganttproject.biz) (GAN). 
-PHPProject is an open source project licensed under the terms of [LGPL version 3](https://github.com/PHPOffice/PHPProject/blob/develop/COPYING.LESSER). PHPProject is aimed to be a high quality software product by incorporating [continuous integration](https://travis-ci.org/PHPOffice/PHPProject) and [unit testing](http://phpoffice.github.io/PHPProject/coverage/develop/). You can learn more about PHPProject by reading the [Developers' Documentation](http://phpproject.readthedocs.org/) and the [API Documentation](http://phpoffice.github.io/PHPProject/docs/develop/).
+PhpProject is an open source project licensed under the terms of [LGPL version 3](https://github.com/PHPOffice/PHPProject/blob/develop/COPYING.LESSER). PhpProject is aimed to be a high quality software product by incorporating continuous integration and [unit testing](https://phpoffice.github.io/PhpProject/coverage/). You can learn more about PhpProject by reading the [Developers' Documentation](https://phpoffice.github.io/PhpProject/) and the [API Documentation](https://phpoffice.github.io/PhpProject/docs/).
 
 Read more about PHPProject:
 
@@ -18,8 +17,8 @@ Read more about PHPProject:
 - [Getting started](#getting-started)
 - [Known issues](#known-issues)
 - [Contributing](#contributing)
-- [Developers' Documentation](http://phpproject.readthedocs.org/)
-- [API Documentation](http://phpoffice.github.io/PHPProject/docs/master/)
+- [Developers' Documentation](https://phpoffice.github.io/PhpProject/)
+- [API Documentation](https://phpoffice.github.io/PhpProject/docs/)
 
 ### Features
 
@@ -84,7 +83,7 @@ $oWriterGAN = IOFactory::createWriter($objPHPPowerPoint, 'GanttProject');
 $oWriterGAN->save(__DIR__ . "/sample.gan");
 ```
 
-More examples are provided in the [samples folder](samples/). You can also read the [Developers' Documentation](http://phpproject.readthedocs.org/) and the [API Documentation](http://phpoffice.github.io/PHPProject/docs/master/) for more details.
+More examples are provided in the [samples folder](samples/). You can also read the [Developers' Documentation](https://phpoffice.github.io/PhpProject/) and the [API Documentation](https://phpoffice.github.io/PhpProject/docs/) for more details.
 
 
 ## Contributing

@@ -7,7 +7,7 @@
 
 
 PHPProject is a library written in pure PHP that provides a set of classes to write to different project management file formats, i.e. Microsoft [MSProjectExchange](http://support.microsoft.com/kb/270139) (MPX) or [GanttProject](http://www.ganttproject.biz) (GAN). 
-PHPProject is an open source project licensed under the terms of [LGPL version 3](https://github.com/PHPOffice/PHPProject/blob/develop/COPYING.LESSER). PHPProject is aimed to be a high quality software product by incorporating continuous integration and [unit testing](https://phpoffice.github.io/PHPProject/coverage/). You can learn more about PHPProject by reading the [Developers' Documentation](https://phpoffice.github.io/PHPProject/) and the [API Documentation](https://phpoffice.github.io/PHPProject/docs/).
+PhpProject is an open source project licensed under the terms of [LGPL version 3](https://github.com/PHPOffice/PHPProject/blob/develop/COPYING.LESSER). PhpProject is aimed to be a high quality software product by incorporating continuous integration and [unit testing](https://phpoffice.github.io/PhpProject/coverage/). You can learn more about PhpProject by reading the [Developers' Documentation](https://phpoffice.github.io/PhpProject/) and the [API Documentation](https://phpoffice.github.io/PhpProject/docs/).
 
 Read more about PHPProject:
 

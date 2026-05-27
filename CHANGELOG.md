@@ -27,6 +27,7 @@
 - Restricted `XMLReader::getElement` return type to `DOMElement|null` using `instanceof` check - @slayerfx GH-35
 
 ### Miscellaneous
+- Added Dependabot configuration to monitor Composer dependencies and GitHub Actions - @slayerfx GH-38
 - Applied `PhpProject` casing consistently in README, mkdocs.yml, samples and docs - @slayerfx GH-37
 - Migrated documentation from Sphinx (RST) to MkDocs (Markdown) - @slayerfx GH-36
 - Added GitHub Actions deploy workflow for documentation (mkdocs + PHPUnit coverage HTML + phpDocumentor) - @slayerfx GH-36

@@ -5,8 +5,7 @@
 The following is a basic example of the PhpProject library. More examples are provided in the [samples folder](https://github.com/PHPOffice/PhpProject/tree/master/samples/).
 
 ``` php
-require_once 'src/PhpProject/Autoloader.php';
-\PhpOffice\PhpProject\Autoloader::register();
+require_once 'vendor/autoload.php';
 
 $objPHPProject = new PhpProject();
 

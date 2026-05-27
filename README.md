@@ -49,23 +49,14 @@ the following lines to your ``composer.json``.
 }
 ```
 
-Alternatively, you can download the latest release from the [releases page](https://github.com/PHPOffice/PhpProject/releases).
-In this case, you will have to register the autoloader. Register autoloading is required only if you do not use composer in your project.
-
-```php
-require_once 'path/to/PhpProject/src/PhpProject/Autoloader.php';
-\PhpOffice\PhpProject\Autoloader::register();
-```
-
 ## Getting started
 
 The following is a basic usage example of the PhpProject library.
 
 ```php
-require_once 'src/PhpProject/Autoloader.php';
-\PhpOffice\PhpProject\Autoloader::register();
+require_once 'vendor/autoload.php';
 
-$objPHPProject = new PhpProject();$objPHPProject = new PhpProject();
+$objPHPProject = new PhpProject();
 
 // Create resource
 $objRes1 = $objPHPProject->createResource();

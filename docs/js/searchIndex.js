@@ -1,26 +1,6 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\PhpOffice\\PhpProject\\Autoloader",
-            "name": "Autoloader",
-            "summary": "Autoloader",
-            "url": "classes/PhpOffice-PhpProject-Autoloader.html"
-        },                {
-            "fqsen": "\\PhpOffice\\PhpProject\\Autoloader\u003A\u003Aregister\u0028\u0029",
-            "name": "register",
-            "summary": "Register",
-            "url": "classes/PhpOffice-PhpProject-Autoloader.html#method_register"
-        },                {
-            "fqsen": "\\PhpOffice\\PhpProject\\Autoloader\u003A\u003Aautoload\u0028\u0029",
-            "name": "autoload",
-            "summary": "Autoload",
-            "url": "classes/PhpOffice-PhpProject-Autoloader.html#method_autoload"
-        },                {
-            "fqsen": "\\PhpOffice\\PhpProject\\Autoloader\u003A\u003ANAMESPACE_PREFIX",
-            "name": "NAMESPACE_PREFIX",
-            "summary": "",
-            "url": "classes/PhpOffice-PhpProject-Autoloader.html#constant_NAMESPACE_PREFIX"
-        },                {
             "fqsen": "\\PhpOffice\\PhpProject\\DocumentInformations",
             "name": "DocumentInformations",
             "summary": "PHPProject_DocumentInformations",

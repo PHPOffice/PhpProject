@@ -27,6 +27,7 @@
 - Restricted `XMLReader::getElement` return type to `DOMElement|null` using `instanceof` check - @slayerfx GH-35
 
 ### Miscellaneous
+- Removed manual `Autoloader.php` in favor of Composer autoloader (samples, tests bootstrap, README and docs updated) - @slayerfx GH-43
 - Added Dependabot configuration to monitor Composer dependencies and GitHub Actions - @slayerfx GH-38
 - Applied `PhpProject` casing consistently in README, mkdocs.yml, samples and docs - @slayerfx GH-37
 - Migrated documentation from Sphinx (RST) to MkDocs (Markdown) - @slayerfx GH-36

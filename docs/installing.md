@@ -13,11 +13,7 @@ Optional PHP extensions:
 
 ## Installation
 
-There are two ways to install PhpProject, i.e. via [Composer](http://getcomposer.org/) or manually by downloading the library.
-
-### Using Composer
-
-To install via Composer, add the following lines to your `composer.json`:
+To install PhpProject, use [Composer](http://getcomposer.org/):
 
 ``` json
 {
@@ -25,15 +21,6 @@ To install via Composer, add the following lines to your `composer.json`:
        "phpoffice/phpproject": "dev-master"
     }
 }
-```
-
-### Manual install
-
-To install manually, [download PhpProject package from github](https://github.com/PHPOffice/PhpProject/archive/master.zip). Extract the package and put the contents to your machine. To use the library, include `src/PhpProject/Autoloader.php` in your script and invoke `Autoloader::register`.
-
-``` php
-require_once '/path/to/src/PhpProject/Autoloader.php';
-\PhpOffice\PhpProject\Autoloader::register();
 ```
 
 ## Using samples

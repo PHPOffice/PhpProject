@@ -1,4 +1,4 @@
-# PHPProject
+# PhpProject
 
 [![Latest Stable Version](https://poser.pugx.org/phpoffice/phpproject/v/stable.png)](https://packagist.org/packages/phpoffice/phpproject)
 [![Coverage Status](https://coveralls.io/repos/github/PHPOffice/PhpProject/badge.svg?branch=develop)](https://coveralls.io/github/PHPOffice/PhpProject?branch=develop)
@@ -6,10 +6,10 @@
 [![License](https://poser.pugx.org/phpoffice/phpproject/license.png)](https://packagist.org/packages/phpoffice/phpproject)
 
 
-PHPProject is a library written in pure PHP that provides a set of classes to write to different project management file formats, i.e. Microsoft [MSProjectExchange](http://support.microsoft.com/kb/270139) (MPX) or [GanttProject](http://www.ganttproject.biz) (GAN). 
-PhpProject is an open source project licensed under the terms of [LGPL version 3](https://github.com/PHPOffice/PHPProject/blob/develop/COPYING.LESSER). PhpProject is aimed to be a high quality software product by incorporating continuous integration and [unit testing](https://phpoffice.github.io/PhpProject/coverage/). You can learn more about PhpProject by reading the [Developers' Documentation](https://phpoffice.github.io/PhpProject/) and the [API Documentation](https://phpoffice.github.io/PhpProject/docs/).
+PhpProject is a library written in pure PHP that provides a set of classes to write to different project management file formats, i.e. Microsoft [MSProjectExchange](http://support.microsoft.com/kb/270139) (MPX) or [GanttProject](http://www.ganttproject.biz) (GAN). 
+PhpProject is an open source project licensed under the terms of [LGPL version 3](https://github.com/PHPOffice/PhpProject/blob/develop/COPYING.LESSER). PhpProject is aimed to be a high quality software product by incorporating continuous integration and [unit testing](https://phpoffice.github.io/PhpProject/coverage/). You can learn more about PhpProject by reading the [Developers' Documentation](https://phpoffice.github.io/PhpProject/) and the [API Documentation](https://phpoffice.github.io/PhpProject/docs/).
 
-Read more about PHPProject:
+Read more about PhpProject:
 
 - [Features](#features)
 - [Requirements](#requirements)
@@ -31,14 +31,14 @@ Read more about PHPProject:
 
 ### Requirements
 
-PHPProject requires the following:
+PhpProject requires the following:
 
 - PHP 5.3+
 - [XML Parser extension](http://www.php.net/manual/en/xml.installation.php)
 
 ### Installation
 
-It is recommended that you install the PHPProject library [through composer](http://getcomposer.org/). To do so, add
+It is recommended that you install the PhpProject library [through composer](http://getcomposer.org/). To do so, add
 the following lines to your ``composer.json``.
 
 ```json
@@ -49,7 +49,7 @@ the following lines to your ``composer.json``.
 }
 ```
 
-Alternatively, you can download the latest release from the [releases page](https://github.com/PHPOffice/PHPProject/releases).
+Alternatively, you can download the latest release from the [releases page](https://github.com/PHPOffice/PhpProject/releases).
 In this case, you will have to register the autoloader. Register autoloading is required only if you do not use composer in your project.
 
 ```php
@@ -59,7 +59,7 @@ require_once 'path/to/PhpProject/src/PhpProject/Autoloader.php';
 
 ## Getting started
 
-The following is a basic usage example of the PHPProject library.
+The following is a basic usage example of the PhpProject library.
 
 ```php
 require_once 'src/PhpProject/Autoloader.php';
@@ -88,9 +88,9 @@ More examples are provided in the [samples folder](samples/). You can also read 
 
 ## Contributing
 
-We welcome everyone to contribute to PHPProject. Below are some of the things that you can do to contribute:
+We welcome everyone to contribute to PhpProject. Below are some of the things that you can do to contribute:
 
-- Read [our contributing guide](https://github.com/PHPOffice/PHPProject/blob/master/CONTRIBUTING.md)
-- [Fork us](https://github.com/PHPOffice/PHPProject/fork) and [request a pull](https://github.com/PHPOffice/PHPProject/pulls) to the [develop](https://github.com/PHPOffice/PHPProject/tree/develop) branch
-- Submit [bug reports or feature requests](https://github.com/PHPOffice/PHPProject/issues) to GitHub
+- Read [our contributing guide](https://github.com/PHPOffice/PhpProject/blob/master/CONTRIBUTING.md)
+- [Fork us](https://github.com/PHPOffice/PhpProject/fork) and [request a pull](https://github.com/PHPOffice/PhpProject/pulls) to the [develop](https://github.com/PHPOffice/PhpProject/tree/develop) branch
+- Submit [bug reports or feature requests](https://github.com/PHPOffice/PhpProject/issues) to GitHub
 - Follow [@PHPOffice](https://twitter.com/PHPOffice) on Twitter

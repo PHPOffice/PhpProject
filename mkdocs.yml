@@ -48,4 +48,4 @@ nav:
   - Credits: "credits.md"
   - References: "references.md"
   - Developers:
-    - "Coveralls": "https://coveralls.io/github/PHPOffice/PHPProject"
+    - "Coveralls": "https://coveralls.io/github/PHPOffice/PhpProject"

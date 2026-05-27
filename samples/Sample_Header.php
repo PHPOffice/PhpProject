@@ -25,7 +25,7 @@ if (CLI) {
 // Set titles and names
 $pageHeading = str_replace('_', ' ', SCRIPT_FILENAME);
 $pageTitle = IS_INDEX ? 'Welcome to ' : "{$pageHeading} - ";
-$pageTitle .= 'PHPProject';
+$pageTitle .= 'PhpProject';
 $pageHeading = IS_INDEX ? '' : "<h1>{$pageHeading}</h1>";
 
 // Populate samples
@@ -149,7 +149,7 @@ function echoTask($oPHPProject, $oTask, $level = 0) {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="./">PHPProject</a>
+            <a class="navbar-brand" href="./">PhpProject</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -159,7 +159,7 @@ function echoTask($oPHPProject, $oTask, $level = 0) {
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://github.com/PHPOffice/PHPProject"><i class="fa fa-github fa-lg" title="GitHub"></i>&nbsp;</a></li>
+                <li><a href="https://github.com/PHPOffice/PhpProject"><i class="fa fa-github fa-lg" title="GitHub"></i>&nbsp;</a></li>
                 <li><a href="https://phpoffice.github.io/PhpProject/"><i class="fa fa-book fa-lg" title="Docs"></i>&nbsp;</a></li>
                 <li><a href="http://twitter.com/PHPOffice"><i class="fa fa-twitter fa-lg" title="Twitter"></i>&nbsp;</a></li>
             </ul>

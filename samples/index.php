@@ -9,10 +9,10 @@ $requirements = array(
 if (!CLI) {
 ?>
 <div class="jumbotron">
-<p>Welcome to PHPProject, a library written in pure PHP that provides a set of classes to write to and read from different document file formats, i.e. GanttProject (.gan) and MS Project (.mpx).</p>
+<p>Welcome to PhpProject, a library written in pure PHP that provides a set of classes to write to and read from different document file formats, i.e. GanttProject (.gan) and MS Project (.mpx).</p>
 <p>&nbsp;</p>
 <p>
-    <a class="btn btn-lg btn-primary" href="https://github.com/PHPOffice/PHPProject" role="button"><i class="fa fa-github fa-lg" title="GitHub"></i>  Fork us on Github!</a>
+    <a class="btn btn-lg btn-primary" href="https://github.com/PHPOffice/PhpProject" role="button"><i class="fa fa-github fa-lg" title="GitHub"></i>  Fork us on Github!</a>
     <a class="btn btn-lg btn-primary" href="https://phpoffice.github.io/PhpProject/" role="button"><i class="fa fa-book fa-lg" title="Docs"></i>  Read the Docs</a>
 </p>
 </div>

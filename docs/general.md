@@ -2,7 +2,7 @@
 
 ## Basic example
 
-The following is a basic example of the PHPProject library. More examples are provided in the [samples folder](https://github.com/PHPOffice/PHPProject/tree/master/samples/).
+The following is a basic example of the PhpProject library. More examples are provided in the [samples folder](https://github.com/PHPOffice/PhpProject/tree/master/samples/).
 
 ``` php
 require_once 'src/PhpProject/Autoloader.php';

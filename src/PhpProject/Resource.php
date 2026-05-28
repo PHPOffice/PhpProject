@@ -31,10 +31,10 @@ class Resource
 {
     /**
      * Title
-     * 
+     *
      * @var string
      */
-    private $title;
+    private $title = '';
     
     /**
      * Index
@@ -59,38 +59,40 @@ class Resource
      *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
-    
+
     /**
      * Set title
      *
      * @param string $pTitle Title of the resource
      * @return self
      */
-    public function setTitle($pTitle)
+    public function setTitle(string $pTitle): self
     {
         $this->title = $pTitle;
         return $this;
     }
-    
+
     /**
      * Get index
      *
      * @return int
      */
-    public function getIndex()
+    public function getIndex(): int
     {
         return $this->index;
     }
-    
+
     /**
      * Set index
+     *
      * @param int|string $value
+     * @return self
      */
-    public function setIndex($value)
+    public function setIndex($value): self
     {
         if (is_numeric($value)) {
             $this->index = (int)$value;

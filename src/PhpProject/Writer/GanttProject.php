@@ -316,7 +316,7 @@ class GanttProject implements WriterInterface
         $oXML->startElement('task');
         $oXML->writeAttribute('id', $oTask->getIndex());
         $oXML->writeAttribute('name', $oTask->getName());
-        $oXML->writeAttribute('start', date('Y-m-d', $oTask->getStartDate()));
+        $oXML->writeAttribute('start', date('Y-m-d', $oTask->getStartDate() ?? time()));
         $oXML->writeAttribute('duration', $oTask->getDuration());
         $oXML->writeAttribute('complete', $oTask->getProgress() * 100);
         $oXML->writeAttribute('meeting', 'false');

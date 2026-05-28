@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * This file is part of PHPProject - A pure PHP library for reading and writing
  * presentations documents.

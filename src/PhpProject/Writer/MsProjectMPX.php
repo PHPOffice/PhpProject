@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPProject - A pure PHP library for reading and writing
  * presentations documents.
@@ -14,6 +15,8 @@
  * @copyright   2009-2014 PHPProject contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
+
+declare(strict_types=1);
 
 namespace PhpOffice\PhpProject\Writer;
 
@@ -243,7 +246,7 @@ class MsProjectMPX implements WriterInterface
      */
     private function writeRecord70(Task $oTask)
     {
-        $this->fileContent[] = '70;'.$oTask->getIndex().';'.$oTask->getName().';'.$oTask->getDuration().'d;'.number_format($oTask->getProgress() ?? 0, 1).';'.date('d/m/Y', $oTask->getStartDate());
+        $this->fileContent[] = '70;'.$oTask->getIndex().';'.$oTask->getName().';'.$oTask->getDuration().'d;'.number_format($oTask->getProgress() ?? 0, 1).';'.date('d/m/Y', $oTask->getStartDate() ?? time());
         
         foreach ($oTask->getResources() as $oResource) {
             $this->writeRecord75($oResource);

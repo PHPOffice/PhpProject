@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPProject - A pure PHP library for reading and writing
  * presentations documents.
@@ -14,6 +15,8 @@
  * @copyright   2009-2014 PHPProject contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
+
+declare(strict_types=1);
 
 namespace PhpOffice\PhpProject\Writer;
 
@@ -313,7 +316,7 @@ class GanttProject implements WriterInterface
         $oXML->startElement('task');
         $oXML->writeAttribute('id', $oTask->getIndex());
         $oXML->writeAttribute('name', $oTask->getName());
-        $oXML->writeAttribute('start', date('Y-m-d', $oTask->getStartDate()));
+        $oXML->writeAttribute('start', date('Y-m-d', $oTask->getStartDate() ?? time()));
         $oXML->writeAttribute('duration', $oTask->getDuration());
         $oXML->writeAttribute('complete', $oTask->getProgress() * 100);
         $oXML->writeAttribute('meeting', 'false');

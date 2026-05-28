@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of PHPProject - A pure PHP library for reading and writing
  * project management files.
@@ -17,6 +15,8 @@ declare(strict_types=1);
  * @copyright   2010-2014 PHPProject contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
+
+declare(strict_types=1);
 
 namespace PhpOffice\PhpProject\Shared;
 

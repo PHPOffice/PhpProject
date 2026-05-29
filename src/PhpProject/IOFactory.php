@@ -39,7 +39,7 @@ class IOFactory
      * @param string $name
      * @return \PhpOffice\PhpProject\Writer\WriterInterface
      */
-    public static function createWriter(PhpProject $phpProject, $name = 'GanttProject')
+    public static function createWriter(PhpProject $phpProject, string $name = 'GanttProject'): Writer\WriterInterface
     {
         $class = 'PhpOffice\\PhpProject\\Writer\\' . $name;
         return self::loadClass($class, $name, 'writer', $phpProject);
@@ -51,7 +51,7 @@ class IOFactory
      * @param  string $name
      * @return \PhpOffice\PhpProject\Reader\ReaderInterface
      */
-    public static function createReader($name = 'GanttProject')
+    public static function createReader(string $name = 'GanttProject'): Reader\ReaderInterface
     {
         $class = 'PhpOffice\\PhpProject\\Reader\\' . $name;
         return self::loadClass($class, $name, 'reader');
@@ -64,7 +64,7 @@ class IOFactory
      * @return PhpProject
      * @throws \Exception
      */
-    public static function load($pFilename)
+    public static function load(string $pFilename): PhpProject
     {
         // Try loading using self::$autoResolveClasses
         foreach (self::$autoResolveClasses as $autoResolveClass) {
@@ -87,7 +87,7 @@ class IOFactory
      * @throws \Exception
      * @return \PhpOffice\PhpProject\Reader\ReaderInterface|\PhpOffice\PhpProject\Writer\WriterInterface
      */
-    private static function loadClass($class, $name, $type, ?PhpProject $phpProject = null)
+    private static function loadClass(string $class, string $name, string $type, ?PhpProject $phpProject = null)
     {
         if (class_exists($class) && self::isConcreteClass($class)) {
             if (is_null($phpProject)) {
@@ -106,7 +106,7 @@ class IOFactory
      * @param string $class
      * @return bool
      */
-    private static function isConcreteClass($class)
+    private static function isConcreteClass(string $class): bool
     {
         $reflection = new \ReflectionClass($class);
 

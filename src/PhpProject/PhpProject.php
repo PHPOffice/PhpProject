@@ -76,7 +76,7 @@ class PhpProject
      *
      * @return DocumentProperties
      */
-    public function getProperties()
+    public function getProperties(): DocumentProperties
     {
         return $this->properties;
     }
@@ -86,7 +86,7 @@ class PhpProject
      *
      * @param DocumentProperties $pValue
      */
-    public function setProperties(DocumentProperties $pValue)
+    public function setProperties(DocumentProperties $pValue): self
     {
         $this->properties = $pValue;
         return $this;
@@ -100,7 +100,7 @@ class PhpProject
      * 
      * @return DocumentInformations
      */
-    public function getInformations()
+    public function getInformations(): DocumentInformations
     {
         return $this->informations;
     }
@@ -110,7 +110,7 @@ class PhpProject
      *
      * @param DocumentInformations $pValue
      */
-    public function setInformations(DocumentInformations $pValue)
+    public function setInformations(DocumentInformations $pValue): self
     {
         $this->informations = $pValue;
         return $this;
@@ -125,7 +125,7 @@ class PhpProject
      * @return Resource
      * @throws \Exception
      */
-    public function createResource()
+    public function createResource(): Resource
     {
         $newRessource = new Resource();
         $this->resourceCollection[] = $newRessource;
@@ -137,7 +137,7 @@ class PhpProject
      *
      * @return int
      */
-    public function getResourceCount()
+    public function getResourceCount(): int
     {
         return count($this->resourceCollection);
     }
@@ -147,7 +147,7 @@ class PhpProject
      *
      * @return \PhpOffice\PhpProject\Resource[]
      */
-    public function getAllResources()
+    public function getAllResources(): array
     {
         return $this->resourceCollection;
     }
@@ -157,7 +157,7 @@ class PhpProject
      *
      * @return Resource|null
      */
-    public function getActiveResource()
+    public function getActiveResource(): ?Resource
     {
         if (!empty($this->resourceCollection)) {
             return end($this->resourceCollection);
@@ -170,7 +170,7 @@ class PhpProject
      *
      * @return Resource|null
      */
-    public function getResourceFromIndex($pIndex)
+    public function getResourceFromIndex($pIndex): ?Resource
     {
         foreach ($this->resourceCollection as $oResource) {
             if ($oResource->getIndex() == $pIndex) {
@@ -189,7 +189,7 @@ class PhpProject
      * @return Task
      * @throws \Exception
      */
-    public function createTask()
+    public function createTask(): Task
     {
         $newTask = new Task();
         $this->taskCollection[] = $newTask;
@@ -201,7 +201,7 @@ class PhpProject
      *
      * @return int
      */
-    public function getTaskCount()
+    public function getTaskCount(): int
     {
         return count($this->taskCollection);
     }
@@ -211,7 +211,7 @@ class PhpProject
      *
      * @return Task[]
      */
-    public function getAllTasks()
+    public function getAllTasks(): array
     {
         return $this->taskCollection;
     }
@@ -221,7 +221,7 @@ class PhpProject
      *
      * @return Task|null
      */
-    public function getActiveTask()
+    public function getActiveTask(): ?Task
     {
         if (!empty($this->taskCollection)) {
             return end($this->taskCollection);
@@ -234,7 +234,7 @@ class PhpProject
      *
      * @return Task|null
      */
-    public function getTaskFromIndex($pIndex, ?Task $oTaskParent = null)
+    public function getTaskFromIndex($pIndex, ?Task $oTaskParent = null): ?Task
     {
         if (is_null($oTaskParent)) {
             $arrayTask = $this->taskCollection;
@@ -262,7 +262,7 @@ class PhpProject
      * @param int $pIndex Active task index
      * @throws \Exception
      */
-    public function removeTaskByIndex($pIndex = 0)
+    public function removeTaskByIndex(int $pIndex = 0): void
     {
         if (!isset($this->taskCollection[$pIndex])) {
             throw new \Exception('Task index is out of bounds.');

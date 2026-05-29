@@ -27,7 +27,7 @@
 - Restricted `XMLReader::getElement` return type to `DOMElement|null` using `instanceof` check - @slayerfx GH-35
 
 ### Miscellaneous
-- Typed method signatures of `Resource` class (`setIndex` parameter intentionally untyped, union type `int|string` not available in PHP 7.3) - @slayerfx GH-45
+- Typed method signatures of core classes (`Resource`, `DocumentInformations`) - `setIndex` parameter intentionally untyped, union type `int|string` not available in PHP 7.3 - @slayerfx GH-45
 - Added `declare(strict_types=1);` to all source files (no behaviour change, sets foundation for strict signature typing) - @slayerfx GH-44
 - Removed manual `Autoloader.php` in favor of Composer autoloader (samples, tests bootstrap, README and docs updated) - @slayerfx GH-43
 - Added Dependabot configuration to monitor Composer dependencies and GitHub Actions - @slayerfx GH-38

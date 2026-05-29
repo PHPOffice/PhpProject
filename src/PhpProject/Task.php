@@ -34,8 +34,8 @@ class Task
      * 
      * @var string
      */
-    private $name;
-    
+    private $name = '';
+
     /**
      * Duration
      * 
@@ -102,7 +102,7 @@ class Task
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -113,7 +113,7 @@ class Task
      * @param string $pValue Name of the task
      * @return self
      */
-    public function setName($pValue)
+    public function setName(string $pValue): self
     {
         $this->name = $pValue;
         return $this;
@@ -135,7 +135,7 @@ class Task
      * @param int|float|string $pValue Duration of the resource
      * @return self
      */
-    public function setDuration($pValue)
+    public function setDuration($pValue): self
     {
         $this->duration = $pValue;
         return $this;
@@ -146,7 +146,7 @@ class Task
      *
      * @return int|null
      */
-    public function getStartDate()
+    public function getStartDate(): ?int
     {
         return $this->startDate;
     }
@@ -157,7 +157,7 @@ class Task
      * @param int|string|null $pValue
      * @return self
      */
-    public function setStartDate($pValue = null)
+    public function setStartDate($pValue = null): self
     {
         if ($pValue === null) {
             $pValue = time();
@@ -178,7 +178,7 @@ class Task
      *
      * @return int|null
      */
-    public function getEndDate()
+    public function getEndDate(): ?int
     {
         return $this->endDate;
     }
@@ -189,7 +189,7 @@ class Task
      * @param int|string|null $pValue
      * @return self
      */
-    public function setEndDate($pValue = null)
+    public function setEndDate($pValue = null): self
     {
         if ($pValue === null) {
             $pValue = time();
@@ -210,7 +210,7 @@ class Task
      *
      * @return float|null
      */
-    public function getProgress()
+    public function getProgress(): ?float
     {
         return $this->progress;
     }
@@ -221,7 +221,7 @@ class Task
      * @param int|float|string $pValue Progress of the task
      * @return self
      */
-    public function setProgress($pValue = 0)
+    public function setProgress($pValue = 0): self
     {
         if (!is_numeric($pValue)) {
             $this->progress = 0;
@@ -240,7 +240,7 @@ class Task
     /**
      * Get index
      */
-    public function getIndex()
+    public function getIndex(): int
     {
         return $this->index;
     }
@@ -249,7 +249,7 @@ class Task
      * Set index
      * @param int|string $value
      */
-    public function setIndex($value)
+    public function setIndex($value): self
     {
         if (is_numeric($value)) {
             $this->index = (int)$value;
@@ -264,7 +264,7 @@ class Task
      * Add a resource used by the current task
      * @param Resource $oResource
      */
-    public function addResource(Resource $oResource)
+    public function addResource(Resource $oResource): self
     {
         if (!in_array($oResource, $this->resourceCollection)) {
             $this->resourceCollection[] = &$oResource;
@@ -277,12 +277,12 @@ class Task
      * 
      * @return Resource[]
      */
-    public function getResources()
+    public function getResources(): array
     {
         return $this->resourceCollection;
     }
 
-    public function getResourceCount()
+    public function getResourceCount(): int
     {
         return count($this->resourceCollection);
     }
@@ -290,7 +290,7 @@ class Task
     //===============================================
     // Tasks
     //===============================================
-    public function createTask()
+    public function createTask(): self
     {
         $newTask = new self();
         $this->taskCollection[] = $newTask;
@@ -302,12 +302,12 @@ class Task
      *
      * @return self[]
      */
-    public function getTasks()
+    public function getTasks(): array
     {
         return $this->taskCollection;
     }
 
-    public function getTaskCount()
+    public function getTaskCount(): int
     {
         return count($this->taskCollection);
     }

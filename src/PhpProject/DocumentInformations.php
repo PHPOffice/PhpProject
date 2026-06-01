@@ -52,7 +52,7 @@ class DocumentInformations
      * Get Start Date
      * @return int
      */
-    public function getStartDate()
+    public function getStartDate(): ?int
     {
         return $this->startDate;
     }
@@ -60,9 +60,9 @@ class DocumentInformations
     /**
      * Set Start Date
      * @param int|string|null $pValue
-     * @return DocumentInformations
+     * @return self
      */
-    public function setStartDate($pValue = null)
+    public function setStartDate($pValue = null): self
     {
         if ($pValue === null) {
             $pValue = time();
@@ -71,6 +71,9 @@ class DocumentInformations
                 $pValue = intval($pValue);
             } else {
                 $pValue = strtotime($pValue);
+                if ($pValue === false) {
+                    $pValue = null;
+                }
             }
         }
         $this->startDate = $pValue;
@@ -81,7 +84,7 @@ class DocumentInformations
      * Get End Date
      * @return int
      */
-    public function getEndDate()
+    public function getEndDate(): ?int
     {
         return $this->endDate;
     }
@@ -89,9 +92,9 @@ class DocumentInformations
     /**
      * Set End Date
      * @param int|string|null $pValue
-     * @return DocumentInformations
+     * @return self
      */
-    public function setEndDate($pValue = null)
+    public function setEndDate($pValue = null): self
     {
         if ($pValue === null) {
             $pValue = time();
@@ -100,6 +103,9 @@ class DocumentInformations
                 $pValue = intval($pValue);
             } else {
                 $pValue = strtotime($pValue);
+                if ($pValue === false) {
+                    $pValue = null;
+                }
             }
         }
         $this->endDate = $pValue;

@@ -25,8 +25,10 @@
 - Broadened PHPDoc parameter types in `Task::setIndex/setProgress/setDuration` and `Resource::setIndex` to accept multiple types handled in practice - @slayerfx GH-35
 - Broadened `XMLReader::getElement` and `getElements` `$contextNode` parameter to `?\DOMNode` (was `?\DOMElement`) - @slayerfx GH-35
 - Restricted `XMLReader::getElement` return type to `DOMElement|null` using `instanceof` check - @slayerfx GH-35
+- Fixed date setters (`Task`, `DocumentInformations`, `DocumentProperties`) storing `strtotime()` `false` for unparseable date strings; now stored as `null` to match the typed `?int` getters (revealed by the samples job) - @slayerfx GH-45
 
 ### Miscellaneous
+- Typed method signatures of core classes (`Resource`, `DocumentInformations`, `DocumentProperties`, `IOFactory`, `PhpProject`, `Task`, `Shared\XMLReader`, `Shared\XMLWriter`) - `setIndex` parameter intentionally untyped, union type `int|string` not available in PHP 7.3 - @slayerfx GH-45
 - Added `declare(strict_types=1);` to all source files (no behaviour change, sets foundation for strict signature typing) - @slayerfx GH-44
 - Removed manual `Autoloader.php` in favor of Composer autoloader (samples, tests bootstrap, README and docs updated) - @slayerfx GH-43
 - Added Dependabot configuration to monitor Composer dependencies and GitHub Actions - @slayerfx GH-38

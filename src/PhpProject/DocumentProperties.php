@@ -137,7 +137,7 @@ class DocumentProperties
      *
      * @return    string
      */
-    public function getCreator()
+    public function getCreator(): string
     {
         return $this->creator;
     }
@@ -148,7 +148,7 @@ class DocumentProperties
      * @param    string    $pValue
      * @return    self
      */
-    public function setCreator($pValue = '')
+    public function setCreator(string $pValue = ''): self
     {
         $this->creator = $pValue;
         return $this;
@@ -159,7 +159,7 @@ class DocumentProperties
      *
      * @return    string
      */
-    public function getLastModifiedBy()
+    public function getLastModifiedBy(): string
     {
         return $this->lastModifiedBy;
     }
@@ -170,7 +170,7 @@ class DocumentProperties
      * @param    string    $pValue
      * @return    self
      */
-    public function setLastModifiedBy($pValue = '')
+    public function setLastModifiedBy(string $pValue = ''): self
     {
         $this->lastModifiedBy = $pValue;
         return $this;
@@ -181,7 +181,7 @@ class DocumentProperties
      *
      * @return    int
      */
-    public function getCreated()
+    public function getCreated(): ?int
     {
         return $this->created;
     }
@@ -192,7 +192,7 @@ class DocumentProperties
      * @param int|string|null $pValue
      * @return    self
      */
-    public function setCreated($pValue = null)
+    public function setCreated($pValue = null): self
     {
         if ($pValue === null) {
             $pValue = time();
@@ -201,6 +201,9 @@ class DocumentProperties
                 $pValue = intval($pValue);
             } else {
                 $pValue = strtotime($pValue);
+                if ($pValue === false) {
+                    $pValue = null;
+                }
             }
         }
 
@@ -213,7 +216,7 @@ class DocumentProperties
      *
      * @return    int
      */
-    public function getModified()
+    public function getModified(): ?int
     {
         return $this->modified;
     }
@@ -224,7 +227,7 @@ class DocumentProperties
      * @param int|string|null $pValue
      * @return    self
      */
-    public function setModified($pValue = null)
+    public function setModified($pValue = null): self
     {
         if ($pValue === null) {
             $pValue = time();
@@ -233,6 +236,9 @@ class DocumentProperties
                 $pValue = intval($pValue);
             } else {
                 $pValue = strtotime($pValue);
+                if ($pValue === false) {
+                    $pValue = null;
+                }
             }
         }
 
@@ -245,7 +251,7 @@ class DocumentProperties
      *
      * @return    string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -256,7 +262,7 @@ class DocumentProperties
      * @param    string    $pValue
      * @return    self
      */
-    public function setTitle($pValue = '')
+    public function setTitle(string $pValue = ''): self
     {
         $this->title = $pValue;
         return $this;
@@ -267,7 +273,7 @@ class DocumentProperties
      *
      * @return    string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -278,7 +284,7 @@ class DocumentProperties
      * @param    string    $pValue
      * @return    self
      */
-    public function setDescription($pValue = '')
+    public function setDescription(string $pValue = ''): self
     {
         $this->description = $pValue;
         return $this;
@@ -289,7 +295,7 @@ class DocumentProperties
      *
      * @return    string
      */
-    public function getSubject()
+    public function getSubject(): string
     {
         return $this->subject;
     }
@@ -300,7 +306,7 @@ class DocumentProperties
      * @param    string    $pValue
      * @return    self
      */
-    public function setSubject($pValue = '')
+    public function setSubject(string $pValue = ''): self
     {
         $this->subject = $pValue;
         return $this;
@@ -311,7 +317,7 @@ class DocumentProperties
      *
      * @return    string
      */
-    public function getKeywords()
+    public function getKeywords(): string
     {
         return $this->keywords;
     }
@@ -322,7 +328,7 @@ class DocumentProperties
      * @param    string    $pValue
      * @return    self
      */
-    public function setKeywords($pValue = '')
+    public function setKeywords(string $pValue = ''): self
     {
         $this->keywords = $pValue;
         return $this;
@@ -333,7 +339,7 @@ class DocumentProperties
      *
      * @return    string
      */
-    public function getCategory()
+    public function getCategory(): string
     {
         return $this->category;
     }
@@ -344,7 +350,7 @@ class DocumentProperties
      * @param    string    $pValue
      * @return    self
      */
-    public function setCategory($pValue = '')
+    public function setCategory(string $pValue = ''): self
     {
         $this->category = $pValue;
         return $this;
@@ -355,7 +361,7 @@ class DocumentProperties
      *
      * @return    string
      */
-    public function getCompany()
+    public function getCompany(): string
     {
         return $this->company;
     }
@@ -366,7 +372,7 @@ class DocumentProperties
      * @param    string    $pValue
      * @return    self
      */
-    public function setCompany($pValue = '')
+    public function setCompany(string $pValue = ''): self
     {
         $this->company = $pValue;
         return $this;
@@ -377,7 +383,7 @@ class DocumentProperties
      *
      * @return    string
      */
-    public function getManager()
+    public function getManager(): string
     {
         return $this->manager;
     }
@@ -388,7 +394,7 @@ class DocumentProperties
      * @param    string    $pValue
      * @return    self
      */
-    public function setManager($pValue = '')
+    public function setManager(string $pValue = ''): self
     {
         $this->manager = $pValue;
         return $this;
@@ -399,7 +405,7 @@ class DocumentProperties
      *
      * @return string[]
      */
-    public function getCustomProperties()
+    public function getCustomProperties(): array
     {
         return array_keys($this->customProperties);
     }
@@ -410,7 +416,7 @@ class DocumentProperties
      * @param    string    $propertyName
      * @return    boolean
      */
-    public function isCustomPropertySet($propertyName)
+    public function isCustomPropertySet(string $propertyName): bool
     {
         return isset($this->customProperties[$propertyName]);
     }
@@ -421,7 +427,7 @@ class DocumentProperties
      * @param    string    $propertyName
      * @return    string|null
      */
-    public function getCustomPropertyValue($propertyName)
+    public function getCustomPropertyValue(string $propertyName)
     {
         if (isset($this->customProperties[$propertyName])) {
             return $this->customProperties[$propertyName]['value'];
@@ -435,7 +441,7 @@ class DocumentProperties
      * @param    string    $propertyName
      * @return    string|null
      */
-    public function getCustomPropertyType($propertyName)
+    public function getCustomPropertyType(string $propertyName): ?string
     {
         if (isset($this->customProperties[$propertyName])) {
             return $this->customProperties[$propertyName]['type'];
@@ -456,7 +462,7 @@ class DocumentProperties
      *                        'b': Boolean
      * @return    self
      */
-    public function setCustomProperty($propertyName, $propertyValue = '', $propertyType = null)
+    public function setCustomProperty(string $propertyName, $propertyValue = '', ?string $propertyType = null): self
     {
         if (($propertyType === null) || (!in_array($propertyType, array(self::PROPERTY_TYPE_INTEGER, self::PROPERTY_TYPE_FLOAT, self::PROPERTY_TYPE_STRING, self::PROPERTY_TYPE_DATE, self::PROPERTY_TYPE_BOOLEAN)))) {
             if (is_float($propertyValue)) {
@@ -474,7 +480,7 @@ class DocumentProperties
         return $this;
     }
 
-    public static function convertProperty($propertyValue, $propertyType)
+    public static function convertProperty(string $propertyValue, string $propertyType)
     {
         switch ($propertyType) {
             case 'empty': // Empty
@@ -531,7 +537,7 @@ class DocumentProperties
         return $propertyValue;
     }
 
-    public static function convertPropertyType($propertyType)
+    public static function convertPropertyType(string $propertyType): string
     {
         switch ($propertyType) {
             case 'i1': // 1-Byte Signed Integer

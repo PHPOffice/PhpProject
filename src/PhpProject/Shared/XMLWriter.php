@@ -63,7 +63,7 @@ class XMLWriter
      * @param int $pTemporaryStorage Temporary storage location
      * @param string $pTemporaryStorageDir Temporary storage folder
      */
-    public function __construct($pTemporaryStorage = self::STORAGE_MEMORY, $pTemporaryStorageDir = './')
+    public function __construct(int $pTemporaryStorage = self::STORAGE_MEMORY, string $pTemporaryStorageDir = './')
     {
         // Create internal XMLWriter
         $this->xmlWriter = new \XMLWriter();
@@ -100,10 +100,10 @@ class XMLWriter
     /**
      * Catch function calls (and pass them to internal XMLWriter)
      *
-     * @param mixed $function
-     * @param mixed $args
+     * @param string $function
+     * @param array $args
      */
-    public function __call($function, $args)
+    public function __call(string $function, array $args)
     {
         try {
             @call_user_func_array(array(
@@ -120,7 +120,7 @@ class XMLWriter
      *
      * @return string
      */
-    public function getData()
+    public function getData(): string
     {
         if ($this->tempFileName == '') {
             return $this->xmlWriter->outputMemory(true);

@@ -75,7 +75,7 @@ class MsProjectMPX implements ReaderInterface
      * @param string $pFilename
      * @return bool
      */
-    public function canRead($pFilename)
+    public function canRead(string $pFilename): bool
     {
         if (!file_exists($pFilename) || !is_readable($pFilename)) {
             return false;
@@ -98,9 +98,9 @@ class MsProjectMPX implements ReaderInterface
      * 
      * @param string $pFilename
      * @throws \Exception
-     * @return PHPProject|null
+     * @return PhpProject
      */
-    public function load($pFilename)
+    public function load(string $pFilename): PhpProject
     {
         if (!$this->canRead($pFilename)) {
             throw new \Exception('The file is not accessible.');
@@ -167,7 +167,7 @@ class MsProjectMPX implements ReaderInterface
      * Project Header
      * @param array $record
      */
-    private function readRecord30(array $record)
+    private function readRecord30(array $record): void
     {
         // 0 : Record
         // 1 : Project tab
@@ -211,7 +211,7 @@ class MsProjectMPX implements ReaderInterface
      * Numeric Resource Table Definition
      * @param array $record
      */
-    private function readRecord41(array $record)
+    private function readRecord41(array $record): void
     {
         array_shift($record);
         foreach ($record as $key => $item) {
@@ -236,7 +236,7 @@ class MsProjectMPX implements ReaderInterface
      * Resource
      * @param array $record
      */
-    private function readRecord50(array $record)
+    private function readRecord50(array $record): void
     {
         $oResource = $this->phpProject->createResource();
         
@@ -249,7 +249,7 @@ class MsProjectMPX implements ReaderInterface
      * Numeric Task Table Definition
      * @param array $record
      */
-    private function readRecord61(array $record)
+    private function readRecord61(array $record): void
     {
         array_shift($record);
         foreach ($record as $key => $item) {
@@ -298,7 +298,7 @@ class MsProjectMPX implements ReaderInterface
      * Task
      * @param array $record
      */
-    private function readRecord70(array $record)
+    private function readRecord70(array $record): void
     {
         $oTask = null;
         if (!is_null($this->iParentTaskIdx) && !empty($record[$this->iParentTaskIdx])) {
@@ -333,7 +333,7 @@ class MsProjectMPX implements ReaderInterface
      * Resource Assignment
      * @param array $record
      */
-    private function readRecord75(array $record)
+    private function readRecord75(array $record): void
     {
         // 0 : Record
         // 1 : ID

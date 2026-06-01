@@ -28,6 +28,7 @@
 - Fixed date setters (`Task`, `DocumentInformations`, `DocumentProperties`) storing `strtotime()` `false` for unparseable date strings; now stored as `null` to match the typed `?int` getters (revealed by the samples job) - @slayerfx GH-45
 
 ### Miscellaneous
+- Typed method signatures of `Reader` and `Writer` classes (`ReaderInterface`, `WriterInterface`, `Reader\GanttProject`, `Reader\MsProjectMPX`, `Writer\GanttProject`, `Writer\MsProjectMPX`) - @slayerfx GH-46
 - Typed method signatures of core classes (`Resource`, `DocumentInformations`, `DocumentProperties`, `IOFactory`, `PhpProject`, `Task`, `Shared\XMLReader`, `Shared\XMLWriter`) - `setIndex` parameter intentionally untyped, union type `int|string` not available in PHP 7.3 - @slayerfx GH-45
 - Added `declare(strict_types=1);` to all source files (no behaviour change, sets foundation for strict signature typing) - @slayerfx GH-44
 - Removed manual `Autoloader.php` in favor of Composer autoloader (samples, tests bootstrap, README and docs updated) - @slayerfx GH-43

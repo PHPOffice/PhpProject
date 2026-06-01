@@ -63,7 +63,7 @@ class GanttProject implements WriterInterface
      * @param string $pFilename
      * @throws \Exception
      */
-    public function save($pFilename)
+    public function save(string $pFilename): void
     {
         $arrProjectInfo = $this->sanitizeProject();
         
@@ -311,7 +311,7 @@ class GanttProject implements WriterInterface
         fclose($fileHandle);
     }
     
-    private function writeTask(XMLWriter $oXML, Task $oTask)
+    private function writeTask(XMLWriter $oXML, Task $oTask): void
     {
         $oXML->startElement('task');
         $oXML->writeAttribute('id', $oTask->getIndex());
@@ -349,7 +349,7 @@ class GanttProject implements WriterInterface
      * @param XMLWriter $oXML
      * @param \PhpOffice\PhpProject\Resource $oResource
      */
-    private function writeResource(XMLWriter $oXML, \PhpOffice\PhpProject\Resource $oResource)
+    private function writeResource(XMLWriter $oXML, \PhpOffice\PhpProject\Resource $oResource): void
     {
         $oXML->startElement('resource');
         $oXML->writeAttribute('id', $oResource->getIndex());
@@ -366,7 +366,7 @@ class GanttProject implements WriterInterface
      * @param integer $piIdTask
      * @param integer $piIdResource
      */
-    private function writeAllocation(XMLWriter $oXML, $piIdTask, $piIdResource)
+    private function writeAllocation(XMLWriter $oXML, int $piIdTask, int $piIdResource): void
     {
         $oXML->startElement('allocation');
         $oXML->writeAttribute('task-id', $piIdTask);
@@ -380,7 +380,7 @@ class GanttProject implements WriterInterface
     /**
      * @return array
      */
-    private function sanitizeProject()
+    private function sanitizeProject(): array
     {
         // Info Project
         $minDate = 0;
@@ -409,7 +409,7 @@ class GanttProject implements WriterInterface
      * - If the end date is not filled, but the duration is, we calculate it.
      * @param Task $oTask
      */
-    private function sanitizeTask(Task $oTask)
+    private function sanitizeTask(Task $oTask): void
     {
         $pDuration = $oTask->getDuration();
         $pEndDate = $oTask->getEndDate();
@@ -429,7 +429,7 @@ class GanttProject implements WriterInterface
      *   date start and complete average.
      * @param Task $oParentTask
      */
-    private function sanitizeTaskParent(Task $oParentTask)
+    private function sanitizeTaskParent(Task $oParentTask): void
     {
         $arrTasksChilds = $oParentTask->getTasks();
         

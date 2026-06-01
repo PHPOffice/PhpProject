@@ -12,7 +12,7 @@ interface ReaderInterface
      * @param  string $pFilename
      * @return bool
      */
-    public function canRead($pFilename);
+    public function canRead(string $pFilename): bool;
 
     /**
      * Loads PHPProject from file
@@ -20,5 +20,5 @@ interface ReaderInterface
      * @param  string $pFilename
      * @return \PhpOffice\PhpProject\PhpProject
      */
-    public function load($pFilename);
+    public function load(string $pFilename): \PhpOffice\PhpProject\PhpProject;
 }

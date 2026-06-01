@@ -235,7 +235,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/PhpOffice-PhpProject-Writer-GanttProject.html#method_sanitizeTask">sanitizeTask()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
 <dd>Permits to clean a task
 - If the duration is not filled, but the end date is, we calculate it.</dd>
@@ -243,7 +243,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/PhpOffice-PhpProject-Writer-GanttProject.html#method_sanitizeTaskParent">sanitizeTaskParent()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
 <dd>Permits to clean parent task and calculate parent data like total duration,
   date start and complete average.</dd>
@@ -251,20 +251,20 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/PhpOffice-PhpProject-Writer-GanttProject.html#method_writeAllocation">writeAllocation()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
 <dd>Write allocation of a resource for a task</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/PhpOffice-PhpProject-Writer-GanttProject.html#method_writeResource">writeResource()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/PhpOffice-PhpProject-Writer-GanttProject.html#method_writeTask">writeTask()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
 
     </dl>
@@ -528,7 +528,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">sanitizeTask</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Task.html"><abbr title="\PhpOffice\PhpProject\Task">Task</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oTask</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">sanitizeTask</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Task.html"><abbr title="\PhpOffice\PhpProject\Task">Task</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oTask</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -578,7 +578,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">sanitizeTaskParent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Task.html"><abbr title="\PhpOffice\PhpProject\Task">Task</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oParentTask</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">sanitizeTaskParent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Task.html"><abbr title="\PhpOffice\PhpProject\Task">Task</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oParentTask</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -623,7 +623,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">writeAllocation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Shared-XMLWriter.html"><abbr title="\PhpOffice\PhpProject\Shared\XMLWriter">XMLWriter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oXML</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$piIdTask</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$piIdResource</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">writeAllocation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Shared-XMLWriter.html"><abbr title="\PhpOffice\PhpProject\Shared\XMLWriter">XMLWriter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oXML</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$piIdTask</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$piIdResource</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -681,7 +681,7 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">writeResource</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Shared-XMLWriter.html"><abbr title="\PhpOffice\PhpProject\Shared\XMLWriter">XMLWriter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oXML</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Resource.html"><abbr title="\PhpOffice\PhpProject\Resource">Resource</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oResource</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">writeResource</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Shared-XMLWriter.html"><abbr title="\PhpOffice\PhpProject\Shared\XMLWriter">XMLWriter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oXML</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Resource.html"><abbr title="\PhpOffice\PhpProject\Resource">Resource</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oResource</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -732,7 +732,7 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">writeTask</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Shared-XMLWriter.html"><abbr title="\PhpOffice\PhpProject\Shared\XMLWriter">XMLWriter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oXML</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Task.html"><abbr title="\PhpOffice\PhpProject\Task">Task</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oTask</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">writeTask</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Shared-XMLWriter.html"><abbr title="\PhpOffice\PhpProject\Shared\XMLWriter">XMLWriter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oXML</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type"><a href="classes/PhpOffice-PhpProject-Task.html"><abbr title="\PhpOffice\PhpProject\Task">Task</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oTask</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>

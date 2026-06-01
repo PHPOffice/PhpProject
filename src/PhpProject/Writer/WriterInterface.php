@@ -12,5 +12,5 @@ interface WriterInterface
      * @param  string $pFilename
      * @return void
      */
-    public function save($pFilename);
+    public function save(string $pFilename): void;
 }

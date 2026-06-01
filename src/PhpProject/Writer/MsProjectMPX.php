@@ -62,7 +62,7 @@ class MsProjectMPX implements WriterInterface
      * @param string $pFilename
      * @throws \Exception
      */
-    public function save($pFilename)
+    public function save(string $pFilename): void
     {
         $arrProjectInfo = $this->sanitizeProject();
         
@@ -101,7 +101,7 @@ class MsProjectMPX implements WriterInterface
     /**
      * @return array
      */
-    private function sanitizeProject()
+    private function sanitizeProject(): array
     {
         // Info Project
         $minDate = 0;
@@ -130,7 +130,7 @@ class MsProjectMPX implements WriterInterface
      * - If the end date is not filled, but the duration is, we calculate it.
      * @param Task $oTask
      */
-    private function sanitizeTask(Task $oTask)
+    private function sanitizeTask(Task $oTask): void
     {
         $pDuration = $oTask->getDuration();
         $pEndDate = $oTask->getEndDate();
@@ -150,7 +150,7 @@ class MsProjectMPX implements WriterInterface
      *   date start and complete average.
      * @param Task $oParentTask
      */
-    private function sanitizeTaskParent(Task $oParentTask)
+    private function sanitizeTaskParent(Task $oParentTask): void
     {
         $arrTasksChilds = $oParentTask->getTasks();
         
@@ -186,7 +186,7 @@ class MsProjectMPX implements WriterInterface
     /**
      * Record MPX
      */
-    private function writeRecordMPX()
+    private function writeRecordMPX(): void
     {
         $this->fileContent[] = 'MPX;Microsoft Project for Windows;4.0;ANSI';
     }
@@ -194,7 +194,7 @@ class MsProjectMPX implements WriterInterface
     /**
      * Record "Project Header"
      */
-    private function writeRecord30(array $arrProjectInfo)
+    private function writeRecord30(array $arrProjectInfo): void
     {
         $this->fileContent[] = '30;Project1;;;Standard;'.date('d/m/Y', $arrProjectInfo['date_start']).';;0;'.date('d/m/Y').';;$0,00;$0,00;$0,00;0h;0h;0h;0%;0d;0d;0d;0%;;;;;0d;0d';
     }
@@ -202,7 +202,7 @@ class MsProjectMPX implements WriterInterface
     /**
      * Record "Text Resource Table Definition"
      */
-    private function writeRecord40()
+    private function writeRecord40(): void
     {
         $this->fileContent[] = '40;ID;Name';
     }
@@ -210,7 +210,7 @@ class MsProjectMPX implements WriterInterface
     /**
      * Record "Numeric Resource Table Definition"
      */
-    private function writeRecord41()
+    private function writeRecord41(): void
     {
         $this->fileContent[] = '41;40;1';
     }
@@ -219,7 +219,7 @@ class MsProjectMPX implements WriterInterface
      * Record "Resource"
      * @param Resource $oResource
      */
-    private function writeRecord50(Resource $oResource)
+    private function writeRecord50(Resource $oResource): void
     {
         $this->fileContent[] = '50;'.$oResource->getIndex().';'.$oResource->getTitle();
     }
@@ -227,7 +227,7 @@ class MsProjectMPX implements WriterInterface
     /**
      * Record "Text Task Table Definition"
      */
-    private function writeRecord60()
+    private function writeRecord60(): void
     {
         $this->fileContent[] = '60;ID;Name;Duration;% Complete;Start';
     }
@@ -235,7 +235,7 @@ class MsProjectMPX implements WriterInterface
     /**
      * Record "Numeric Task Table Definition"
      */
-    private function writeRecord61()
+    private function writeRecord61(): void
     {
         $this->fileContent[] = '61;90;1;40;44;50';
     }
@@ -244,7 +244,7 @@ class MsProjectMPX implements WriterInterface
      * Record "Task"
      * @param Task $oTask
      */
-    private function writeRecord70(Task $oTask)
+    private function writeRecord70(Task $oTask): void
     {
         $this->fileContent[] = '70;'.$oTask->getIndex().';'.$oTask->getName().';'.$oTask->getDuration().'d;'.number_format($oTask->getProgress() ?? 0, 1).';'.date('d/m/Y', $oTask->getStartDate() ?? time());
         
@@ -261,7 +261,7 @@ class MsProjectMPX implements WriterInterface
      * Record "Resource Assignment"
      * @param Resource $oResource
      */
-    private function writeRecord75(Resource $oResource)
+    private function writeRecord75(Resource $oResource): void
     {
         $this->fileContent[] = '75;'.$oResource->getIndex().';1;;;;;;;;;;;';
     }

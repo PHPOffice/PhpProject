@@ -53,7 +53,7 @@ class GanttProject implements ReaderInterface
      * @param string $pFilename
      * @return bool
      */
-    public function canRead($pFilename)
+    public function canRead(string $pFilename): bool
     {
         if (file_exists($pFilename) && is_readable($pFilename)) {
             return true;
@@ -67,7 +67,7 @@ class GanttProject implements ReaderInterface
      * @throws \Exception
      * @return PHPProject
      */
-    public function load($pFilename)
+    public function load(string $pFilename): PhpProject
     {
         if (!file_exists($pFilename) || !is_readable($pFilename)) {
             throw new \Exception('The file is not accessible.');
@@ -103,7 +103,7 @@ class GanttProject implements ReaderInterface
      * Node "Description"
      * @param \DOMElement $domNode
      */
-    private function readNodeDescription(\DOMElement $domNode)
+    private function readNodeDescription(\DOMElement $domNode): void
     {
         $this->phpProject->getProperties()->setDescription($domNode->nodeValue);
     }
@@ -113,7 +113,7 @@ class GanttProject implements ReaderInterface
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeTasks(XMLReader $oXML, \DOMElement $domNode)
+    private function readNodeTasks(XMLReader $oXML, \DOMElement $domNode): void
     {
         $oNodes = $oXML->getElements('*', $domNode);
         if ($oNodes->length > 0) {
@@ -131,7 +131,7 @@ class GanttProject implements ReaderInterface
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeTask(XMLReader $oXML, \DOMElement $domNode, Task $oTask)
+    private function readNodeTask(XMLReader $oXML, \DOMElement $domNode, Task $oTask): void
     {
         // Attributes
         $oTask->setIndex($domNode->getAttribute('id'));
@@ -157,7 +157,7 @@ class GanttProject implements ReaderInterface
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeResources(XMLReader $oXML, \DOMElement $domNode)
+    private function readNodeResources(XMLReader $oXML, \DOMElement $domNode): void
     {
         $oNodes = $oXML->getElements('*', $domNode);
         if ($oNodes->length > 0) {
@@ -174,7 +174,7 @@ class GanttProject implements ReaderInterface
      * @param \DOMElement $domNode
      * @param Resource $oResource
      */
-    private function readNodeResource(\DOMElement $domNode, Resource $oResource)
+    private function readNodeResource(\DOMElement $domNode, Resource $oResource): void
     {
         // Attributes
         $oResource->setIndex($domNode->getAttribute('id'));
@@ -186,7 +186,7 @@ class GanttProject implements ReaderInterface
      * @param XMLReader $oXML
      * @param \DOMElement $domNode
      */
-    private function readNodeAllocations(XMLReader $oXML, \DOMElement $domNode)
+    private function readNodeAllocations(XMLReader $oXML, \DOMElement $domNode): void
     {
         $oNodes = $oXML->getElements('*', $domNode);
         if ($oNodes->length > 0) {
@@ -201,7 +201,7 @@ class GanttProject implements ReaderInterface
      * Node "Allocation"
      * @param \DOMElement $domNode
      */
-    private function readNodeAllocation(\DOMElement $domNode)
+    private function readNodeAllocation(\DOMElement $domNode): void
     {
         // Attributes
         $idTask = $domNode->getAttribute('task-id');

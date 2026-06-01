@@ -49,7 +49,7 @@ class XMLReader
      * @return \DOMDocument|false
      * @throws \Exception
      */
-    public function getDomFromZip($zipFile, $xmlFile)
+    public function getDomFromZip(string $zipFile, string $xmlFile)
     {
         if (file_exists($zipFile) === false) {
             throw new \Exception('Cannot find archive file.');
@@ -73,7 +73,7 @@ class XMLReader
      * @param string $content
      * @return \DOMDocument
      */
-    public function getDomFromString($content)
+    public function getDomFromString(string $content): \DOMDocument
     {
         $this->dom = new \DOMDocument();
         $this->dom->loadXML($content);
@@ -88,7 +88,7 @@ class XMLReader
      * @param \DOMNode $contextNode
      * @return \DOMNodeList|array
      */
-    public function getElements($path, ?\DOMNode $contextNode = null)
+    public function getElements(string $path, ?\DOMNode $contextNode = null)
     {
         if ($this->dom === null) {
             return array();
@@ -107,7 +107,7 @@ class XMLReader
      * @param \DOMNode|null $contextNode
      * @return \DOMElement|null
      */
-    public function getElement($path, ?\DOMNode $contextNode = null)
+    public function getElement(string $path, ?\DOMNode $contextNode = null): ?\DOMElement
     {
         $elements = $this->getElements($path, $contextNode);
         $item = $elements->item(0);
@@ -125,7 +125,7 @@ class XMLReader
      * @param string $path
      * @return string|null
      */
-    public function getAttribute($attribute, ?\DOMElement $contextNode = null, $path = null)
+    public function getAttribute(string $attribute, ?\DOMElement $contextNode = null, ?string $path = null): ?string
     {
         $return = null;
         if ($path !== null) {
@@ -151,7 +151,7 @@ class XMLReader
      * @param \DOMElement $contextNode
      * @return string|null
      */
-    public function getValue($path, ?\DOMElement $contextNode = null)
+    public function getValue(string $path, ?\DOMElement $contextNode = null): ?string
     {
         $elements = $this->getElements($path, $contextNode);
         if ($elements->length > 0) {
@@ -168,7 +168,7 @@ class XMLReader
      * @param \DOMElement $contextNode
      * @return integer
      */
-    public function countElements($path, ?\DOMElement $contextNode = null)
+    public function countElements(string $path, ?\DOMElement $contextNode = null): int
     {
         $elements = $this->getElements($path, $contextNode);
 
@@ -182,7 +182,7 @@ class XMLReader
      * @param \DOMElement $contextNode
      * @return boolean
      */
-    public function elementExists($path, ?\DOMElement $contextNode = null)
+    public function elementExists(string $path, ?\DOMElement $contextNode = null): bool
     {
         return $this->getElements($path, $contextNode)->length > 0;
     }

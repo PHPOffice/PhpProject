@@ -166,6 +166,9 @@ class Task
                 $pValue = intval($pValue);
             } else {
                 $pValue = strtotime($pValue);
+                if ($pValue === false) {
+                    $pValue = null;
+                }
             }
         }
 
@@ -198,6 +201,9 @@ class Task
                 $pValue = intval($pValue);
             } else {
                 $pValue = strtotime($pValue);
+                if ($pValue === false) {
+                    $pValue = null;
+                }
             }
         }
 

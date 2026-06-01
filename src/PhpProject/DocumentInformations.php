@@ -71,6 +71,9 @@ class DocumentInformations
                 $pValue = intval($pValue);
             } else {
                 $pValue = strtotime($pValue);
+                if ($pValue === false) {
+                    $pValue = null;
+                }
             }
         }
         $this->startDate = $pValue;
@@ -100,6 +103,9 @@ class DocumentInformations
                 $pValue = intval($pValue);
             } else {
                 $pValue = strtotime($pValue);
+                if ($pValue === false) {
+                    $pValue = null;
+                }
             }
         }
         $this->endDate = $pValue;

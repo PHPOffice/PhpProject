@@ -201,6 +201,9 @@ class DocumentProperties
                 $pValue = intval($pValue);
             } else {
                 $pValue = strtotime($pValue);
+                if ($pValue === false) {
+                    $pValue = null;
+                }
             }
         }
 
@@ -233,6 +236,9 @@ class DocumentProperties
                 $pValue = intval($pValue);
             } else {
                 $pValue = strtotime($pValue);
+                if ($pValue === false) {
+                    $pValue = null;
+                }
             }
         }
 

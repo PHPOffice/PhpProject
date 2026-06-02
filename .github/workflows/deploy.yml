@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Install Python Dependencies
-        run: pip install properdocs properdocs-material autolink-references-properdocs-plugin
+        run: pip install properdocs mkdocs-material autolink-references-mkdocs-plugin
       - name: Build documentation
         run: properdocs build --site-dir public
       ### PHPUnit

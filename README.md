@@ -33,7 +33,7 @@ Read more about PhpProject:
 
 PhpProject requires the following:
 
-- PHP 5.3+
+- PHP 7.3+
 - [XML Parser extension](http://www.php.net/manual/en/xml.installation.php)
 
 ### Installation

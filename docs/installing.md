@@ -4,7 +4,7 @@
 
 Mandatory:
 
-- PHP 5.3+
+- PHP 7.3+
 - PHP [XML Parser](http://www.php.net/manual/en/xml.installation.php) extension
 
 Optional PHP extensions:

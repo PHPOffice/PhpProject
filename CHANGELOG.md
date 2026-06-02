@@ -28,6 +28,7 @@
 - Fixed date setters (`Task`, `DocumentInformations`, `DocumentProperties`) storing `strtotime()` `false` for unparseable date strings; now stored as `null` to match the typed `?int` getters (revealed by the samples job) - @slayerfx GH-45
 
 ### Miscellaneous
+- Removed obsolete `.scrutinizer.yml` (Scrutinizer received coverage via Travis, removed during the GitHub Actions migration; badges already replaced by Coveralls) - @slayerfx GH-48
 - Migrated documentation build from MkDocs to ProperDocs (maintained drop-in fork; renamed `mkdocs.yml` to `properdocs.yml`) - @slayerfx GH-47
 - Typed method signatures of `Reader` and `Writer` classes (`ReaderInterface`, `WriterInterface`, `Reader\GanttProject`, `Reader\MsProjectMPX`, `Writer\GanttProject`, `Writer\MsProjectMPX`) - @slayerfx GH-46
 - Typed method signatures of core classes (`Resource`, `DocumentInformations`, `DocumentProperties`, `IOFactory`, `PhpProject`, `Task`, `Shared\XMLReader`, `Shared\XMLWriter`) - `setIndex` parameter intentionally untyped, union type `int|string` not available in PHP 7.3 - @slayerfx GH-45

@@ -12,15 +12,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      ### MkDocs
+      ### ProperDocs
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
           python-version: 3.x
       - name: Install Python Dependencies
-        run: pip install mkdocs-material autolink-references-mkdocs-plugin
+        run: pip install properdocs mkdocs-material autolink-references-mkdocs-plugin
       - name: Build documentation
-        run: mkdocs build --site-dir public
+        run: properdocs build --site-dir public
       ### PHPUnit
       - name: Setup PHP
         uses: shivammathur/setup-php@v2

@@ -168,6 +168,7 @@ class PhpProject
     /**
      * Get resource from index
      *
+     * @param int|string $pIndex
      * @return Resource|null
      */
     public function getResourceFromIndex($pIndex): ?Resource
@@ -232,6 +233,7 @@ class PhpProject
     /**
      * Get task from index
      *
+     * @param int|string $pIndex
      * @return Task|null
      */
     public function getTaskFromIndex($pIndex, ?Task $oTaskParent = null): ?Task

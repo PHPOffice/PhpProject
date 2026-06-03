@@ -28,7 +28,7 @@ class IOFactory
     /**
      * Autoresolve classes
      *
-     * @var array
+     * @var string[]
      */
     private static $autoResolveClasses = array('GanttProject');
 

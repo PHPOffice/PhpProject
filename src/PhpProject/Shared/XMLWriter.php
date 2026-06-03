@@ -101,9 +101,9 @@ class XMLWriter
      * Catch function calls (and pass them to internal XMLWriter)
      *
      * @param string $function
-     * @param array $args
+     * @param mixed[] $args
      */
-    public function __call(string $function, array $args)
+    public function __call(string $function, array $args): void
     {
         try {
             @call_user_func_array(array(

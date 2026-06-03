@@ -480,6 +480,9 @@ class DocumentProperties
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public static function convertProperty(string $propertyValue, string $propertyType)
     {
         switch ($propertyType) {

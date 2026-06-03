@@ -41,8 +41,8 @@ class GanttProject implements WriterInterface
     private $phpProject;
     
     /**
-     * 
-     * @var array
+     *
+     * @var array<array{id_res: int, id_task: int}>
      */
     private $arrAllocations;
     
@@ -72,7 +72,7 @@ class GanttProject implements WriterInterface
         $oXML->startDocument('1.0', 'UTF-8');
         // project
         $oXML->startElement('project');
-        if (isset($arrProjectInfo['date_start']) && $arrProjectInfo['date_start'] != 0) {
+        if ($arrProjectInfo['date_start'] != 0) {
             $oXML->writeAttribute('view-date', date('Y-m-d', $arrProjectInfo['date_start']));
         }
         $oXML->writeAttribute('version', '2.0');
@@ -378,7 +378,7 @@ class GanttProject implements WriterInterface
     }
     
     /**
-     * @return array
+     * @return array{date_start: int}
      */
     private function sanitizeProject(): array
     {

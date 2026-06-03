@@ -86,7 +86,7 @@ class XMLReader
      *
      * @param string $path
      * @param \DOMNode $contextNode
-     * @return \DOMNodeList|array
+     * @return \DOMNodeList<\DOMElement>|array<\DOMElement>
      */
     public function getElements(string $path, ?\DOMNode $contextNode = null)
     {

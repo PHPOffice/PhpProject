@@ -165,7 +165,7 @@ class MsProjectMPX implements ReaderInterface
     
     /**
      * Project Header
-     * @param array $record
+     * @param string[] $record
      */
     private function readRecord30(array $record): void
     {
@@ -209,7 +209,7 @@ class MsProjectMPX implements ReaderInterface
     
     /**
      * Numeric Resource Table Definition
-     * @param array $record
+     * @param string[] $record
      */
     private function readRecord41(array $record): void
     {
@@ -234,7 +234,7 @@ class MsProjectMPX implements ReaderInterface
     
     /**
      * Resource
-     * @param array $record
+     * @param string[] $record
      */
     private function readRecord50(array $record): void
     {
@@ -247,7 +247,7 @@ class MsProjectMPX implements ReaderInterface
     
     /**
      * Numeric Task Table Definition
-     * @param array $record
+     * @param string[] $record
      */
     private function readRecord61(array $record): void
     {
@@ -296,7 +296,7 @@ class MsProjectMPX implements ReaderInterface
     
     /**
      * Task
-     * @param array $record
+     * @param string[] $record
      */
     private function readRecord70(array $record): void
     {
@@ -331,7 +331,7 @@ class MsProjectMPX implements ReaderInterface
     
     /**
      * Resource Assignment
-     * @param array $record
+     * @param string[] $record
      */
     private function readRecord75(array $record): void
     {

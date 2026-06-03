@@ -28,6 +28,8 @@
 - Fixed date setters (`Task`, `DocumentInformations`, `DocumentProperties`) storing `strtotime()` `false` for unparseable date strings; now stored as `null` to match the typed `?int` getters (revealed by the samples job) - @slayerfx GH-45
 
 ### Miscellaneous
+- Bumped phpstan analysis level from 5 to 6 - @slayerfx GH-50
+- Added missing return types, parameter types and array value types for phpstan level 6 across source and test files - @slayerfx GH-50
 - Updated documented minimum PHP version to 7.3 in README and docs (was 5.3; already enforced in `composer.json`) - @slayerfx GH-49
 - Removed obsolete `.scrutinizer.yml` (Scrutinizer received coverage via Travis, removed during the GitHub Actions migration; badges already replaced by Coveralls) - @slayerfx GH-48
 - Migrated documentation build from MkDocs to ProperDocs (maintained drop-in fork; renamed `mkdocs.yml` to `properdocs.yml`) - @slayerfx GH-47

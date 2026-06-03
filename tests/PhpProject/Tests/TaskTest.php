@@ -29,7 +29,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
     /**
      * Register
      */
-    public function testConstruct()
+    public function testConstruct(): void
     {
         $object = new Task();
         
@@ -39,7 +39,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(0, $object->getResourceCount());
     }
     
-    public function testGetSetDuration()
+    public function testGetSetDuration(): void
     {
         $object = new Task();
         
@@ -50,7 +50,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($value, $object->getDuration());
     }
     
-    public function testGetSetEndDate()
+    public function testGetSetEndDate(): void
     {
         $object = new Task();
         
@@ -67,7 +67,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(strtotime('2014-12-05 00:05:00'), $object->getEndDate());
     }
     
-    public function testGetSetIndex()
+    public function testGetSetIndex(): void
     {
         $object = new Task();
     
@@ -80,7 +80,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2, $object->getIndex());
     }
     
-    public function testGetSetName()
+    public function testGetSetName(): void
     {
         $object = new Task();
     
@@ -89,7 +89,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('AAA', $object->getName());
     }
     
-    public function testGetSetProgress()
+    public function testGetSetProgress(): void
     {
         $object = new Task();
     
@@ -104,7 +104,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(0.5, $object->getProgress());
     }
     
-    public function testGetSetStartDate()
+    public function testGetSetStartDate(): void
     {
         $object = new Task();
         
@@ -121,7 +121,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(strtotime('2014-12-05 00:05:00'), $object->getStartDate());
     }
     
-    public function testResource()
+    public function testResource(): void
     {
         $object = new Task();
         $oResource = new Resource();
@@ -134,7 +134,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(1, $object->getResourceCount());
     }
     
-    public function testTask()
+    public function testTask(): void
     {
         $object = new Task();
          

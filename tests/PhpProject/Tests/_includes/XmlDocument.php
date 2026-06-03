@@ -86,7 +86,7 @@ class XmlDocument
      *
      * @param string $path
      * @param string $file
-     * @return \DOMNodeList
+     * @return \DOMNodeList<\DOMNode>
      */
     public function getNodeList($path, $file = 'word/document.xml')
     {

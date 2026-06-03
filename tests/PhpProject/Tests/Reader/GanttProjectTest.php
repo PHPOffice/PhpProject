@@ -26,7 +26,7 @@ use PhpOffice\PhpProject\Reader\GanttProject;
  */
 class GanttProjectTest extends \PHPUnit\Framework\TestCase
 {
-    public function testCanRead()
+    public function testCanRead(): void
     {
         $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_02.gan';
         $file404 = 'fileError';
@@ -37,7 +37,7 @@ class GanttProjectTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($object->canRead($file404));
     }
     
-    public function testLoad()
+    public function testLoad(): void
     {
         $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_02.gan';
         $object = new GanttProject();
@@ -48,7 +48,7 @@ class GanttProjectTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2, $return->getTaskCount());
     }    
     
-    public function testLoadException()
+    public function testLoadException(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("The file is not accessible.");  

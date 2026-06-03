@@ -99,7 +99,7 @@ class MsProjectMPX implements WriterInterface
     }
     
     /**
-     * @return array
+     * @return array{date_start: int}
      */
     private function sanitizeProject(): array
     {
@@ -193,6 +193,7 @@ class MsProjectMPX implements WriterInterface
     
     /**
      * Record "Project Header"
+     * @param array{date_start: int} $arrProjectInfo
      */
     private function writeRecord30(array $arrProjectInfo): void
     {

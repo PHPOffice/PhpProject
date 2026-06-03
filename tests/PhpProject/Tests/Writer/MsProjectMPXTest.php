@@ -28,7 +28,7 @@ use PhpOffice\PhpProject\Writer\MsProjectMPX;
  */
 class MsProjectMPXTest extends \PHPUnit\Framework\TestCase
 {
-    public function testSave()
+    public function testSave(): void
     {
         $fileOutput = tempnam(sys_get_temp_dir(), 'PHPPROJECT');
         $oPHPProject = new PhpProject();
@@ -74,7 +74,7 @@ class MsProjectMPXTest extends \PHPUnit\Framework\TestCase
         }
     }    
     
-    public function testSaveException()
+    public function testSaveException(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("Could not open file");

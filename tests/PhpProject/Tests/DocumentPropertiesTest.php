@@ -25,7 +25,7 @@ use PhpOffice\PhpProject\PhpProject;
  */
 class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
 {
-    public function testCustomProperties()
+    public function testCustomProperties(): void
     {
         $object = new DocumentProperties();
         $this->assertIsArray($object->getCustomProperties());
@@ -89,7 +89,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('AAAValue', $object->getCustomPropertyValue('AAAName1'));
     }
     
-    public function testCustomPropertiesConvertProperty()
+    public function testCustomPropertiesConvertProperty(): void
     {
         $object = new DocumentProperties();
         $this->assertEmpty($object->convertProperty('AAA', 'empty'));
@@ -127,7 +127,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertSame('3.5', $object->convertProperty('3.5', 'cf'));
     }
     
-    public function testCustomPropertiesConvertPropertyType()
+    public function testCustomPropertiesConvertPropertyType(): void
     {
         $object = new DocumentProperties();
         $this->assertEquals(DocumentProperties::PROPERTY_TYPE_INTEGER, $object->convertPropertyType('i1'));
@@ -165,7 +165,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(DocumentProperties::PROPERTY_TYPE_UNKNOWN, $object->convertPropertyType('TypeNotExists'));
     }
     
-    public function testGetSetCategory()
+    public function testGetSetCategory(): void
     {
         $object = new DocumentProperties();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setCategory());
@@ -174,7 +174,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('AAA', $object->getCategory());
     }
     
-    public function testGetSetCompany()
+    public function testGetSetCompany(): void
     {
         $object = new DocumentProperties();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setCompany());
@@ -183,7 +183,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('AAA', $object->getCompany());
     }
     
-    public function testGetSetCreated()
+    public function testGetSetCreated(): void
     {
         $value = time();
     
@@ -196,7 +196,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(strtotime('2014-08-05 19:30:00'), $object->getCreated());
     }
     
-    public function testGetSetCreator()
+    public function testGetSetCreator(): void
     {
         $object = new DocumentProperties();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setCreator());
@@ -205,7 +205,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('AAA', $object->getCreator());
     }
     
-    public function testGetSetDescription()
+    public function testGetSetDescription(): void
     {
         $object = new DocumentProperties();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setDescription());
@@ -214,7 +214,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('AAA', $object->getDescription());
     }
     
-    public function testGetSetKeywords()
+    public function testGetSetKeywords(): void
     {
         $object = new DocumentProperties();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setKeywords());
@@ -223,7 +223,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('AAA', $object->getKeywords());
     }
     
-    public function testGetSetLastModifiedBy()
+    public function testGetSetLastModifiedBy(): void
     {
         $object = new DocumentProperties();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setLastModifiedBy());
@@ -232,7 +232,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('AAA', $object->getLastModifiedBy());
     }
 
-    public function testGetSetManager()
+    public function testGetSetManager(): void
     {
         $object = new DocumentProperties();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setManager());
@@ -241,7 +241,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('AAA', $object->getManager());
     }
     
-    public function testGetSetModified()
+    public function testGetSetModified(): void
     {
         $value = time();
     
@@ -254,7 +254,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(strtotime('2014-08-05 19:30:00'), $object->getModified());
     }
     
-    public function testGetSetSubject()
+    public function testGetSetSubject(): void
     {
         $object = new DocumentProperties();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setSubject());
@@ -263,7 +263,7 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('AAA', $object->getSubject());
     }
     
-    public function testGetSetTitle()
+    public function testGetSetTitle(): void
     {
         $object = new DocumentProperties();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setTitle());

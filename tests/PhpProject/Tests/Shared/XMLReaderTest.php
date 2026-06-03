@@ -27,7 +27,7 @@ use PhpOffice\PhpProject\Shared\XMLReader;
  */
 class XMLReaderTest extends \PHPUnit\Framework\TestCase
 { 
-    public function testGetDomFromZipException()
+    public function testGetDomFromZipException(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("Cannot find archive file.");  
@@ -39,7 +39,7 @@ class XMLReaderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test get DOMDocument from ZipArchive returns false
      */
-    public function testGetDomFromZipReturnsFalse()
+    public function testGetDomFromZipReturnsFalse(): void
     {
         $filename = __DIR__ . "/../../resources/reader.docx.zip";
         $object = new XMLReader();
@@ -49,7 +49,7 @@ class XMLReaderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test get element
      */
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $filename = __DIR__ . "/../../resources/reader.docx.zip";
         $object = new XMLReader();
@@ -60,7 +60,7 @@ class XMLReaderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test get elements returns empty
      */
-    public function testGetElementsReturnsEmpty()
+    public function testGetElementsReturnsEmpty(): void
     {
         $object = new XMLReader();
         $this->assertEquals(array(), $object->getElements('w:document'));
@@ -69,7 +69,7 @@ class XMLReaderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test get element returns null
      */
-    public function testGetElementReturnsNull()
+    public function testGetElementReturnsNull(): void
     {
         $filename = __DIR__ . "/../../resources/reader.docx.zip";
 
@@ -83,7 +83,7 @@ class XMLReaderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test get attribute
      */
-    public function testGetAttribute()
+    public function testGetAttribute(): void
     {
         $filename = __DIR__ . "/../../resources/reader.docx.zip";
         $object = new XMLReader();
@@ -95,7 +95,7 @@ class XMLReaderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test get attribute
      */
-    public function testGetAttributeWithPath()
+    public function testGetAttributeWithPath(): void
     {
         $filename = __DIR__ . "/../../resources/reader.docx.zip";
         $object = new XMLReader();
@@ -107,7 +107,7 @@ class XMLReaderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test get attribute
      */
-    public function testGetValue()
+    public function testGetValue(): void
     {
         $filename = __DIR__ . "/../../resources/reader.docx.zip";
         $object = new XMLReader();
@@ -118,7 +118,7 @@ class XMLReaderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test get attribute
      */
-    public function testGetValueNull()
+    public function testGetValueNull(): void
     {
         $filename = __DIR__ . "/../../resources/reader.docx.zip";
         $object = new XMLReader();
@@ -129,7 +129,7 @@ class XMLReaderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test count Elements
      */
-    public function testCountElements()
+    public function testCountElements(): void
     {
         $filename = __DIR__ . "/../../resources/reader.docx.zip";
         $object = new XMLReader();
@@ -140,7 +140,7 @@ class XMLReaderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test count Elements
      */
-    public function testElementExists()
+    public function testElementExists(): void
     {
         $filename = __DIR__ . "/../../resources/reader.docx.zip";
         $object = new XMLReader();

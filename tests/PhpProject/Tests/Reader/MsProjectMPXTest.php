@@ -26,7 +26,7 @@ use PhpOffice\PhpProject\Reader\MsProjectMPX;
  */
 class MsProjectMPXTest extends \PHPUnit\Framework\TestCase
 {
-    public function testCanRead()
+    public function testCanRead(): void
     {
         $fileMPX = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_02.mpx';
         $fileGAN = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_02.gan';
@@ -39,7 +39,7 @@ class MsProjectMPXTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($object->canRead($file404));
     }
     
-    public function testLoad()
+    public function testLoad(): void
     {
         $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_02.mpx';
         $object = new MsProjectMPX();
@@ -50,7 +50,7 @@ class MsProjectMPXTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2, $return->getTaskCount());
     }    
     
-    public function testLoadException()
+    public function testLoadException(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("The file is not accessible.");  

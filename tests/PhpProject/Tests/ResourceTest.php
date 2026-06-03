@@ -28,7 +28,7 @@ class ResourceTest extends \PHPUnit\Framework\TestCase
     /**
      * Register
      */
-    public function testConstruct()
+    public function testConstruct(): void
     {
         $object = new Resource();
         
@@ -36,7 +36,7 @@ class ResourceTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(0, $object->getIndex());
     }
     
-    public function testGetSetIndex()
+    public function testGetSetIndex(): void
     {
         $object = new Resource();
     
@@ -49,7 +49,7 @@ class ResourceTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2, $object->getIndex());
     }
     
-    public function testGetSetTitle()
+    public function testGetSetTitle(): void
     {
         $object = new Resource();
     

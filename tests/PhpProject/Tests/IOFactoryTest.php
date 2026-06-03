@@ -25,33 +25,33 @@ use PhpOffice\PhpProject\PhpProject;
  */
 class IOFactoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testLoad()
+    public function testLoad(): void
     {
         $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'Sample_01_Simple.gan';
         $this->assertInstanceOf('PhpOffice\\PhpProject\\PhpProject', IOFactory::load($file));
     }    
     
-    public function testLoadFileNotExists()
+    public function testLoadFileNotExists(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("Could not automatically determine \PhpOffice\PhpProject\Reader\ReaderInterface for file.");
         IOFactory::load('fileNotExists');
     }
     
-    public function testReader()
+    public function testReader(): void
     {
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Reader\\GanttProject', IOFactory::createReader());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Reader\\GanttProject', IOFactory::createReader('GanttProject'));
     }    
     
-    public function testReaderException()
+    public function testReaderException(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("\"ReaderNotExists\" is not a valid reader.");
         IOFactory::createReader('ReaderNotExists');
     }
     
-    public function testWriter()
+    public function testWriter(): void
     {
         $object = new PhpProject();
     
@@ -59,7 +59,7 @@ class IOFactoryTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Writer\\GanttProject', IOFactory::createWriter($object, 'GanttProject'));
     }    
     
-    public function testWriterException()
+    public function testWriterException(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("\"WriterNotExists\" is not a valid writer.");

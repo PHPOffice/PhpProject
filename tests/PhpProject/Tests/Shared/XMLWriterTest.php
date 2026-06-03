@@ -28,7 +28,7 @@ class XMLWriterTest extends \PHPUnit\Framework\TestCase
 {
     /**
      */
-    public function testConstruct()
+    public function testConstruct(): void
     {
         // Memory
         $object = new XMLWriter();

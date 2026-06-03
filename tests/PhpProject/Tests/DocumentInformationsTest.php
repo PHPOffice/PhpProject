@@ -25,14 +25,14 @@ use PhpOffice\PhpProject\PhpProject;
  */
 class DocumentInformationsTest extends \PHPUnit\Framework\TestCase
 {
-    public function testConstruct()
+    public function testConstruct(): void
     {
         $object = new DocumentInformations();
         $this->assertEmpty($object->getStartDate());
         $this->assertEmpty($object->getEndDate());
     }
     
-    public function testEndDate()
+    public function testEndDate(): void
     {
         $value = time();
         
@@ -45,7 +45,7 @@ class DocumentInformationsTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(strtotime('2014-08-05 19:30:00'), $object->getEndDate());
     }
     
-    public function testStartDate()
+    public function testStartDate(): void
     {
         $value = time();
         

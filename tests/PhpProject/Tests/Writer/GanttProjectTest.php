@@ -30,7 +30,7 @@ use PhpOffice\PhpProject\Tests\XmlDocument;
  */
 class GanttProjectTest extends \PHPUnit\Framework\TestCase
 {
-    public function testSave()
+    public function testSave(): void
     {
         $fileOutput = tempnam(sys_get_temp_dir(), 'PHPPROJECT');
         $oPHPProject = new PhpProject();
@@ -99,7 +99,7 @@ class GanttProjectTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($oXMLDocument->elementExists('/project/allocations/allocation[@task-id="0"][@resource-id="0"]', $fileOutput));
     }    
     
-    public function testSaveException()
+    public function testSaveException(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("Could not open file");

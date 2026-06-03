@@ -29,7 +29,7 @@ class PhpProjectTest extends \PHPUnit\Framework\TestCase
     /**
      * Register
      */
-    public function testConstruct()
+    public function testConstruct(): void
     {
         $object = new PhpProject();
 
@@ -37,7 +37,7 @@ class PhpProjectTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentInformations', $object->getInformations());
     }
     
-    public function testGetSetInformations()
+    public function testGetSetInformations(): void
     {
         $object = new PhpProject();
         $oInformations = new DocumentInformations();
@@ -47,7 +47,7 @@ class PhpProjectTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentInformations', $object->getInformations());
     }
     
-    public function testGetSetProperties()
+    public function testGetSetProperties(): void
     {
         $object = new PhpProject();
         $oProperties = new DocumentProperties();
@@ -57,7 +57,7 @@ class PhpProjectTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->getProperties());
     }
     
-    public function testResource()
+    public function testResource(): void
     {
         $object = new PhpProject();
 
@@ -74,7 +74,7 @@ class PhpProjectTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Resource', $object->getActiveResource());
     }
     
-    public function testResourceFromIndex()
+    public function testResourceFromIndex(): void
     {
         $object = new PhpProject();
         $oResource1 = $object->createResource();
@@ -86,7 +86,7 @@ class PhpProjectTest extends \PHPUnit\Framework\TestCase
         $this->assertNull($object->getResourceFromIndex(1));
     }
     
-    public function testTask()
+    public function testTask(): void
     {
         $object = new PhpProject();
     
@@ -115,7 +115,7 @@ class PhpProjectTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->getActiveTask());
     }
     
-    public function testTaskFromIndex()
+    public function testTaskFromIndex(): void
     {
         $object = new PhpProject();
         $oTask1 = $object->createTask();
@@ -129,7 +129,7 @@ class PhpProjectTest extends \PHPUnit\Framework\TestCase
         $this->assertNull($object->getTaskFromIndex(1));
     }    
     
-    public function testTaskRemoveException()
+    public function testTaskRemoveException(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("Task index is out of bounds.");        

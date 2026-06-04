@@ -28,6 +28,7 @@
 - Fixed date setters (`Task`, `DocumentInformations`, `DocumentProperties`) storing `strtotime()` `false` for unparseable date strings; now stored as `null` to match the typed `?int` getters (revealed by the samples job) - @slayerfx GH-45
 
 ### Miscellaneous
+- Allowed PHPUnit 10 and 11 in addition to 9 (`^9.0 || ^10.0 || ^11.0`); Composer installs the highest version compatible with the running PHP - @slayerfx GH-51
 - Bumped phpstan analysis level from 5 to 6 - @slayerfx GH-50
 - Added missing return types, parameter types and array value types for phpstan level 6 across source and test files - @slayerfx GH-50
 - Updated documented minimum PHP version to 7.3 in README and docs (was 5.3; already enforced in `composer.json`) - @slayerfx GH-49

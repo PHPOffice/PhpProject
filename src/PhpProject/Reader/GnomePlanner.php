@@ -26,23 +26,19 @@ use PhpOffice\PhpProject\Shared\XMLReader;
 use PhpOffice\PhpProject\Task;
 
 /**
- * Planner
- *
- * @category    PHPProject
- * @package        PHPProject
- * @copyright    Copyright (c) 2012 - 2012 PHPProject (https://github.com/PHPOffice/PHPProject)
+ * GnomePlanner
  */
-class Planner implements ReaderInterface
+class GnomePlanner implements ReaderInterface
 {
     /**
      * PHPProject object
      *
-     * @var \PhpOffice\PhpProject\PhpProject
+     * @var PhpProject
      */
     private $phpProject;
 
     /**
-     * Create a new Planner
+     * Create a new GnomePlanner
      */
     public function __construct()
     {
@@ -63,61 +59,61 @@ class Planner implements ReaderInterface
     }
 
     /**
-     * 
+     *
      * @param string $pFilename
      * @throws \Exception
-     * @return PHPProject
+     * @return PhpProject
      */
-    
     public function load(string $pFilename): PhpProject
     {
-        if (!file_exists($pFilename) || !is_readable($pFilename)) {
+        if (!$this->canRead($pFilename)) {
             throw new \Exception('The file is not accessible.');
         }
         $content = file_get_contents($pFilename);
-        $oXML = new XMLReader();
-        $oXML->getDomFromString($content);
-        
-        $oNodes = $oXML->getElements('*');
-        if ($oNodes->length > 0) {
-            foreach ($oNodes as $oNode) {
-                switch ($oNode->nodeName) {                                      
+        $xml = new XMLReader();
+        $xml->getDomFromString($content);
+
+        $nodes = $xml->getElements('*');
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                switch ($node->nodeName) {
                     case 'resources':
-                        $this->readNodeResources($oXML, $oNode);
-                        break;                    
+                        $this->readNodeResources($xml, $node);
+                        break;
                 }
             }
         }
-        
+
         return $this->phpProject;
     }
 
     /**
      * Node "Resources"
-     * @param XMLReader $oXML
+     * @param XMLReader $xml
      * @param \DOMElement $domNode
      */
-    private function readNodeResources(XMLReader $oXML, \DOMElement $domNode): void
+    protected function readNodeResources(XMLReader $xml, \DOMElement $domNode): void
     {
-        $oNodes = $oXML->getElements('*', $domNode);
-        if ($oNodes->length > 0) {
-            foreach ($oNodes as $oNode) {
-                if ($oNode->nodeName == 'resource') {
-                    $oResource = $this->phpProject->createResource();
-                    $this->readNodeResource($oNode, $oResource);
+        $nodes = $xml->getElements('*', $domNode);
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                if ($node->nodeName == 'resource') {
+                    $resource = $this->phpProject->createResource();
+                    $this->readNodeResource($node, $resource);
                 }
             }
         }
     }
+
     /**
      * Node "Resource"
      * @param \DOMElement $domNode
-     * @param Resource $oResource
+     * @param Resource $resource
      */
-    private function readNodeResource(\DOMElement $domNode, Resource $oResource): void
+    protected function readNodeResource(\DOMElement $domNode, Resource $resource): void
     {
         // Attributes
-        $oResource->setIndex($domNode->getAttribute('id'));
-        $oResource->setTitle($domNode->getAttribute('name'));
+        $resource->setIndex($domNode->getAttribute('id'));
+        $resource->setTitle($domNode->getAttribute('name'));
     }
 }

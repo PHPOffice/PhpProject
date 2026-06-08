@@ -35,7 +35,7 @@ class GnomePlanner implements ReaderInterface
      *
      * @var PhpProject
      */
-    private $phpProject;
+    protected $phpProject;
 
     /**
      * Create a new GnomePlanner
@@ -80,6 +80,9 @@ class GnomePlanner implements ReaderInterface
                     case 'resources':
                         $this->readNodeResources($xml, $node);
                         break;
+                    case 'tasks':
+                        $this->readNodeTasks($xml, $node);
+                        break;
                 }
             }
         }
@@ -116,4 +119,46 @@ class GnomePlanner implements ReaderInterface
         $resource->setIndex($domNode->getAttribute('id'));
         $resource->setTitle($domNode->getAttribute('name'));
     }
+
+    /**
+     * Node "Tasks"
+     * @param XMLReader $xml
+     * @param \DOMElement $domNode
+     */
+    protected function readNodeTasks(XMLReader $xml, \DOMElement $domNode): void
+    {
+        $nodes = $xml->getElements('*', $domNode);
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                if ($node->nodeName == 'task') {
+                    $task = $this->phpProject->createTask();
+                    $this->readNodeTask($xml, $node, $task);
+                }
+            }
+        }
+    }
+    
+    /**
+     * Node "Task"
+     * @param XMLReader $xml
+     * @param \DOMElement $domNode
+     */
+    protected function readNodeTask(XMLReader $xml, \DOMElement $domNode, Task $task): void
+    {
+        // Attributes
+        $task->setIndex($domNode->getAttribute('id'));
+        $task->setName($domNode->getAttribute('name'));
+
+        // SubNodes
+        $nodes = $xml->getElements('*', $domNode);
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                if ($node->nodeName == 'task') {
+                    $taskChild = $task->createTask();
+                    $this->readNodeTask($xml, $node, $taskChild);
+                }
+            }
+        }
+    }
 }
+

@@ -72,4 +72,36 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
         $object = new GnomePlanner();
         $object->load($file404);
     }
+
+    public function testLoadTasks(): void
+    {
+        $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'kitchen.planner';
+        $object = new GnomePlanner();
+        $return = $object->load($file);
+
+        $this->assertInstanceOf('PhpOffice\\PhpProject\\PhpProject', $return);
+
+        $tasks = $return->getAllTasks();
+        $this->assertCount(4, $tasks);
+        $this->assertEquals('Initiation', $tasks[0]->getName());
+        $this->assertEquals('Planning', $tasks[1]->getName());
+        $this->assertEquals('Execution', $tasks[2]->getName());
+        $this->assertEquals('Closure', $tasks[3]->getName());
+        
+        $initiation = $tasks[0]->getTasks();
+        $this->assertCount(3, $initiation);
+        $this->assertEquals('Define Objectives', $initiation[0]->getName());
+        $this->assertEquals('Return on Investment Analysis', $initiation[1]->getName());
+        $this->assertEquals('Go/No-Go Decision', $initiation[2]->getName());
+        
+        $planning = $tasks[1]->getTasks();
+        $this->assertCount(4, $planning);
+        $this->assertEquals('Scope', $planning[0]->getName());
+
+        $scope = $planning[0]->getTasks();
+        $this->assertCount(4, $scope);
+        $this->assertEquals('Design Layout', $scope[0]->getName());
+    }
+
 }
+

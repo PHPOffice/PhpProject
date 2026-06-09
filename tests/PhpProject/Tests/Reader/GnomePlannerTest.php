@@ -87,13 +87,17 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Planning', $tasks[1]->getName());
         $this->assertEquals('Execution', $tasks[2]->getName());
         $this->assertEquals('Closure', $tasks[3]->getName());
-        
+
+        $this->assertEquals(1072569600, $tasks[0]->getStartDate());
+        $this->assertEquals(1073811600, $tasks[0]->getEndDate());
+        $this->assertEquals('288000', $tasks[0]->getDuration());
+
         $initiation = $tasks[0]->getTasks();
         $this->assertCount(3, $initiation);
         $this->assertEquals('Define Objectives', $initiation[0]->getName());
         $this->assertEquals('Return on Investment Analysis', $initiation[1]->getName());
         $this->assertEquals('Go/No-Go Decision', $initiation[2]->getName());
-        
+
         $planning = $tasks[1]->getTasks();
         $this->assertCount(4, $planning);
         $this->assertEquals('Scope', $planning[0]->getName());

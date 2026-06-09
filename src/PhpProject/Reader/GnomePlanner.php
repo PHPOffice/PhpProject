@@ -148,7 +148,11 @@ class GnomePlanner implements ReaderInterface
         // Attributes
         $task->setIndex($domNode->getAttribute('id'));
         $task->setName($domNode->getAttribute('name'));
-
+        $task->setStartDate($domNode->getAttribute('start'));
+        $task->setEndDate($domNode->getAttribute('end'));
+        $task->setDuration($domNode->getAttribute('work'));
+        $task->setProgress($domNode->getAttribute('percent-complete'));
+        
         // SubNodes
         $nodes = $xml->getElements('*', $domNode);
         if ($nodes->length > 0) {

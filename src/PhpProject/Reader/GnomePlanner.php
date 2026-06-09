@@ -83,6 +83,9 @@ class GnomePlanner implements ReaderInterface
                     case 'tasks':
                         $this->readNodeTasks($xml, $node);
                         break;
+                    case 'allocations':
+                        $this->readNodeAllocations($xml, $node);
+                        break;
                 }
             }
         }
@@ -116,8 +119,12 @@ class GnomePlanner implements ReaderInterface
     protected function readNodeResource(\DOMElement $domNode, Resource $resource): void
     {
         // Attributes
-        $resource->setIndex($domNode->getAttribute('id'));
-        $resource->setTitle($domNode->getAttribute('name'));
+        if ($domNode->hasAttribute('id')) {
+            $resource->setIndex($domNode->getAttribute('id'));
+        }
+        if ($domNode->hasAttribute('name')) {
+            $resource->setTitle($domNode->getAttribute('name'));
+        }
     }
 
     /**
@@ -137,7 +144,7 @@ class GnomePlanner implements ReaderInterface
             }
         }
     }
-    
+
     /**
      * Node "Task"
      * @param XMLReader $xml
@@ -146,13 +153,25 @@ class GnomePlanner implements ReaderInterface
     protected function readNodeTask(XMLReader $xml, \DOMElement $domNode, Task $task): void
     {
         // Attributes
-        $task->setIndex($domNode->getAttribute('id'));
-        $task->setName($domNode->getAttribute('name'));
-        $task->setStartDate($domNode->getAttribute('start'));
-        $task->setEndDate($domNode->getAttribute('end'));
-        $task->setDuration($domNode->getAttribute('work'));
-        $task->setProgress($domNode->getAttribute('percent-complete'));
-        
+        if ($domNode->hasAttribute('id')) {
+            $task->setIndex($domNode->getAttribute('id'));
+        }
+        if ($domNode->hasAttribute('name')) {
+            $task->setName($domNode->getAttribute('name'));
+        }
+        if ($domNode->hasAttribute('start')) {
+            $task->setStartDate($domNode->getAttribute('start'));
+        }
+        if ($domNode->hasAttribute('end')) {
+            $task->setEndDate($domNode->getAttribute('end'));
+        }
+        if ($domNode->hasAttribute('work')) {
+            $task->setDuration($domNode->getAttribute('work'));
+        }
+        if ($domNode->hasAttribute('percent-complete')) {
+            $task->setProgress($domNode->getAttribute('percent-complete'));
+        }
+
         // SubNodes
         $nodes = $xml->getElements('*', $domNode);
         if ($nodes->length > 0) {
@@ -162,6 +181,41 @@ class GnomePlanner implements ReaderInterface
                     $this->readNodeTask($xml, $node, $taskChild);
                 }
             }
+        }
+    }
+
+    /**
+     * Node "Allocations"
+     * @param XMLReader $xml
+     * @param \DOMElement $domNode
+     */
+    protected function readNodeAllocations(XMLReader $xml, \DOMElement $domNode): void
+    {
+        $nodes = $xml->getElements('*', $domNode);
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                if ($node->nodeName == 'allocation') {
+                    $this->readNodeAllocation($node);
+                }
+            }
+        }
+    }
+
+    /**
+     * Node "Allocation"
+     * @param \DOMElement $domNode
+     */
+    protected function readNodeAllocation(\DOMElement $domNode): void
+    {
+        // Attributes
+        $idTask = $domNode->getAttribute('task-id');
+        $idResource = $domNode->getAttribute('resource-id');
+
+        $resource = $this->phpProject->getResourceFromIndex($idResource);
+        $task = $this->phpProject->getTaskFromIndex($idTask);
+
+        if ($resource instanceof Resource && $task instanceof Task) {
+            $task->addResource($resource);
         }
     }
 }

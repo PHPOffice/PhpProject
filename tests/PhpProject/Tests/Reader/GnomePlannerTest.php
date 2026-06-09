@@ -16,6 +16,8 @@
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
+declare(strict_types=1);
+
 namespace PhpOffice\PhpProject\Tests\Reader;
 
 use PhpOffice\PhpProject\Reader\GnomePlanner;
@@ -55,6 +57,7 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
 
         $this->assertInstanceOf('PhpOffice\\PhpProject\\PhpProject', $return);
 
+        // Resources
         $resources = $return->getAllResources();
         $this->assertCount(5, $resources);
         $this->assertEquals('Town Engineer', $resources[0]->getTitle());
@@ -62,25 +65,8 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Menard Construction', $resources[2]->getTitle());
         $this->assertEquals('Sue Maute', $resources[3]->getTitle());
         $this->assertEquals('Kurt Maute', $resources[4]->getTitle());
-    }
 
-    public function testLoadException(): void
-    {
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage("The file is not accessible.");
-        $file404 = 'fileError';
-        $object = new GnomePlanner();
-        $object->load($file404);
-    }
-
-    public function testLoadTasks(): void
-    {
-        $file = PHPPROJECT_TESTS_BASE_DIR.DIRECTORY_SEPARATOR.'PhpProject'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'kitchen.planner';
-        $object = new GnomePlanner();
-        $return = $object->load($file);
-
-        $this->assertInstanceOf('PhpOffice\\PhpProject\\PhpProject', $return);
-
+        // Tasks
         $tasks = $return->getAllTasks();
         $this->assertCount(4, $tasks);
         $this->assertEquals('Initiation', $tasks[0]->getName());
@@ -105,7 +91,22 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
         $scope = $planning[0]->getTasks();
         $this->assertCount(4, $scope);
         $this->assertEquals('Design Layout', $scope[0]->getName());
+
+        // Allocations
+        $defineObjectives = $initiation[0];
+        $taskResources = $defineObjectives->getResources();
+        $this->assertCount(2, $taskResources);
+        $this->assertEquals('Sue Maute', $taskResources[0]->getTitle());
+        $this->assertEquals('Kurt Maute', $taskResources[1]->getTitle());
     }
 
+    public function testLoadException(): void
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("The file is not accessible.");
+        $file404 = 'fileError';
+        $object = new GnomePlanner();
+        $object->load($file404);
+    }
 }
 

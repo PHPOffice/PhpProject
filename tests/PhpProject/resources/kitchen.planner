@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<project name="Kitchen Remodel" company="Imendio" manager="Kurt Maute" phase="Initiation" project-start="20031228T000000Z" mrproject-version="2" calendar="1">
+  <properties>
+    <property name="Project-Category" type="text" owner="project" label="Project Category" description="Cost Reducion"/>
+    <property name="Project-Priority" type="int" owner="project" label="Project Priority" description="1-5 (1 is highest)"/>
+    <property name="Best-Case" type="float" owner="task" label="Best Case" description="Best Case Estimate (days)"/>
+    <property name="Worst-Case" type="float" owner="task" label="Worst Case" description="Worst Case Estimate (days)"/>
+    <property name="cost" type="cost" owner="resource" label="Cost" description="standard cost for a resource"/>
+  </properties>
+  <properties>
+    <property name="Project-Category" value="Cost Reduction"/>
+    <property name="Project-Priority" value="3"/>
+  </properties>
+  <phases>
+    <phase name="Initiation"/>
+    <phase name="Planning"/>
+    <phase name="Execution"/>
+    <phase name="Closure"/>
+  </phases>
+  <calendars>
+    <day-types>
+      <day-type id="0" name="Arbete" description="En standardarbetsdag"/>
+      <day-type id="1" name="Ledigt" description="En ledig standarddag"/>
+      <day-type id="2" name="Anv&#xE4;nd bas" description="Anv&#xE4;nd dag fr&#xE5;n baskalender"/>
+    </day-types>
+    <calendar id="1" name="Default">
+      <default-week mon="0" tue="0" wed="0" thu="0" fri="0" sat="1" sun="1"/>
+      <overridden-day-types>
+        <overridden-day-type id="0">
+          <interval start="0800" end="1200"/>
+          <interval start="1300" end="1700"/>
+        </overridden-day-type>
+      </overridden-day-types>
+      <days/>
+      <calendar id="2" name="Building Inspector">
+        <default-week mon="2" tue="2" wed="2" thu="2" fri="2" sat="2" sun="2"/>
+        <overridden-day-types/>
+        <days/>
+      </calendar>
+    </calendar>
+    <calendar id="3" name="Off Hours">
+      <default-week mon="0" tue="0" wed="0" thu="0" fri="0" sat="0" sun="0"/>
+      <overridden-day-types/>
+      <days/>
+    </calendar>
+  </calendars>
+  <tasks>
+    <task id="1" name="Initiation" note="" work="288000" start="20031228T000000Z" end="20040111T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <properties>
+        <property name="Best-Case" value="0"/>
+        <property name="Worst-Case" value="0"/>
+      </properties>
+      <task id="2" name="Define Objectives" note="" work="288000" start="20031228T000000Z" end="20040102T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+      </task>
+      <task id="3" name="Return on Investment Analysis" note="" work="144000" start="20040102T170000Z" end="20040109T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+        <predecessors>
+          <predecessor id="1" predecessor-id="2" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="4" name="Go/No-Go Decision" note="" work="0" start="20040111T090000Z" end="20040111T090000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+        <predecessors>
+          <predecessor id="1" predecessor-id="3" type="FS" lag="144000"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="5" name="Planning" note="" work="864000" start="20040111T090000Z" end="20040220T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <properties>
+        <property name="Best-Case" value="0"/>
+        <property name="Worst-Case" value="0"/>
+      </properties>
+      <predecessors>
+        <predecessor id="1" predecessor-id="1" type="FS"/>
+      </predecessors>
+      <task id="6" name="Scope" note="" work="432000" start="20040111T090000Z" end="20040130T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+        <task id="7" name="Design Layout" note="" work="432000" start="20040111T090000Z" end="20040130T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <properties>
+            <property name="Best-Case" value="0"/>
+            <property name="Worst-Case" value="0"/>
+          </properties>
+        </task>
+        <task id="8" name="Research &amp; Choose Appliances" note="" work="432000" start="20040111T090000Z" end="20040130T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <properties>
+            <property name="Best-Case" value="0"/>
+            <property name="Worst-Case" value="0"/>
+          </properties>
+        </task>
+        <task id="9" name="Electrical Design" note="" work="432000" start="20040111T090000Z" end="20040130T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <properties>
+            <property name="Best-Case" value="0"/>
+            <property name="Worst-Case" value="0"/>
+          </properties>
+        </task>
+        <task id="10" name="Plumbing Design" note="" work="432000" start="20040111T090000Z" end="20040130T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <properties>
+            <property name="Best-Case" value="0"/>
+            <property name="Worst-Case" value="0"/>
+          </properties>
+        </task>
+      </task>
+      <task id="11" name="Create Schedule" note="" work="144000" start="20040130T170000Z" end="20040206T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+        <predecessors>
+          <predecessor id="1" predecessor-id="6" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="12" name="Estimate Cost" note="" work="144000" start="20040130T170000Z" end="20040206T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+        <predecessors>
+          <predecessor id="1" predecessor-id="6" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="13" name="Obtain Permits" note="" work="432000" start="20040130T170000Z" end="20040220T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+        <predecessors>
+          <predecessor id="1" predecessor-id="6" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="14" name="Execution" note="" work="1152000" start="20040220T170000Z" end="20040416T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <properties>
+        <property name="Best-Case" value="0"/>
+        <property name="Worst-Case" value="0"/>
+      </properties>
+      <predecessors>
+        <predecessor id="1" predecessor-id="5" type="FS"/>
+      </predecessors>
+      <task id="15" name="Demolition" note="" work="288000" start="20040220T170000Z" end="20040305T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+      </task>
+      <task id="16" name="Construction" note="Thu 01 Apr 2004, 08:18 Need confirmaiton of availability&#10;on scheduled date - KMM&#10;&#10;" work="576000" start="20040305T170000Z" end="20040402T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+        <predecessors>
+          <predecessor id="1" predecessor-id="15" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="17" name="Final Inspection" note="" work="288000" start="20040402T170000Z" end="20040416T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+        <predecessors>
+          <predecessor id="1" predecessor-id="16" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="18" name="Closure" note="" work="446400" start="20040416T170000Z" end="20040510T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <properties>
+        <property name="Best-Case" value="0"/>
+        <property name="Worst-Case" value="0"/>
+      </properties>
+      <predecessors>
+        <predecessor id="1" predecessor-id="14" type="FS"/>
+      </predecessors>
+      <task id="19" name="Lessons Learned" note="" work="144000" start="20040416T170000Z" end="20040423T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+      </task>
+      <task id="20" name="Pay all Vendors" note="" work="432000" start="20040416T170000Z" end="20040507T170000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+      </task>
+      <task id="21" name="Have a Party" note="" work="28800" start="20040507T170000Z" end="20040510T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <properties>
+          <property name="Best-Case" value="0"/>
+          <property name="Worst-Case" value="0"/>
+        </properties>
+        <predecessors>
+          <predecessor id="1" predecessor-id="20" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+  </tasks>
+  <resource-groups>
+    <group id="1" name="Homeowners" admin-name="Kurt Maute" admin-phone="201-555-1212" admin-email="Kurt@Maute.us"/>
+  </resource-groups>
+  <resources>
+    <resource id="1" name="Town Engineer" short-name="" type="1" units="0" email="" note="" std-rate="0">
+      <properties>
+        <property name="cost" value=""/>
+      </properties>
+    </resource>
+    <resource id="2" name="Architect" short-name="" type="1" units="0" email="" note="" std-rate="100">
+      <properties>
+        <property name="cost" value=""/>
+      </properties>
+    </resource>
+    <resource id="3" name="Menard Construction" short-name="Menard" type="1" units="0" email="" note="" std-rate="100">
+      <properties>
+        <property name="cost" value=""/>
+      </properties>
+    </resource>
+    <resource id="4" name="Sue Maute" short-name="SM" type="1" units="0" email="" note="" std-rate="0">
+      <properties>
+        <property name="cost" value=""/>
+      </properties>
+    </resource>
+    <resource id="5" name="Kurt Maute" short-name="KM" type="1" units="0" email="Kurt@Maute.us" note="" std-rate="0">
+      <properties>
+        <property name="cost" value=""/>
+      </properties>
+    </resource>
+  </resources>
+  <allocations>
+    <allocation task-id="17" resource-id="1" units="100"/>
+    <allocation task-id="10" resource-id="2" units="100"/>
+    <allocation task-id="9" resource-id="2" units="100"/>
+    <allocation task-id="7" resource-id="2" units="100"/>
+    <allocation task-id="16" resource-id="3" units="100"/>
+    <allocation task-id="15" resource-id="3" units="100"/>
+    <allocation task-id="21" resource-id="4" units="100"/>
+    <allocation task-id="20" resource-id="4" units="100"/>
+    <allocation task-id="8" resource-id="4" units="100"/>
+    <allocation task-id="4" resource-id="4" units="100"/>
+    <allocation task-id="2" resource-id="4" units="100"/>
+    <allocation task-id="21" resource-id="5" units="100"/>
+    <allocation task-id="19" resource-id="5" units="100"/>
+    <allocation task-id="13" resource-id="5" units="100"/>
+    <allocation task-id="12" resource-id="5" units="100"/>
+    <allocation task-id="11" resource-id="5" units="100"/>
+    <allocation task-id="4" resource-id="5" units="100"/>
+    <allocation task-id="3" resource-id="5" units="100"/>
+    <allocation task-id="2" resource-id="5" units="100"/>
+  </allocations>
+</project>

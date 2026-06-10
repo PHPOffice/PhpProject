@@ -42,6 +42,7 @@ class IOFactoryTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Reader\\GanttProject', IOFactory::createReader());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Reader\\GanttProject', IOFactory::createReader('GanttProject'));
+        $this->assertInstanceOf('PhpOffice\\PhpProject\\Reader\\GnomePlanner', IOFactory::createReader('GnomePlanner'));
     }    
     
     public function testReaderException(): void

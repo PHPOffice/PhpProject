@@ -40,6 +40,16 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
         $oResource = $oPHPProject->createResource();
         $oResource->setTitle('ResourceTest');
 
+        $oTask1 = $oPHPProject->createTask();
+        $oTask1->setName('Task1Test');
+        $oTask1->setStartDate('2014-08-07');
+        $oTask1->setDuration(5);
+
+        $oTask1Child = $oTask1->createTask();
+        $oTask1Child->setName('TaskChildTest');
+        $oTask1Child->setEndDate('2014-08-13');
+        $oTask1Child->setProgress(0.5);
+
         $xmlWriter = IOFactory::createWriter($oPHPProject, 'GnomePlanner');
         $xmlWriter->save($fileOutput);
 
@@ -48,6 +58,18 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
         // Project
         $this->assertTrue($oXMLDocument->elementExists('/project', $fileOutput));
         $this->assertEquals('2', $oXMLDocument->getElementAttribute('/project', 'mrproject-version', $fileOutput));
+
+        // Task 1
+        $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task[@id="0"]', $fileOutput));
+        $this->assertEquals('Task1Test', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="0"]', 'name', $fileOutput));
+        $this->assertEquals('20140807T000000Z', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="0"]', 'start', $fileOutput));
+        $this->assertEquals('5', $oXMLDocument->getElementAttribute('/project/tasks/task[@id="0"]', 'work', $fileOutput));
+
+        // Task 1 child (subtask)
+        $this->assertTrue($oXMLDocument->elementExists('/project/tasks/task/task[@id="1"]', $fileOutput));
+        $this->assertEquals('TaskChildTest', $oXMLDocument->getElementAttribute('/project/tasks/task/task[@id="1"]', 'name', $fileOutput));
+        $this->assertEquals('20140813T000000Z', $oXMLDocument->getElementAttribute('/project/tasks/task/task[@id="1"]', 'end', $fileOutput));
+        $this->assertEquals('50', $oXMLDocument->getElementAttribute('/project/tasks/task/task[@id="1"]', 'percent-complete', $fileOutput));
 
         // Resource
         $this->assertTrue($oXMLDocument->elementExists('/project/resources/resource', $fileOutput));

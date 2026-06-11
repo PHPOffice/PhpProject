@@ -22,6 +22,7 @@ namespace PhpOffice\PhpProject\Writer;
 
 use PhpOffice\PhpProject\PhpProject;
 use PhpOffice\PhpProject\Shared\XMLWriter;
+use PhpOffice\PhpProject\Task;
 
 /**
  * GnomePlanner writer
@@ -59,6 +60,13 @@ class GnomePlanner implements WriterInterface
         $oXML->startElement('project');
         $oXML->writeAttribute('mrproject-version', '2');
 
+        // tasks
+        $oXML->startElement('tasks');
+        foreach ($this->phpProject->getAllTasks() as $oTask) {
+            $this->writeTask($oXML, $oTask);
+        }
+        $oXML->endElement();
+
         // resources
         $oXML->startElement('resources');
         foreach ($this->phpProject->getAllResources() as $oResource) {
@@ -87,6 +95,30 @@ class GnomePlanner implements WriterInterface
         $oXML->startElement('resource');
         $oXML->writeAttribute('id', $oResource->getIndex());
         $oXML->writeAttribute('name', $oResource->getTitle());
+        $oXML->endElement();
+    }
+
+    private function writeTask(XMLWriter $oXML, Task $oTask): void
+    {
+        $oXML->startElement('task');
+        $oXML->writeAttribute('id', $oTask->getIndex());
+        $oXML->writeAttribute('name', $oTask->getName());
+        if ($oTask->getStartDate() !== null) {
+            $oXML->writeAttribute('start', date('Ymd\THis\Z', $oTask->getStartDate()));
+        }
+        if ($oTask->getEndDate() !== null) {
+            $oXML->writeAttribute('end', date('Ymd\THis\Z', $oTask->getEndDate()));
+        }
+        if ($oTask->getDuration() !== null) {
+            $oXML->writeAttribute('work', $oTask->getDuration());
+        }
+        $oXML->writeAttribute('percent-complete', (int) (($oTask->getProgress() ?? 0) * 100));
+
+        // Children (recursive)
+        foreach ($oTask->getTasks() as $oTaskChild) {
+            $this->writeTask($oXML, $oTaskChild);
+        }
+
         $oXML->endElement();
     }
 

@@ -10,7 +10,7 @@ PhpProject is an open source project licensed under the terms of [LGPL version 3
 - Set file meta data (author, title, description, etc)
 - Add resources from scratch or from existing one
 - Add tasks from scratch or from existing one
-- Output to different file formats: MSProjectExchange (.mpx), GanttProject (.gan)
+- Output to different file formats: MSProjectExchange (.mpx), GanttProject (.gan), Gnome Planner (.planner)
 - ... and lots of other things!
 
 ## File formats

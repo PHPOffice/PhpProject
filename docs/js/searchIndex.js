@@ -976,6 +976,46 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PhpOffice-PhpProject-Writer-GanttProject.html#property_arrAllocations"
         },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\GnomePlanner",
+            "name": "GnomePlanner",
+            "summary": "GnomePlanner\u0020writer",
+            "url": "classes/PhpOffice-PhpProject-Writer-GnomePlanner.html"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\GnomePlanner\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020new\u0020GnomePlanner\u0020writer",
+            "url": "classes/PhpOffice-PhpProject-Writer-GnomePlanner.html#method___construct"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\GnomePlanner\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "Save\u0020PHPProject\u0020to\u0020file",
+            "url": "classes/PhpOffice-PhpProject-Writer-GnomePlanner.html#method_save"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\GnomePlanner\u003A\u003AwriteResource\u0028\u0029",
+            "name": "writeResource",
+            "summary": "",
+            "url": "classes/PhpOffice-PhpProject-Writer-GnomePlanner.html#method_writeResource"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\GnomePlanner\u003A\u003AwriteTask\u0028\u0029",
+            "name": "writeTask",
+            "summary": "",
+            "url": "classes/PhpOffice-PhpProject-Writer-GnomePlanner.html#method_writeTask"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\GnomePlanner\u003A\u003AwriteAllocation\u0028\u0029",
+            "name": "writeAllocation",
+            "summary": "Write\u0020allocation\u0020of\u0020a\u0020resource\u0020for\u0020a\u0020task",
+            "url": "classes/PhpOffice-PhpProject-Writer-GnomePlanner.html#method_writeAllocation"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\GnomePlanner\u003A\u003A\u0024phpProject",
+            "name": "phpProject",
+            "summary": "PHPProject\u0020object",
+            "url": "classes/PhpOffice-PhpProject-Writer-GnomePlanner.html#property_phpProject"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\GnomePlanner\u003A\u003A\u0024arrAllocations",
+            "name": "arrAllocations",
+            "summary": "",
+            "url": "classes/PhpOffice-PhpProject-Writer-GnomePlanner.html#property_arrAllocations"
+        },                {
             "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MsProjectMPX",
             "name": "MsProjectMPX",
             "summary": "MsProjectMPx",

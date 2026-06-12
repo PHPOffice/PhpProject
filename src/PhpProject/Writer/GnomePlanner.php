@@ -21,6 +21,7 @@ declare(strict_types=1);
 namespace PhpOffice\PhpProject\Writer;
 
 use PhpOffice\PhpProject\PhpProject;
+use PhpOffice\PhpProject\Resource;
 use PhpOffice\PhpProject\Shared\XMLWriter;
 use PhpOffice\PhpProject\Task;
 
@@ -32,9 +33,15 @@ class GnomePlanner implements WriterInterface
     /**
      * PHPProject object
      *
-     * @var \PhpOffice\PhpProject\PhpProject
+     * @var PhpProject
      */
-    private $phpProject;
+    protected $phpProject;
+
+    /**
+     *
+     * @var array<array{id_res: int, id_task: int}>
+     */
+    protected $arrAllocations;
 
     /**
      * Create a new GnomePlanner writer
@@ -44,6 +51,7 @@ class GnomePlanner implements WriterInterface
     public function __construct(PhpProject $phpProject)
     {
         $this->phpProject = $phpProject;
+        $this->arrAllocations = array();
     }
 
     /**
@@ -53,73 +61,110 @@ class GnomePlanner implements WriterInterface
     public function save(string $pFilename): void
     {
         // Create XML Object
-        $oXML = new XMLWriter(XMLWriter::STORAGE_DISK);
-        $oXML->startDocument('1.0', 'UTF-8');
+        $xml = new XMLWriter(XMLWriter::STORAGE_DISK);
+        $xml->startDocument('1.0', 'UTF-8');
 
         // project
-        $oXML->startElement('project');
-        $oXML->writeAttribute('mrproject-version', '2');
+        $xml->startElement('project');
+        $xml->writeAttribute('mrproject-version', '2');
 
         // tasks
-        $oXML->startElement('tasks');
-        foreach ($this->phpProject->getAllTasks() as $oTask) {
-            $this->writeTask($oXML, $oTask);
+        $xml->startElement('tasks');
+        foreach ($this->phpProject->getAllTasks() as $task) {
+            $this->writeTask($xml, $task);
         }
-        $oXML->endElement();
+        $xml->endElement();
 
         // resources
-        $oXML->startElement('resources');
-        foreach ($this->phpProject->getAllResources() as $oResource) {
-            $this->writeResource($oXML, $oResource);
+        $xml->startElement('resources');
+        foreach ($this->phpProject->getAllResources() as $resource) {
+            $this->writeResource($xml, $resource);
         }
-        $oXML->endElement();
+        $xml->endElement();
+
+        // allocations
+        $xml->startElement('allocations');
+        if (count($this->arrAllocations) > 0) {
+            foreach ($this->arrAllocations as $allocation) {
+                $this->writeAllocation($xml, $allocation['id_task'], $allocation['id_res']);
+            }
+        }
+        $xml->endElement();
 
         // >project
-        $oXML->endElement();
+        $xml->endElement();
 
         // Writing XML Object in file
         if (file_exists($pFilename) && !is_writable($pFilename)) {
             throw new \Exception("Could not open file $pFilename for writing.");
         }
         $fileHandle = fopen($pFilename, 'wb+');
-        fwrite($fileHandle, $oXML->getData());
+        fwrite($fileHandle, $xml->getData());
         fclose($fileHandle);
     }
 
     /**
-     * @param XMLWriter $oXML
-     * @param \PhpOffice\PhpProject\Resource $oResource
+     * @param XMLWriter $xml
+     * @param Resource $resource
      */
-    private function writeResource(XMLWriter $oXML, \PhpOffice\PhpProject\Resource $oResource): void
+    protected function writeResource(XMLWriter $xml, Resource $resource): void
     {
-        $oXML->startElement('resource');
-        $oXML->writeAttribute('id', $oResource->getIndex());
-        $oXML->writeAttribute('name', $oResource->getTitle());
-        $oXML->endElement();
+        $xml->startElement('resource');
+        $xml->writeAttribute('id', $resource->getIndex());
+        $xml->writeAttribute('name', $resource->getTitle());
+        $xml->endElement();
     }
 
-    private function writeTask(XMLWriter $oXML, Task $oTask): void
+    /**
+     * @param XMLWriter $xml
+     * @param Task $task
+     */
+    protected function writeTask(XMLWriter $xml, Task $task): void
     {
-        $oXML->startElement('task');
-        $oXML->writeAttribute('id', $oTask->getIndex());
-        $oXML->writeAttribute('name', $oTask->getName());
-        if ($oTask->getStartDate() !== null) {
-            $oXML->writeAttribute('start', date('Ymd\THis\Z', $oTask->getStartDate()));
+        $xml->startElement('task');
+        $xml->writeAttribute('id', $task->getIndex());
+        $xml->writeAttribute('name', $task->getName());
+        if ($task->getStartDate() !== null) {
+            $xml->writeAttribute('start', date('Ymd\THis\Z', $task->getStartDate()));
         }
-        if ($oTask->getEndDate() !== null) {
-            $oXML->writeAttribute('end', date('Ymd\THis\Z', $oTask->getEndDate()));
+        if ($task->getEndDate() !== null) {
+            $xml->writeAttribute('end', date('Ymd\THis\Z', $task->getEndDate()));
         }
-        if ($oTask->getDuration() !== null) {
-            $oXML->writeAttribute('work', $oTask->getDuration());
+        if ($task->getDuration() !== null) {
+            $xml->writeAttribute('work', $task->getDuration());
         }
-        $oXML->writeAttribute('percent-complete', (int) (($oTask->getProgress() ?? 0) * 100));
+        $xml->writeAttribute('percent-complete', (int) (($task->getProgress() ?? 0) * 100));
+
+        // Resources Allocations
+        if ($task->getResourceCount() > 0) {
+            foreach ($task->getResources() as $resource) {
+                $allocation = array();
+                $allocation['id_res'] = $resource->getIndex();
+                $allocation['id_task'] = $task->getIndex();
+                $this->arrAllocations[] = $allocation;
+            }
+        }
 
         // Children (recursive)
-        foreach ($oTask->getTasks() as $oTaskChild) {
-            $this->writeTask($oXML, $oTaskChild);
+        foreach ($task->getTasks() as $taskChild) {
+            $this->writeTask($xml, $taskChild);
         }
 
-        $oXML->endElement();
+        $xml->endElement();
     }
 
+    /**
+     * Write allocation of a resource for a task
+     * @param XMLWriter $xml
+     * @param int $idTask
+     * @param int $idResource
+     */
+    protected function writeAllocation(XMLWriter $xml, int $idTask, int $idResource): void
+    {
+        $xml->startElement('allocation');
+        $xml->writeAttribute('task-id', $idTask);
+        $xml->writeAttribute('resource-id', $idResource);
+        $xml->writeAttribute('units', '100');
+        $xml->endElement();
+    }
 }

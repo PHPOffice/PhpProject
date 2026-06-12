@@ -44,6 +44,7 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
         $oTask1->setName('Task1Test');
         $oTask1->setStartDate('2014-08-07');
         $oTask1->setDuration(5);
+        $oTask1->addResource($oResource);
 
         $oTask1Child = $oTask1->createTask();
         $oTask1Child->setName('TaskChildTest');
@@ -75,5 +76,9 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($oXMLDocument->elementExists('/project/resources/resource', $fileOutput));
         $this->assertEquals('0', $oXMLDocument->getElementAttribute('/project/resources/resource', 'id', $fileOutput));
         $this->assertEquals('ResourceTest', $oXMLDocument->getElementAttribute('/project/resources/resource', 'name', $fileOutput));
+
+        // Allocation
+        $this->assertTrue($oXMLDocument->elementExists('/project/allocations/allocation', $fileOutput));
+        $this->assertTrue($oXMLDocument->elementExists('/project/allocations/allocation[@task-id="0"][@resource-id="0"]', $fileOutput));
     }
 }

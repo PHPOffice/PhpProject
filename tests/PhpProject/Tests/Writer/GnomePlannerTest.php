@@ -81,4 +81,20 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($oXMLDocument->elementExists('/project/allocations/allocation', $fileOutput));
         $this->assertTrue($oXMLDocument->elementExists('/project/allocations/allocation[@task-id="0"][@resource-id="0"]', $fileOutput));
     }
+
+    public function testSaveException(): void
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("Could not open file");
+        $fileOutput = tempnam(sys_get_temp_dir(), 'PHPPROJECT');
+        file_put_contents($fileOutput, 'AA');
+        chmod($fileOutput, 0044);
+
+        $oPHPProject = new PhpProject();
+        $oTask1 = $oPHPProject->createTask();
+        $oTask1->setName('Task1Test');
+
+        $xmlWriter = IOFactory::createWriter($oPHPProject, 'GnomePlanner');
+        $xmlWriter->save($fileOutput);
+    }
 }

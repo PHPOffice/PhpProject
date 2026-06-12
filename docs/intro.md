@@ -19,14 +19,14 @@ Below are the supported features for each file formats.
 
 ### Writers
 
-| Features                  |            | MPX | GAN |
-|---------------------------|------------|-----|-----|
-| **Document Properties**   | Standard   |     |     |
-|                           | Custom     |     |     |
-| **Document Informations** |            |     |     |
-| **Project**               | Task       | ✓   | ✓   |
-|                           | Resource   | ✓   | ✓   |
-|                           | Allocation | ✓   | ✓   |
+| Features                  |            | MPX | GAN | Planner |
+|---------------------------|------------|-----|-----|---------|
+| **Document Properties**   | Standard   |     |     |         |
+|                           | Custom     |     |     |         |
+| **Document Informations** |            |     |     |         |
+| **Project**               | Task       | ✓   | ✓   | ✓       |
+|                           | Resource   | ✓   | ✓   | ✓       |
+|                           | Allocation | ✓   | ✓   | ✓       |
 
 ### Readers
 

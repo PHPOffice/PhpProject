@@ -65,6 +65,19 @@ class MSPDITest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Jon Iles', $resources[2]->getTitle());
         $this->assertEquals('Brian Leach', $resources[3]->getTitle());
         $this->assertEquals('Concrete', $resources[4]->getTitle());
+
+        // Tasks
+        $tasks = $return->getAllTasks();
+        $this->assertCount(4, $tasks);
+        $this->assertEquals('', $tasks[0]->getName());
+        $this->assertEquals('Task A', $tasks[1]->getName());
+        $this->assertEquals('Contoured Task', $tasks[2]->getName());
+        $this->assertEquals('Completed Task', $tasks[3]->getName());
+
+        $this->assertEquals(1156492800, $tasks[1]->getStartDate());
+        $this->assertEquals(1156924800, $tasks[1]->getEndDate());
+        $this->assertEquals('PT72H0M0S', $tasks[1]->getDuration());
+        $this->assertEquals(1.0, $tasks[3]->getProgress());
     }
 
     public function testLoadException(): void

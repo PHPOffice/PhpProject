@@ -23,6 +23,7 @@ namespace PhpOffice\PhpProject\Reader;
 use PhpOffice\PhpProject\PhpProject;
 use PhpOffice\PhpProject\Resource;
 use PhpOffice\PhpProject\Shared\XMLReader;
+use PhpOffice\PhpProject\Task;
 
 /**
  * MSPDI (Microsoft Project Data Interchange) reader
@@ -79,6 +80,9 @@ class MSPDI implements ReaderInterface
                     case 'Resources':
                         $this->readNodeResources($xml, $node);
                         break;
+                    case 'Tasks':
+                        $this->readNodeTasks($xml, $node);
+                        break;
                 }
             }
         }
@@ -121,6 +125,59 @@ class MSPDI implements ReaderInterface
                         break;
                     case 'Name':
                         $resource->setTitle($node->nodeValue);
+                        break;
+                }
+            }
+        }
+    }
+
+    /**
+     * Node "Tasks"
+     * @param XMLReader $xml
+     * @param \DOMElement $domNode
+     */
+    protected function readNodeTasks(XMLReader $xml, \DOMElement $domNode): void
+    {
+        $nodes = $xml->getElements('*', $domNode);
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                if ($node->nodeName == 'Task') {
+                    $task = $this->phpProject->createTask();
+                    $this->readNodeTask($xml, $node, $task);
+                }
+            }
+        }
+    }
+
+    /**
+     * Node "Task"
+     * @param XMLReader $xml
+     * @param \DOMElement $domNode
+     * @param Task $task
+     */
+    protected function readNodeTask(XMLReader $xml, \DOMElement $domNode, Task $task): void
+    {
+        $nodes = $xml->getElements('*', $domNode);
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                switch ($node->nodeName) {
+                    case 'UID':
+                        $task->setIndex((int) $node->nodeValue);
+                        break;
+                    case 'Name':
+                        $task->setName($node->nodeValue);
+                        break;
+                    case 'Start':
+                        $task->setStartDate($node->nodeValue);
+                        break;
+                    case 'Finish':
+                        $task->setEndDate($node->nodeValue);
+                        break;
+                    case 'Work':
+                        $task->setDuration($node->nodeValue);
+                        break;
+                    case 'PercentComplete':
+                        $task->setProgress((float) $node->nodeValue / 100);
                         break;
                 }
             }

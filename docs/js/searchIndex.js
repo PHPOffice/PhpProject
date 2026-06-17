@@ -541,6 +541,61 @@ Search.appendIndex(
             "summary": "PHPProject\u0020object",
             "url": "classes/PhpOffice-PhpProject-Reader-GnomePlanner.html#property_phpProject"
         },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI",
+            "name": "MSPDI",
+            "summary": "MSPDI\u0020\u0028Microsoft\u0020Project\u0020Data\u0020Interchange\u0029\u0020reader",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020new\u0020MSPDI\u0020reader",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html#method___construct"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI\u003A\u003AcanRead\u0028\u0029",
+            "name": "canRead",
+            "summary": "Can\u0020the\u0020current\u0020ReaderInterface\u0020read\u0020the\u0020file\u003F",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html#method_canRead"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "Loads\u0020PHPProject\u0020from\u0020file",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html#method_load"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI\u003A\u003AreadNodeResources\u0028\u0029",
+            "name": "readNodeResources",
+            "summary": "Node\u0020\u0022Resources\u0022",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html#method_readNodeResources"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI\u003A\u003AreadNodeResource\u0028\u0029",
+            "name": "readNodeResource",
+            "summary": "Node\u0020\u0022Resource\u0022",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html#method_readNodeResource"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI\u003A\u003AreadNodeTasks\u0028\u0029",
+            "name": "readNodeTasks",
+            "summary": "Node\u0020\u0022Tasks\u0022",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html#method_readNodeTasks"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI\u003A\u003AreadNodeTask\u0028\u0029",
+            "name": "readNodeTask",
+            "summary": "Node\u0020\u0022Task\u0022",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html#method_readNodeTask"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI\u003A\u003AreadNodeAssignments\u0028\u0029",
+            "name": "readNodeAssignments",
+            "summary": "Node\u0020\u0022Assignments\u0022",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html#method_readNodeAssignments"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI\u003A\u003AreadNodeAssignment\u0028\u0029",
+            "name": "readNodeAssignment",
+            "summary": "Node\u0020\u0022Assignment\u0022",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html#method_readNodeAssignment"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MSPDI\u003A\u003A\u0024phpProject",
+            "name": "phpProject",
+            "summary": "PHPProject\u0020object",
+            "url": "classes/PhpOffice-PhpProject-Reader-MSPDI.html#property_phpProject"
+        },                {
             "fqsen": "\\PhpOffice\\PhpProject\\Reader\\MsProjectMPX",
             "name": "MsProjectMPX",
             "summary": "MPX\u0020File\u0020Format",

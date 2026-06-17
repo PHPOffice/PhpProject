@@ -83,6 +83,9 @@ class MSPDI implements ReaderInterface
                     case 'Tasks':
                         $this->readNodeTasks($xml, $node);
                         break;
+                    case 'Assignments':
+                        $this->readNodeAssignments($xml, $node);
+                        break;
                 }
             }
         }
@@ -181,6 +184,54 @@ class MSPDI implements ReaderInterface
                         break;
                 }
             }
+        }
+    }
+
+    /**
+     * Node "Assignments"
+     * @param XMLReader $xml
+     * @param \DOMElement $domNode
+     */
+    protected function readNodeAssignments(XMLReader $xml, \DOMElement $domNode): void
+    {
+        $nodes = $xml->getElements('*', $domNode);
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                if ($node->nodeName == 'Assignment') {
+                    $this->readNodeAssignment($xml, $node);
+                }
+            }
+        }
+    }
+
+    /**
+     * Node "Assignment"
+     * @param XMLReader $xml
+     * @param \DOMElement $domNode
+     */
+    protected function readNodeAssignment(XMLReader $xml, \DOMElement $domNode): void
+    {
+        $idTask = null;
+        $idResource = null;
+        $nodes = $xml->getElements('*', $domNode);
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                switch ($node->nodeName) {
+                    case 'TaskUID':
+                        $idTask = $node->nodeValue;
+                        break;
+                    case 'ResourceUID':
+                        $idResource = $node->nodeValue;
+                        break;
+                }
+            }
+        }
+
+        $resource = $this->phpProject->getResourceFromIndex($idResource);
+        $task = $this->phpProject->getTaskFromIndex($idTask);
+
+        if ($resource instanceof Resource && $task instanceof Task) {
+            $task->addResource($resource);
         }
     }
 }

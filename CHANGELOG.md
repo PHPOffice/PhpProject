@@ -28,6 +28,7 @@
 - Fixed date setters (`Task`, `DocumentInformations`, `DocumentProperties`) storing `strtotime()` `false` for unparseable date strings; now stored as `null` to match the typed `?int` getters (revealed by the samples job) - @slayerfx GH-45
 
 ### Miscellaneous
+- Added MSPDI (Microsoft Project Data Interchange) writer for `.xml` files (resources, tasks, and assignments) - @slayerfx GH-55
 - Added MSPDI (Microsoft Project Data Interchange) reader for `.xml` files (resources, tasks, and assignments) - @slayerfx GH-54
 - Added Gnome Planner writer for `.planner` files (resources, tasks with subtasks, and allocations) - @slayerfx GH-53
 - Added Gnome Planner reader for `.planner` files (resources, tasks with subtasks, and allocations) - @slayerfx GH-52

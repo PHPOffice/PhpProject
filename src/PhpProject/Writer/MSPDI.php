@@ -23,6 +23,7 @@ namespace PhpOffice\PhpProject\Writer;
 use PhpOffice\PhpProject\PhpProject;
 use PhpOffice\PhpProject\Resource;
 use PhpOffice\PhpProject\Shared\XMLWriter;
+use PhpOffice\PhpProject\Task;
 
 /**
  * MSPDI (Microsoft Project Data Interchange) writer
@@ -60,6 +61,13 @@ class MSPDI implements WriterInterface
         $xml->startElement('Project');
         $xml->writeAttribute('xmlns', 'http://schemas.microsoft.com/project');
 
+        // Tasks
+        $xml->startElement('Tasks');
+        foreach ($this->phpProject->getAllTasks() as $task) {
+            $this->writeTask($xml, $task);
+        }
+        $xml->endElement();
+
         // Resources
         $xml->startElement('Resources');
         foreach ($this->phpProject->getAllResources() as $resource) {
@@ -88,6 +96,28 @@ class MSPDI implements WriterInterface
         $xml->startElement('Resource');
         $xml->writeElement('UID', (string) $resource->getIndex());
         $xml->writeElement('Name', $resource->getTitle());
+        $xml->endElement();
+    }
+
+    /**
+     * @param XMLWriter $xml
+     * @param Task $task
+     */
+    protected function writeTask(XMLWriter $xml, Task $task): void
+    {
+        $xml->startElement('Task');
+        $xml->writeElement('UID', (string) $task->getIndex());
+        $xml->writeElement('Name', $task->getName());
+        if ($task->getStartDate() !== null) {
+            $xml->writeElement('Start', date('Y-m-d\TH:i:s', $task->getStartDate()));
+        }
+        if ($task->getEndDate() !== null) {
+            $xml->writeElement('Finish', date('Y-m-d\TH:i:s', $task->getEndDate()));
+        }
+        if ($task->getDuration() !== null) {
+            $xml->writeElement('Work', (string) $task->getDuration());
+        }
+        $xml->writeElement('PercentComplete', (string) (int) (($task->getProgress() ?? 0) * 100));
         $xml->endElement();
     }
 }

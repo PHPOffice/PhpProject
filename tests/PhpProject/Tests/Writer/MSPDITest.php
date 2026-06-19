@@ -43,6 +43,7 @@ class MSPDITest extends \PHPUnit\Framework\TestCase
         $oTask = $oPHPProject->createTask();
         $oTask->setName('Task1Test');
         $oTask->setStartDate('2014-08-07');
+        $oTask->setEndDate('2014-08-13');
         $oTask->setDuration('PT8H0M0S');
         $oTask->setProgress(0.5);
 
@@ -65,6 +66,7 @@ class MSPDITest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($oXMLDocument->elementExists($task, $fileOutput));
         $this->assertEquals('Task1Test', $oXMLDocument->getElement($task.'/*[local-name()="Name"]', $fileOutput)->nodeValue);
         $this->assertEquals('2014-08-07T00:00:00', $oXMLDocument->getElement($task.'/*[local-name()="Start"]', $fileOutput)->nodeValue);
+        $this->assertEquals('2014-08-13T00:00:00', $oXMLDocument->getElement($task.'/*[local-name()="Finish"]', $fileOutput)->nodeValue);
         $this->assertEquals('PT8H0M0S', $oXMLDocument->getElement($task.'/*[local-name()="Work"]', $fileOutput)->nodeValue);
         $this->assertEquals('50', $oXMLDocument->getElement($task.'/*[local-name()="PercentComplete"]', $fileOutput)->nodeValue);
     }

@@ -46,6 +46,7 @@ class MSPDITest extends \PHPUnit\Framework\TestCase
         $oTask->setEndDate('2014-08-13');
         $oTask->setDuration('PT8H0M0S');
         $oTask->setProgress(0.5);
+        $oTask->addResource($oResource);
 
         $xmlWriter = IOFactory::createWriter($oPHPProject, 'MSPDI');
         $xmlWriter->save($fileOutput);
@@ -69,6 +70,13 @@ class MSPDITest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('2014-08-13T00:00:00', $oXMLDocument->getElement($task.'/*[local-name()="Finish"]', $fileOutput)->nodeValue);
         $this->assertEquals('PT8H0M0S', $oXMLDocument->getElement($task.'/*[local-name()="Work"]', $fileOutput)->nodeValue);
         $this->assertEquals('50', $oXMLDocument->getElement($task.'/*[local-name()="PercentComplete"]', $fileOutput)->nodeValue);
+
+        // Assignment
+        $assignment = '/*[local-name()="Project"]/*[local-name()="Assignments"]/*[local-name()="Assignment"]';
+        $this->assertTrue($oXMLDocument->elementExists($assignment, $fileOutput));
+        $this->assertEquals('0', $oXMLDocument->getElement($assignment.'/*[local-name()="TaskUID"]', $fileOutput)->nodeValue);
+        $this->assertEquals('0', $oXMLDocument->getElement($assignment.'/*[local-name()="ResourceUID"]', $fileOutput)->nodeValue);
+        $this->assertEquals('1', $oXMLDocument->getElement($assignment.'/*[local-name()="Units"]', $fileOutput)->nodeValue);
     }
 
     public function testSaveException(): void

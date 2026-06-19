@@ -38,6 +38,12 @@ class MSPDI implements WriterInterface
     protected $phpProject;
 
     /**
+     *
+     * @var array<array{id_res: int, id_task: int}>
+     */
+    protected $arrAllocations;
+
+    /**
      * Create a new MSPDI writer
      *
      * @param PhpProject $phpProject
@@ -45,6 +51,7 @@ class MSPDI implements WriterInterface
     public function __construct(PhpProject $phpProject)
     {
         $this->phpProject = $phpProject;
+        $this->arrAllocations = array();
     }
 
     /**
@@ -72,6 +79,15 @@ class MSPDI implements WriterInterface
         $xml->startElement('Resources');
         foreach ($this->phpProject->getAllResources() as $resource) {
             $this->writeResource($xml, $resource);
+        }
+        $xml->endElement();
+
+        // Assignments
+        $xml->startElement('Assignments');
+        if (count($this->arrAllocations) > 0) {
+            foreach ($this->arrAllocations as $allocation) {
+                $this->writeAssignment($xml, $allocation['id_task'], $allocation['id_res']);
+            }
         }
         $xml->endElement();
 
@@ -118,6 +134,32 @@ class MSPDI implements WriterInterface
             $xml->writeElement('Work', (string) $task->getDuration());
         }
         $xml->writeElement('PercentComplete', (string) (int) (($task->getProgress() ?? 0) * 100));
+
+        // Resources allocations
+        if ($task->getResourceCount() > 0) {
+            foreach ($task->getResources() as $resource) {
+                $allocation = array();
+                $allocation['id_res'] = $resource->getIndex();
+                $allocation['id_task'] = $task->getIndex();
+                $this->arrAllocations[] = $allocation;
+            }
+        }
+
+        $xml->endElement();
+    }
+
+    /**
+     * Write an assignment of a resource to a task
+     * @param XMLWriter $xml
+     * @param int $idTask
+     * @param int $idResource
+     */
+    protected function writeAssignment(XMLWriter $xml, int $idTask, int $idResource): void
+    {
+        $xml->startElement('Assignment');
+        $xml->writeElement('TaskUID', (string) $idTask);
+        $xml->writeElement('ResourceUID', (string) $idResource);
+        $xml->writeElement('Units', '1');
         $xml->endElement();
     }
 }

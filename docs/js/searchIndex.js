@@ -1071,6 +1071,46 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PhpOffice-PhpProject-Writer-GnomePlanner.html#property_arrAllocations"
         },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MSPDI",
+            "name": "MSPDI",
+            "summary": "MSPDI\u0020\u0028Microsoft\u0020Project\u0020Data\u0020Interchange\u0029\u0020writer",
+            "url": "classes/PhpOffice-PhpProject-Writer-MSPDI.html"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MSPDI\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020new\u0020MSPDI\u0020writer",
+            "url": "classes/PhpOffice-PhpProject-Writer-MSPDI.html#method___construct"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MSPDI\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "Save\u0020PHPProject\u0020to\u0020file",
+            "url": "classes/PhpOffice-PhpProject-Writer-MSPDI.html#method_save"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MSPDI\u003A\u003AwriteResource\u0028\u0029",
+            "name": "writeResource",
+            "summary": "",
+            "url": "classes/PhpOffice-PhpProject-Writer-MSPDI.html#method_writeResource"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MSPDI\u003A\u003AwriteTask\u0028\u0029",
+            "name": "writeTask",
+            "summary": "",
+            "url": "classes/PhpOffice-PhpProject-Writer-MSPDI.html#method_writeTask"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MSPDI\u003A\u003AwriteAssignment\u0028\u0029",
+            "name": "writeAssignment",
+            "summary": "Write\u0020an\u0020assignment\u0020of\u0020a\u0020resource\u0020to\u0020a\u0020task",
+            "url": "classes/PhpOffice-PhpProject-Writer-MSPDI.html#method_writeAssignment"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MSPDI\u003A\u003A\u0024phpProject",
+            "name": "phpProject",
+            "summary": "PHPProject\u0020object",
+            "url": "classes/PhpOffice-PhpProject-Writer-MSPDI.html#property_phpProject"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MSPDI\u003A\u003A\u0024arrAllocations",
+            "name": "arrAllocations",
+            "summary": "",
+            "url": "classes/PhpOffice-PhpProject-Writer-MSPDI.html#property_arrAllocations"
+        },                {
             "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MsProjectMPX",
             "name": "MsProjectMPX",
             "summary": "MsProjectMPx",

@@ -84,10 +84,10 @@ class HTML implements WriterInterface
     <meta charset="UTF-8">
     <title>PhpProject</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/frappe-gantt/dist/frappe-gantt.css">
+    <script src="https://cdn.jsdelivr.net/npm/frappe-gantt/dist/frappe-gantt.umd.js"></script>
 </head>
 <body>
     <div id="gantt"></div>
-    <script src="https://cdn.jsdelivr.net/npm/frappe-gantt/dist/frappe-gantt.umd.js"></script>
     <script>
         let tasks = [
 

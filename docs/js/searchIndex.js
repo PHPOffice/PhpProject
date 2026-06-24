@@ -1071,6 +1071,41 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PhpOffice-PhpProject-Writer-GnomePlanner.html#property_arrAllocations"
         },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\HTML",
+            "name": "HTML",
+            "summary": "HTML\u0020writer\u0020\u0028Gantt\u0020chart\u0020rendered\u0020with\u0020frappe\u002Dgantt\u0029",
+            "url": "classes/PhpOffice-PhpProject-Writer-HTML.html"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\HTML\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020new\u0020HTML\u0020writer",
+            "url": "classes/PhpOffice-PhpProject-Writer-HTML.html#method___construct"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\HTML\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "Save\u0020PHPProject\u0020to\u0020file",
+            "url": "classes/PhpOffice-PhpProject-Writer-HTML.html#method_save"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\HTML\u003A\u003AwriteHeader\u0028\u0029",
+            "name": "writeHeader",
+            "summary": "Generate\u0020the\u0020HTML\u0020header\u0020\u003A\u0020page\u0020skeleton,\u0020frappe\u002Dgantt\u0020includes\u0020and\u0020the\nopening\u0020of\u0020the\u0020tasks\u0020array.",
+            "url": "classes/PhpOffice-PhpProject-Writer-HTML.html#method_writeHeader"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\HTML\u003A\u003AwriteTask\u0028\u0029",
+            "name": "writeTask",
+            "summary": "Generate\u0020the\u0020JS\u0020object\u0020for\u0020one\u0020task\u0020\u0028frappe\u002Dgantt\u0020format\u0029.",
+            "url": "classes/PhpOffice-PhpProject-Writer-HTML.html#method_writeTask"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\HTML\u003A\u003AwriteFooter\u0028\u0029",
+            "name": "writeFooter",
+            "summary": "Generate\u0020the\u0020HTML\u0020footer\u0020\u003A\u0020close\u0020the\u0020tasks\u0020array,\u0020instantiate\u0020the\u0020Gantt\nchart\u0020and\u0020close\u0020the\u0020page.",
+            "url": "classes/PhpOffice-PhpProject-Writer-HTML.html#method_writeFooter"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\HTML\u003A\u003A\u0024phpProject",
+            "name": "phpProject",
+            "summary": "PHPProject\u0020object",
+            "url": "classes/PhpOffice-PhpProject-Writer-HTML.html#property_phpProject"
+        },                {
             "fqsen": "\\PhpOffice\\PhpProject\\Writer\\MSPDI",
             "name": "MSPDI",
             "summary": "MSPDI\u0020\u0028Microsoft\u0020Project\u0020Data\u0020Interchange\u0029\u0020writer",

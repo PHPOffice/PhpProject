@@ -671,6 +671,26 @@ Search.appendIndex(
             "summary": "last\u0020Task\u0020created",
             "url": "classes/PhpOffice-PhpProject-Reader-MsProjectMPX.html#property_oPreviousTask"
         },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\ProjectLibre",
+            "name": "ProjectLibre",
+            "summary": "ProjectLibre\u0020reader",
+            "url": "classes/PhpOffice-PhpProject-Reader-ProjectLibre.html"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\ProjectLibre\u003A\u003AcanRead\u0028\u0029",
+            "name": "canRead",
+            "summary": "Can\u0020the\u0020current\u0020ReaderInterface\u0020read\u0020the\u0020file\u003F",
+            "url": "classes/PhpOffice-PhpProject-Reader-ProjectLibre.html#method_canRead"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\ProjectLibre\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "Loads\u0020PHPProject\u0020from\u0020file",
+            "url": "classes/PhpOffice-PhpProject-Reader-ProjectLibre.html#method_load"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Reader\\ProjectLibre\u003A\u003AMSPDI_SEPARATOR",
+            "name": "MSPDI_SEPARATOR",
+            "summary": "Separator\u0020placed\u0020before\u0020the\u0020embedded\u0020MSPDI\u0020file\u0020inside\u0020a\u0020\u0060.pod\u0060\u0020file",
+            "url": "classes/PhpOffice-PhpProject-Reader-ProjectLibre.html#constant_MSPDI_SEPARATOR"
+        },                {
             "fqsen": "\\PhpOffice\\PhpProject\\Reader\\ReaderInterface",
             "name": "ReaderInterface",
             "summary": "",

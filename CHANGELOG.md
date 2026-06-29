@@ -28,6 +28,7 @@
 - Fixed date setters (`Task`, `DocumentInformations`, `DocumentProperties`) storing `strtotime()` `false` for unparseable date strings; now stored as `null` to match the typed `?int` getters (revealed by the samples job) - @slayerfx GH-45
 
 ### Miscellaneous
+- Added ProjectLibre reader for `.pod` files (reads the embedded MSPDI part) - @slayerfx GH-57
 - Added HTML writer rendering the project as a Gantt chart (frappe-gantt) for `.html` files (tasks with subtasks and progress) - @slayerfx GH-56
 - Added MSPDI (Microsoft Project Data Interchange) writer for `.xml` files (resources, tasks, and assignments) - @slayerfx GH-55
 - Added MSPDI (Microsoft Project Data Interchange) reader for `.xml` files (resources, tasks, and assignments) - @slayerfx GH-54

@@ -1251,6 +1251,31 @@ Search.appendIndex(
             "summary": "Content\u0020to\u0020write\u0020in\u0020File",
             "url": "classes/PhpOffice-PhpProject-Writer-MsProjectMPX.html#property_fileContent"
         },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\ProjectLibre",
+            "name": "ProjectLibre",
+            "summary": "ProjectLibre\u0020writer",
+            "url": "classes/PhpOffice-PhpProject-Writer-ProjectLibre.html"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\ProjectLibre\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020new\u0020ProjectLibre\u0020writer",
+            "url": "classes/PhpOffice-PhpProject-Writer-ProjectLibre.html#method___construct"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\ProjectLibre\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "Save\u0020PHPProject\u0020to\u0020file",
+            "url": "classes/PhpOffice-PhpProject-Writer-ProjectLibre.html#method_save"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\ProjectLibre\u003A\u003AJAVA_PREAMBLE",
+            "name": "JAVA_PREAMBLE",
+            "summary": "Java\u0020serialization\u0020stream\u0020signature\u0020placed\u0020at\u0020the\u0020beginning\u0020of\u0020a\u0020\u0060.pod\u0060\u0020file",
+            "url": "classes/PhpOffice-PhpProject-Writer-ProjectLibre.html#constant_JAVA_PREAMBLE"
+        },                {
+            "fqsen": "\\PhpOffice\\PhpProject\\Writer\\ProjectLibre\u003A\u003A\u0024phpProject",
+            "name": "phpProject",
+            "summary": "PHPProject\u0020object",
+            "url": "classes/PhpOffice-PhpProject-Writer-ProjectLibre.html#property_phpProject"
+        },                {
             "fqsen": "\\PhpOffice\\PhpProject\\Writer\\WriterInterface",
             "name": "WriterInterface",
             "summary": "",

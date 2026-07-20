@@ -188,8 +188,11 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $value = time();
     
         $object = new DocumentProperties();
+        $before = time();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setCreated());
-        $this->assertEquals($value, $object->getCreated());
+        $after = time();
+        $this->assertGreaterThanOrEqual($before, $object->getCreated());
+        $this->assertLessThanOrEqual($after, $object->getCreated());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setCreated((string) $value));
         $this->assertEquals($value, $object->getCreated());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setCreated('2014-08-05 19:30:00'));
@@ -246,8 +249,11 @@ class DocumentPropertiesTest extends \PHPUnit\Framework\TestCase
         $value = time();
     
         $object = new DocumentProperties();
+        $before = time();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setModified());
-        $this->assertEquals($value, $object->getModified());
+        $after = time();
+        $this->assertGreaterThanOrEqual($before, $object->getModified());
+        $this->assertLessThanOrEqual($after, $object->getModified());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setModified((string) $value));
         $this->assertEquals($value, $object->getModified());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentProperties', $object->setModified('2014-08-05 19:30:00'));

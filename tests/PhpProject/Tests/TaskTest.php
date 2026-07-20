@@ -55,10 +55,13 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $object = new Task();
         
         $value = time();
-    
+
         $this->assertEquals('', $object->getEndDate());
+        $before = time();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setEndDate());
-        $this->assertEquals($value, $object->getEndDate());
+        $after = time();
+        $this->assertGreaterThanOrEqual($before, $object->getEndDate());
+        $this->assertLessThanOrEqual($after, $object->getEndDate());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setEndDate($value));
         $this->assertEquals($value, $object->getEndDate());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setEndDate((string)$value));
@@ -109,10 +112,13 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $object = new Task();
         
         $value = time();
-    
+
         $this->assertEquals('', $object->getStartDate());
+        $before = time();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setStartDate());
-        $this->assertEquals($value, $object->getStartDate());
+        $after = time();
+        $this->assertGreaterThanOrEqual($before, $object->getStartDate());
+        $this->assertLessThanOrEqual($after, $object->getStartDate());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setStartDate($value));
         $this->assertEquals($value, $object->getStartDate());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\Task', $object->setStartDate((string)$value));

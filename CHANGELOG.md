@@ -26,6 +26,7 @@
 - Broadened `XMLReader::getElement` and `getElements` `$contextNode` parameter to `?\DOMNode` (was `?\DOMElement`) - @slayerfx GH-35
 - Restricted `XMLReader::getElement` return type to `DOMElement|null` using `instanceof` check - @slayerfx GH-35
 - Fixed date setters (`Task`, `DocumentInformations`, `DocumentProperties`) storing `strtotime()` `false` for unparseable date strings; now stored as `null` to match the typed `?int` getters (revealed by the samples job) - @slayerfx GH-45
+- Fixed flaky date tests (`Task`, `DocumentInformations`, `DocumentProperties`) comparing two separate `time()` calls, which failed whenever the second changed between them; the argument-less setters are now asserted against a time range - @slayerfx GH-60
 
 ### Miscellaneous
 - Added ProjectLibre writer for `.pod` files (writes an embedded MSPDI part) - @slayerfx GH-58

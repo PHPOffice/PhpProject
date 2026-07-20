@@ -37,8 +37,11 @@ class DocumentInformationsTest extends \PHPUnit\Framework\TestCase
         $value = time();
         
         $object = new DocumentInformations();
+        $before = time();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentInformations', $object->setEndDate());
-        $this->assertEquals($value, $object->getEndDate());
+        $after = time();
+        $this->assertGreaterThanOrEqual($before, $object->getEndDate());
+        $this->assertLessThanOrEqual($after, $object->getEndDate());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentInformations', $object->setEndDate((string) $value));
         $this->assertEquals($value, $object->getEndDate());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentInformations', $object->setEndDate('2014-08-05 19:30:00'));
@@ -50,8 +53,11 @@ class DocumentInformationsTest extends \PHPUnit\Framework\TestCase
         $value = time();
         
         $object = new DocumentInformations();
+        $before = time();
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentInformations', $object->setStartDate());
-        $this->assertEquals($value, $object->getStartDate());
+        $after = time();
+        $this->assertGreaterThanOrEqual($before, $object->getStartDate());
+        $this->assertLessThanOrEqual($after, $object->getStartDate());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentInformations', $object->setStartDate((string) $value));
         $this->assertEquals($value, $object->getStartDate());
         $this->assertInstanceOf('PhpOffice\\PhpProject\\DocumentInformations', $object->setStartDate('2014-08-05 19:30:00'));

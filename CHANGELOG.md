@@ -27,6 +27,7 @@
 - Restricted `XMLReader::getElement` return type to `DOMElement|null` using `instanceof` check - @slayerfx GH-35
 - Fixed date setters (`Task`, `DocumentInformations`, `DocumentProperties`) storing `strtotime()` `false` for unparseable date strings; now stored as `null` to match the typed `?int` getters (revealed by the samples job) - @slayerfx GH-45
 - Fixed flaky date tests (`Task`, `DocumentInformations`, `DocumentProperties`) comparing two separate `time()` calls, which failed whenever the second changed between them; the argument-less setters are now asserted against a time range - @slayerfx GH-60
+- Fixed `Reader/GnomePlanner` storing `percent-complete` as a raw 0-100 value, while `Task::setProgress()` expects a 0..1 fraction and clamps anything above 1; progress is now divided by 100, as in `Reader/MSPDI` - @slayerfx GH-61
 
 ### Miscellaneous
 - Added ProjectLibre writer for `.pod` files (writes an embedded MSPDI part) - @slayerfx GH-58

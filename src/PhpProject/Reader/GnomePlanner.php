@@ -169,7 +169,7 @@ class GnomePlanner implements ReaderInterface
             $task->setDuration($domNode->getAttribute('work'));
         }
         if ($domNode->hasAttribute('percent-complete')) {
-            $task->setProgress($domNode->getAttribute('percent-complete'));
+            $task->setProgress((float) $domNode->getAttribute('percent-complete') / 100);
         }
 
         // SubNodes

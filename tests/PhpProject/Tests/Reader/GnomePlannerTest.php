@@ -20,6 +20,8 @@ declare(strict_types=1);
 
 namespace PhpOffice\PhpProject\Tests\Reader;
 
+use PhpOffice\PhpProject\IOFactory;
+use PhpOffice\PhpProject\PhpProject;
 use PhpOffice\PhpProject\Reader\GnomePlanner;
 
 /**
@@ -98,6 +100,27 @@ class GnomePlannerTest extends \PHPUnit\Framework\TestCase
         $this->assertCount(2, $taskResources);
         $this->assertEquals('Sue Maute', $taskResources[0]->getTitle());
         $this->assertEquals('Kurt Maute', $taskResources[1]->getTitle());
+    }
+
+    public function testLoadProgressRoundTrip(): void
+    {
+        $fileOutput = tempnam(sys_get_temp_dir(), 'PHPPROJECT');
+
+        $phpProject = new PhpProject();
+        $task = $phpProject->createTask();
+        $task->setName('ProgressTest');
+        $task->setProgress(0.5);
+
+        IOFactory::createWriter($phpProject, 'GnomePlanner')->save($fileOutput);
+
+        $object = new GnomePlanner();
+        $return = $object->load($fileOutput);
+
+        $tasks = $return->getAllTasks();
+        $this->assertCount(1, $tasks);
+        $this->assertEquals(0.5, $tasks[0]->getProgress());
+
+        unlink($fileOutput);
     }
 
     public function testLoadException(): void

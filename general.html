@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -717,38 +717,38 @@
 <h1 id="general-usage">General usage</h1>
 <h2 id="basic-example">Basic example</h2>
 <p>The following is a basic example of the PhpProject library. More examples are provided in the <a href="https://github.com/PHPOffice/PhpProject/tree/master/samples/">samples folder</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="x">require_once &#39;vendor/autoload.php&#39;;</span>
+<div class="highlight"><pre><span></span><code><span class="x">require_once 'vendor/autoload.php';</span>
 
 <span class="x">$objPHPProject = new PhpProject();</span>
 
 <span class="x">// Create resource</span>
 <span class="x">$objRes1 = $objPHPProject-&gt;createResource();</span>
-<span class="x">$objRes1-&gt;setTitle(&#39;UserBoy&#39;);</span>
+<span class="x">$objRes1-&gt;setTitle('UserBoy');</span>
 
 <span class="x">// Create a task</span>
 <span class="x">$objTask1 = $objPHPProject-&gt;createTask();</span>
-<span class="x">$objTask1-&gt;setName(&#39;Start of the project&#39;);</span>
-<span class="x">$objTask1-&gt;setStartDate(&#39;02-01-2012&#39;);</span>
-<span class="x">$objTask1-&gt;setEndDate(&#39;03-01-2012&#39;);</span>
+<span class="x">$objTask1-&gt;setName('Start of the project');</span>
+<span class="x">$objTask1-&gt;setStartDate('02-01-2012');</span>
+<span class="x">$objTask1-&gt;setEndDate('03-01-2012');</span>
 <span class="x">$objTask1-&gt;setProgress(0.5);</span>
 <span class="x">$objTask1-&gt;addResource($objRes1);</span>
 
-<span class="x">$oWriterGAN = IOFactory::createWriter($objPHPPowerPoint, &#39;GanttProject&#39;);</span>
-<span class="x">$oWriterGAN-&gt;save(__DIR__ . &quot;/sample.gan&quot;);</span>
+<span class="x">$oWriterGAN = IOFactory::createWriter($objPHPPowerPoint, 'GanttProject');</span>
+<span class="x">$oWriterGAN-&gt;save(__DIR__ . "/sample.gan");</span>
 </code></pre></div>
 <h2 id="document-information">Document information</h2>
 <p>You can set the document information such as title, creator, and company name. Use the following functions:</p>
 <div class="highlight"><pre><span></span><code><span class="x">$properties = $objPHPProject-&gt;getProperties();</span>
-<span class="x">$properties-&gt;setCreator(&#39;My name&#39;);</span>
-<span class="x">$properties-&gt;setCompany(&#39;My factory&#39;);</span>
-<span class="x">$properties-&gt;setTitle(&#39;My title&#39;);</span>
-<span class="x">$properties-&gt;setDescription(&#39;My description&#39;);</span>
-<span class="x">$properties-&gt;setCategory(&#39;My category&#39;);</span>
-<span class="x">$properties-&gt;setLastModifiedBy(&#39;My name&#39;);</span>
+<span class="x">$properties-&gt;setCreator('My name');</span>
+<span class="x">$properties-&gt;setCompany('My factory');</span>
+<span class="x">$properties-&gt;setTitle('My title');</span>
+<span class="x">$properties-&gt;setDescription('My description');</span>
+<span class="x">$properties-&gt;setCategory('My category');</span>
+<span class="x">$properties-&gt;setLastModifiedBy('My name');</span>
 <span class="x">$properties-&gt;setCreated(mktime(0, 0, 0, 3, 12, 2014));</span>
 <span class="x">$properties-&gt;setModified(mktime(0, 0, 0, 3, 14, 2014));</span>
-<span class="x">$properties-&gt;setSubject(&#39;My subject&#39;);</span>
-<span class="x">$properties-&gt;setKeywords(&#39;my, key, word&#39;);</span>
+<span class="x">$properties-&gt;setSubject('My subject');</span>
+<span class="x">$properties-&gt;setKeywords('my, key, word');</span>
 </code></pre></div>
 
 
@@ -794,10 +794,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "search.suggest"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "search.suggest"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>

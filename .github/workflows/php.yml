@@ -16,7 +16,7 @@ jobs:
           extensions: gd, xml, zip
           coverage: ${{ (matrix.php == '7.3') && 'xdebug' || 'none' }}
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Composer Install
         run: composer install --ansi --prefer-dist --no-interaction --no-progress
@@ -47,7 +47,7 @@ jobs:
         with:
           php-version: "7.4"
           extensions: gd, xml, zip
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Composer Install
         run: composer install --ansi --prefer-dist --no-interaction --no-progress
@@ -64,7 +64,7 @@ jobs:
         with:
           php-version: "7.4"
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Validate composer config
         run: composer validate --strict
@@ -93,7 +93,7 @@ jobs:
               extensions: xml, zip
               coverage: none
 
-      -   uses: actions/checkout@v6
+      -   uses: actions/checkout@v7
 
       -   name: Composer Install
           run: composer install --ansi --prefer-dist --no-interaction --no-progress
@@ -115,7 +115,7 @@ jobs:
               php-version: ${{ matrix.php }}
               extensions: xml, zip
 
-      -   uses: actions/checkout@v6
+      -   uses: actions/checkout@v7
 
       -   name: Composer Install
           run: composer install --ansi --prefer-dist --no-interaction --no-progress
